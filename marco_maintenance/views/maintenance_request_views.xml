@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record
+    id="maintenance_request_view_form_inherit_marco_maintenance"
+    model="ir.ui.view">
+        <field name="name">maintenance.request.view.form.inherit.marco.maintenance</field>
+        <field name="model">maintenance.request</field>
+        <field
+        name="inherit_id"
+        ref="maintenance.hr_equipment_request_view_form" />
+        <field
+        name="arch"
+        type="xml">
+            <xpath
+            expr="//sheet//div[1]"
+            position="before">
+                <field
+                name="documents_count"
+                invisible="1" />
+                <div
+                class="oe_button_box"
+                name="button_box">
+                    <button
+                    name="action_view_documents"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-file-text"
+                    attrs="{'invisible':[('documents_count','&lt;',1)]}"
+                    string="Documents">
+                        <field
+                        name="documents_count"
+                        widget="statinfo" />
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
