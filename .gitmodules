@@ -46,3 +46,7 @@
 	path = OCA/server-tools
 	url = git@github.com:aion-tech/server-tools.git
 	branch = 16.0-mar-dev
+[submodule "OCA/knowledge"]
+	path = OCA/knowledge
+	url = git@github.com:OCA/knowledge.git
+	branch = 16.0
