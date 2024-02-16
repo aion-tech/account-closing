@@ -1,48 +1,52 @@
 [submodule "OCA/account-financial-tools"]
 	path = OCA/account-financial-tools
 	url = git@github.com:aion-tech/account-financial-tools.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/account-closing"]
 	path = OCA/account-closing
 	url = git@github.com:aion-tech/account-closing.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/web"]
 	path = OCA/web
 	url = git@github.com:aion-tech/web.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/server-ux"]
 	path = OCA/server-ux
 	url = git@github.com:aion-tech/server-ux.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/commission"]
 	path = OCA/commission
 	url = git@github.com:aion-tech/commission.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/account-financial-reporting"]
 	path = OCA/account-financial-reporting
 	url = git@github.com:aion-tech/account-financial-reporting.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/account-payment"]
 	path = OCA/account-payment
 	url = git@github.com:aion-tech/account-payment.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/credit-control"]
 	path = OCA/credit-control
 	url = git@github.com:aion-tech/credit-control.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/reporting-engine"]
 	path = OCA/reporting-engine
 	url = git@github.com:aion-tech/reporting-engine.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/partner-contact"]
 	path = OCA/partner-contact
 	url = git@github.com:aion-tech/partner-contact.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/l10n-italy"]
 	path = OCA/l10n-italy
 	url = git@github.com:aion-tech/l10n-italy.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/server-tools"]
 	path = OCA/server-tools
 	url = git@github.com:aion-tech/server-tools.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
+[submodule "OCA/knowledge"]
+	path = OCA/knowledge
+	url = git@github.com:OCA/knowledge.git
+	branch = 16.0

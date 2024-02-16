@@ -6,7 +6,7 @@ OCA/l10n-italy:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/account-financial-tools:
   remotes:
@@ -16,7 +16,7 @@ OCA/account-financial-tools:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/account-closing:
   remotes:
@@ -26,7 +26,7 @@ OCA/account-closing:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/web:
   remotes:
@@ -36,7 +36,7 @@ OCA/web:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/server-ux:
   remotes:
@@ -46,7 +46,7 @@ OCA/server-ux:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/commission:
   remotes:
@@ -56,7 +56,7 @@ OCA/commission:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/account-financial-reporting:
   remotes:
@@ -66,7 +66,7 @@ OCA/account-financial-reporting:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/account-payment:
   remotes:
@@ -76,7 +76,7 @@ OCA/account-payment:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/credit-control:
   remotes:
@@ -86,7 +86,7 @@ OCA/credit-control:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/reporting-engine:
   remotes:
@@ -96,7 +96,7 @@ OCA/reporting-engine:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/partner-contact:
   remotes:
@@ -106,7 +106,7 @@ OCA/partner-contact:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
 
 OCA/server-tools:
   remotes:
@@ -116,4 +116,5 @@ OCA/server-tools:
   - OCA 16.0
   fetch_all:
   - OCA
-  target: origin 16.0-mar
+  target: origin 16.0-mar-dev
+
