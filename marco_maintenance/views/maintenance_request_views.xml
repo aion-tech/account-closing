@@ -27,9 +27,7 @@
                     icon="fa-file-text"
                     attrs="{'invisible':[('documents_count','&lt;',1)]}"
                     string="Documents">
-                        <field
-                        name="documents_count"
-                        widget="statinfo" />
+                        <field name="documents_count" widget="statinfo_websocket" />
                     </button>
                 </div>
             </xpath>

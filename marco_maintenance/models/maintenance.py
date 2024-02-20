@@ -56,6 +56,7 @@ class MaintenanceRequest(models.Model):
     _inherit = [
         "maintenance.request",
         "documents.mixin",
+        "websocket.refresh.mixin",
     ]
 
     equipment_id = fields.Many2one(

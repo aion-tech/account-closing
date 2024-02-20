@@ -10,6 +10,7 @@
     "depends": [
         "maintenance",
         "documents",
+        "websocket_refresh",
     ],
     "data": [
         "data/folder_data.xml",
