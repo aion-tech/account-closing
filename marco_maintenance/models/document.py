@@ -59,7 +59,7 @@ class DocumentMixin(models.AbstractModel):
         document_ids = self._get_document_ids()
         ctx = self.env.context.copy()
         if folder_id:
-            ctx.update({"searchpanel_default_folder_id": folder_id.ids})
+            ctx.update({"searchpanel_default_folder_id": folder_id.id})
 
         return {
             "type": "ir.actions.act_window",
