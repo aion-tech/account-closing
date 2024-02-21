@@ -118,3 +118,11 @@ OCA/server-tools:
   - OCA
   target: origin 16.0-mar-dev
 
+aion-tech/ait_web_addons:
+  remotes:
+    origin: git@github.com:aion-tech/ait_web_addons.git
+  merges:
+  - origin 16.0
+  fetch_all:
+  - origin
+  target: origin 16.0-mar-dev
