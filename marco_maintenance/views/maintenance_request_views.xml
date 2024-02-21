@@ -14,12 +14,20 @@
             <xpath
             expr="//sheet//div[1]"
             position="before">
-                <field
-                name="documents_count"
-                invisible="1" />
                 <div
                 class="oe_button_box"
                 name="button_box">
+                    <button
+                    name="action_view_documents"
+                    type="object"
+                    class="oe_stat_button disabled"
+                    icon="fa-file-text"
+                    attrs="{'invisible':[('documents_count','&gt;=',1)]}"
+                    string="Documents">
+                        <field
+                        name="documents_count"
+                        widget="statinfo_websocket" />
+                    </button>
                     <button
                     name="action_view_documents"
                     type="object"
@@ -27,7 +35,9 @@
                     icon="fa-file-text"
                     attrs="{'invisible':[('documents_count','&lt;',1)]}"
                     string="Documents">
-                        <field name="documents_count" widget="statinfo_websocket" />
+                        <field
+                        name="documents_count"
+                        widget="statinfo_websocket" />
                     </button>
                 </div>
             </xpath>

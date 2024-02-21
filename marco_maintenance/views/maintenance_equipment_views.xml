@@ -14,9 +14,6 @@
             <xpath
             expr="//div[@name='button_box']//button[1]"
             position="before">
-                <field
-                name="documents_count"
-                invisible="1" />
                 <button
                 name="action_view_documents"
                 type="object"
