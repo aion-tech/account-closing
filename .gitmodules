@@ -46,7 +46,3 @@
 	path = OCA/server-tools
 	url = git@github.com:aion-tech/server-tools.git
 	branch = 16.0-mar
-[submodule "aion-tech/ait_web_addons"]
-	path = aion-tech/ait_web_addons
-	url = git@github.com:aion-tech/ait_web_addons.git
-	branch = 16.0

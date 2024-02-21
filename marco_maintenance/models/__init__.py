@@ -1,3 +1,4 @@
-from . import maintenance
-from . import document_mixin
 from . import ir_attachment
+from . import document
+from . import maintenance_equipment
+from . import maintenance_request
