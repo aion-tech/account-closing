@@ -39,10 +39,10 @@ class MarcoImporter(models.TransientModel):
             self.import_bom_data(records)
 
     def import_items(self,records):
-        for rec in records[:10]:
-            #uom=self.env.ref(rec["uom_id"])
-            uom=self.env["uom.uom"].search([("name","=",rec["uom_id"])])
-            uom_po=self.env["uom.uom"].search([("name","=",rec["uom_po_id"])])
+        for rec in records:
+            #uom=self.env["uom.uom"].search([("name","=",rec["uom_id"])]) #deprecato -> ora uso l'id xml che è indipendente dalla lingua ed è univoco
+            uom=self.env.ref(rec["uom_id"]) #con ref cerco all'interno della tabella degli id xml
+            uom_po=self.env.ref(rec["uom_po_id"])
             vals = {
                 "default_code": rec["default_code"],
                 "name": rec["name"],
@@ -57,30 +57,40 @@ class MarcoImporter(models.TransientModel):
             }
             
            
-            existing_item = self.env["product.template"].search(
+            product_template_id = self.env["product.template"].search(
                 [("default_code", "=", rec["default_code"])]
 
             )
-            if existing_item:
-                existing_item.write(vals)
+            if product_template_id:
+                product_template_id.write(vals)
                 #print(uom,uom_po,vals)
             else:
-                existing_item = self.env["product.template"].create(vals)
+                product_template_id = self.env["product.template"].create(vals)
                 #print(uom,uom_po,vals)
-            existing_item_product=self.env["product.product"].search([("product_tmpl_id","=",existing_item.id)])
-
-            update_qty_wizard=self.env["stock.change.product.qty"].new({"product_tmpl_id":existing_item.id,"product_id":existing_item_product.id,"new_quantity":12})
-            update_qty_wizard.change_product_qty()
-
-            stock_quant_id=self.env["stock.quant"].search([("quantity",">=",0),("product_id","=",existing_item_product.id)])
-            if stock_quant_id:
-                stock_quant_id.action_apply_inventory()
-                print(stock_quant_id)
-           
-
+            if rec["detailed_type"] =="product":
+                product_product_id=self.env["product.product"].search([("product_tmpl_id","=",product_template_id.id)])
             
-            #self.env.cr.commit()
+                update_qty_wizard=self.env["stock.change.product.qty"].new({"product_tmpl_id":product_template_id.id,"product_id":product_product_id.id,"new_quantity":rec["bookInv"]})
+                update_qty_wizard.change_product_qty()
+            
+            #stock_quant_id=self.env["stock.quant"].search([("quantity",">=",0),("product_id","=",product_product_id.id)])
+            """  if stock_quant_id:
+                stock_quant_id.action_apply_inventory()
+                """
+                
+            #apply_on_all_wizard=self.env["stock.inventory.adjustment.name"]
+        """ quants_ids=self.env["stock.quant"].search([])
+        quants_outdated=quants_ids.filtered(lambda quant: quant.is_outdated)
+        print(quants_outdated)
+        for q in quants_outdated:
+            print(q.is_outdated,q.inventory_diff_quantity,q.inventory_quantity,q.quantity)
+        stock_inventory_conflict=self.env["stock.inventory.conflict"].new({"quant_ids":quants_ids,"quant_to_fix_ids":quants_outdated})
+        stock_inventory_conflict.action_keep_difference() """
         print("import terminato")
+        #print({"quants_ids":quants_ids, "cippa":stock_inventory_conflict,"lippa":stock_inventory_conflict.quant_ids})
+              
+            #self.env.cr.commit()
+       
 
     def import_bom_data(self, records):
         # product = self.env["product.template"].create(

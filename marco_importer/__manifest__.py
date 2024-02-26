@@ -10,6 +10,7 @@
     "depends": [
         "base",
         "contacts",
+        "uom",
     ],
     "data": [
         "security/ir.model.access.csv",
