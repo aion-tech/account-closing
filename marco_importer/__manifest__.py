@@ -11,6 +11,7 @@
         "base",
         "contacts",
         "uom",
+        "stock"
     ],
     "data": [
         "security/ir.model.access.csv",
