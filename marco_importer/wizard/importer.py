@@ -71,6 +71,36 @@ class MarcoImporter(models.TransientModel):
                 rec["uom_id"]
             )  # con ref cerco all'interno della tabella degli id xml
             uom_po = self.env.ref(rec["uom_po_id"])
+             # instanzio category come array vuoto
+            category = []
+            # cerco il settore nelle categorie dei partners e la creo se non esiste
+            if rec["categoryDescription"]:
+                domain = [("name", "=", rec["categoryDescription"])]
+                catDesc = self.env["product.tag"].search(domain)
+                if not catDesc:
+                    catDesc = self.env["product.tag"].create(
+                        {"name": rec["categoryDescription"]}
+                    )
+                category.append(catDesc.id)
+            # cerco la tipolgia nelle categorie dei partners e la creo se non esiste
+            if rec["subCategoryDescription"]:
+                domain = [("name", "=", rec["subCategoryDescription"])]
+                subCatDesc = self.env["product.tag"].search(domain)
+                if not subCatDesc:
+                    subCatDesc = self.env["product.tag"].create(
+                        {"name": rec["subCategoryDescription"]}
+                    )
+                category.append(subCatDesc.id)
+            if rec["product_tag"]:
+                domain = [("name", "=", rec["product_tag"])]
+                tag = self.env["product.tag"].search(domain)
+                if not tag:
+                    tag = self.env["product.tag"].create(
+                        {"name": rec["product_tag"]}
+                    )
+                category.append(tag.id)
+            if not category:
+                category = False
             vals = {
                 "default_code": rec["default_code"],
                 "name": rec["name"],
@@ -82,6 +112,7 @@ class MarcoImporter(models.TransientModel):
                 "detailed_type": rec["detailed_type"],
                 "standard_price": rec["standard_price"],
                 "list_price": rec["basePrice"],
+                "product_tag_ids":category and [Command.set(category)]
             }
 
             product_template_id = self.env["product.template"].search(
