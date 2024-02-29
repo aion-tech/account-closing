@@ -20,18 +20,25 @@ class MarcoImporter(models.TransientModel):
     )
 
     import_type = fields.Selection(
-        selection=[("partner", "Partner"), ("bom", "BOM"), ("items", "Items")],
+        selection=[
+            ("partner", "Partner"),
+            ("bomComponent", "BOM COMPONENT"),
+            ("bomHead", "BOM HEAD"),
+            ("items", "Items"),
+        ],
         string="Import Type",
         required=True,
-        default="items",
+        default="bomHead",
     )
 
     @api.onchange("import_type")
     def _onchange_import_type(self):
         if self.import_type == "items":
             self.url = BASE_URL + "items"
-        elif self.import_type == "bom":
-            self.url = BASE_URL + "bom"
+        elif self.import_type == "bomComponent":
+            self.url = BASE_URL + "bom/component"
+        elif self.import_type == "bomHead":
+            self.url = BASE_URL + "bom/head"
         elif self.import_type == "partner":
             self.url = BASE_URL + "partners"
 
@@ -50,8 +57,11 @@ class MarcoImporter(models.TransientModel):
         if self.import_type == "partner":
             self.import_partner_data(records)
 
-        if self.import_type == "bom":
-            self.import_bom_data(records)
+        if self.import_type == "bomHead":
+            self.import_bom_heads(records)
+
+        if self.import_type == "bomComponent":
+            self.import_bom_components(records)
 
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
@@ -83,6 +93,9 @@ class MarcoImporter(models.TransientModel):
             else:
                 product_template_id = self.env["product.template"].create(vals)
                 # _logger.warning(uom,uom_po,vals)
+
+            _logger.warning(product_template_id.default_code)
+
             if rec["detailed_type"] == "product":
                 product_product_id = self.env["product.product"].search(
                     [("product_tmpl_id", "=", product_template_id.id)]
@@ -102,42 +115,85 @@ class MarcoImporter(models.TransientModel):
 
         # self.env.cr.commit()
 
-    def import_bom_data(self, records):
-        # product = self.env["product.template"].create(
-        #     {
-        #         "name": "Prodotto Finito",
-        #         "detailed_type": "product",
-        #     }
-        # )
-        product = self.env["product.template"].search(
-            [("default_code", "=", "PROD0001")]
-        )
-        if product:
-            bom = self.env["mrp.bom"].create(
-                {
-                    "product_tmpl_id": product.id,
-                    "code": "asdfasdf",
-                }
+    def import_bom_heads(self, records):
+        _logger.warning("<--- IMPORTAZIONE BOM HEADS INIZIATA --->")
+
+        for rec in records:
+            product = self.env["product.template"].search(
+                [("default_code", "=", rec["bom"])]
             )
-            bom_line = self.env["mrp.bom.line"].create({"bom_id": bom.id})
+
+            _logger.info(product, rec)
+            if product:
+                if rec["outsourced"]:
+                    partner_id = self.env["res.partner"].search(
+                        [("ref", "=", rec["realSupplier"])]
+                    )
+                    bom = self.env["mrp.bom"].create(
+                        {
+                            "product_tmpl_id": product.id,
+                            "type": "subcontract",
+                            "subcontractor_ids": partner_id
+                            and [Command.set([partner_id.id])],
+                        }
+                    )
+                else:
+                    bom = self.env["mrp.bom"].create(
+                        {
+                            "product_tmpl_id": product.id,
+                            "type": rec["type"],
+                        }
+                    )
+                _logger.error(bom)
+        _logger.warning("<--- IMPORTAZIONE BOM HEAD TERMINATA --->")
+
+    def import_bom_components(self, records):
+        for rec in records:
+            bom_product = self.env["product.template"].search(
+                [("default_code", "=", rec["bom"])]
+            )
+            bom = self.env["mrp.bom"].search([("product_tmpl_id", "=", bom_product.id)])
+
+            component_product = self.env["product.product"].search(
+                [("default_code", "=", rec["component"])]
+            )
+
+            # _logger.info(bom_product,component_product,rec)
+            if bom_product and component_product:
+                bom_line = self.env["mrp.bom.line"].create(
+                    {
+                        "bom_id": bom.id,
+                        "product_id": component_product.id,
+                        "product_qty": rec["qty"],
+                    }
+                )
+                _logger.error(bom_line)
+        _logger.warning("<--- IMPORTAZIONE BOM HEAD TERMINATA --->")
 
     def import_partner_data(self, records):
         for rec in records:
             # cerco lo stato partendo dall'ISO Code se non esiste fermo tutto
-            domain = [("code", "=", rec["ISOCountryCode"])]
-            country = self.env["res.country"].search(domain)
-            if not country:
-                raise ValueError(f"Country {rec['ISOCountryCode']} not found")
+            if rec["Country"]:
+                domain = [("code", "=", rec["Country"])]
+                country = self.env["res.country"].search(domain)
+                if not country:
+                    raise ValueError(f"Country {rec['Country']} not found:{rec}")
 
-            # cerco la provincia, usando lo stato
-            if rec["County"]:
-                domain = [("code", "=", rec["County"]), ("country_id", "=", country.id)]
-                state = self.env["res.country.state"].search(domain)
-                if not state:
-                    raise ValueError(
-                        f"State {rec['County']}{rec['ISOCountryCode']} not found"
-                    )
+                # cerco la provincia, usando lo stato
+                if rec["County"]:
+                    domain = [
+                        ("code", "=", rec["County"]),
+                        ("country_id", "=", country.id),
+                    ]
+                    state = self.env["res.country.state"].search(domain)
+                    if not state:
+                        raise ValueError(
+                            f"State {rec['County']} - {rec['Country']} not found:{rec}"
+                        )
+                else:
+                    state = False
             else:
+                country = False
                 state = False
 
             # instanzio category come array vuoto
@@ -167,17 +223,17 @@ class MarcoImporter(models.TransientModel):
             vals = {
                 "name": rec["CompanyName"],
                 "ref": rec["CustSupp"],
-                "vat": rec["FiscalCode"],
+                "vat": rec["TaxIdNumber"],
+                # "fiscalcode":rec["FiscalCode"],
                 "street": rec["Address"],
                 "zip": rec["ZIPCode"],
                 "city": rec["City"],
                 "phone": rec["Telephone1"],
                 "website": rec["Internet"],
                 # "email": rec["EMail"],
-                # "CODICE FISCALE":rec["FiscalCode"]
                 "is_company": rec["isCompany"],
                 "vat": rec["TaxIdNumber"],
-                "country_id": country.id,
+                "country_id": country and country.id,
                 "state_id": state and state.id,
                 "category_id": category and [Command.set(category)],
             }
