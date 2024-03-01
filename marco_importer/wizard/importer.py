@@ -10,6 +10,12 @@ _logger = logging.getLogger(__name__)
 BASE_URL = "https://api.marco.it/odoo/"
 
 
+def _progress_logger(iterator: int, all_records: list, additional_info: str = ""):
+    _logger.warning(
+        f"<--- {str(iterator+1)} | {str(len(all_records))} ---> {additional_info}"
+    )
+
+
 class MarcoImporter(models.TransientModel):
     _name = "marco.importer"
 
@@ -65,42 +71,54 @@ class MarcoImporter(models.TransientModel):
 
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
-        for rec in records:
-            # uom=self.env["uom.uom"].search([("name","=",rec["uom_id"])]) #deprecato -> ora uso l'id xml che è indipendente dalla lingua ed è univoco
-            uom = self.env.ref(
-                rec["uom_id"]
-            )  # con ref cerco all'interno della tabella degli id xml
+        for idx, rec in enumerate(records):
+            # con ref cerco all'interno della tabella degli id xml
+            uom = self.env.ref(rec["uom_id"])
             uom_po = self.env.ref(rec["uom_po_id"])
-             # instanzio category come array vuoto
-            category = []
-            # cerco il settore nelle categorie dei partners e la creo se non esiste
-            if rec["categoryDescription"]:
+
+            # inizializzo le variabili delle categorie a False
+            category = False
+            catDesc = False
+            subCatDesc = False
+            tag = False
+
+            # cerco il categoria nelle categorie dei prodotti e la creo se non esiste
+            if not rec["categoryDescription"] == "" and rec["categoryDescription"]:
                 domain = [("name", "=", rec["categoryDescription"])]
-                catDesc = self.env["product.tag"].search(domain)
+                catDesc = self.env["product.category"].search(domain)
                 if not catDesc:
-                    catDesc = self.env["product.tag"].create(
+                    catDesc = self.env["product.category"].create(
                         {"name": rec["categoryDescription"]}
                     )
-                category.append(catDesc.id)
-            # cerco la tipolgia nelle categorie dei partners e la creo se non esiste
-            if rec["subCategoryDescription"]:
+                category = catDesc
+            # cerco la sotto categoria nelle categorie dei prodotti e la creo se non esiste legandola ad una categoria
+            if (
+                not rec["subCategoryDescription"] == ""
+                and rec["subCategoryDescription"]
+            ):
                 domain = [("name", "=", rec["subCategoryDescription"])]
-                subCatDesc = self.env["product.tag"].search(domain)
+                subCatDesc = self.env["product.category"].search(domain)
                 if not subCatDesc:
-                    subCatDesc = self.env["product.tag"].create(
-                        {"name": rec["subCategoryDescription"]}
+                    subCatDesc = self.env["product.category"].create(
+                        {
+                            "name": rec["subCategoryDescription"],
+                            "parent_id": catDesc and catDesc.id,
+                        }
                     )
-                category.append(subCatDesc.id)
-            if rec["product_tag"]:
+                category = subCatDesc
+            # cerco il tipo nella categoria dei prodotti e la creo se non esiste legandola ad una sottocategoria
+            if not rec["product_tag"] == "" and rec["product_tag"]:
                 domain = [("name", "=", rec["product_tag"])]
-                tag = self.env["product.tag"].search(domain)
+                tag = self.env["product.category"].search(domain)
                 if not tag:
-                    tag = self.env["product.tag"].create(
-                        {"name": rec["product_tag"]}
+                    tag = self.env["product.category"].create(
+                        {
+                            "name": rec["product_tag"],
+                            "parent_id": subCatDesc and subCatDesc.id,
+                        }
                     )
-                category.append(tag.id)
-            if not category:
-                category = False
+                category = tag
+
             vals = {
                 "default_code": rec["default_code"],
                 "name": rec["name"],
@@ -112,21 +130,19 @@ class MarcoImporter(models.TransientModel):
                 "detailed_type": rec["detailed_type"],
                 "standard_price": rec["standard_price"],
                 "list_price": rec["basePrice"],
-                "product_tag_ids":category and [Command.set(category)]
             }
+            if category:
+                vals["categ_id"] = category.id
 
             product_template_id = self.env["product.template"].search(
                 [("default_code", "=", rec["default_code"])]
             )
             if product_template_id:
                 product_template_id.write(vals)
-                # _logger.warning(uom,uom_po,vals)
             else:
                 product_template_id = self.env["product.template"].create(vals)
-                # _logger.warning(uom,uom_po,vals)
 
-            _logger.warning(product_template_id.default_code)
-
+            # gestione della giacenza di magazzino
             if rec["detailed_type"] == "product":
                 product_product_id = self.env["product.product"].search(
                     [("product_tmpl_id", "=", product_template_id.id)]
@@ -141,45 +157,67 @@ class MarcoImporter(models.TransientModel):
                         "inventory_quantity": rec["bookInv"],
                     }
                 ).action_apply_inventory()
-        _logger.warning("<--- IMPORTAZIONE ITEMS TERMINATA --->")
-        # _logger.warning({"quants_ids":quants_ids, "cippa":stock_inventory_conflict,"lippa":stock_inventory_conflict.quant_ids})
 
-        # self.env.cr.commit()
+            _progress_logger(
+                iterator=idx,
+                all_records=records,
+                additional_info=product_template_id.default_code,
+            )
+        _logger.warning("<--- IMPORTAZIONE ITEMS TERMINATA --->")
 
     def import_bom_heads(self, records):
         _logger.warning("<--- IMPORTAZIONE BOM HEADS INIZIATA --->")
 
-        for rec in records:
+        for idx, rec in enumerate(records):
             product = self.env["product.template"].search(
                 [("default_code", "=", rec["bom"])]
             )
-
-            _logger.info(product, rec)
+            bom = False
             if product:
+                bom = self.env["mrp.bom"].search([("product_tmpl_id", "=", product.id)])
+
                 if rec["outsourced"]:
                     partner_id = self.env["res.partner"].search(
                         [("ref", "=", rec["realSupplier"])]
                     )
-                    bom = self.env["mrp.bom"].create(
-                        {
-                            "product_tmpl_id": product.id,
-                            "type": "subcontract",
-                            "subcontractor_ids": partner_id
-                            and [Command.set([partner_id.id])],
-                        }
-                    )
+                    if bom:
+                        bom.write(
+                            {
+                                "type": "subcontract",
+                                "subcontractor_ids": partner_id
+                                and [Command.set([partner_id.id])],
+                            }
+                        )
+                    else:
+                        bom = self.env["mrp.bom"].create(
+                            {
+                                "product_tmpl_id": product.id,
+                                "type": "subcontract",
+                                "subcontractor_ids": partner_id
+                                and [Command.set([partner_id.id])],
+                            }
+                        )
                 else:
-                    bom = self.env["mrp.bom"].create(
-                        {
-                            "product_tmpl_id": product.id,
-                            "type": rec["type"],
-                        }
-                    )
-                _logger.error(bom)
+                    if bom:
+                        bom.write(
+                            {
+                                "type": rec["type"],
+                            }
+                        )
+                    else:
+                        bom = self.env["mrp.bom"].create(
+                            {
+                                "product_tmpl_id": product.id,
+                                "type": rec["type"],
+                            }
+                        )
+            _progress_logger(
+                iterator=idx, all_records=records, additional_info=bom and product.name
+            )
         _logger.warning("<--- IMPORTAZIONE BOM HEAD TERMINATA --->")
 
     def import_bom_components(self, records):
-        for rec in records:
+        for idx, rec in enumerate(records):
             bom_product = self.env["product.template"].search(
                 [("default_code", "=", rec["bom"])]
             )
@@ -189,20 +227,35 @@ class MarcoImporter(models.TransientModel):
                 [("default_code", "=", rec["component"])]
             )
 
-            # _logger.info(bom_product,component_product,rec)
             if bom_product and component_product:
-                bom_line = self.env["mrp.bom.line"].create(
-                    {
-                        "bom_id": bom.id,
-                        "product_id": component_product.id,
-                        "product_qty": rec["qty"],
-                    }
+                bom_line = self.env["mrp.bom.line"].search(
+                    [("product_id", "=", component_product.id)]
                 )
-                _logger.error(bom_line)
+                if bom_line:
+                    bom_line.write(
+                        {
+                            "product_qty": rec["qty"],
+                        }
+                    )
+                else:
+                    bom_line = self.env["mrp.bom.line"].create(
+                        {
+                            "bom_id": bom.id,
+                            "product_id": component_product.id,
+                            "product_qty": rec["qty"],
+                        }
+                    )
+
+            _progress_logger(
+                iterator=idx,
+                all_records=records,
+                additional_info=component_product and component_product.name,
+            )
         _logger.warning("<--- IMPORTAZIONE BOM HEAD TERMINATA --->")
 
     def import_partner_data(self, records):
-        for rec in records:
+        _logger.warning("<--- IMPORTAZIONE PARTNERS INIZIATA --->")
+        for idx, rec in enumerate(records):
             # cerco lo stato partendo dall'ISO Code se non esiste fermo tutto
             if rec["Country"]:
                 domain = [("code", "=", rec["Country"])]
@@ -277,5 +330,10 @@ class MarcoImporter(models.TransientModel):
 
             partner_id.email = False
 
-            _logger.warning(partner_id.name)
-            # self.env.cr.commit()
+            _progress_logger(
+                iterator=idx,
+                all_records=records,
+                additional_info=partner_id and partner_id.name,
+            )
+        _logger.warning("<--- IMPORTAZIONE PARTNERS TERMINATA --->")
+        # self.env.cr.commit()
