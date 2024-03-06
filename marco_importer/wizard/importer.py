@@ -32,10 +32,8 @@ class MarcoImporter(models.TransientModel):
             ("bomHead", "BOM HEAD"),
             ("bomComponent", "BOM COMPONENT"),
             ("workcenter", "WORKCENTERS"),
-            ("bomOperation","BOM OPERATIONS"),
-            ("all","ALL IN SEQUENCE")
-            
-           
+            ("bomOperation", "BOM OPERATIONS"),
+            ("all", "ALL IN SEQUENCE"),
         ],
         string="Import Type",
         required=True,
@@ -59,11 +57,11 @@ class MarcoImporter(models.TransientModel):
 
     def _check_url(self):
         return self.url.startswith("https")
-    
+
     def import_data(self):
         if not self._check_url():
             raise ValueError("URL must start with 'https'")
-        
+
         if self.import_type == "all":
             self.url = BASE_URL + "partners"
             res = requests.get(self.url)
@@ -96,7 +94,7 @@ class MarcoImporter(models.TransientModel):
             self.import_bom_operations(records)
 
             return
-            
+
         res = requests.get(self.url)
         records = res.json()
         if self.import_type == "items":
@@ -116,7 +114,6 @@ class MarcoImporter(models.TransientModel):
 
         elif self.import_type == "bomOperation":
             self.import_bom_operations(records)
-
 
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
@@ -302,38 +299,43 @@ class MarcoImporter(models.TransientModel):
             )
         _logger.warning("<--- IMPORTAZIONE BOM HEAD TERMINATA --->")
 
-    def import_bom_operations(self,records):
+    def import_bom_operations(self, records):
         _logger.warning("<--- IMPORTAZIONE OPERAZIONI INIZIATA --->")
-        for idx,rec in enumerate(records):
+        for idx, rec in enumerate(records):
             product_id = self.env["product.template"].search(
                 [("default_code", "=", rec["bom"])]
             )
             if not product_id:
                 continue
 
-            bom_id = self.env["mrp.bom"].search([("product_tmpl_id", "=", product_id.id)])
-            if not bom_id or bom_id.type=="subcontract":
+            bom_id = self.env["mrp.bom"].search(
+                [("product_tmpl_id", "=", product_id.id)]
+            )
+            if not bom_id or bom_id.type == "subcontract":
                 continue
 
             workcenter_id = self.env["mrp.workcenter"].search(
                 [("code", "=", rec["wc_code"])]
             )
-            
+
             if not workcenter_id:
                 raise ValueError(f"WORKCENTER {rec['wc_code']} not found:{rec}")
-            
-            
+
             vals = {
                 "name": rec["OperationDesc"],
                 "bom_id": bom_id.id,
                 "workcenter_id": workcenter_id.id,
-                "time_mode": "manual" ,
+                "time_mode": "manual",
                 "time_cycle_manual": rec["time_cycle_manual"],
-                "sequence":rec["RtgStep"],
-                "note":rec["note"]
+                "sequence": rec["RtgStep"],
+                "note": rec["note"],
             }
             operation_id = self.env["mrp.routing.workcenter"].search(
-                [("name", "=", rec["OperationDesc"]),("bom_id", "=", bom_id.id),("workcenter_id", "=", workcenter_id.id)]
+                [
+                    ("name", "=", rec["OperationDesc"]),
+                    ("bom_id", "=", bom_id.id),
+                    ("workcenter_id", "=", workcenter_id.id),
+                ]
             )
             if operation_id:
                 operation_id.write(vals)
@@ -341,22 +343,20 @@ class MarcoImporter(models.TransientModel):
                 operation_id = self.env["mrp.routing.workcenter"].create(vals)
 
             _progress_logger(
-                    iterator=idx,
-                    all_records=records,
-                    additional_info=operation_id.name
-                )
+                iterator=idx, all_records=records, additional_info=operation_id.name
+            )
         _logger.warning("<--- IMPORTAZIONE OPERAZIONI TERMINATA --->")
 
-    def import_workcenters(self,records):
+    def import_workcenters(self, records):
         _logger.warning("<--- IMPORTAZIONE WORKCENTERS INIZIATA --->")
-        for idx,rec in enumerate(records):
-            if rec["Outsourced"]=="1":
+        for idx, rec in enumerate(records):
+            if rec["Outsourced"] == "1":
                 continue
             vals = {
                 "name": rec["name"],
                 "code": rec["code"],
-                "costs_hour": rec["costs_hour"] ,
-                "note": rec["note"]
+                "costs_hour": rec["costs_hour"],
+                "note": rec["note"],
             }
             workcenter_id = self.env["mrp.workcenter"].search(
                 [("code", "=", rec["code"])]
@@ -366,10 +366,10 @@ class MarcoImporter(models.TransientModel):
             else:
                 workcenter_id = self.env["mrp.workcenter"].create(vals)
             _progress_logger(
-                    iterator=idx,
-                    all_records=records,
-                    additional_info=workcenter_id and workcenter_id.code
-                )
+                iterator=idx,
+                all_records=records,
+                additional_info=workcenter_id and workcenter_id.code,
+            )
         _logger.warning("<--- IMPORTAZIONE WORKCENTERS TERMINATA --->")
 
     def import_partner_data(self, records):
