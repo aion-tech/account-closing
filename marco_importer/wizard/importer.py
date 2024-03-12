@@ -3,6 +3,7 @@ from typing import Dict, List
 import requests
 from odoo import api, fields, models, Command
 import logging
+from datetime import datetime
 
 _logger = logging.getLogger(__name__)
 # _logger.debug('Another transaction already locked documents rows. Cannot process documents.')
@@ -33,7 +34,7 @@ class MarcoImporter(models.TransientModel):
             ("bomComponent", "BOM COMPONENT"),
             ("workcenter", "WORKCENTERS"),
             ("bomOperation", "BOM OPERATIONS"),
-            ("all", "ALL IN SEQUENCE"),
+            ("supplierPricelist", "SUPPLIER PRICELIST"),
         ],
         string="Import Type",
         required=True,
@@ -54,46 +55,54 @@ class MarcoImporter(models.TransientModel):
             self.url = BASE_URL + "bom/workcenter"
         elif self.import_type == "bomOperation":
             self.url = BASE_URL + "bom/operation"
+        elif self.import_type == "supplierPricelist":
+            self.url = BASE_URL + "supplier/pricelist"
 
     def _check_url(self):
         return self.url.startswith("https")
 
+    def import_all_data(self):
+        _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
+        self.url = BASE_URL + "partners"
+        res = requests.get(self.url)
+        records = res.json()
+        self.import_partner_data(records)
+
+        self.url = BASE_URL + "items"
+        res = requests.get(self.url)
+        records = res.json()
+        self.import_items(records)
+
+        self.url = BASE_URL + "bom/head"
+        res = requests.get(self.url)
+        records = res.json()
+        self.import_bom_heads(records)
+
+        self.url = BASE_URL + "bom/component"
+        res = requests.get(self.url)
+        records = res.json()
+        self.import_bom_components(records)
+
+        self.url = BASE_URL + "bom/workcenter"
+        res = requests.get(self.url)
+        records = res.json()
+        self.import_workcenters(records)
+
+        self.url = BASE_URL + "bom/operation"
+        res = requests.get(self.url)
+        records = res.json()
+        self.import_bom_operations(records)
+
+        self.url = BASE_URL + "supplier/pricelist"
+        res = requests.get(self.url)
+        records = res.json()
+        self.import_supplier_pricelist(records)
+
+        _logger.warning("<--- IMPORTAZIONE COMPLETATA --->")
+
     def import_data(self):
         if not self._check_url():
             raise ValueError("URL must start with 'https'")
-
-        if self.import_type == "all":
-            self.url = BASE_URL + "partners"
-            res = requests.get(self.url)
-            records = res.json()
-            self.import_partner_data(records)
-
-            self.url = BASE_URL + "items"
-            res = requests.get(self.url)
-            records = res.json()
-            self.import_items(records)
-
-            self.url = BASE_URL + "bomHead"
-            res = requests.get(self.url)
-            records = res.json()
-            self.import_bom_heads(records)
-
-            self.url = BASE_URL + "bomComponent"
-            res = requests.get(self.url)
-            records = res.json()
-            self.import_bom_components(records)
-
-            self.url = BASE_URL + "workcenter"
-            res = requests.get(self.url)
-            records = res.json()
-            self.import_workcenters(records)
-
-            self.url = BASE_URL + "bomOperation"
-            res = requests.get(self.url)
-            records = res.json()
-            self.import_bom_operations(records)
-
-            return
 
         res = requests.get(self.url)
         records = res.json()
@@ -114,6 +123,9 @@ class MarcoImporter(models.TransientModel):
 
         elif self.import_type == "bomOperation":
             self.import_bom_operations(records)
+
+        elif self.import_type == "supplierPricelist":
+            self.import_supplier_pricelist(records)
 
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
@@ -210,6 +222,37 @@ class MarcoImporter(models.TransientModel):
                 additional_info=product_template_id.default_code,
             )
         _logger.warning("<--- IMPORTAZIONE ITEMS TERMINATA --->")
+
+    def import_supplier_pricelist(self, records):
+        _logger.warning("<--- IMPORTAZIONE SUPPLIER PRICELIST INIZIATA --->")
+        allPrices=self.env["product.supplierinfo"].search([])
+        if allPrices:
+            allPrices.unlink()
+        for idx, rec in enumerate(records):
+           
+            product_id = self.env["product.template"].search(
+                [("default_code", "=", rec["Item"])]
+            )
+            supplier_id = self.env["res.partner"].search(
+                [("ref", "=", rec["Supplier"])]
+            )
+            date_start=str(rec["date_start"])!= "1799-12-30T23:10:04.000Z" and str(rec["date_start"])
+            date_end=str(rec["date_end"])!= "1799-12-30T23:10:04.000Z" and str(rec["date_end"])
+            if product_id and supplier_id:
+                vals = {
+                    "product_tmpl_id": product_id.id,
+                    "partner_id": supplier_id.id,
+                    "date_start": date_start,
+                    "date_end": date_end,
+                    "price": rec["Price"],
+                    "min_qty": rec["Qty"],
+                    "delay": int(rec["DaysForDelivery"]),
+                }
+                suppPrice=self.env["product.supplierinfo"].create(vals)
+                _progress_logger(
+                    iterator=idx, all_records=records, additional_info=suppPrice and suppPrice.product_tmpl_id.default_code
+                )
+        _logger.warning("<--- IMPORTAZIONE SUPPLIER PRICELIST TERMINATA --->")
 
     def import_bom_heads(self, records):
         _logger.warning("<--- IMPORTAZIONE BOM HEADS INIZIATA --->")

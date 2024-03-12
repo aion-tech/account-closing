@@ -19,7 +19,13 @@
                     string="Import"
                     type="object"
                     name="import_data"
+                    class="btn-primary" />
+                    <button
+                    string="Import All"
+                    type="object"
+                    name="import_all_data"
                     class="btn-secondary" />
+                    
                 </footer>
             </form>
         </field>
