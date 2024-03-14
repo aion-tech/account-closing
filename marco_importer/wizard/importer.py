@@ -8,6 +8,9 @@ from datetime import datetime
 _logger = logging.getLogger(__name__)
 # _logger.debug('Another transaction already locked documents rows. Cannot process documents.')
 # _logger.info('Another transaction already locked documents rows. Cannot process documents.')
+
+# __import__('pdb').set_trace() # SETTA UN PUNTO DI DEBUG
+
 BASE_URL = "https://api.marco.it/odoo/"
 
 
@@ -35,6 +38,7 @@ class MarcoImporter(models.TransientModel):
             ("workcenter", "WORKCENTERS"),
             ("bomOperation", "BOM OPERATIONS"),
             ("supplierPricelist", "SUPPLIER PRICELIST"),
+            ("debug", "--DEBUG--"),
         ],
         string="Import Type",
         required=True,
@@ -127,9 +131,28 @@ class MarcoImporter(models.TransientModel):
         elif self.import_type == "supplierPricelist":
             self.import_supplier_pricelist(records)
 
+        elif self.import_type == "debug":
+            self.debug()
+
+    def debug(self):
+        res = self.env["stock.route"].search([])
+        for route in res:
+            print(route.name, route.id)
+        print(res)
+        __import__("pdb").set_trace()
+
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
         for idx, rec in enumerate(records):
+            # Definisco quali rotte può avere l'articolo
+            route_ids = False
+            if rec["outsourced"] == "0" and rec["magoNature"] == "Semilavorato":
+                manufacture = self.env["stock.route"].search([("id", "=", 6)])
+                route_ids = [Command.set([manufacture.id])]
+            else:
+                buy = self.env["stock.route"].search([("id", "=", 5)])
+                route_ids = [Command.set([buy.id])]
+
             # con ref cerco all'interno della tabella degli id xml
             uom = self.env.ref(rec["uom_id"])
             uom_po = self.env.ref(rec["uom_po_id"])
@@ -164,6 +187,7 @@ class MarcoImporter(models.TransientModel):
                         }
                     )
                 category = subCatDesc
+
             # cerco il tipo nella categoria dei prodotti e la creo se non esiste legandola ad una sottocategoria
             if not rec["product_tag"] == "" and rec["product_tag"]:
                 domain = [("name", "=", rec["product_tag"])]
@@ -188,6 +212,7 @@ class MarcoImporter(models.TransientModel):
                 "detailed_type": rec["detailed_type"],
                 "standard_price": rec["standard_price"],
                 "list_price": rec["basePrice"],
+                "route_ids": route_ids,
             }
             if category:
                 vals["categ_id"] = category.id
@@ -195,6 +220,7 @@ class MarcoImporter(models.TransientModel):
             product_template_id = self.env["product.template"].search(
                 [("default_code", "=", rec["default_code"])]
             )
+
             if product_template_id:
                 product_template_id.write(vals)
             else:
@@ -225,19 +251,23 @@ class MarcoImporter(models.TransientModel):
 
     def import_supplier_pricelist(self, records):
         _logger.warning("<--- IMPORTAZIONE SUPPLIER PRICELIST INIZIATA --->")
-        allPrices=self.env["product.supplierinfo"].search([])
+        allPrices = self.env["product.supplierinfo"].search([])
         if allPrices:
             allPrices.unlink()
         for idx, rec in enumerate(records):
-           
+
             product_id = self.env["product.template"].search(
                 [("default_code", "=", rec["Item"])]
             )
             supplier_id = self.env["res.partner"].search(
                 [("ref", "=", rec["Supplier"])]
             )
-            date_start=str(rec["date_start"])!= "1799-12-30T23:10:04.000Z" and str(rec["date_start"])
-            date_end=str(rec["date_end"])!= "1799-12-30T23:10:04.000Z" and str(rec["date_end"])
+            date_start = str(rec["date_start"]) != "1799-12-30T23:10:04.000Z" and str(
+                rec["date_start"]
+            )
+            date_end = str(rec["date_end"]) != "1799-12-30T23:10:04.000Z" and str(
+                rec["date_end"]
+            )
             if product_id and supplier_id:
                 vals = {
                     "product_tmpl_id": product_id.id,
@@ -248,9 +278,12 @@ class MarcoImporter(models.TransientModel):
                     "min_qty": rec["Qty"],
                     "delay": int(rec["DaysForDelivery"]),
                 }
-                suppPrice=self.env["product.supplierinfo"].create(vals)
+                suppPrice = self.env["product.supplierinfo"].create(vals)
                 _progress_logger(
-                    iterator=idx, all_records=records, additional_info=suppPrice and suppPrice.product_tmpl_id.default_code
+                    iterator=idx,
+                    all_records=records,
+                    additional_info=suppPrice
+                    and suppPrice.product_tmpl_id.default_code,
                 )
         _logger.warning("<--- IMPORTAZIONE SUPPLIER PRICELIST TERMINATA --->")
 
@@ -269,37 +302,25 @@ class MarcoImporter(models.TransientModel):
                     partner_id = self.env["res.partner"].search(
                         [("ref", "=", rec["realSupplier"])]
                     )
+                    vals = {
+                        "product_tmpl_id": product.id,
+                        "type": "subcontract",
+                        "subcontractor_ids": partner_id
+                        and [Command.set([partner_id.id])],
+                    }
                     if bom:
-                        bom.write(
-                            {
-                                "type": "subcontract",
-                                "subcontractor_ids": partner_id
-                                and [Command.set([partner_id.id])],
-                            }
-                        )
+                        bom.write(vals)
                     else:
-                        bom = self.env["mrp.bom"].create(
-                            {
-                                "product_tmpl_id": product.id,
-                                "type": "subcontract",
-                                "subcontractor_ids": partner_id
-                                and [Command.set([partner_id.id])],
-                            }
-                        )
+                        bom = self.env["mrp.bom"].create(vals)
                 else:
+                    vals = {
+                        "product_tmpl_id": product.id,
+                        "type": rec["type"],
+                    }
                     if bom:
-                        bom.write(
-                            {
-                                "type": rec["type"],
-                            }
-                        )
+                        bom.write(vals)
                     else:
-                        bom = self.env["mrp.bom"].create(
-                            {
-                                "product_tmpl_id": product.id,
-                                "type": rec["type"],
-                            }
-                        )
+                        bom = self.env["mrp.bom"].create(vals)
             _progress_logger(
                 iterator=idx, all_records=records, additional_info=bom and product.name
             )
@@ -315,25 +336,29 @@ class MarcoImporter(models.TransientModel):
             component_product = self.env["product.product"].search(
                 [("default_code", "=", rec["component"])]
             )
+            # __import__("pdb").set_trace()
+            # Se la bom padre è di natura subcontract devo aggiungere alle rotte del figlio la rotta 8 (Resupply Subcontractor on Order)
+            if bom.type == "subcontract":
+                resupply_subcontractor_on_order = self.env["stock.route"].search(
+                    [("id", "=", 8)]
+                )
+                component_product.route_ids = [
+                    Command.link(resupply_subcontractor_on_order.id)
+                ]
 
             if bom_product and component_product and bom:
                 bom_line = self.env["mrp.bom.line"].search(
                     [("product_id", "=", component_product.id)]
                 )
+                vals = {
+                    "bom_id": bom.id,
+                    "product_id": component_product.id,
+                    "product_qty": rec["qty"],
+                }
                 if bom_line:
-                    bom_line.write(
-                        {
-                            "product_qty": rec["qty"],
-                        }
-                    )
+                    bom_line.write(vals)
                 else:
-                    bom_line = self.env["mrp.bom.line"].create(
-                        {
-                            "bom_id": bom.id,
-                            "product_id": component_product.id,
-                            "product_qty": rec["qty"],
-                        }
-                    )
+                    bom_line = self.env["mrp.bom.line"].create(vals)
 
             _progress_logger(
                 iterator=idx,
@@ -483,19 +508,52 @@ class MarcoImporter(models.TransientModel):
                 "state_id": state and state.id,
                 "category_id": category and [Command.set(category)],
             }
-            # __import__('pdb').set_trace()
+
             partner_id = self.env["res.partner"].search([("ref", "=", rec["CustSupp"])])
             if partner_id:
-                partner_id.write(vals)
+
+                partner_id.with_context(no_vat_validation=True).write(
+                    vals
+                )  # per ora ignoro tutti i check sul VAT no
             else:
-                partner_id = self.env["res.partner"].create(vals)
+                partner_id = (
+                    self.env["res.partner"]
+                    .with_context(no_vat_validation=True)
+                    .create(vals)
+                )  # per ora ignoro tutti i check sul VAT no
 
             partner_id.email = False
+
+            vat_error_message = "P.IVA ERRATA"
+            vat_checker = (vat_error_message, False)[
+                partner_id.simple_vat_check(
+                    country_code=rec["ISOCountryCode"],
+                    vat_number=rec["TaxIdNumber"],
+                )
+            ]
+            if vat_checker and rec["TaxIdNumber"] != "":
+                vat_checker_tag = self.env["res.partner.category"].search(
+                    [("name", "=", vat_checker)]
+                )
+                if not vat_checker_tag:
+                    vat_checker_tag = self.env["res.partner.category"].create(
+                        {"name": vat_checker}
+                    )
+
+                partner_id.category_id = [Command.link(vat_checker_tag.id)]
+
+            else:
+                vat_was_wrong = partner_id.category_id.search(
+                    [("name", "=", vat_error_message)]
+                )
+                if vat_error_message:
+                    command = Command.unlink(vat_was_wrong.id)
 
             _progress_logger(
                 iterator=idx,
                 all_records=records,
-                additional_info=partner_id and partner_id.name,
+                additional_info=vat_checker,  # partner_id and partner_id.name,
             )
+
         _logger.warning("<--- IMPORTAZIONE PARTNERS TERMINATA --->")
         # self.env.cr.commit()
