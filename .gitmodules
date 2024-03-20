@@ -1,64 +1,68 @@
 [submodule "OCA/account-financial-tools"]
 	path = OCA/account-financial-tools
 	url = git@github.com:aion-tech/account-financial-tools.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/account-closing"]
 	path = OCA/account-closing
 	url = git@github.com:aion-tech/account-closing.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/web"]
 	path = OCA/web
 	url = git@github.com:aion-tech/web.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/server-ux"]
 	path = OCA/server-ux
 	url = git@github.com:aion-tech/server-ux.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/commission"]
 	path = OCA/commission
 	url = git@github.com:aion-tech/commission.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/account-financial-reporting"]
 	path = OCA/account-financial-reporting
 	url = git@github.com:aion-tech/account-financial-reporting.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/account-payment"]
 	path = OCA/account-payment
 	url = git@github.com:aion-tech/account-payment.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/credit-control"]
 	path = OCA/credit-control
 	url = git@github.com:aion-tech/credit-control.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/reporting-engine"]
 	path = OCA/reporting-engine
 	url = git@github.com:aion-tech/reporting-engine.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/partner-contact"]
 	path = OCA/partner-contact
 	url = git@github.com:aion-tech/partner-contact.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/l10n-italy"]
 	path = OCA/l10n-italy
 	url = git@github.com:aion-tech/l10n-italy.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/server-tools"]
 	path = OCA/server-tools
 	url = git@github.com:aion-tech/server-tools.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "aion-tech/ait_web_addons"]
 	path = aion-tech/ait_web_addons
 	url = git@github.com:aion-tech/ait_web_addons.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/manufacture"]
 	path = OCA/manufacture
 	url = git@github.com:aion-tech/manufacture.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/purchase-workflow"]
 	path = OCA/purchase-workflow
 	url = git@github.com:aion-tech/purchase-workflow.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
 [submodule "OCA/odoo-pim"]
 	path = OCA/odoo-pim
 	url = git@github.com:aion-tech/odoo-pim.git
-	branch = 16.0-mar
+	branch = 16.0-mar-dev
+[submodule "OCA/manufacture"]
+	path = OCA/manufacture
+	url = git@github.com:aion-tech/manufacture.git
+	branch = 16.0-mar-dev
