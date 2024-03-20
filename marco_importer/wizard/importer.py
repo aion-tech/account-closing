@@ -38,6 +38,8 @@ class MarcoImporter(models.TransientModel):
             ("workcenter", "WORKCENTERS"),
             ("bomOperation", "BOM OPERATIONS"),
             ("supplierPricelist", "SUPPLIER PRICELIST"),
+            ("ordersHead", "ORDERS HEAD"),
+            ("ordersLine", "ORDERS LINES"),
             ("debug", "--DEBUG--"),
         ],
         string="Import Type",
@@ -61,6 +63,10 @@ class MarcoImporter(models.TransientModel):
             self.url = BASE_URL + "bom/operation"
         elif self.import_type == "supplierPricelist":
             self.url = BASE_URL + "supplier/pricelist"
+        elif self.import_type == "ordersHead":
+            self.url = BASE_URL + "order/head"
+        elif self.import_type == "ordersLine":
+            self.url = BASE_URL + "order/line"
 
     def _check_url(self):
         return self.url.startswith("https")
@@ -131,15 +137,23 @@ class MarcoImporter(models.TransientModel):
         elif self.import_type == "supplierPricelist":
             self.import_supplier_pricelist(records)
 
+        elif self.import_type == "ordersHead":
+            self.import_orders_head(records)
+
+        elif self.import_type == "ordersLine":
+            self.import_orders_line(records)
+
         elif self.import_type == "debug":
             self.debug()
 
     def debug(self):
+        
         res = self.env["stock.route"].search([])
         for route in res:
             print(route.name, route.id)
         print(res)
-        __import__("pdb").set_trace()
+        #__import__("pdb").set_trace()
+        
 
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
@@ -147,12 +161,11 @@ class MarcoImporter(models.TransientModel):
             # Definisco quali rotte può avere l'articolo
             route_ids = False
             if rec["outsourced"] == "0" and rec["magoNature"] == "Semilavorato":
-                manufacture = self.env["stock.route"].search([("id", "=", 6)])
+                manufacture = self.env["stock.route"].search([("id", "=", 5)])
                 route_ids = [Command.set([manufacture.id])]
             else:
-                buy = self.env["stock.route"].search([("id", "=", 5)])
+                buy = self.env["stock.route"].search([("id", "=", 7)])
                 route_ids = [Command.set([buy.id])]
-
             # con ref cerco all'interno della tabella degli id xml
             uom = self.env.ref(rec["uom_id"])
             uom_po = self.env.ref(rec["uom_po_id"])
@@ -161,11 +174,11 @@ class MarcoImporter(models.TransientModel):
             category = False
             catDesc = False
             subCatDesc = False
-            tag = False
+            product_tag = False
 
             # cerco il categoria nelle categorie dei prodotti e la creo se non esiste
             if not rec["categoryDescription"] == "" and rec["categoryDescription"]:
-                domain = [("name", "=", rec["categoryDescription"])]
+                domain = [("name", "=", rec["categoryDescription"]),("parent_id", "=", False)]
                 catDesc = self.env["product.category"].search(domain)
                 if not catDesc:
                     catDesc = self.env["product.category"].create(
@@ -177,7 +190,10 @@ class MarcoImporter(models.TransientModel):
                 not rec["subCategoryDescription"] == ""
                 and rec["subCategoryDescription"]
             ):
-                domain = [("name", "=", rec["subCategoryDescription"])]
+                domain = [
+                    ("name", "=", rec["subCategoryDescription"]),
+                    ("parent_id", "=", catDesc and catDesc.id),
+                ]
                 subCatDesc = self.env["product.category"].search(domain)
                 if not subCatDesc:
                     subCatDesc = self.env["product.category"].create(
@@ -190,16 +206,16 @@ class MarcoImporter(models.TransientModel):
 
             # cerco il tipo nella categoria dei prodotti e la creo se non esiste legandola ad una sottocategoria
             if not rec["product_tag"] == "" and rec["product_tag"]:
-                domain = [("name", "=", rec["product_tag"])]
-                tag = self.env["product.category"].search(domain)
-                if not tag:
-                    tag = self.env["product.category"].create(
+                domain = [
+                    ("name", "=", rec["product_tag"]),
+                ]
+                product_tag = self.env["product.tag"].search(domain)
+                if not product_tag:
+                    product_tag = self.env["product.tag"].create(
                         {
                             "name": rec["product_tag"],
-                            "parent_id": subCatDesc and subCatDesc.id,
                         }
                     )
-                category = tag
 
             vals = {
                 "default_code": rec["default_code"],
@@ -213,10 +229,10 @@ class MarcoImporter(models.TransientModel):
                 "standard_price": rec["standard_price"],
                 "list_price": rec["basePrice"],
                 "route_ids": route_ids,
+                "product_tag_ids":product_tag and [Command.set([product_tag.id])],
+                "categ_id":category and category.id
             }
-            if category:
-                vals["categ_id"] = category.id
-
+            
             product_template_id = self.env["product.template"].search(
                 [("default_code", "=", rec["default_code"])]
             )
@@ -336,7 +352,6 @@ class MarcoImporter(models.TransientModel):
             component_product = self.env["product.product"].search(
                 [("default_code", "=", rec["component"])]
             )
-            # __import__("pdb").set_trace()
             # Se la bom padre è di natura subcontract devo aggiungere alle rotte del figlio la rotta 8 (Resupply Subcontractor on Order)
             if bom.type == "subcontract":
                 resupply_subcontractor_on_order = self.env["stock.route"].search(
@@ -345,7 +360,7 @@ class MarcoImporter(models.TransientModel):
                 component_product.route_ids = [
                     Command.link(resupply_subcontractor_on_order.id)
                 ]
-
+            
             if bom_product and component_product and bom:
                 bom_line = self.env["mrp.bom.line"].search(
                     [("product_id", "=", component_product.id)]
@@ -557,3 +572,79 @@ class MarcoImporter(models.TransientModel):
 
         _logger.warning("<--- IMPORTAZIONE PARTNERS TERMINATA --->")
         # self.env.cr.commit()
+
+    def import_orders_head(self, records):
+        _logger.warning("<--- IMPORTAZIONE ORDERS HEAD INIZIATA --->")
+        for idx, rec in enumerate(records):
+            customer_id = self.env["res.partner"].search(
+                [("ref", "=", rec["Customer"])]
+            )
+            if not customer_id:
+                print(rec["Customer"], customer_id)
+                continue
+            vals = {
+                "origin": rec["InternalOrdNo"],
+                "commitment_date": datetime.strptime(
+                    str(rec["ConfirmedDeliveryDate"]), "%Y-%m-%dT%H:%M:%S.%fZ"
+                ),
+                "date_order": datetime.strptime(
+                    str(rec["OrderDate"]), "%Y-%m-%dT%H:%M:%S.%fZ"
+                ),
+                "partner_id": customer_id.id,
+                "client_order_ref": rec["YourReference"],
+                "picking_policy": "one",
+            }
+            order_head_id = self.env["sale.order"].search(
+                [("origin", "=", rec["InternalOrdNo"])]
+            )
+            if order_head_id:
+                order_head_id.write(vals)
+            else:
+                order_head_id = self.env["sale.order"].create(vals)
+            _progress_logger(
+                iterator=idx,
+                all_records=records,
+                additional_info=order_head_id and order_head_id.origin,
+            )
+        _logger.warning("<--- IMPORTAZIONE ORDERS HEAD TERMINATA --->")
+
+    def import_orders_line(self, records):
+        _logger.warning("<--- IMPORTAZIONE ORDERS LINES INIZIATA --->")
+        for idx, rec in enumerate(records):
+            product_template_id = self.env["product.product"].search(
+                [("default_code", "=", rec["Item"])]
+            )
+            order_head_id = self.env["sale.order"].search(
+                [("origin", "=", rec["InternalOrdNo"])]
+            )
+            order_head_id.state = "sale"
+            if not (product_template_id and order_head_id):
+                print(rec["Item"], product_template_id)
+                continue
+            vals = {
+                "order_id": order_head_id.id,
+                "product_id": product_template_id.id,
+                "name": product_template_id.name,
+                "product_uom_qty": float(rec["Qty"]),
+                "price_unit": float(rec["UnitValue"]),
+                "sequence": rec["Position"],
+                "customer_lead": float(0),
+            }
+            order_line_id = self.env["sale.order.line"].search(
+                [
+                    ("order_id", "=", order_head_id.id),
+                    ("product_id", "=", product_template_id.id),
+                    ("sequence", "=", rec["Position"]),
+                ]
+            )
+            if order_line_id:
+                order_line_id.write(vals)
+            else:
+                order_line_id = self.env["sale.order.line"].create(vals)
+            _progress_logger(
+                iterator=idx,
+                all_records=records,
+                additional_info=order_line_id
+                and order_line_id.product_template_id.default_code,
+            )
+        _logger.warning("<--- IMPORTAZIONE ORDERS LINES TERMINATA --->")

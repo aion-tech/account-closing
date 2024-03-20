@@ -13,7 +13,7 @@
         "uom",
         "stock",
         "purchase",
-        "mrp",
+        "mrp"
     ],
     "data": [
         "security/ir.model.access.csv",
