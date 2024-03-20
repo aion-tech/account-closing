@@ -1,0 +1,15 @@
+<odoo>
+    <menuitem
+    name="Marco Importer"
+    id="marco_importer"
+    sequence="20"
+    action="action_marco_importer"
+    groups="base.group_user" />
+    <menuitem
+    name="Marco Importer"
+    id="marco_importer_settings"
+    parent="base.menu_administration"
+    sequence="20"
+    action="action_marco_importer"
+    groups="base.group_user" />
+</odoo>

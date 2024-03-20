@@ -1,0 +1,33 @@
+<odoo>
+    <record
+    id="marco_importer_form_view"
+    model="ir.ui.view">
+        <field name="name">marco.importer.form.view</field>
+        <field name="model">marco.importer</field>
+        <field
+        name="arch"
+        type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="url" />
+                        <field name="import_type" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                    string="Import"
+                    type="object"
+                    name="import_data"
+                    class="btn-primary" />
+                    <button
+                    string="Import All"
+                    type="object"
+                    name="import_all_data"
+                    class="btn-secondary" />
+                    
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
