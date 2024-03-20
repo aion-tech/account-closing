@@ -66,3 +66,7 @@
 	path = OCA/manufacture
 	url = git@github.com:aion-tech/manufacture.git
 	branch = 16.0-mar-dev
+[submodule "OCA/product-attribute"]
+	path = OCA/product-attribute
+	url = git@github.com:aion-tech/product-attribute.git
+	branch = 16.0-mar-dev
