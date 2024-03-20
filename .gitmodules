@@ -50,3 +50,15 @@
 	path = aion-tech/ait_web_addons
 	url = git@github.com:aion-tech/ait_web_addons.git
 	branch = 16.0-mar
+[submodule "OCA/manufacture"]
+	path = OCA/manufacture
+	url = git@github.com:aion-tech/manufacture.git
+	branch = 16.0-mar
+[submodule "OCA/purchase-workflow"]
+	path = OCA/purchase-workflow
+	url = git@github.com:aion-tech/purchase-workflow.git
+	branch = 16.0-mar
+[submodule "OCA/odoo-pim"]
+	path = OCA/odoo-pim
+	url = git@github.com:aion-tech/odoo-pim.git
+	branch = 16.0-mar
