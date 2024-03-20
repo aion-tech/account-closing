@@ -50,3 +50,8 @@
 	path = aion-tech/ait_web_addons
 	url = git@github.com:aion-tech/ait_web_addons.git
 	branch = 16.0-mar-dev
+[submodule "OCA/manufacture"]
+	path = OCA/manufacture
+	url = git@github.com:aion-tech/manufacture.git
+	branch = 16.0-mar-dev
+
