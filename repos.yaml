@@ -126,3 +126,13 @@ aion-tech/ait_web_addons:
   fetch_all:
   - origin
   target: origin 16.0-mar
+
+OCA/manufacture:
+  remotes:
+    origin: git@github.com:aion-tech/manufacture.git
+    OCA: git@github.com:OCA/manufacture.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar
