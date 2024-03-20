@@ -9,24 +9,33 @@
         type="xml">
             <form>
                 <sheet>
-                    <group>
+                    <group string="Selezione per import singolo">
                         <field name="url" />
                         <field name="import_type" />
-                    </group>
-                </sheet>
-                <footer>
-                    <button
+                        <button
                     string="Import"
                     type="object"
                     name="import_data"
                     class="btn-primary" />
-                    <button
-                    string="Import All"
+                    </group>
+                    <group string="Selezione per import all">
+                        <field name="partner" />
+                        <field name="items" />
+                        <field name="bomHead"/>
+                        <field name="bomComponent"/>
+                        <field name="workcenter"/>
+                        <field name="bomOperation"/>
+                        <field name="supplierPricelist"/>
+                        <field name="ordersHead"/>
+                        <field name="ordersLine"/>
+                          <button
+                    string="Import"
                     type="object"
                     name="import_all_data"
-                    class="btn-secondary" />
-                    
-                </footer>
+                    class="btn-primary" />
+                    </group>
+                </sheet>
+                <footer></footer>
             </form>
         </field>
     </record>
