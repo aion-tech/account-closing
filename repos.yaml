@@ -126,3 +126,46 @@ aion-tech/ait_web_addons:
   fetch_all:
   - origin
   target: origin 16.0-mar
+
+OCA/manufacture:
+  remotes:
+    origin: git@github.com:aion-tech/manufacture.git
+    OCA: git@github.com:OCA/manufacture.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar
+
+OCA/product-attribute:
+  remotes:
+    origin: git@github.com:aion-tech/product-attribute.git
+    OCA: git@github.com:OCA/product-attribute.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar
+
+OCA/purchase-workflow:
+  remotes:
+    origin: git@github.com:aion-tech/purchase-workflow.git
+    OCA: git@github.com:OCA/purchase-workflow.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar
+
+OCA/odoo-pim:
+  remotes:
+    origin: git@github.com:aion-tech/odoo-pim.git
+    OCA: git@github.com:OCA/odoo-pim.git
+    akretion: git@github.com:akretion/odoo-pim.git
+  merges:
+  - OCA 16.0
+  - akretion 16.0-product_search_multi_value-template_and_variant
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar
+
