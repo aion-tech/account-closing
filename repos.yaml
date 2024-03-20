@@ -136,3 +136,35 @@ OCA/manufacture:
   fetch_all:
   - OCA
   target: origin 16.0-mar-dev
+
+OCA/product-attribute:
+  remotes:
+    origin: git@github.com:aion-tech/product-attribute.git
+    OCA: git@github.com:OCA/product-attribute.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev
+
+OCA/purchase-workflow:
+  remotes:
+    origin: git@github.com:aion-tech/purchase-workflow.git
+    OCA: git@github.com:OCA/purchase-workflow.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev
+
+OCA/odoo-pim:
+  remotes:
+    origin: git@github.com:aion-tech/odoo-pim.git
+    OCA: git@github.com:OCA/odoo-pim.git
+    akretion: git@github.com:akretion/odoo-pim.git
+  merges:
+  - OCA 16.0
+  - akretion 16.0-product_search_multi_value-template_and_variant
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev
