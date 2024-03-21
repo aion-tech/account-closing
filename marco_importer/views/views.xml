@@ -1,39 +1,41 @@
 <odoo>
-    <record
-    id="marco_importer_form_view"
-    model="ir.ui.view">
+    <record id="marco_importer_form_view" model="ir.ui.view">
         <field name="name">marco.importer.form.view</field>
         <field name="model">marco.importer</field>
-        <field
-        name="arch"
-        type="xml">
+        <field name="arch" type="xml">
             <form>
                 <sheet>
+                
                     <group string="Selezione per import singolo">
                         <field name="url" />
                         <field name="import_type" />
-                        <button
-                    string="Import"
-                    type="object"
-                    name="import_data"
-                    class="btn-primary" />
+                        <button string="Importa" type="object" name="import_data" class="btn-primary" />
                     </group>
+
                     <group string="Selezione per import all">
-                        <field name="partner" />
-                        <field name="items" />
-                        <field name="bomHead"/>
-                        <field name="bomComponent"/>
-                        <field name="workcenter"/>
-                        <field name="bomOperation"/>
-                        <field name="supplierPricelist"/>
-                        <field name="ordersHead"/>
-                        <field name="ordersLine"/>
-                          <button
-                    string="Import"
-                    type="object"
-                    name="import_all_data"
-                    class="btn-primary" />
+                 
+                                <field name="select_all" />
+                          
                     </group>
+                    
+                    <group >
+                       
+                        <group >
+                            <field name="partner" />
+                            <field name="items" />
+                            <field name="bomHead"/>
+                            <field name="bomComponent"/>
+                            <field name="workcenter"/>
+                        </group>
+                        <group >
+                            <field name="bomOperation"/>
+                            <field name="supplierPricelist"/>
+                            <field name="ordersHead"/>
+                            <field name="ordersLine"/>
+                        </group>
+                        <button string="Importa tutti i selezionati" type="object" name="import_all_data" class="btn-primary" />
+                    </group>
+
                 </sheet>
                 <footer></footer>
             </form>

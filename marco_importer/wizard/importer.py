@@ -4,26 +4,15 @@ import requests
 from odoo import api, fields, models, Command
 import logging
 from datetime import datetime
-
+from . import static_data
 _logger = logging.getLogger(__name__)
 # _logger.debug('Another transaction already locked documents rows. Cannot process documents.')
 # _logger.info('Another transaction already locked documents rows. Cannot process documents.')
 
 # __import__('pdb').set_trace() # SETTA UN PUNTO DI DEBUG
 
-BASE_URL = "https://api.marco.it/odoo/"
-import_method_map = {
-    "partner": {"method": "import_partners", "slug": "partner"},
-    "items": {"method": "import_items", "slug": "items"},
-    "bomHead": {"method": "import_bom_heads", "slug": "bom/head"},
-    "bomComponent": {"method": "import_bom_components", "slug": "bom/component"},
-    "workcenter": {"method": "import_workcenters", "slug": "bom/workcenter"},
-    "bomOperation": {"method": "import_bom_operations", "slug": "bom/operation"},
-    "supplierPricelist": {"method": "import_supplier_pricelist", "slug": "supplier/pricelist"},
-    "ordersHead": {"method": "import_orders_head", "slug": "order/head"},
-    "ordersLine": {"method": "import_orders_line", "slug": "order/line"},
-}
-
+BASE_URL=static_data.BASE_URL
+import_method_map=static_data.import_method_map
 
 def _progress_logger(iterator: int, all_records: list, additional_info: str = ""):
     _logger.warning(
@@ -39,15 +28,16 @@ class MarcoImporter(models.TransientModel):
         required=True,
         default=BASE_URL,
     )
-    partner = fields.Boolean(string="Partners", default=True)
-    items = fields.Boolean(string="Items", default=True)
-    bomHead = fields.Boolean(string="Bom Heads", default=True)
-    bomComponent = fields.Boolean(string="Bom Components", default=True)
-    workcenter = fields.Boolean(string="Workcenters", default=True)
-    bomOperation = fields.Boolean(string="Bom Operations", default=True)
-    supplierPricelist = fields.Boolean(string="Supplier Pricelist", default=True)
-    ordersHead = fields.Boolean(string="Orders Head", default=True)
-    ordersLine = fields.Boolean(string="Orders Lines", default=True)
+    select_all = fields.Boolean( default=True)
+    partner = fields.Boolean(string="Partners")
+    items = fields.Boolean(string="Items")
+    bomHead = fields.Boolean(string="Bom Heads")
+    bomComponent = fields.Boolean(string="Bom Components")
+    workcenter = fields.Boolean(string="Workcenters")
+    bomOperation = fields.Boolean(string="Bom Operations")
+    supplierPricelist = fields.Boolean(string="Supplier Pricelist")
+    ordersHead = fields.Boolean(string="Orders Head")
+    ordersLine = fields.Boolean(string="Orders Lines")
 
     import_type = fields.Selection(
         selection=[
@@ -66,6 +56,11 @@ class MarcoImporter(models.TransientModel):
         required=True,
         default="bomHead",
     )
+    #gestione della selzione di tutti i booleani
+    @api.onchange("select_all")
+    def select_all_change(self):
+        for key,value in import_method_map.items():
+            self[key] = self.select_all
 
     @api.onchange("import_type")
     def _onchange_import_type(self):
@@ -93,16 +88,15 @@ class MarcoImporter(models.TransientModel):
 
     def import_all_data(self):
         _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
-        for bool_field, configs in import_method_map.items():
-            if self[bool_field]:
-                print(self[bool_field],configs)
+        for key, value in import_method_map.items():
+            if self[key]:
+                print(self[key],value)
                 
-                self.url = BASE_URL + configs["slug"]
+                self.url = BASE_URL + value["slug"]
                 res = requests.get(self.url)
                 records = res.json()
-                method=getattr(self, configs["method"])
-                method(records)
-                #self.env.cr.commit()
+                getattr(self, value["method"])(records)
+                self.env.cr.commit()
                 
         _logger.warning("<--- IMPORTAZIONE COMPLETATA --->")
 
@@ -142,30 +136,7 @@ class MarcoImporter(models.TransientModel):
 
         elif self.import_type == "debug":
             self.debug()
-
-    def debug(self):
-        bom_product = self.env["product.template"].search(
-                [("default_code", "=", "S5010006")]
-            )
-        bom = self.env["mrp.bom"].search([("product_tmpl_id", "=", bom_product.id)])
-            
-        bom_line = self.env["mrp.bom.line"].search(
-                    [("bom_id", "=", bom.id)]
-                )
-        __import__("pdb").set_trace()
-        
-        '''
-        res = self.env["res.config.settings"].new({"group_uom": True}).execute()
-
-        # con new lo lasci in memoria, con create invece lo crei nel database e viene pulito una volta al giorno  dal crono "auto vacuum ..."
-        # __import__("pdb").set_trace()
-        res = self.env["stock.route"].search([])
-        for route in res:
-            print(route.name, route.id)
-        print(res)
-        # __import__("pdb").set_trace()
-        '''
-
+ 
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
         for idx, rec in enumerate(records):
