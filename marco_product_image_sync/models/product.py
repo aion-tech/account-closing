@@ -21,7 +21,7 @@ class ProductTemplate(models.Model):
                 URL, params=params
             )
             _logger.error(f'{product.default_code},{res.status_code}')
-            if res.status_code==404:
+            if res.status_code!=200:
                 continue
             images=res.json()
             for image in images:
