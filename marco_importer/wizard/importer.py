@@ -30,8 +30,6 @@ class MarcoImporter(models.TransientModel):
 
     select_all = fields.Boolean(default=True)
 
-    
-    orders_lines = fields.Boolean()
 
     # gestione della selzione di tutti i booleani
     @api.onchange("select_all")
@@ -44,8 +42,11 @@ class MarcoImporter(models.TransientModel):
         for key, value in IMPORT_METHOD_MAP.items():
             if self[key]:
                 url = BASE_URL + value["slug"]
-                res = requests.get(url)
-                records = res.json()
+                try:
+                    res = requests.get(url)
+                    records = res.json()
+                except:
+                    raise ValueError(f"Cannot reach the APIs")
                 getattr(self, value["method"])(records)
                 self.env.cr.commit()
 

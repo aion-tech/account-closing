@@ -12,10 +12,13 @@ class ProductTemplate(models.Model):
 
     @api.model
     def product_image_sync(self):
-        product_ids = self.search([("sale_ok","=",1)],order="default_code asc")
+        product_ids = self.search([],order="default_code desc")
         for idx,product in enumerate(product_ids):
+            params={"default_code": product.default_code}
+            if product.sale_ok:
+                params["tipo"]=product.categ_id.name
             res: List[str] = requests.get(
-                URL, params={"default_code": product.default_code}
+                URL, params=params
             )
             _logger.error(f'{product.default_code},{res.status_code}')
             if res.status_code==404:

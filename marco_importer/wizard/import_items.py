@@ -11,7 +11,7 @@ class MarcoImporter(models.TransientModel):
         for idx, rec in enumerate(records):
             # Definisco quali rotte può avere l'articolo
             route_ids = False
-            if rec["outsourced"] == "0" and rec["magoNature"] == "Semilavorato":
+            if rec["outsourced"] == "0" and (rec["magoNature"] == "Semilavorato" or rec["magoNature"] == "Finito" ):
                 manufacture = self.env.ref("mrp.route_warehouse0_manufacture")
                 route_ids = [Command.set([manufacture.id])]
             else:
@@ -71,6 +71,20 @@ class MarcoImporter(models.TransientModel):
                         }
                     )
 
+                domain = [
+                    ("name", "=", rec["product_tag"]),
+                    ("parent_id", "=", subCatDesc and subCatDesc.id),
+                ]
+                subSubCatDesc = self.env["product.category"].search(domain)
+                if not subSubCatDesc:
+                    subSubCatDesc = self.env["product.category"].create(
+                        {
+                            "name": rec["product_tag"],
+                            "parent_id": subCatDesc and subCatDesc.id,
+                        }
+                    )
+                category = subSubCatDesc
+
             vals = {
                 "default_code": rec["default_code"],
                 "name": rec["name"],
@@ -112,6 +126,26 @@ class MarcoImporter(models.TransientModel):
                     }
                 ).action_apply_inventory()
 
+            #gestione aree per mrp multilever
+            product_id=self.env["product.product"].search(
+                [("default_code", "=", rec["default_code"])]
+            )
+
+            product_mrp_area=self.env["product.mrp.area"].search(
+                [("product_id", "=", product_id.id)]
+            )
+            vals={
+                "mrp_area_id":self.env.ref("mrp_multi_level.mrp_area_stock_wh0").id,
+                "product_id":product_id.id,
+                "location_proc_id":self.env.ref("stock.stock_location_stock").id,
+                "mrp_nbr_days":14,
+                "mrp_minimum_stock":rec["minimumStock"],
+                "mrp_qty_multiple":rec["reorderingLotSize"]
+            }
+            if product_mrp_area:
+                product_mrp_area.write(vals)
+            else:            
+                product_mrp_area = self.env["product.mrp.area"].create(vals)
             _progress_logger(
                 iterator=idx,
                 all_records=records,
