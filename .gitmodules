@@ -66,3 +66,7 @@
 	path = OCA/odoo-pim
 	url = git@github.com:aion-tech/odoo-pim.git
 	branch = 16.0-mar
+[submodule "OCA/stock-logistics-warehouse"]
+	path = OCA/stock-logistics-warehouse
+	url = git@github.com:aion-tech/stock-logistics-warehouse.git
+	branch = 16.0-mar

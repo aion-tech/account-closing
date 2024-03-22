@@ -169,3 +169,13 @@ OCA/odoo-pim:
   - OCA
   target: origin 16.0-mar
 
+OCA/stock-logistics-warehouse:
+  remotes:
+    origin: git@github.com:aion-tech/stock-logistics-warehouse.git
+    OCA: git@github.com:OCA/stock-logistics-warehouse.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar
+
