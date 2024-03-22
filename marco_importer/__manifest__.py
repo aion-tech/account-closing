@@ -10,10 +10,12 @@
     "depends": [
         "base",
         "contacts",
+        "base_vat",
         "uom",
         "stock",
         "purchase",
-        "mrp"
+        "mrp",
+        "sale_management",
     ],
     "data": [
         "security/ir.model.access.csv",

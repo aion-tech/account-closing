@@ -38,7 +38,7 @@ class ProductTemplate(models.Model):
                         "name":image["name"],
                         "image_1920":image["image"]
                     })
-            #_logger.warning(product.name,idx,len(product_ids))
+            _logger.warning(f"<--- {str(idx+1)} | {str(len(product_ids))} ---> {product.name}")
 
             """  
                 product.product_template_image_ids = [

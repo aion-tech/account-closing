@@ -5,13 +5,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                
-                    <group string="Selezione per import singolo">
-                        <field name="url" />
-                        <field name="import_type" />
-                        <button string="Importa" type="object" name="import_data" class="btn-primary" />
-                    </group>
-
+                    <button string="Debug" type="object" name="debug" class="btn-secondary" />
                     <group string="Selezione per import all">
                  
                                 <field name="select_all" />
@@ -21,17 +15,16 @@
                     <group >
                        
                         <group >
-                            <field name="partner" />
+                            <field name="partners" />
                             <field name="items" />
-                            <field name="bomHead"/>
-                            <field name="bomComponent"/>
-                            <field name="workcenter"/>
+                            <field name="bom_heads"/>
+                            <field name="bom_components"/>
+                            <field name="workcenters"/>
                         </group>
                         <group >
-                            <field name="bomOperation"/>
-                            <field name="supplierPricelist"/>
-                            <field name="ordersHead"/>
-                            <field name="ordersLine"/>
+                            <field name="bom_operations"/>
+                            <field name="suppliers_pricelists"/>
+                            <field name="orders"/>
                         </group>
                         <button string="Importa tutti i selezionati" type="object" name="import_all_data" class="btn-primary" />
                     </group>
