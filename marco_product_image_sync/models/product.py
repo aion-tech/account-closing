@@ -12,7 +12,7 @@ class ProductTemplate(models.Model):
 
     @api.model
     def product_image_sync(self):
-        product_ids = self.search([("sale_ok","=",False)],order="default_code desc")
+        product_ids = self.search([],order="default_code desc")
         for idx,product in enumerate(product_ids):
             params={"default_code": product.default_code}
             if product.sale_ok:
