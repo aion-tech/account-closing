@@ -12,7 +12,7 @@ class ProductTemplate(models.Model):
 
     @api.model
     def product_image_sync(self):
-        product_ids = self.search([],order="default_code desc")
+        product_ids = self.search([("sale_ok","=",False)],order="default_code desc")
         for idx,product in enumerate(product_ids):
             params={"default_code": product.default_code}
             if product.sale_ok:
@@ -29,18 +29,19 @@ class ProductTemplate(models.Model):
                 if image["name"]=="Primary":
                     product.image_1920 = image["image"]
                 #[{"image":"image1","name":"primary"}]
-                    
-                existingImage=product.product_template_image_ids.filtered(lambda img: img.name==image["name"])
-                if existingImage:
-                    if image["image"]!=existingImage.image_1920:
-                        existingImage.write({
+                if product.sale_ok:   
+                    existingImage=product.product_template_image_ids.filtered(lambda img: img.name==image["name"])
+                    if existingImage:
+                        if image["image"]!=existingImage.image_1920:
+                            existingImage.write({
+                                "image_1920":image["image"]
+                                })
+                    else:
+                        existingImage.create({
+                            "name":image["name"],
                             "image_1920":image["image"]
-                            })
-                else:
-                    existingImage.create({
-                        "name":image["name"],
-                        "image_1920":image["image"]
-                    })
+                        })
+            self.env.cr.commit()
             _logger.warning(f"<--- {str(idx+1)} | {str(len(product_ids))} ---> {product.name}")
 
             """  
