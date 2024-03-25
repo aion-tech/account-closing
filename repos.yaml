@@ -178,3 +178,13 @@ OCA/stock-logistics-warehouse:
   fetch_all:
   - OCA
   target: origin 16.0-mar-dev
+
+OCA/account-invoicing:
+  remotes:
+    origin: git@github.com:aion-tech/account-invoicing.git
+    OCA: git@github.com:OCA/account-invoicing.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev

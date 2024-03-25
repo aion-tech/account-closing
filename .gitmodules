@@ -90,3 +90,7 @@
 	path = OCA/stock-logistics-warehouse
 	url = git@github.com:aion-tech/stock-logistics-warehouse.git
 	branch = 16.0-mar-dev
+[submodule "OCA/account-invoicing"]
+	path = OCA/account-invoicing
+	url = git@github.com:aion-tech/account-invoicing.git
+	branch = 16.0-mar-dev
