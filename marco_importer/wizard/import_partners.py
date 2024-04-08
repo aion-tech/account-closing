@@ -61,7 +61,7 @@ class MarcoImporter(models.TransientModel):
                 "name": rec["CompanyName"],
                 "ref": rec["CustSupp"],
                 "vat": rec["TaxIdNumber"],
-                # "fiscalcode":rec["FiscalCode"],
+                "fiscalcode":rec["FiscalCode"],
                 "street": rec["Address"],
                 "zip": rec["ZIPCode"],
                 "city": rec["City"],

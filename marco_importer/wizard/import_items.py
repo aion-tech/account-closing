@@ -122,7 +122,7 @@ class MarcoImporter(models.TransientModel):
                     {
                         "product_id": product_product_id.id,
                         "location_id": warehouse.lot_stock_id.id,
-                        "inventory_quantity": rec["bookInv"],
+                        "inventory_quantity": rec["bookInv"] if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
                     }
                 ).action_apply_inventory()
 
@@ -139,8 +139,9 @@ class MarcoImporter(models.TransientModel):
                 "product_id":product_id.id,
                 "location_proc_id":self.env.ref("stock.stock_location_stock").id,
                 "mrp_nbr_days":14,
-                "mrp_minimum_stock":rec["minimumStock"],
-                "mrp_qty_multiple":rec["reorderingLotSize"]
+                #finchè proviamo l'mrp questo lo lasciamo commentato perchè se no crea ordini di produzione per ripristinare le scorte di sicurezza
+                #"mrp_minimum_stock":rec["minimumStock"],
+                #"mrp_qty_multiple":rec["reorderingLotSize"]
             }
             if product_mrp_area:
                 product_mrp_area.write(vals)

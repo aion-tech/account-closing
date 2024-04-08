@@ -27,7 +27,7 @@ IMPORT_METHOD_MAP = {
 
 class MarcoImporter(models.TransientModel):
     _name = "marco.importer"
-
+    _description="Sommo Importatore di dati"
     select_all = fields.Boolean(default=True)
 
 

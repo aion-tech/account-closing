@@ -12,7 +12,10 @@ class MarcoImporter(models.TransientModel):
         if allPrices:
             allPrices.unlink()
         for idx, rec in enumerate(records):
-
+            if idx==0 or records[idx-1]["Item"]!=rec["Item"]:
+                sequence=10
+            else:
+                sequence+=10
             product_id = self.env["product.template"].search(
                 [("default_code", "=", rec["Item"])]
             )
@@ -34,12 +37,13 @@ class MarcoImporter(models.TransientModel):
                     "price": rec["Price"],
                     "min_qty": rec["Qty"],
                     "delay": int(rec["DaysForDelivery"]),
+                    "sequence":sequence,
                 }
                 suppPrice = self.env["product.supplierinfo"].create(vals)
                 _progress_logger(
                     iterator=idx,
                     all_records=records,
                     additional_info=suppPrice
-                    and suppPrice.product_tmpl_id.default_code,
+                    and suppPrice.product_tmpl_id.default_code + " - " +str(suppPrice.sequence),
                 )
         _logger.warning("<--- IMPORTAZIONE SUPPLIER PRICELIST TERMINATA --->")
