@@ -64,4 +64,5 @@
         # security/ir.model.access.csv,
         # "views/views.xml",
     ],
+    "post_init_hook":"marco_post_init_hook"
 }
