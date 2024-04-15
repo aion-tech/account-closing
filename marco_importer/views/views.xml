@@ -25,6 +25,8 @@
                             <field name="bom_operations"/>
                             <field name="suppliers_pricelists"/>
                             <field name="orders"/>
+                            <field name="banks"/>
+                            <field name="partners_bank" string="Partners Banks (dipende da banks e da partners)"/>
                         </group>
                         <button string="Importa tutti i selezionati" type="object" name="import_all_data" class="btn-primary" />
                     </group>

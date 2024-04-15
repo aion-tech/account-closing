@@ -22,19 +22,22 @@ IMPORT_METHOD_MAP = {
         "slug": "supplier/pricelist",
     },
     "orders": {"method": "import_orders", "slug": "order"},
+    "banks":{"method":"import_banks","slug":"banks"},
+    "partners_bank":{"method":"import_partners_bank","slug":"partners/bank"},
 }
 
 
 class MarcoImporter(models.TransientModel):
     _name = "marco.importer"
     _description="Sommo Importatore di dati"
-    select_all = fields.Boolean(default=True)
+    select_all = fields.Boolean()#default=True)
 
 
     # gestione della selzione di tutti i booleani
     @api.onchange("select_all")
     def select_all_change(self):
         for key, value in IMPORT_METHOD_MAP.items():
+            print(self.select_all,self._origin)
             self[key] = self.select_all
 
     def import_all_data(self):
