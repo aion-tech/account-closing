@@ -4,7 +4,9 @@
     id="marco_importer"
     sequence="20"
     action="action_marco_importer"
-    groups="base.group_user" />
+    groups="base.group_user" 
+    web_icon="marco_importer,static/description/icon.png"
+    />
     <menuitem
     name="Marco Importer"
     id="marco_importer_settings"
