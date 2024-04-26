@@ -94,3 +94,7 @@
 	path = OCA/account-invoicing
 	url = git@github.com:aion-tech/account-invoicing.git
 	branch = 16.0-mar-dev
+[submodule "OCA/hr"]
+	path = OCA/hr
+	url = git@github.com:aion-tech/hr.git
+	branch = 16.0-mar-dev
