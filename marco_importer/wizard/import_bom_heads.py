@@ -1,9 +1,18 @@
 from odoo import api, fields, models, Command
-from .progress_logger import _progress_logger,_logger
+from .progress_logger import _progress_logger, _logger
+
 
 class MarcoImporter(models.TransientModel):
     _inherit = "marco.importer"
     bom_heads = fields.Boolean()
+
+    @api.onchange("bom_heads")
+    def bom_heads_change(self):
+        return self.on_change_check(
+            condition=self.bom_heads and not self.items,
+            title="DIPENDENZA NELL'IMPORT",
+            message="Le BOM_HEADS dipendono dagli ITEMS, assicurati di averli già importati.",
+        )
 
     def import_bom_heads(self, records):
         _logger.warning("<--- IMPORTAZIONE BOM HEADS INIZIATA --->")

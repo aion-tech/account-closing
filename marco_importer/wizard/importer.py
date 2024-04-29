@@ -31,14 +31,17 @@ class MarcoImporter(models.TransientModel):
     _name = "marco.importer"
     _description="Sommo Importatore di dati"
     select_all = fields.Boolean()#default=True)
-
-
-    # gestione della selzione di tutti i booleani
+    first_select_all_change= fields.Boolean(default=True)
     @api.onchange("select_all")
     def select_all_change(self):
+        print(self.first_select_all_change)
+        if self.first_select_all_change:
+            self.first_select_all_change=False
+            print(" ************ FIRST SELECT ALL CHANGE ************ ")
+            return
         for key, value in IMPORT_METHOD_MAP.items():
-            print(self.select_all,self._origin)
             self[key] = self.select_all
+
 
     def import_all_data(self):
         _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
@@ -54,3 +57,14 @@ class MarcoImporter(models.TransientModel):
                 self.env.cr.commit()
 
         _logger.warning("<--- IMPORTAZIONE COMPLETATA --->")
+
+    def on_change_check(self,condition:bool=False,title:str="Errore:",message:str="Errore Generico",type:str="notification",level:str="warning"):
+        
+        if not self.first_select_all_change and condition:
+            return {
+                level: {
+                    "title": title,
+                    "message": message,
+                    "type": type,
+                },
+            }

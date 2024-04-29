@@ -10,7 +10,7 @@ class MarcoImporter(models.TransientModel):
         _logger.warning("<--- IMPORTAZIONE PARTNERS INIZIATA --->")
         for idx, rec in enumerate(records):
             # cerco lo stato partendo dall'ISO Code se non esiste fermo tutto
-            if rec["Country"]:
+            if rec["Country"] and rec["Country"]!='':
                 domain = [("code", "=", rec["Country"])]
                 country = self.env["res.country"].search(domain)
                 if not country:
@@ -29,8 +29,14 @@ class MarcoImporter(models.TransientModel):
                         )
                 else:
                     state = False
-            else:
-                country = False
+            else:  
+                if rec["ISOCountryCode"]and rec["ISOCountryCode"]!='':
+                    domain = [("code", "=", rec["ISOCountryCode"])]
+                    country = self.env["res.country"].search(domain)
+                    if not country:
+                        raise ValueError(f"Country {rec['ISOCountryCode']} not found:{rec}")
+                else:
+                    country = False
                 state = False
 
             # instanzio category come array vuoto
@@ -73,6 +79,13 @@ class MarcoImporter(models.TransientModel):
                 "country_id": country and country.id,
                 "state_id": state and state.id,
                 "category_id": category and [Command.set(category)],
+                "is_pa":rec["is_pa"]== "1",
+                "electronic_invoice_subjected":rec["electronic_invoice_subjected"]== "1",
+                "electronic_invoice_obliged_subject":rec["electronic_invoice_subjected"]== "1",
+                "eori_code":rec["eori_code"],
+                "codice_destinatario":rec["is_pa"]!= "1" and rec["codice_destinatario"],
+                "ipa_code":rec["is_pa"]== "1" and rec["codice_destinatario"],
+
             }
 
             partner_id = self.env["res.partner"].search([("ref", "=", rec["CustSupp"])])
