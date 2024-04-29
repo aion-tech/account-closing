@@ -199,6 +199,16 @@ OCA/hr-holidays:
   - OCA
   target: origin 16.0-mar-dev
 
+OCA/server-auth:
+  remotes:
+    origin: git@github.com:aion-tech/server-auth.git
+    OCA: git@github.com:OCA/server-auth.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev
+
 OCA/hr:
   remotes:
     origin: git@github.com:aion-tech/hr.git

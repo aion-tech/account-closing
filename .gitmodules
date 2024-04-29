@@ -106,3 +106,7 @@
 	path = OCA/hr
 	url = git@github.com:aion-tech/hr.git
 	branch = 16.0-mar-dev
+[submodule "OCA/server-auth"]
+	path = OCA/server-auth
+	url = git@github.com:aion-tech/server-auth.git
+	branch = 16.0-mar-dev
