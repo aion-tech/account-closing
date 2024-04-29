@@ -74,3 +74,7 @@
 	path = OCA/account-invoicing
 	url = git@github.com:aion-tech/account-invoicing.git
 	branch = 16.0-mar
+[submodule "OCA/server-auth"]
+	path = OCA/server-auth
+	url = git@github.com:aion-tech/server-auth.git
+	branch = 16.0-mar
