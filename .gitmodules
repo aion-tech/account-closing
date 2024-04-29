@@ -74,3 +74,7 @@
 	path = OCA/account-invoicing
 	url = git@github.com:aion-tech/account-invoicing.git
 	branch = 16.0-mar
+[submodule "OCA/hr-holidays"]
+	path = OCA/hr-holidays
+	url = git@github.com:aion-tech/hr-holidays.git
+	branch = 16.0-mar
