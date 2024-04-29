@@ -98,3 +98,7 @@
 	path = OCA/hr
 	url = git@github.com:aion-tech/hr.git
 	branch = 16.0-mar-dev
+[submodule "OCA/hr-holidays"]
+	path = OCA/hr-holidays
+	url = git@github.com:aion-tech/hr-holidays.git
+	branch = 16.0-mar-dev

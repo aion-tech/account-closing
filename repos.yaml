@@ -188,3 +188,13 @@ OCA/account-invoicing:
   fetch_all:
   - OCA
   target: origin 16.0-mar-dev
+
+OCA/hr-holidays:
+  remotes:
+    origin: git@github.com:aion-tech/hr-holidays.git
+    OCA: git@github.com:OCA/hr-holidays.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev
