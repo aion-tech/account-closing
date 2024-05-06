@@ -4,7 +4,7 @@ from .progress_logger import _progress_logger, _logger
 
 class MarcoImporter(models.TransientModel):
     _inherit = "marco.importer"
-    partners_bank = fields.Boolean( default=True,
+    partners_bank = fields.Boolean( 
         help="Importa tutti i conti dei partner.\n Dipende da *partners* e *banks*"
     )
     @api.onchange("partners_bank")

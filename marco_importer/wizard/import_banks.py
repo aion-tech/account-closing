@@ -3,7 +3,7 @@ from .progress_logger import _progress_logger,_logger
 
 class MarcoImporter(models.TransientModel):
     _inherit = "marco.importer"
-    banks = fields.Boolean(default=True)
+    banks = fields.Boolean()
 
     def import_banks(self, records):
         

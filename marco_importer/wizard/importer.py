@@ -11,37 +11,62 @@ from .progress_logger import _logger
 BASE_URL = "https://api.marco.it/odoo/"
 
 IMPORT_METHOD_MAP = {
-    "partners": {"method": "import_partners", "slug": "partners"},
-    "items": {"method": "import_items", "slug": "items"},
-    "bom_heads": {"method": "import_bom_heads", "slug": "bom/head"},
-    "bom_components": {"method": "import_bom_components", "slug": "bom/component"},
-    "workcenters": {"method": "import_workcenters", "slug": "bom/workcenter"},
-    "bom_operations": {"method": "import_bom_operations", "slug": "bom/operation"},
+    "partners": {"method": "import_partners", "slug": "partners", "default": False},
+    "items": {"method": "import_items", "slug": "items", "default": False},
+    "bom_heads": {"method": "import_bom_heads", "slug": "bom/head", "default": False},
+    "bom_components": {
+        "method": "import_bom_components",
+        "slug": "bom/component",
+        "default": False,
+    },
+    "workcenters": {
+        "method": "import_workcenters",
+        "slug": "bom/workcenter",
+        "default": False,
+    },
+    "bom_operations": {
+        "method": "import_bom_operations",
+        "slug": "bom/operation",
+        "default": False,
+    },
     "suppliers_pricelists": {
         "method": "import_suppliers_pricelists",
         "slug": "supplier/pricelist",
+        "default": False,
     },
-    "orders": {"method": "import_orders", "slug": "order"},
-    "banks":{"method":"import_banks","slug":"banks"},
-    "partners_bank":{"method":"import_partners_bank","slug":"partners/bank"},
+    "orders": {"method": "import_orders", "slug": "order", "default": False},
+    "banks": {"method": "import_banks", "slug": "banks", "default": False},
+    "partners_bank": {
+        "method": "import_partners_bank",
+        "slug": "partners/bank",
+        "default": False,
+    },
+     "employees": {
+        "method": "import_employees",
+        "slug": "employees",
+        "default": False,
+    },
 }
 
 
 class MarcoImporter(models.TransientModel):
     _name = "marco.importer"
-    _description="Sommo Importatore di dati"
-    select_all = fields.Boolean()#default=True)
-    first_select_all_change= fields.Boolean(default=True)
+    _description = "Sommo Importatore di dati"
+    select_all = fields.Boolean()  # default=True)
+    first_select_all_change = fields.Boolean(default=True)
+
     @api.onchange("select_all")
     def select_all_change(self):
-        print(self.first_select_all_change)
         if self.first_select_all_change:
-            self.first_select_all_change=False
-            print(" ************ FIRST SELECT ALL CHANGE ************ ")
+            self.first_select_all_change = False
+            _logger.warning("************ FIRST SELECT ALL CHANGE ************ ")
+            for key, value in IMPORT_METHOD_MAP.items():
+                self[key] = value["default"]
+                _logger.warning(f"default={value['default']}  -->  {key} ")
+            
             return
         for key, value in IMPORT_METHOD_MAP.items():
             self[key] = self.select_all
-
 
     def import_all_data(self):
         _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
@@ -58,8 +83,15 @@ class MarcoImporter(models.TransientModel):
 
         _logger.warning("<--- IMPORTAZIONE COMPLETATA --->")
 
-    def on_change_check(self,condition:bool=False,title:str="Errore:",message:str="Errore Generico",type:str="notification",level:str="warning"):
-        
+    def on_change_check(
+        self,
+        condition: bool = False,
+        title: str = "Errore:",
+        message: str = "Errore Generico",
+        type: str = "notification",
+        level: str = "warning",
+    ):
+
         if not self.first_select_all_change and condition:
             return {
                 level: {

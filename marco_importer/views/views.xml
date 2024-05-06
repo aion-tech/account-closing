@@ -12,7 +12,7 @@
                                 <field name="first_select_all_change" attrs="{'invisible': 1}" />
                     </group>
                     
-                    <group >
+                    <group col="3">
                        
                         <group >
                             <field name="partners" />
@@ -27,6 +27,9 @@
                             <field name="orders"/>
                             <field name="banks"/>
                             <field name="partners_bank" string="Partners Banks"/>
+                        </group>
+                        <group >
+                            <field name="employees"/>
                         </group>
                         <button string="Importa tutti i selezionati" type="object" name="import_all_data" class="btn-primary" />
                     </group>
