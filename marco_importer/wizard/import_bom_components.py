@@ -28,6 +28,12 @@ class MarcoImporter(models.TransientModel):
                         Command.link(resupply_subcontractor_on_order.id)
                     ]
                 uom = self.env.ref(rec["uom_id"])
+                operation_id=self.env["mrp.routing.workcenter"].search(
+                [
+                    ("bom_id", "=", bom.id),
+                    ("sequence", "=", rec["sequence"]),
+                ]
+            )
                 bom_line = self.env["mrp.bom.line"].search(
                     [("product_id", "=", component_product.id), ("bom_id", "=", bom.id)]
                 )
@@ -36,6 +42,8 @@ class MarcoImporter(models.TransientModel):
                     "product_id": component_product.id,
                     "product_qty": rec["qty"],
                     "product_uom_id": uom.id,
+                    "operation_id":operation_id.id,
+                    "manual_consumption":False
                 }
                 if bom_line:
                     bom_line.write(vals)

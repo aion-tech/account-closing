@@ -59,10 +59,12 @@
         "report_xml",
         "sale_project_stock",
         "websocket_refresh",
+        "marco_importer"
     ],
     "data": [
         # security/ir.model.access.csv,
         # "views/views.xml",
     ],
-    "post_init_hook":"marco_post_init_hook"
+    "post_init_hook":"marco_post_init_hook",
+    "installable": True,
 }

@@ -14,11 +14,6 @@ IMPORT_METHOD_MAP = {
     "partners": {"method": "import_partners", "slug": "partners", "default": False},
     "items": {"method": "import_items", "slug": "items", "default": False},
     "bom_heads": {"method": "import_bom_heads", "slug": "bom/head", "default": False},
-    "bom_components": {
-        "method": "import_bom_components",
-        "slug": "bom/component",
-        "default": False,
-    },
     "workcenters": {
         "method": "import_workcenters",
         "slug": "bom/workcenter",
@@ -27,6 +22,11 @@ IMPORT_METHOD_MAP = {
     "bom_operations": {
         "method": "import_bom_operations",
         "slug": "bom/operation",
+        "default": False,
+    },
+    "bom_components": {
+        "method": "import_bom_components",
+        "slug": "bom/component",
         "default": False,
     },
     "suppliers_pricelists": {

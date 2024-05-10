@@ -21,6 +21,9 @@ class MarcoImporter(models.TransientModel):
             uom = self.env.ref(rec["uom_id"])
             uom_po = self.env.ref(rec["uom_po_id"])
 
+            # cerco le contropartite dell'articolo di vendita e di acquisto
+            property_account_income_id=self.env["account.account"].search([("code","=",rec["saleOffset"])])
+            _logger.warning(property_account_income_id)
             # inizializzo le variabili delle categorie a False
             category = self.env.ref("product.product_category_all")
             catDesc = False
@@ -38,6 +41,8 @@ class MarcoImporter(models.TransientModel):
                     catDesc = self.env["product.category"].create(
                         {"name": rec["categoryDescription"]}
                     )
+                
+                    
                 category = catDesc
             # cerco la sotto categoria nelle categorie dei prodotti e la creo se non esiste legandola ad una categoria
             if (
@@ -85,6 +90,8 @@ class MarcoImporter(models.TransientModel):
                     )
                 category = subSubCatDesc
 
+            intrastat_code_id = self.env["report.intrastat.code"].search([("name","=",rec["intrastat_code"])])
+            
             vals = {
                 "default_code": rec["default_code"],
                 "name": rec["name"],
@@ -99,6 +106,10 @@ class MarcoImporter(models.TransientModel):
                 "route_ids": route_ids,
                 "product_tag_ids": product_tag and [Command.set([product_tag.id])],
                 "categ_id": category.id,
+                "invoice_policy":"delivery",
+                "intrastat_code_id":intrastat_code_id.id,
+                "intrastat_type":intrastat_code_id.type,
+                "property_account_income_id":property_account_income_id.id
             }
 
             product_template_id = self.env["product.template"].search(
@@ -118,13 +129,13 @@ class MarcoImporter(models.TransientModel):
                 warehouse = self.env["stock.warehouse"].search(
                     [("company_id", "=", self.env.company.id)], limit=1
                 )
-                self.env["stock.quant"].with_context(inventory_mode=True).create(
+                """ self.env["stock.quant"].with_context(inventory_mode=True).create(
                     {
                         "product_id": product_product_id.id,
                         "location_id": warehouse.lot_stock_id.id,
                         "inventory_quantity": rec["bookInv"] if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
                     }
-                ).action_apply_inventory()
+                ).action_apply_inventory() """
 
             #gestione aree per mrp multilever
             product_id=self.env["product.product"].search(
