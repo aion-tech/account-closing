@@ -61,6 +61,7 @@
         "websocket_refresh",
         "marco_importer",
         "mrp_subcontracting",
+        "mrp_multi_level",
     ],
     "data": [
         # security/ir.model.access.csv,

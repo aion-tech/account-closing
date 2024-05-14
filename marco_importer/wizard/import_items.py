@@ -131,13 +131,13 @@ class MarcoImporter(models.TransientModel):
                 warehouse = self.env["stock.warehouse"].search(
                     [("company_id", "=", self.env.company.id)], limit=1
                 )
-                """ self.env["stock.quant"].with_context(inventory_mode=True).create(
+                self.env["stock.quant"].with_context(inventory_mode=True).create(
                     {
                         "product_id": product_product_id.id,
                         "location_id": warehouse.lot_stock_id.id,
                         "inventory_quantity": rec["bookInv"] if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
                     }
-                ).action_apply_inventory() """
+                ).action_apply_inventory()
 
             #gestione aree per mrp multilever
             product_id=self.env["product.product"].search(
