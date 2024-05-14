@@ -70,11 +70,16 @@ class MarcoImporter(models.TransientModel):
 
     def import_all_data(self):
         _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
+        try:
+            requests.get(BASE_URL,timeout=(2, 2))
+        except:
+            raise ValueError(f"Cannot reach the APIs")
+        
         for key, value in IMPORT_METHOD_MAP.items():
             if self[key]:
                 url = BASE_URL + value["slug"]
                 try:
-                    res = requests.get(url)
+                    res = requests.get(url,timeout=(3, 10))
                     records = res.json()
                 except:
                     raise ValueError(f"Cannot reach the APIs")

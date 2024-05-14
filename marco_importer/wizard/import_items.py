@@ -23,7 +23,8 @@ class MarcoImporter(models.TransientModel):
 
             # cerco le contropartite dell'articolo di vendita e di acquisto
             property_account_income_id=self.env["account.account"].search([("code","=",rec["saleOffset"])])
-            _logger.warning(property_account_income_id)
+            property_account_expense_id=self.env["account.account"].search([("code","=",rec["purchaseOffset"])])
+            
             # inizializzo le variabili delle categorie a False
             category = self.env.ref("product.product_category_all")
             catDesc = False
@@ -109,7 +110,8 @@ class MarcoImporter(models.TransientModel):
                 "invoice_policy":"delivery",
                 "intrastat_code_id":intrastat_code_id.id,
                 "intrastat_type":intrastat_code_id.type,
-                "property_account_income_id":property_account_income_id.id
+                "property_account_income_id":property_account_income_id.id,
+                "property_account_expense_id":property_account_expense_id.id
             }
 
             product_template_id = self.env["product.template"].search(
