@@ -59,7 +59,8 @@
         "report_xml",
         "sale_project_stock",
         "websocket_refresh",
-        "marco_importer"
+        "marco_importer",
+        "mrp_subcontracting",
     ],
     "data": [
         # security/ir.model.access.csv,

@@ -8,22 +8,15 @@ _logger = logging.getLogger(__name__)
 def marco_post_init_hook(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
     # con new lo lasci in memoria, con create invece lo crei nel database e viene pulito una volta al giorno  dal crono "auto vacuum ..."
-    """env["res.config.settings"].new({"group_uom": True}).execute()
-    env["res.config.settings"].new({"group_product_variant": True}).execute()
-    env["res.config.settings"].new({"group_stock_multi_locations": True}).execute() """
-    """ env["res.config.settings"].new({"group_stock_adv_location": True}).execute()
-    env["res.config.settings"].new({"group_mrp_routings": True}).execute() """
-    #env["ir.module.module"].search([("name", "=", "module_mrp_workorder")]).button_install()
-    env["ir.module.module"].search([("name", "=", "mrp_workorder")]).button_install() 
-
+    # vista delle impostazioni per trovare i flag che si voglioni impostare https://github.com/odoo/odoo/blob/16.0/addons/mrp/views/res_config_settings_views.xml
+    env["res.config.settings"].new({"group_uom": True}).execute()#unità di misura
+    env["res.config.settings"].new({"group_product_variant": True}).execute()#varianti prodotto
+    env["res.config.settings"].new({"group_stock_multi_locations": True}).execute()
+    env["res.config.settings"].new({"group_stock_adv_location": True}).execute()
+    env["res.config.settings"].new({"group_mrp_routings": True}).execute()
+    env["res.config.settings"].new({"group_mrp_workorder_dependencies": True,}).execute()
+    env["res.config.settings"].new({"group_unlocked_by_default":True}).execute()
     
-    """
-    Employees time registration on Work Orders
-    Maintenance - MRP
-    Employees cost registration on production
-    MRP II
-    """
-    """ env["res.config.settings"].new({"module_mrp_subcontracting": True}).execute() """
     setMarcoAsOdooCompany(env)
 
 
