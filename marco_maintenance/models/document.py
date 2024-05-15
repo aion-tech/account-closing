@@ -10,6 +10,19 @@ class DocumentsFolder(models.Model):
     )
 
 
+class DocumentsDocument(models.Model):
+    _inherit = "documents.document"
+
+    maintenance_request_id = fields.Many2one(
+        "maintenance.request",
+        string="Maintenance Request",
+    )
+    maintenance_equipment_id = fields.Many2one(
+        "maintenance.equipment",
+        string="Equipment",
+    )
+
+
 class DocumentMixin(models.AbstractModel):
     _inherit = "documents.mixin"
 
@@ -21,7 +34,7 @@ class DocumentMixin(models.AbstractModel):
     def _get_documents_domain(self):
         """
         return a domain used to find the documents linked
-        kto singleton `self`.
+        to singleton `self`.
         The default implementation is likely to be enough.
         """
         self.ensure_one()
@@ -49,7 +62,7 @@ class DocumentMixin(models.AbstractModel):
 
     def action_view_documents(self):
         """
-        Return an aciton view to display documents linked
+        Return an action view to display documents linked
         to singleton `self` in the Documents app.
         """
         self.ensure_one()
