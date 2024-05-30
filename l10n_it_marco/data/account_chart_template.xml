@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="l10n_it_chart_template_marco" model="account.chart.template"><!--CAMBIATO DA l10n_it_chart_template_generic a _marco-->
+        <field name="name">Italy - MARCO's Chart of Accounts</field>
+        <field name="cash_account_code_prefix">180</field><!--IMPOSTARE-->
+        <field name="bank_account_code_prefix">182</field><!--IMPOSTARE-->
+        <field name="transfer_account_code_prefix">183</field><!--IMPOSTARE-->
+        <field name="currency_id" ref="base.EUR"/>
+        <field name="country_id" ref="base.it"/>
+    </record>
+</odoo>
