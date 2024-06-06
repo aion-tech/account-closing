@@ -21,19 +21,20 @@ Italian accounting chart and localization.
     'data': [
         'data/account_account_tag.xml',
         'data/account_chart_template.xml',
-        'data/account.account.template.xml',
+        'data/account_account_template.xml',
+        'data/account_account_group.xml',
         
         'data/account_chart_template_accounts.xml',
-        'data/account.tax.group.csv',
-        'data/account_tax_report_data.xml',
-        'data/account_tax_template.xml',
-        'data/account.fiscal.position.template.csv',
-        'data/account_fiscal_position_tax_template_data.xml',
+        #'data/account.tax.group.csv',
+        #'data/account_tax_report_data.xml',
+        #'data/account_tax_template.xml',
+        #'data/account.fiscal.position.template.csv',
+        #'data/account_fiscal_position_tax_template_data.xml',
         'data/account_chart_template_data.xml',
-        'data/report_invoice.xml'
+        #'data/report_invoice.xml'
     ],
     'demo': [
-        'demo/demo_company.xml',
+       # 'demo/demo_company.xml',
     ],
     'license': 'LGPL-3',
 }

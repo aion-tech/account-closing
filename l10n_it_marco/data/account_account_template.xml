@@ -1,0 +1,2816 @@
+<?xml version="1.0"?>
+<odoo>
+  <data noupdate="1">
+    <!--Conto contabile con ID 00FICAUZ-->
+    <record id="00FICAUZ" model="account.account.template">
+      <field name="code">00FICAUZ</field>
+      <field name="name">DEPOSITI CAUZIONALI C/O TERZI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FIIN78-->
+    <record id="00FIIN78" model="account.account.template">
+      <field name="code">00FIIN78</field>
+      <field name="name">INVESTIMENTI ADVANCE 78</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FIIN79-->
+    <record id="00FIIN79" model="account.account.template">
+      <field name="code">00FIIN79</field>
+      <field name="name">INVESTIMENTI ADVANCE 79</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FIPAR1-->
+    <record id="00FIPAR1" model="account.account.template">
+      <field name="code">00FIPAR1</field>
+      <field name="name">PARTECIPAZIONE I.M.P.A.</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FIPAR2-->
+    <record id="00FIPAR2" model="account.account.template">
+      <field name="code">00FIPAR2</field>
+      <field name="name">PARTECIPAZIONE ITALIAN MARINE COMPANY</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 00FIPAR3-->
+    <record id="00FIPAR3" model="account.account.template">
+      <field name="code">00FIPAR3</field>
+      <field name="name">PARTECIPAZIONE MATE USA</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 00FIPART-->
+    <record id="00FIPART" model="account.account.template">
+      <field name="code">00FIPART</field>
+      <field name="name">PARTECIPAZIONE MARCO USA</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FITINE-->
+    <record id="00FITINE" model="account.account.template">
+      <field name="code">00FITINE</field>
+      <field name="name">TITOLI NEXTRA</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FITISI-->
+    <record id="00FITISI" model="account.account.template">
+      <field name="code">00FITISI</field>
+      <field name="name">TITOLI SICAV</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FITITA-->
+    <record id="00FITITA" model="account.account.template">
+      <field name="code">00FITITA</field>
+      <field name="name">TITOLI AZIONARI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FITITO-->
+    <record id="00FITITO" model="account.account.template">
+      <field name="code">00FITITO</field>
+      <field name="name">TITOLI OBBLIGAZIONARI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00FITIVA-->
+    <record id="00FITIVA" model="account.account.template">
+      <field name="code">00FITIVA</field>
+      <field name="name">INVESTIMENTI VALUTARI IN US$</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 00FITIVE-->
+    <record id="00FITIVE" model="account.account.template">
+      <field name="code">00FITIVE</field>
+      <field name="name">INVESTIMENTI IN EURO</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00IMCOMP-->
+    <record id="00IMCOMP" model="account.account.template">
+      <field name="code">00IMCOMP</field>
+      <field name="name">COMPARTECIPAZIONI a spese per stampi e attrezzature</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00IMLAVO-->
+    <record id="00IMLAVO" model="account.account.template">
+      <field name="code">00IMLAVO</field>
+      <field name="name">LAVORI SU BENI DI TERZI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00IMMANU-->
+    <record id="00IMMANU" model="account.account.template">
+      <field name="code">00IMMANU</field>
+      <field name="name">MANUT. E RIPAR. DA AMMORTIZZARE</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00IMPLUR-->
+    <record id="00IMPLUR" model="account.account.template">
+      <field name="code">00IMPLUR</field>
+      <field name="name">PLURIENNALI SPESE</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00IMSOFT-->
+    <record id="00IMSOFT" model="account.account.template">
+      <field name="code">00IMSOFT</field>
+      <field name="name">SOFTWARE IN USO</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAAUDI-->
+    <record id="00MAAUDI" model="account.account.template">
+      <field name="code">00MAAUDI</field>
+      <field name="name">AUTOMEZZI IN USO DIPENDENTI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAAUTO-->
+    <record id="00MAAUTO" model="account.account.template">
+      <field name="code">00MAAUTO</field>
+      <field name="name">AUTOMEZZI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MABENI-->
+    <record id="00MABENI" model="account.account.template">
+      <field name="code">00MABENI</field>
+      <field name="name">BENI INFERIORI A 516,46 EURO</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAIMM1-->
+    <record id="00MAIMM1" model="account.account.template">
+      <field name="code">00MAIMM1</field>
+      <field name="name">IMMOBILE - VIA MAMELI 10</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAIMMO-->
+    <record id="00MAIMMO" model="account.account.template">
+      <field name="code">00MAIMMO</field>
+      <field name="name">IMMOBILE - VIA MAMELI 28</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAIMPI-->
+    <record id="00MAIMPI" model="account.account.template">
+      <field name="code">00MAIMPI</field>
+      <field name="name">IMPIANTI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAMACC-->
+    <record id="00MAMACC" model="account.account.template">
+      <field name="code">00MAMACC</field>
+      <field name="name">MACCHINE E ATTREZZATURE DI PRODUZIONE</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAMACU-->
+    <record id="00MAMACU" model="account.account.template">
+      <field name="code">00MAMACU</field>
+      <field name="name">MACCHINE UFFICIO</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAMOBI-->
+    <record id="00MAMOBI" model="account.account.template">
+      <field name="code">00MAMOBI</field>
+      <field name="name">MOBILI UFFICIO</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAMOFF-->
+    <record id="00MAMOFF" model="account.account.template">
+      <field name="code">00MAMOFF</field>
+      <field name="name">MOBILI OFFICINA</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MANATA-->
+    <record id="00MANATA" model="account.account.template">
+      <field name="code">00MANATA</field>
+      <field name="name">NATANTI E GALLEGGIANTI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MASTAM-->
+    <record id="00MASTAM" model="account.account.template">
+      <field name="code">00MASTAM</field>
+      <field name="name">STAMPI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00MAVEIC-->
+    <record id="00MAVEIC" model="account.account.template">
+      <field name="code">00MAVEIC</field>
+      <field name="name">VEICOLI INDUSTRIALI</field>
+      <field name="account_type">asset_fixed</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 00SMMCRF-->
+    <record id="00SMMCRF" model="account.account.template">
+      <field name="code">00SMMCRF</field>
+      <field name="name">MERCI C/RIMANENZE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 02PEPERP-->
+    <record id="02PEPERP" model="account.account.template">
+      <field name="code">02PEPERP</field>
+      <field name="name">PERDITE ESERCIZI PRECEDENTI</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CLESTE-->
+    <record id="04CLESTE" model="account.account.template">
+      <field name="code">04CLESTE</field>
+      <field name="name">CLIENTI ESTERO</field>
+      <field name="account_type">asset_receivable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 04CLFALL-->
+    <record id="04CLFALL" model="account.account.template">
+      <field name="code">04CLFALL</field>
+      <field name="name">CLIENTI FALLITI</field>
+      <field name="account_type">asset_receivable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 04CLITAL-->
+    <record id="04CLITAL" model="account.account.template">
+      <field name="code">04CLITAL</field>
+      <field name="name">CLIENTI ITALIA</field>
+      <field name="account_type">asset_receivable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 04CLOCCA-->
+    <record id="04CLOCCA" model="account.account.template">
+      <field name="code">04CLOCCA</field>
+      <field name="name">CLIENTI OCCASIONALI</field>
+      <field name="account_type">asset_receivable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 04CLWEBO-->
+    <record id="04CLWEBO" model="account.account.template">
+      <field name="code">04CLWEBO</field>
+      <field name="name">CLIENTI WEB</field>
+      <field name="account_type">asset_receivable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 04CRANFI-->
+    <record id="04CRANFI" model="account.account.template">
+      <field name="code">04CRANFI</field>
+      <field name="name">ANTICIPO PER FINANZ. A SOC. CONTROLLATA</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRANTI-->
+    <record id="04CRANTI" model="account.account.template">
+      <field name="code">04CRANTI</field>
+      <field name="name">ANTICIPI DIVERSI</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRASIN-->
+    <record id="04CRASIN" model="account.account.template">
+      <field name="code">04CRASIN</field>
+      <field name="name">ANTICIPO TRATTENUTA SINDACALE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRBRAI-->
+    <record id="04CRBRAI" model="account.account.template">
+      <field name="code">04CRBRAI</field>
+      <field name="name">Braintree account</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRCFON-->
+    <record id="04CRCFON" model="account.account.template">
+      <field name="code">04CRCFON</field>
+      <field name="name">CREDITI V/FONDIMPRESA</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRCMAT-->
+    <record id="04CRCMAT" model="account.account.template">
+      <field name="code">04CRCMAT</field>
+      <field name="name">CREDITI V/PARTECIPATA MATE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 04CRCTFR-->
+    <record id="04CRCTFR" model="account.account.template">
+      <field name="code">04CRCTFR</field>
+      <field name="name">CREDITI PER T.F.R. ANTICIPATO</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRERAR-->
+    <record id="04CRERAR" model="account.account.template">
+      <field name="code">04CRERAR</field>
+      <field name="name">CREDITI VERSO ERARIO - RIT.ACCONTO</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRERCO-->
+    <record id="04CRERCO" model="account.account.template">
+      <field name="code">04CRERCO</field>
+      <field name="name">ERARIO C/COMPENSAZIONE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRERRI-->
+    <record id="04CRERRI" model="account.account.template">
+      <field name="code">04CRERRI</field>
+      <field name="name">ERARIO C/RIMBORSI</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRILOR-->
+    <record id="04CRILOR" model="account.account.template">
+      <field name="code">04CRILOR</field>
+      <field name="name">CREDITI ILOR</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIMPA-->
+    <record id="04CRIMPA" model="account.account.template">
+      <field name="code">04CRIMPA</field>
+      <field name="name">CREDITO D'IMPOSTA ART BONUS</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIMPO-->
+    <record id="04CRIMPO" model="account.account.template">
+      <field name="code">04CRIMPO</field>
+      <field name="name">Credito d'Imposta nuove assunz. L.388</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRINAI-->
+    <record id="04CRINAI" model="account.account.template">
+      <field name="code">04CRINAI</field>
+      <field name="name">Credito verso INAIL</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRINPS-->
+    <record id="04CRINPS" model="account.account.template">
+      <field name="code">04CRINPS</field>
+      <field name="name">INPS C/RIMBORSI</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRA1-->
+    <record id="04CRIRA1" model="account.account.template">
+      <field name="code">04CRIRA1</field>
+      <field name="name">CREDITI IRAP IN COMPENSAZIONE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRA2-->
+    <record id="04CRIRA2" model="account.account.template">
+      <field name="code">04CRIRA2</field>
+      <field name="name">CREDITI V/ERARIO PER RIMBORSO IRAP</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRAP-->
+    <record id="04CRIRAP" model="account.account.template">
+      <field name="code">04CRIRAP</field>
+      <field name="name">CREDITI IRAP</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRBO-->
+    <record id="04CRIRBO" model="account.account.template">
+      <field name="code">04CRIRBO</field>
+      <field name="name">CREDITO IRPEF PER BONUS</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRP1-->
+    <record id="04CRIRP1" model="account.account.template">
+      <field name="code">04CRIRP1</field>
+      <field name="name">CREDITO IRES IN COMPENSAZIONE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRP2-->
+    <record id="04CRIRP2" model="account.account.template">
+      <field name="code">04CRIRP2</field>
+      <field name="name">Credito IRPEF da 730  Cod.4731/4730/1845/1846/1631</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRPE-->
+    <record id="04CRIRPE" model="account.account.template">
+      <field name="code">04CRIRPE</field>
+      <field name="name">CREDITI IRES</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIRRS-->
+    <record id="04CRIRRS" model="account.account.template">
+      <field name="code">04CRIRRS</field>
+      <field name="name">CREDITO VERSO R&amp;S</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRITFR-->
+    <record id="04CRITFR" model="account.account.template">
+      <field name="code">04CRITFR</field>
+      <field name="name">RIMBORSO IMPOSTA 11% rival. T.F.R.  cod.6781</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRIVAA-->
+    <record id="04CRIVAA" model="account.account.template">
+      <field name="code">04CRIVAA</field>
+      <field name="name">IVA ACQUISTI</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRNCRI-->
+    <record id="04CRNCRI" model="account.account.template">
+      <field name="code">04CRNCRI</field>
+      <field name="name">NOTE DI CREDITO DA RICEVERE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRPATR-->
+    <record id="04CRPATR" model="account.account.template">
+      <field name="code">04CRPATR</field>
+      <field name="name">CREDITI TASSA PATRIMONIALE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRPAYP-->
+    <record id="04CRPAYP" model="account.account.template">
+      <field name="code">04CRPAYP</field>
+      <field name="name">PAY PAL</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRPRES-->
+    <record id="04CRPRES" model="account.account.template">
+      <field name="code">04CRPRES</field>
+      <field name="name">FATTURE DA EMETTERE E NOTE CREDITO DA RICEVERE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRRAUS-->
+    <record id="04CRRAUS" model="account.account.template">
+      <field name="code">04CRRAUS</field>
+      <field name="name">RETTIFICA ATTIVA su crediti in dollari</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04CRSERV-->
+    <record id="04CRSERV" model="account.account.template">
+      <field name="code">04CRSERV</field>
+      <field name="name">SERVIZI INTERBANCARI - CARTA VISA</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04LIBNL0-->
+    <record id="04LIBNL0" model="account.account.template">
+      <field name="code">04LIBNL0</field>
+      <field name="name">BANCA NAZIONALE DEL LAVORO</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04LICASS-->
+    <record id="04LICASS" model="account.account.template">
+      <field name="code">04LICASS</field>
+      <field name="name">CASSA CONTANTI</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04LICOM1-->
+    <record id="04LICOM1" model="account.account.template">
+      <field name="code">04LICOM1</field>
+      <field name="name">INTESA C/VALUTARIO US$</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 04LICOM2-->
+    <record id="04LICOM2" model="account.account.template">
+      <field name="code">04LICOM2</field>
+      <field name="name">INTESA  NEW YORK IN US$</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 04LICOMI-->
+    <record id="04LICOMI" model="account.account.template">
+      <field name="code">04LICOMI</field>
+      <field name="name">INTESA BCI - RETE COMIT</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04LICRE1-->
+    <record id="04LICRE1" model="account.account.template">
+      <field name="code">04LICRE1</field>
+      <field name="name">CREDITO ITALIANO N.Y. C/VALUTARIO</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 04LICRED-->
+    <record id="04LICRED" model="account.account.template">
+      <field name="code">04LICRED</field>
+      <field name="name">CREDITO ITALIANO</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04LIFIN1-->
+    <record id="04LIFIN1" model="account.account.template">
+      <field name="code">04LIFIN1</field>
+      <field name="name">FINECO BANK USD</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 04LIFINE-->
+    <record id="04LIFINE" model="account.account.template">
+      <field name="code">04LIFINE</field>
+      <field name="name">FINECO BANK EURO</field>
+      <field name="account_type">asset_cash</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04POEFDI-->
+    <record id="04POEFDI" model="account.account.template">
+      <field name="code">04POEFDI</field>
+      <field name="name">EFFETTI AL DOPO INCASSO</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04POEFFE-->
+    <record id="04POEFFE" model="account.account.template">
+      <field name="code">04POEFFE</field>
+      <field name="name">EFFETTI S.B.F.</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04POINSO-->
+    <record id="04POINSO" model="account.account.template">
+      <field name="code">04POINSO</field>
+      <field name="name">EFFETTI INSOLUTI</field>
+      <field name="account_type">asset_receivable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 04PORBNL-->
+    <record id="04PORBNL" model="account.account.template">
+      <field name="code">04PORBNL</field>
+      <field name="name">RICEVUTE BNL ALL'INCASSO</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04PORCRE-->
+    <record id="04PORCRE" model="account.account.template">
+      <field name="code">04PORCRE</field>
+      <field name="name">RICEVUTE CREDIT ALL'INCASSO</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04PORIBA-->
+    <record id="04PORIBA" model="account.account.template">
+      <field name="code">04PORIBA</field>
+      <field name="name">RICEVUTE COMIT ALL'INCASSO</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04RRRATE-->
+    <record id="04RRRATE" model="account.account.template">
+      <field name="code">04RRRATE</field>
+      <field name="name">RATEI ATTIVI</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 04RRRISC-->
+    <record id="04RRRISC" model="account.account.template">
+      <field name="code">04RRRISC</field>
+      <field name="name">RISCONTI ATTIVI</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEADC1-->
+    <record id="10DEADC1" model="account.account.template">
+      <field name="code">10DEADC1</field>
+      <field name="name">ADDIZ. COMUN. ANNO CORR. </field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEADC2-->
+    <record id="10DEADC2" model="account.account.template">
+      <field name="code">10DEADC2</field>
+      <field name="name">ADD. COM.LE da 730 </field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEADCO-->
+    <record id="10DEADCO" model="account.account.template">
+      <field name="code">10DEADCO</field>
+      <field name="name">ADDIZIONALE COMUNALE DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEADD1-->
+    <record id="10DEADD1" model="account.account.template">
+      <field name="code">10DEADD1</field>
+      <field name="name">ADD. REG.LE &lt; 13.000  Cod.3815</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEADD2-->
+    <record id="10DEADD2" model="account.account.template">
+      <field name="code">10DEADD2</field>
+      <field name="name">ADD. REG.LE da 730  Cod.3803-cred.3796</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEADDR-->
+    <record id="10DEADDR" model="account.account.template">
+      <field name="code">10DEADDR</field>
+      <field name="name">ADD. REG.LE da RETR. Cod.3802</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEAIBX-->
+    <record id="10DEAIBX" model="account.account.template">
+      <field name="code">10DEAIBX</field>
+      <field name="name">AIB CONTRIBUTO MENSILE DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEAMMI-->
+    <record id="10DEAMMI" model="account.account.template">
+      <field name="code">10DEAMMI</field>
+      <field name="name">DEBITI V/AMMINISTRATORI DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEANTI-->
+    <record id="10DEANTI" model="account.account.template">
+      <field name="code">10DEANTI</field>
+      <field name="name">ANTICIPI DA CLIENTI VARI IN C/P.F.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEAZIO-->
+    <record id="10DEAZIO" model="account.account.template">
+      <field name="code">10DEAZIO</field>
+      <field name="name">AZIONISTI C/DIVIDENDI DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DECEUR-->
+    <record id="10DECEUR" model="account.account.template">
+      <field name="code">10DECEUR</field>
+      <field name="name">DIFFERENZE CONV. C/PATR. LIRA/EURO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DECOMP-->
+    <record id="10DECOMP" model="account.account.template">
+      <field name="code">10DECOMP</field>
+      <field name="name">COMPENSI COLLAB. DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEDIP5-->
+    <record id="10DEDIP5" model="account.account.template">
+      <field name="code">10DEDIP5</field>
+      <field name="name">DIPEND. 5° DELLO STIPENDIO DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEDIPE-->
+    <record id="10DEDIPE" model="account.account.template">
+      <field name="code">10DEDIPE</field>
+      <field name="name">DIPENDENTI RETRIBUZIONI DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEDIPW-->
+    <record id="10DEDIPW" model="account.account.template">
+      <field name="code">10DEDIPW</field>
+      <field name="name">DIPENDENTI C/RETR. SOSPESA</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEDITF-->
+    <record id="10DEDITF" model="account.account.template">
+      <field name="code">10DEDITF</field>
+      <field name="name">DIPENDENTI T.F.R. DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEDIVE-->
+    <record id="10DEDIVE" model="account.account.template">
+      <field name="code">10DEDIVE</field>
+      <field name="name">DEBITI DIVERSI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEEIVA-->
+    <record id="10DEEIVA" model="account.account.template">
+      <field name="code">10DEEIVA</field>
+      <field name="name">ERARIO C/IVA</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEENAS-->
+    <record id="10DEENAS" model="account.account.template">
+      <field name="code">10DEENAS</field>
+      <field name="name">ENASARCO DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEERAR-->
+    <record id="10DEERAR" model="account.account.template">
+      <field name="code">10DEERAR</field>
+      <field name="name">DEBITI VERSO ERARIO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEESAT-->
+    <record id="10DEESAT" model="account.account.template">
+      <field name="code">10DEESAT</field>
+      <field name="name">ERARIO RIT. ACCONTO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEESTR-->
+    <record id="10DEESTR" model="account.account.template">
+      <field name="code">10DEESTR</field>
+      <field name="name">ESATRI DEBITI V/</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEFASI-->
+    <record id="10DEFASI" model="account.account.template">
+      <field name="code">10DEFASI</field>
+      <field name="name">FASI DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIMPD-->
+    <record id="10DEIMPD" model="account.account.template">
+      <field name="code">10DEIMPD</field>
+      <field name="name">IMPOSTE E TASSE DETRAIBILI DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEINAI-->
+    <record id="10DEINAI" model="account.account.template">
+      <field name="code">10DEINAI</field>
+      <field name="name">INAIL DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEINPD-->
+    <record id="10DEINPD" model="account.account.template">
+      <field name="code">10DEINPD</field>
+      <field name="name">INPDAI DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEINPR-->
+    <record id="10DEINPR" model="account.account.template">
+      <field name="code">10DEINPR</field>
+      <field name="name">INPS PROFESSIONISTI DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEINPS-->
+    <record id="10DEINPS" model="account.account.template">
+      <field name="code">10DEINPS</field>
+      <field name="name">INPS DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEINTE-->
+    <record id="10DEINTE" model="account.account.template">
+      <field name="code">10DEINTE</field>
+      <field name="name">INT.RATEIZZAZIONE 730 COD. 1668</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIRAM-->
+    <record id="10DEIRAM" model="account.account.template">
+      <field name="code">10DEIRAM</field>
+      <field name="name">IRPEF da COMP. AMM. Cod.1004</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIRP1-->
+    <record id="10DEIRP1" model="account.account.template">
+      <field name="code">10DEIRP1</field>
+      <field name="name">IRPEF da TFR Cod.1012</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIRP2-->
+    <record id="10DEIRP2" model="account.account.template">
+      <field name="code">10DEIRP2</field>
+      <field name="name">Debito IRPEF da 730  Cod.4731/4730/1845/1846/1630</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIRP5-->
+    <record id="10DEIRP5" model="account.account.template">
+      <field name="code">10DEIRP5</field>
+      <field name="name">DEBITI IRES</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIRP6-->
+    <record id="10DEIRP6" model="account.account.template">
+      <field name="code">10DEIRP6</field>
+      <field name="name">DEBITI IRAP</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIRPE-->
+    <record id="10DEIRPE" model="account.account.template">
+      <field name="code">10DEIRPE</field>
+      <field name="name">IRPEF da RETR.  Cod.1001</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIRUT-->
+    <record id="10DEIRUT" model="account.account.template">
+      <field name="code">10DEIRUT</field>
+      <field name="name">IRPEF da UNA TANTUM  Cod.1002</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEITFR-->
+    <record id="10DEITFR" model="account.account.template">
+      <field name="code">10DEITFR</field>
+      <field name="name">IMPOSTA 11% rival. T.F.R. da versare 
+cod.1712/1713</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIVAV-->
+    <record id="10DEIVAV" model="account.account.template">
+      <field name="code">10DEIVAV</field>
+      <field name="name">IVA VENDITE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEIVPA-->
+    <record id="10DEIVPA" model="account.account.template">
+      <field name="code">10DEIVPA</field>
+      <field name="name">IVA VENDITE PUBBLICA AMMINISTRAZIONE SPLIT PAYMENT</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEMETA-->
+    <record id="10DEMETA" model="account.account.template">
+      <field name="code">10DEMETA</field>
+      <field name="name">METASALUTE DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DENCEM-->
+    <record id="10DENCEM" model="account.account.template">
+      <field name="code">10DENCEM</field>
+      <field name="name">NOTE DI CREDITO DA EMETTERE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEOBBL-->
+    <record id="10DEOBBL" model="account.account.template">
+      <field name="code">10DEOBBL</field>
+      <field name="name">OBBLIGAZIONISTI C/INT. DA LIQ.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEPREM-->
+    <record id="10DEPREM" model="account.account.template">
+      <field name="code">10DEPREM</field>
+      <field name="name">IRPEF da detassazione premio/strao cod.1053</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEPRES-->
+    <record id="10DEPRES" model="account.account.template">
+      <field name="code">10DEPRES</field>
+      <field name="name">FATTURE DA RICEVERE E NOTE CREDITO DA EMETTERE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DEPREV-->
+    <record id="10DEPREV" model="account.account.template">
+      <field name="code">10DEPREV</field>
+      <field name="name">PREVINDAI DA LIQUIDARE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10DERPUS-->
+    <record id="10DERPUS" model="account.account.template">
+      <field name="code">10DERPUS</field>
+      <field name="name">RETTIFICA PASSIVA su crediti in dollari</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10FOESTE-->
+    <record id="10FOESTE" model="account.account.template">
+      <field name="code">10FOESTE</field>
+      <field name="name">FORNITORI ESTERI</field>
+      <field name="account_type">liability_payable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 10FOITAL-->
+    <record id="10FOITAL" model="account.account.template">
+      <field name="code">10FOITAL</field>
+      <field name="name">FORNITORI ITALIA</field>
+      <field name="account_type">liability_payable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 10RAESTE-->
+    <record id="10RAESTE" model="account.account.template">
+      <field name="code">10RAESTE</field>
+      <field name="name">RAPPRESENTANTI ESTERO</field>
+      <field name="account_type">liability_payable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 10RAITAL-->
+    <record id="10RAITAL" model="account.account.template">
+      <field name="code">10RAITAL</field>
+      <field name="name">RAPPRESENTANTI ITALIA</field>
+      <field name="account_type">liability_payable</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+    <!--Conto contabile con ID 10RRRATE-->
+    <record id="10RRRATE" model="account.account.template">
+      <field name="code">10RRRATE</field>
+      <field name="name">RATEI PASSIVI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 10RRRISC-->
+    <record id="10RRRISC" model="account.account.template">
+      <field name="code">10RRRISC</field>
+      <field name="name">RISCONTI PASSIVI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12FIANTI-->
+    <record id="12FIANTI" model="account.account.template">
+      <field name="code">12FIANTI</field>
+      <field name="name">ANTICIPI ALL'ESPORTAZIONE</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12FIBAN1-->
+    <record id="12FIBAN1" model="account.account.template">
+      <field name="code">12FIBAN1</field>
+      <field name="name">FINANZIAMENTI BANCARI US$</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12FIBANC-->
+    <record id="12FIBANC" model="account.account.template">
+      <field name="code">12FIBANC</field>
+      <field name="name">FINANZIAMENTI BANCARI</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12FIDEFI-->
+    <record id="12FIDEFI" model="account.account.template">
+      <field name="code">12FIDEFI</field>
+      <field name="name">DEBITO V/ALTRI FINANZIATORI</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12FIOBB1-->
+    <record id="12FIOBB1" model="account.account.template">
+      <field name="code">12FIOBB1</field>
+      <field name="name">PRESTITO OBBLIGAZIONARIO ORDINARIO</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12FIOBBL-->
+    <record id="12FIOBBL" model="account.account.template">
+      <field name="code">12FIOBBL</field>
+      <field name="name">PRESTITO OBBLIGAZIONARIO CONV.</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12VACAUZ-->
+    <record id="12VACAUZ" model="account.account.template">
+      <field name="code">12VACAUZ</field>
+      <field name="name">DEPOSITI CAUZIONALI RICEVUTI</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 12VADCON-->
+    <record id="12VADCON" model="account.account.template">
+      <field name="code">12VADCON</field>
+      <field name="name">DEBITI V/CONTROLLATA</field>
+      <field name="account_type">liability_non_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+      <field name="currency_id" ref="base.USD"/>
+    </record>
+    <!--Conto contabile con ID 14ACFCRE-->
+    <record id="14ACFCRE" model="account.account.template">
+      <field name="code">14ACFCRE</field>
+      <field name="name">FONDO SVALUTAZIONE CREDITI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ACFIMP-->
+    <record id="14ACFIMP" model="account.account.template">
+      <field name="code">14ACFIMP</field>
+      <field name="name">FONDO IMPOSTE E TASSE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ACFIRI-->
+    <record id="14ACFIRI" model="account.account.template">
+      <field name="code">14ACFIRI</field>
+      <field name="name">FONDO IMPOSTA SOSTITUTIVA L.342</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ACFIRO-->
+    <record id="14ACFIRO" model="account.account.template">
+      <field name="code">14ACFIRO</field>
+      <field name="name">FONDO IMPOSTE RAVV. OPEROSO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ACFSVI-->
+    <record id="14ACFSVI" model="account.account.template">
+      <field name="code">14ACFSVI</field>
+      <field name="name">FONDO SVALUTAZ. INVEST. VALUTARI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ACFTFM-->
+    <record id="14ACFTFM" model="account.account.template">
+      <field name="code">14ACFTFM</field>
+      <field name="name">FONDO T.F.M. AMMINISTRATORI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ACFTFR-->
+    <record id="14ACFTFR" model="account.account.template">
+      <field name="code">14ACFTFR</field>
+      <field name="name">FONDO T.F.R.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMAUDI-->
+    <record id="14AMAUDI" model="account.account.template">
+      <field name="code">14AMAUDI</field>
+      <field name="name">FONDO AMM.TO AUTO IN USO DIP.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMAUTB-->
+    <record id="14AMAUTB" model="account.account.template">
+      <field name="code">14AMAUTB</field>
+      <field name="name">FONDO AMM.TO AUTOV. DI BILANCIO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMAUTO-->
+    <record id="14AMAUTO" model="account.account.template">
+      <field name="code">14AMAUTO</field>
+      <field name="name">FONDO AMM.TO AUTOVETTURE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMBENI-->
+    <record id="14AMBENI" model="account.account.template">
+      <field name="code">14AMBENI</field>
+      <field name="name">FONDO AMM.TO BENI INFERIORI A 516,46 EURO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMIMCO-->
+    <record id="14AMIMCO" model="account.account.template">
+      <field name="code">14AMIMCO</field>
+      <field name="name">FONDO AMM.TO COMPART. a spese per stampi e attr.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMIMLA-->
+    <record id="14AMIMLA" model="account.account.template">
+      <field name="code">14AMIMLA</field>
+      <field name="name">FONDO AMM.TO LAVORI SU BENI DI TERZI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMIMMO-->
+    <record id="14AMIMMO" model="account.account.template">
+      <field name="code">14AMIMMO</field>
+      <field name="name">FONDO AMM.TO IMMOBILE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMIMPI-->
+    <record id="14AMIMPI" model="account.account.template">
+      <field name="code">14AMIMPI</field>
+      <field name="name">FONDO AMM.TO IMPIANTI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMIMSO-->
+    <record id="14AMIMSO" model="account.account.template">
+      <field name="code">14AMIMSO</field>
+      <field name="name">FONDO AMM.TO SOFTWARE IN USO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMMACC-->
+    <record id="14AMMACC" model="account.account.template">
+      <field name="code">14AMMACC</field>
+      <field name="name">FONDO AMM.TO MACCHINE E ATTREZ</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMMAUF-->
+    <record id="14AMMAUF" model="account.account.template">
+      <field name="code">14AMMAUF</field>
+      <field name="name">FONDO AMM.TO MACCHINE UFFICIO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMMOFF-->
+    <record id="14AMMOFF" model="account.account.template">
+      <field name="code">14AMMOFF</field>
+      <field name="name">FONDO AMM.TO MOBILI OFF.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMMOUF-->
+    <record id="14AMMOUF" model="account.account.template">
+      <field name="code">14AMMOUF</field>
+      <field name="name">FONDO AMM.TO MOBILI UFFICIO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMNATA-->
+    <record id="14AMNATA" model="account.account.template">
+      <field name="code">14AMNATA</field>
+      <field name="name">FONDO AMM.TO NATANTI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMSTAM-->
+    <record id="14AMSTAM" model="account.account.template">
+      <field name="code">14AMSTAM</field>
+      <field name="name">FONDO AMM.TO STAMPI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14AMVEIC-->
+    <record id="14AMVEIC" model="account.account.template">
+      <field name="code">14AMVEIC</field>
+      <field name="name">FONDO AMM.TO VEICOLI INDUSTR.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANAUDI-->
+    <record id="14ANAUDI" model="account.account.template">
+      <field name="code">14ANAUDI</field>
+      <field name="name">FONDO AMM.TO ANT. AUTO IN USO DIP.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANAUTO-->
+    <record id="14ANAUTO" model="account.account.template">
+      <field name="code">14ANAUTO</field>
+      <field name="name">FONDO AMM.TO ANT. AUTOVETTURE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANIMMO-->
+    <record id="14ANIMMO" model="account.account.template">
+      <field name="code">14ANIMMO</field>
+      <field name="name">FONDO AMM.TO ANT. IMMOBILE</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANIMPI-->
+    <record id="14ANIMPI" model="account.account.template">
+      <field name="code">14ANIMPI</field>
+      <field name="name">FONDO AMM.TO ANT. IMPIANTI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANMACC-->
+    <record id="14ANMACC" model="account.account.template">
+      <field name="code">14ANMACC</field>
+      <field name="name">FONDO AMM.TO ANT. MACCHINE E ATTREZ</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANMAUF-->
+    <record id="14ANMAUF" model="account.account.template">
+      <field name="code">14ANMAUF</field>
+      <field name="name">FONDO AMM.TO ANT. MACCHINE UFFICIO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANMOFF-->
+    <record id="14ANMOFF" model="account.account.template">
+      <field name="code">14ANMOFF</field>
+      <field name="name">FONDO AMM.TO ANT. MOBILI OFF.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANMOUF-->
+    <record id="14ANMOUF" model="account.account.template">
+      <field name="code">14ANMOUF</field>
+      <field name="name">FONDO AMM.TO ANT. MOBILI UFFICIO</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANNATA-->
+    <record id="14ANNATA" model="account.account.template">
+      <field name="code">14ANNATA</field>
+      <field name="name">FONDO AMM.TO ANT. NATANTI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANSTAM-->
+    <record id="14ANSTAM" model="account.account.template">
+      <field name="code">14ANSTAM</field>
+      <field name="name">FONDO AMM.TO ANT. STAMPI</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 14ANVEIC-->
+    <record id="14ANVEIC" model="account.account.template">
+      <field name="code">14ANVEIC</field>
+      <field name="name">FONDO AMM.TO ANT. VEICOLI INDUSTR.</field>
+      <field name="account_type">liability_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16CSCAPI-->
+    <record id="16CSCAPI" model="account.account.template">
+      <field name="code">16CSCAPI</field>
+      <field name="name">CAPITALE SOCIALE</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16FISOCI-->
+    <record id="16FISOCI" model="account.account.template">
+      <field name="code">16FISOCI</field>
+      <field name="name">VERSAMENTI SOCI C/CAPITALE</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RICONT-->
+    <record id="16RICONT" model="account.account.template">
+      <field name="code">16RICONT</field>
+      <field name="name">FONDO CONT.C/IMPIANTI L.696/83</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RILEGA-->
+    <record id="16RILEGA" model="account.account.template">
+      <field name="code">16RILEGA</field>
+      <field name="name">FONDO RISERVA LEGALE</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RIRIBE-->
+    <record id="16RIRIBE" model="account.account.template">
+      <field name="code">16RIRIBE</field>
+      <field name="name">FONDO RIVALUTAZIONE BENI L.342/00</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RIRICO-->
+    <record id="16RIRICO" model="account.account.template">
+      <field name="code">16RIRICO</field>
+      <field name="name">Fondo Riserva da Condono L.282/2002</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RIRIVA-->
+    <record id="16RIRIVA" model="account.account.template">
+      <field name="code">16RIRIVA</field>
+      <field name="name">FONDO RIVAL. MONETARIA L.72</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RISOPR-->
+    <record id="16RISOPR" model="account.account.template">
+      <field name="code">16RISOPR</field>
+      <field name="name">FONDO ACC. SOPRAV. EX ART.55, III C. LETT.B, TUID</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RISTRA-->
+    <record id="16RISTRA" model="account.account.template">
+      <field name="code">16RISTRA</field>
+      <field name="name">FONDO RISERVA STRAORDINARIA</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 16RIUTIL-->
+    <record id="16RIUTIL" model="account.account.template">
+      <field name="code">16RIUTIL</field>
+      <field name="name">UTILE DA RIPARTIRE</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 18REPERD-->
+    <record id="18REPERD" model="account.account.template">
+      <field name="code">18REPERD</field>
+      <field name="name">PERDITA ESERCIZIO</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 18REUTIL-->
+    <record id="18REUTIL" model="account.account.template">
+      <field name="code">18REUTIL</field>
+      <field name="name">UTILE ESERCIZIO</field>
+      <field name="account_type">equity_unaffected</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 20BIAPER-->
+    <record id="20BIAPER" model="account.account.template">
+      <field name="code">20BIAPER</field>
+      <field name="name">BILANCIO APERTURA</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 20BICHIU-->
+    <record id="20BICHIU" model="account.account.template">
+      <field name="code">20BICHIU</field>
+      <field name="name">BILANCIO CHIUSURA</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 30RIMCRI-->
+    <record id="30RIMCRI" model="account.account.template">
+      <field name="code">30RIMCRI</field>
+      <field name="name">MERCI C/RIMANENZE INIZIALI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32ACFINI-->
+    <record id="32ACFINI" model="account.account.template">
+      <field name="code">32ACFINI</field>
+      <field name="name">ACQUISTI PRODOTTI FINITI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32ACLAVE-->
+    <record id="32ACLAVE" model="account.account.template">
+      <field name="code">32ACLAVE</field>
+      <field name="name">ACQUISTI LAVORAZIONI ESTERNE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32ACNONC-->
+    <record id="32ACNONC" model="account.account.template">
+      <field name="code">32ACNONC</field>
+      <field name="name">ACQUISTI PRODOTTI NON COD.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32ACPRIM-->
+    <record id="32ACPRIM" model="account.account.template">
+      <field name="code">32ACPRIM</field>
+      <field name="name">ACQUISTO MAT. PRIME E SEMILAV.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32ACSPAC-->
+    <record id="32ACSPAC" model="account.account.template">
+      <field name="code">32ACSPAC</field>
+      <field name="name">ACQUISTI SPESE ACCESSORIE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32ACSPCO-->
+    <record id="32ACSPCO" model="account.account.template">
+      <field name="code">32ACSPCO</field>
+      <field name="name">ACQUISTI SPESE CONAI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32ACSPED-->
+    <record id="32ACSPED" model="account.account.template">
+      <field name="code">32ACSPED</field>
+      <field name="name">ACQUISTI SPESE SPEDIZIONE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMASS1-->
+    <record id="32AMASS1" model="account.account.template">
+      <field name="code">32AMASS1</field>
+      <field name="name">ASSICURAZIONE RCT - RCO - TERZI E OPERAI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMASSI-->
+    <record id="32AMASSI" model="account.account.template">
+      <field name="code">32AMASSI</field>
+      <field name="name">ASSICURAZIONI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMASSO-->
+    <record id="32AMASSO" model="account.account.template">
+      <field name="code">32AMASSO</field>
+      <field name="name">ASSOCIAZIONI DI CATEGORIA</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMCANC-->
+    <record id="32AMCANC" model="account.account.template">
+      <field name="code">32AMCANC</field>
+      <field name="name">CANCELLERIA E STAMPATI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMCODA-->
+    <record id="32AMCODA" model="account.account.template">
+      <field name="code">32AMCODA</field>
+      <field name="name">CONNESSIONE DATI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMCONS-->
+    <record id="32AMCONS" model="account.account.template">
+      <field name="code">32AMCONS</field>
+      <field name="name">CONSULENTI E PROFESSIONISTI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMELND-->
+    <record id="32AMELND" model="account.account.template">
+      <field name="code">32AMELND</field>
+      <field name="name">EROGAZIONI LIBERALI NON DEDUCIBILI AL 90%</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMNDET-->
+    <record id="32AMNDET" model="account.account.template">
+      <field name="code">32AMNDET</field>
+      <field name="name">SPESE AMMINISTR.* NON DETRAIBILI*</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMNOLE-->
+    <record id="32AMNOLE" model="account.account.template">
+      <field name="code">32AMNOLE</field>
+      <field name="name">CONTRATTO DI NOLEGGIO</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMPAGH-->
+    <record id="32AMPAGH" model="account.account.template">
+      <field name="code">32AMPAGH</field>
+      <field name="name">TENUTA PAGHE E CONTABILITA'</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMPAIN-->
+    <record id="32AMPAIN" model="account.account.template">
+      <field name="code">32AMPAIN</field>
+      <field name="name">SERVIZIO INTERINALE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMPOST-->
+    <record id="32AMPOST" model="account.account.template">
+      <field name="code">32AMPOST</field>
+      <field name="name">SPESE POSTALI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMSOC1-->
+    <record id="32AMSOC1" model="account.account.template">
+      <field name="code">32AMSOC1</field>
+      <field name="name">COMPENSI COLLEGIO SINDACALE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMSOCI-->
+    <record id="32AMSOCI" model="account.account.template">
+      <field name="code">32AMSOCI</field>
+      <field name="name">COMPENSI AMMINISTRATORI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMTELC-->
+    <record id="32AMTELC" model="account.account.template">
+      <field name="code">32AMTELC</field>
+      <field name="name">TELEFONICHE CELLULARI DETR. AL 80%</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMTELE-->
+    <record id="32AMTELE" model="account.account.template">
+      <field name="code">32AMTELE</field>
+      <field name="name">SPESE TELEFONICHE DETR. 80%</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMVAND-->
+    <record id="32AMVAND" model="account.account.template">
+      <field name="code">32AMVAND</field>
+      <field name="name">VARIE GENERALI NON DEDUCIBILI 100%</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMVARI-->
+    <record id="32AMVARI" model="account.account.template">
+      <field name="code">32AMVARI</field>
+      <field name="name">VARIE GENERALI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32AMVIDI-->
+    <record id="32AMVIDI" model="account.account.template">
+      <field name="code">32AMVIDI</field>
+      <field name="name">VIDIMAZIONI E VALORI BOLLATI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COAUTO-->
+    <record id="32COAUTO" model="account.account.template">
+      <field name="code">32COAUTO</field>
+      <field name="name">AUTOVETTURE SPESE VARIE AL 20%</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COBANC-->
+    <record id="32COBANC" model="account.account.template">
+      <field name="code">32COBANC</field>
+      <field name="name">COMM.NI E SPESE BANCARIE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COCATA-->
+    <record id="32COCATA" model="account.account.template">
+      <field name="code">32COCATA</field>
+      <field name="name">CATALOGHI E PUBBLICITA'</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COPER1-->
+    <record id="32COPER1" model="account.account.template">
+      <field name="code">32COPER1</field>
+      <field name="name">PERDITE SU PARTECIPAZIONE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COPERD-->
+    <record id="32COPERD" model="account.account.template">
+      <field name="code">32COPERD</field>
+      <field name="name">PERDITE SU CREDITI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COPROV-->
+    <record id="32COPROV" model="account.account.template">
+      <field name="code">32COPROV</field>
+      <field name="name">PROVVIGIONI AGENTI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COQRIS-->
+    <record id="32COQRIS" model="account.account.template">
+      <field name="code">32COQRIS</field>
+      <field name="name">QUOTA RISCHI SU CREDITI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32CORIKM-->
+    <record id="32CORIKM" model="account.account.template">
+      <field name="code">32CORIKM</field>
+      <field name="name">RIMBORSI KILOMETRICI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COSPED-->
+    <record id="32COSPED" model="account.account.template">
+      <field name="code">32COSPED</field>
+      <field name="name">SPEDIZIONE E NOLI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COSRAP-->
+    <record id="32COSRAP" model="account.account.template">
+      <field name="code">32COSRAP</field>
+      <field name="name">SPESE DI RAPPRESENTANZA</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COVIAF-->
+    <record id="32COVIAF" model="account.account.template">
+      <field name="code">32COVIAF</field>
+      <field name="name">FIERE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COVIAG-->
+    <record id="32COVIAG" model="account.account.template">
+      <field name="code">32COVIAG</field>
+      <field name="name">VIAGGI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32COVIAL-->
+    <record id="32COVIAL" model="account.account.template">
+      <field name="code">32COVIAL</field>
+      <field name="name">RISTORANTI E ALBERGHI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INACQU-->
+    <record id="32INACQU" model="account.account.template">
+      <field name="code">32INACQU</field>
+      <field name="name">ACQUA</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INAMSI-->
+    <record id="32INAMSI" model="account.account.template">
+      <field name="code">32INAMSI</field>
+      <field name="name">AMBIENTE / SICUREZZA</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INATTR-->
+    <record id="32INATTR" model="account.account.template">
+      <field name="code">32INATTR</field>
+      <field name="name">ATTREZZATURE VARIE INF A 1ML.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INCEOM-->
+    <record id="32INCEOM" model="account.account.template">
+      <field name="code">32INCEOM</field>
+      <field name="name">CERTIFICAZIONI / OMOLOGAZIONI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INELET-->
+    <record id="32INELET" model="account.account.template">
+      <field name="code">32INELET</field>
+      <field name="name">ENERGIA ELETTRICA</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INFITT-->
+    <record id="32INFITT" model="account.account.template">
+      <field name="code">32INFITT</field>
+      <field name="name">FITTI PASSIVI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INIGUR-->
+    <record id="32INIGUR" model="account.account.template">
+      <field name="code">32INIGUR</field>
+      <field name="name">IGIENE E RIFIUTI URBANI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INLIAN-->
+    <record id="32INLIAN" model="account.account.template">
+      <field name="code">32INLIAN</field>
+      <field name="name">LICENZE ANNUALI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INMANT-->
+    <record id="32INMANT" model="account.account.template">
+      <field name="code">32INMANT</field>
+      <field name="name">MANUTENZ. E RIPARAZ. SU BENI DI TERZI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INMANU-->
+    <record id="32INMANU" model="account.account.template">
+      <field name="code">32INMANU</field>
+      <field name="name">MANUTENZIONE E RIPARAZIONE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INMETA-->
+    <record id="32INMETA" model="account.account.template">
+      <field name="code">32INMETA</field>
+      <field name="name">METANO</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INVARI-->
+    <record id="32INVARI" model="account.account.template">
+      <field name="code">32INVARI</field>
+      <field name="name">VARIE OFFICINA</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32INVEIC-->
+    <record id="32INVEIC" model="account.account.template">
+      <field name="code">32INVEIC</field>
+      <field name="name">VEICOLI INDUSTRIALI SPESE VAR.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEADCO-->
+    <record id="32PEADCO" model="account.account.template">
+      <field name="code">32PEADCO</field>
+      <field name="name">ADDIZIONALE COMUNALE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEADDI-->
+    <record id="32PEADDI" model="account.account.template">
+      <field name="code">32PEADDI</field>
+      <field name="name">ADDIZIONALE REGIONALE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PECOMP-->
+    <record id="32PECOMP" model="account.account.template">
+      <field name="code">32PECOMP</field>
+      <field name="name">COMPENSI COLLABORATORI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PECONT-->
+    <record id="32PECONT" model="account.account.template">
+      <field name="code">32PECONT</field>
+      <field name="name">CONTRIBUTI PREVIDENZIALI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEFORM-->
+    <record id="32PEFORM" model="account.account.template">
+      <field name="code">32PEFORM</field>
+      <field name="name">CORSI DI FORMAZIONE DEL PERSONALE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEINAI-->
+    <record id="32PEINAI" model="account.account.template">
+      <field name="code">32PEINAI</field>
+      <field name="name">CONTRIBUTI INAIL</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEIRPE-->
+    <record id="32PEIRPE" model="account.account.template">
+      <field name="code">32PEIRPE</field>
+      <field name="name">IRPEF SU RETRIBUZIONI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEITRF-->
+    <record id="32PEITRF" model="account.account.template">
+      <field name="code">32PEITRF</field>
+      <field name="name">IMPOSTA 11% rivalutazione T.F.R.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEMEDI-->
+    <record id="32PEMEDI" model="account.account.template">
+      <field name="code">32PEMEDI</field>
+      <field name="name">VISITE MEDICHE DIPENDENTI L.626</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEPREM-->
+    <record id="32PEPREM" model="account.account.template">
+      <field name="code">32PEPREM</field>
+      <field name="name">IRPEF su detassazione10% su premio / straord.
+</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEQTF1-->
+    <record id="32PEQTF1" model="account.account.template">
+      <field name="code">32PEQTF1</field>
+      <field name="name">QUOTA T.F.R. da destinare a fondo pensione</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEQTFM-->
+    <record id="32PEQTFM" model="account.account.template">
+      <field name="code">32PEQTFM</field>
+      <field name="name">ACCANTONAMENTO T.F.M.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PEQTFR-->
+    <record id="32PEQTFR" model="account.account.template">
+      <field name="code">32PEQTFR</field>
+      <field name="name">QUOTA T.F.R.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PESALA-->
+    <record id="32PESALA" model="account.account.template">
+      <field name="code">32PESALA</field>
+      <field name="name">SALARI E STIPENDI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PESSME-->
+    <record id="32PESSME" model="account.account.template">
+      <field name="code">32PESSME</field>
+      <field name="name">SERVIZI SOSTITUTIVI DI MENSA/BUONI PASTO</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 32PETEMP-->
+    <record id="32PETEMP" model="account.account.template">
+      <field name="code">32PETEMP</field>
+      <field name="name">LAVORO TEMPORANEO</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 34RRARRO-->
+    <record id="34RRARRO" model="account.account.template">
+      <field name="code">34RRARRO</field>
+      <field name="name">ARROTONDAMENTI CONTABILI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 34RRCAMB-->
+    <record id="34RRCAMB" model="account.account.template">
+      <field name="code">34RRCAMB</field>
+      <field name="name">DIFFERENZE CAMBI PASSIVE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 34RRCEUR-->
+    <record id="34RRCEUR" model="account.account.template">
+      <field name="code">34RRCEUR</field>
+      <field name="name">DIFFERENZE CONV. C/ECON. LIRA/EURO</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 34RRPETI-->
+    <record id="34RRPETI" model="account.account.template">
+      <field name="code">34RRPETI</field>
+      <field name="name">PERDITA SU NEGOZ. TITOLI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 34RRRESI-->
+    <record id="34RRRESI" model="account.account.template">
+      <field name="code">34RRRESI</field>
+      <field name="name">RESI SU VENDITE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 34RRSCON-->
+    <record id="34RRSCON" model="account.account.template">
+      <field name="code">34RRSCON</field>
+      <field name="name">SCONTI E ABBUONI PASSIVI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 36INANTI-->
+    <record id="36INANTI" model="account.account.template">
+      <field name="code">36INANTI</field>
+      <field name="name">INTERESSI PASSIVI ANT.EXPORT</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 36INCONT-->
+    <record id="36INCONT" model="account.account.template">
+      <field name="code">36INCONT</field>
+      <field name="name">INTERESSI PASSIVI C/C</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 36INFINA-->
+    <record id="36INFINA" model="account.account.template">
+      <field name="code">36INFINA</field>
+      <field name="name">INTERESSI PASS. FINANZ.BANCHE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 36INOBBL-->
+    <record id="36INOBBL" model="account.account.template">
+      <field name="code">36INOBBL</field>
+      <field name="name">INTERESSI PASS.PRESTITO OBBLIG</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 36INRITP-->
+    <record id="36INRITP" model="account.account.template">
+      <field name="code">36INRITP</field>
+      <field name="name">INTERESSI PASSIVI PER DILAZION./RITARDATO PAGAM.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMAUDI-->
+    <record id="38AMAUDI" model="account.account.template">
+      <field name="code">38AMAUDI</field>
+      <field name="name">AMMORTAMENTO AUTO IN USO DIP.</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMAUTO-->
+    <record id="38AMAUTO" model="account.account.template">
+      <field name="code">38AMAUTO</field>
+      <field name="name">AMMORTAMENTO AUTOVETTURE</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMCOMP-->
+    <record id="38AMCOMP" model="account.account.template">
+      <field name="code">38AMCOMP</field>
+      <field name="name">AMMORTAMENTO Compartecipazioni a spese per stampi e attrezzature</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMIMMO-->
+    <record id="38AMIMMO" model="account.account.template">
+      <field name="code">38AMIMMO</field>
+      <field name="name">AMMORTAMENTO IMMOBILE</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMIMPI-->
+    <record id="38AMIMPI" model="account.account.template">
+      <field name="code">38AMIMPI</field>
+      <field name="name">AMMORTAMENTO IMPIANTI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMLAVO-->
+    <record id="38AMLAVO" model="account.account.template">
+      <field name="code">38AMLAVO</field>
+      <field name="name">AMMORTAMENTO LAV. SU BENI DI TERZI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMMACC-->
+    <record id="38AMMACC" model="account.account.template">
+      <field name="code">38AMMACC</field>
+      <field name="name">AMMORTAMENTO MACCHINE E ATTREZZATURE</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMMACU-->
+    <record id="38AMMACU" model="account.account.template">
+      <field name="code">38AMMACU</field>
+      <field name="name">AMMORTAMENTO MACCHINE UFFICIO</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMMANU-->
+    <record id="38AMMANU" model="account.account.template">
+      <field name="code">38AMMANU</field>
+      <field name="name">AMMORTAMENTO MANUT. STRAORD.</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMMOBI-->
+    <record id="38AMMOBI" model="account.account.template">
+      <field name="code">38AMMOBI</field>
+      <field name="name">AMMORTAMENTO MOBILI UFFICIO</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMMOFF-->
+    <record id="38AMMOFF" model="account.account.template">
+      <field name="code">38AMMOFF</field>
+      <field name="name">AMMORTAMENTO MOBILI OFFICINA</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMNATA-->
+    <record id="38AMNATA" model="account.account.template">
+      <field name="code">38AMNATA</field>
+      <field name="name">AMMORTAMENTO NATANTI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMNDET-->
+    <record id="38AMNDET" model="account.account.template">
+      <field name="code">38AMNDET</field>
+      <field name="name">AMMORTAMENTI NON DETRAIBILI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMPLUR-->
+    <record id="38AMPLUR" model="account.account.template">
+      <field name="code">38AMPLUR</field>
+      <field name="name">AMMORTAMENTO SPESE PLURIENNALI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMSOFT-->
+    <record id="38AMSOFT" model="account.account.template">
+      <field name="code">38AMSOFT</field>
+      <field name="name">AMMORTAMENTO SOFTWARE IN USO</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMSTAM-->
+    <record id="38AMSTAM" model="account.account.template">
+      <field name="code">38AMSTAM</field>
+      <field name="name">AMMORTAMENTO STAMPI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38AMVEIC-->
+    <record id="38AMVEIC" model="account.account.template">
+      <field name="code">38AMVEIC</field>
+      <field name="name">AMMORTAMENTO VEICOLI INDUSTR.</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANAUDI-->
+    <record id="38ANAUDI" model="account.account.template">
+      <field name="code">38ANAUDI</field>
+      <field name="name">AMMORTAMENTO ANT. AUTO IN USO DIP.</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANAUTO-->
+    <record id="38ANAUTO" model="account.account.template">
+      <field name="code">38ANAUTO</field>
+      <field name="name">AMMORTAMENTO ANT. AUTOVETTURE</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANIMMO-->
+    <record id="38ANIMMO" model="account.account.template">
+      <field name="code">38ANIMMO</field>
+      <field name="name">AMMORTAMENTO ANT. IMMOBILE</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANIMPI-->
+    <record id="38ANIMPI" model="account.account.template">
+      <field name="code">38ANIMPI</field>
+      <field name="name">AMMORTAMENTO ANT. IMPIANTI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANMACC-->
+    <record id="38ANMACC" model="account.account.template">
+      <field name="code">38ANMACC</field>
+      <field name="name">AMMORTAMENTO ANT. MACCHINE E ATTREZZATURE</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANMACU-->
+    <record id="38ANMACU" model="account.account.template">
+      <field name="code">38ANMACU</field>
+      <field name="name">AMMORTAMENTO ANT. MACCHINE UFFICIO</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANMOBI-->
+    <record id="38ANMOBI" model="account.account.template">
+      <field name="code">38ANMOBI</field>
+      <field name="name">AMMORTAMENTO ANT. MOBILI UFFICIO</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANMOFF-->
+    <record id="38ANMOFF" model="account.account.template">
+      <field name="code">38ANMOFF</field>
+      <field name="name">AMMORTAMENTO ANT. MOBILI OFFICINA</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANNATA-->
+    <record id="38ANNATA" model="account.account.template">
+      <field name="code">38ANNATA</field>
+      <field name="name">AMMORTAMENTO ANT. NATANTI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANSTAM-->
+    <record id="38ANSTAM" model="account.account.template">
+      <field name="code">38ANSTAM</field>
+      <field name="name">AMMORTAMENTO ANT. STAMPI</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 38ANVEIN-->
+    <record id="38ANVEIN" model="account.account.template">
+      <field name="code">38ANVEIN</field>
+      <field name="name">AMMORTAMENTO ANT. VEICOLI INDUSTR.</field>
+      <field name="account_type">expense_depreciation</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 40MSMINU-->
+    <record id="40MSMINU" model="account.account.template">
+      <field name="code">40MSMINU</field>
+      <field name="name">MINUSVALENZE PATRIMONIALI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 40MSSOP1-->
+    <record id="40MSSOP1" model="account.account.template">
+      <field name="code">40MSSOP1</field>
+      <field name="name">SOPRAVV. PASSIVE NON DETR.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 40MSSOPR-->
+    <record id="40MSSOPR" model="account.account.template">
+      <field name="code">40MSSOPR</field>
+      <field name="name">SOPRAVV. E INSUSSISTENZE PASS.</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 42OFACCA-->
+    <record id="42OFACCA" model="account.account.template">
+      <field name="code">42OFACCA</field>
+      <field name="name">ACCANTONAMENTO IMPOSTE SOCIETA</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 42OFIMPD-->
+    <record id="42OFIMPD" model="account.account.template">
+      <field name="code">42OFIMPD</field>
+      <field name="name">IMPOSTE E TASSE DETRAIBILI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 42OFIMPL-->
+    <record id="42OFIMPL" model="account.account.template">
+      <field name="code">42OFIMPL</field>
+      <field name="name">IMPOSTA REGISTRO CONTR.LOCAZIONE</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 42OFIMPN-->
+    <record id="42OFIMPN" model="account.account.template">
+      <field name="code">42OFIMPN</field>
+      <field name="name">IMPOSTE E TASSE NON DETRAIBILI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 42OFIMPT-->
+    <record id="42OFIMPT" model="account.account.template">
+      <field name="code">42OFIMPT</field>
+      <field name="name">IMPOSTE E TASSE - TASI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 42OFMUSA-->
+    <record id="42OFMUSA" model="account.account.template">
+      <field name="code">42OFMUSA</field>
+      <field name="name">MULTE E SANZIONI</field>
+      <field name="account_type">expense</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50ACESEN-->
+    <record id="50ACESEN" model="account.account.template">
+      <field name="code">50ACESEN</field>
+      <field name="name">RIMBORSO SPESE ESENTI ART.15</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50ACTRAS-->
+    <record id="50ACTRAS" model="account.account.template">
+      <field name="code">50ACTRAS</field>
+      <field name="name">RIMBORSO SPESE TRASPORTO</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50ACVARI-->
+    <record id="50ACVARI" model="account.account.template">
+      <field name="code">50ACVARI</field>
+      <field name="name">RIMBORSO SPESE VARIE</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVCAM1-->
+    <record id="50PVCAM1" model="account.account.template">
+      <field name="code">50PVCAM1</field>
+      <field name="name">DIFF. ATT. SU CAMBI NON IMP. FISCALE</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVCAMB-->
+    <record id="50PVCAMB" model="account.account.template">
+      <field name="code">50PVCAMB</field>
+      <field name="name">DIFFERENZE CAMBIO ATTIVE</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVCONT-->
+    <record id="50PVCONT" model="account.account.template">
+      <field name="code">50PVCONT</field>
+      <field name="name">CONTRIBUTI IN C/ESERCIZIO - C/IMPIANTI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVCORS-->
+    <record id="50PVCORS" model="account.account.template">
+      <field name="code">50PVCORS</field>
+      <field name="name">CONTRIBUTO IN C/ESERCIZIO R&amp;S NON TASSABILE</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVFITT-->
+    <record id="50PVFITT" model="account.account.template">
+      <field name="code">50PVFITT</field>
+      <field name="name">FITTI ATTIVI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVINTE-->
+    <record id="50PVINTE" model="account.account.template">
+      <field name="code">50PVINTE</field>
+      <field name="name">INTERESSI PER RITARDATI PAGAM.</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVPRAS-->
+    <record id="50PVPRAS" model="account.account.template">
+      <field name="code">50PVPRAS</field>
+      <field name="name">PREMIO ASSUNZ. ART.2 DL.357/94</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVPROV-->
+    <record id="50PVPROV" model="account.account.template">
+      <field name="code">50PVPROV</field>
+      <field name="name">PROVVIGIONI SU NS. TRANSAZIONI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVRIDI-->
+    <record id="50PVRIDI" model="account.account.template">
+      <field name="code">50PVRIDI</field>
+      <field name="name">RICAVI DIVERSI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVRIEN-->
+    <record id="50PVRIEN" model="account.account.template">
+      <field name="code">50PVRIEN</field>
+      <field name="name">ENERGIA ELETTRICA SCAMBIO SUL POSTO</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVRIMA-->
+    <record id="50PVRIMA" model="account.account.template">
+      <field name="code">50PVRIMA</field>
+      <field name="name">RIMBORSI ASSICURATIVI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVRIVA-->
+    <record id="50PVRIVA" model="account.account.template">
+      <field name="code">50PVRIVA</field>
+      <field name="name">Rivalutazione T.F.R. anticipato</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEALTR-->
+    <record id="50VEALTR" model="account.account.template">
+      <field name="code">50VEALTR</field>
+      <field name="name">VENDITE ALTRI PRODOTTI</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEAUTO-->
+    <record id="50VEAUTO" model="account.account.template">
+      <field name="code">50VEAUTO</field>
+      <field name="name">VENDITE PRODOTTI AUTO</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VECAMI-->
+    <record id="50VECAMI" model="account.account.template">
+      <field name="code">50VECAMI</field>
+      <field name="name">VENDITE PRODOTTI CAMION</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEFARI-->
+    <record id="50VEFARI" model="account.account.template">
+      <field name="code">50VEFARI</field>
+      <field name="name">VENDITE FARI MARINI</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEFINI-->
+    <record id="50VEFINI" model="account.account.template">
+      <field name="code">50VEFINI</field>
+      <field name="name">VENDITE PRODOTTI FINITI</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEMARE-->
+    <record id="50VEMARE" model="account.account.template">
+      <field name="code">50VEMARE</field>
+      <field name="name">VENDITE PRODOTTI MARE</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEOMOL-->
+    <record id="50VEOMOL" model="account.account.template">
+      <field name="code">50VEOMOL</field>
+      <field name="name">VENDITE PRODOTTI OMOLOGATI</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEPOMP-->
+    <record id="50VEPOMP" model="account.account.template">
+      <field name="code">50VEPOMP</field>
+      <field name="name">VENDITE POMPE</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VEPROF-->
+    <record id="50VEPROF" model="account.account.template">
+      <field name="code">50VEPROF</field>
+      <field name="name">VENDITE PROFILI E ACCESSORI</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VESERV-->
+    <record id="50VESERV" model="account.account.template">
+      <field name="code">50VESERV</field>
+      <field name="name">CONTO VENDITA DI SERVIZIO</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50VETGAS-->
+    <record id="50VETGAS" model="account.account.template">
+      <field name="code">50VETGAS</field>
+      <field name="name">VENDITE TROMBE A GAS</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 52RCRESI-->
+    <record id="52RCRESI" model="account.account.template">
+      <field name="code">52RCRESI</field>
+      <field name="name">RESI SU ACQUISTO</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 52RCSCON-->
+    <record id="52RCSCON" model="account.account.template">
+      <field name="code">52RCSCON</field>
+      <field name="name">SCONTI E ABBUONI ATTIVI</field>
+      <field name="account_type">income</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 54INCONT-->
+    <record id="54INCONT" model="account.account.template">
+      <field name="code">54INCONT</field>
+      <field name="name">INTERESSI ATTIVI C/C</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 54INTITO-->
+    <record id="54INTITO" model="account.account.template">
+      <field name="code">54INTITO</field>
+      <field name="name">INTERESSI ATTIVI SU TITOLI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 54UTAZIO-->
+    <record id="54UTAZIO" model="account.account.template">
+      <field name="code">54UTAZIO</field>
+      <field name="name">DIVIDENDI AZIONARI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 54UTTITO-->
+    <record id="54UTTITO" model="account.account.template">
+      <field name="code">54UTTITO</field>
+      <field name="name">UTILE SU TITOLI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 56RIMCRF-->
+    <record id="56RIMCRF" model="account.account.template">
+      <field name="code">56RIMCRF</field>
+      <field name="name">MERCI C/RIMANENZE FINALI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 58PSPLNT-->
+    <record id="58PSPLNT" model="account.account.template">
+      <field name="code">58PSPLNT</field>
+      <field name="name">PLUSVALENZE NON TASSABILI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 58PSPLUS-->
+    <record id="58PSPLUS" model="account.account.template">
+      <field name="code">58PSPLUS</field>
+      <field name="name">PLUSVALENZE PATRIMONIALI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 58PSSOP1-->
+    <record id="58PSSOP1" model="account.account.template">
+      <field name="code">58PSSOP1</field>
+      <field name="name">Sopravenienze attive Ex Legge 388</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 58PSSOP2-->
+    <record id="58PSSOP2" model="account.account.template">
+      <field name="code">58PSSOP2</field>
+      <field name="name">SOPRAVV.  ATTIVE NON TASSABILI</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 58PSSOPR-->
+    <record id="58PSSOPR" model="account.account.template">
+      <field name="code">58PSSOPR</field>
+      <field name="name">SOPRAVV. E INSUSSISTENZE ATT.</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 70PROPER-->
+    <record id="70PROPER" model="account.account.template">
+      <field name="code">70PROPER</field>
+      <field name="name">PROFITTI E PERDITE</field>
+      <field name="account_type">equity</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+  </data>
+</odoo>

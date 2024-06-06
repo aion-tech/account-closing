@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<odoo>
+  <data noupdate="1">
+    <record id="marco_account_group_00" model="account.group">
+      <field name="name">IMMOBILIZZAZIONI E RIMANENZE</field>
+      <field name="code_prefix_start">00</field>
+      <field name="code_prefix_end">00</field>
+    </record>
+    <record id="marco_account_group_00FI" model="account.group">
+      <field name="name">IMMOBILIZZAZIONI FINANZIARIE</field>
+      <field name="code_prefix_start">00FI</field>
+      <field name="code_prefix_end">00FI</field>
+    </record>
+    <record id="marco_account_group_00IM" model="account.group">
+      <field name="name">IMMOBILIZZAZIONI IMMATERIALI</field>
+      <field name="code_prefix_start">00IM</field>
+      <field name="code_prefix_end">00IM</field>
+    </record>
+    <record id="marco_account_group_00MA" model="account.group">
+      <field name="name">IMMOBILIZZAZIONI MATERIALI</field>
+      <field name="code_prefix_start">00MA</field>
+      <field name="code_prefix_end">00MA</field>
+    </record>
+    <record id="marco_account_group_00SM" model="account.group">
+      <field name="name">SCORTE DI MAGAZZINO</field>
+      <field name="code_prefix_start">00SM</field>
+      <field name="code_prefix_end">00SM</field>
+    </record>
+    <record id="marco_account_group_02" model="account.group">
+      <field name="name">PERDITE ESERCIZI PRECEDENTI</field>
+      <field name="code_prefix_start">02</field>
+      <field name="code_prefix_end">02</field>
+    </record>
+    <record id="marco_account_group_02PE" model="account.group">
+      <field name="name">PERDITE</field>
+      <field name="code_prefix_start">02PE</field>
+      <field name="code_prefix_end">02PE</field>
+    </record>
+    <record id="marco_account_group_04" model="account.group">
+      <field name="name">ATTIVO CIRCOLANTE</field>
+      <field name="code_prefix_start">04</field>
+      <field name="code_prefix_end">04</field>
+    </record>
+    <record id="marco_account_group_04CL" model="account.group">
+      <field name="name">CREDITI V/CLIENTI</field>
+      <field name="code_prefix_start">04CL</field>
+      <field name="code_prefix_end">04CL</field>
+    </record>
+    <record id="marco_account_group_04CR" model="account.group">
+      <field name="name">CREDITI DIVERSI</field>
+      <field name="code_prefix_start">04CR</field>
+      <field name="code_prefix_end">04CR</field>
+    </record>
+    <record id="marco_account_group_04LI" model="account.group">
+      <field name="name">LIQUIDITA'</field>
+      <field name="code_prefix_start">04LI</field>
+      <field name="code_prefix_end">04LI</field>
+    </record>
+    <record id="marco_account_group_04PO" model="account.group">
+      <field name="name">PORTAFOGLIO EFFETTI</field>
+      <field name="code_prefix_start">04PO</field>
+      <field name="code_prefix_end">04PO</field>
+    </record>
+    <record id="marco_account_group_04RR" model="account.group">
+      <field name="name">RATEI E RISCONTI ATTIVI</field>
+      <field name="code_prefix_start">04RR</field>
+      <field name="code_prefix_end">04RR</field>
+    </record>
+    <record id="marco_account_group_10" model="account.group">
+      <field name="name">DEBITI A BREVE TERMINE</field>
+      <field name="code_prefix_start">10</field>
+      <field name="code_prefix_end">10</field>
+    </record>
+    <record id="marco_account_group_10DE" model="account.group">
+      <field name="name">DEBITI DIVERSI A BREVE TERMINE</field>
+      <field name="code_prefix_start">10DE</field>
+      <field name="code_prefix_end">10DE</field>
+    </record>
+    <record id="marco_account_group_10FO" model="account.group">
+      <field name="name">DEBITI V/FORNITORI</field>
+      <field name="code_prefix_start">10FO</field>
+      <field name="code_prefix_end">10FO</field>
+    </record>
+    <record id="marco_account_group_10RA" model="account.group">
+      <field name="name">DEBITI V/RAPPRESENTANTI</field>
+      <field name="code_prefix_start">10RA</field>
+      <field name="code_prefix_end">10RA</field>
+    </record>
+    <record id="marco_account_group_10RR" model="account.group">
+      <field name="name">RATEI E RISCONTI PASSIVI</field>
+      <field name="code_prefix_start">10RR</field>
+      <field name="code_prefix_end">10RR</field>
+    </record>
+    <record id="marco_account_group_12" model="account.group">
+      <field name="name">DEBITI A MEDIO/LUNGO TERMINE</field>
+      <field name="code_prefix_start">12</field>
+      <field name="code_prefix_end">12</field>
+    </record>
+    <record id="marco_account_group_12FI" model="account.group">
+      <field name="name">FINANZIAMENTI</field>
+      <field name="code_prefix_start">12FI</field>
+      <field name="code_prefix_end">12FI</field>
+    </record>
+    <record id="marco_account_group_12VA" model="account.group">
+      <field name="name">DEBITI VARI A MEDIO/LUNGO TER.</field>
+      <field name="code_prefix_start">12VA</field>
+      <field name="code_prefix_end">12VA</field>
+    </record>
+    <record id="marco_account_group_14" model="account.group">
+      <field name="name">FONDI AMM.TO E ACC.TO</field>
+      <field name="code_prefix_start">14</field>
+      <field name="code_prefix_end">14</field>
+    </record>
+    <record id="marco_account_group_14AC" model="account.group">
+      <field name="name">FONDI SPESE E RISCHI</field>
+      <field name="code_prefix_start">14AC</field>
+      <field name="code_prefix_end">14AC</field>
+    </record>
+    <record id="marco_account_group_14AM" model="account.group">
+      <field name="name">FONDI AMMORTAMENTO ORDINARI</field>
+      <field name="code_prefix_start">14AM</field>
+      <field name="code_prefix_end">14AM</field>
+    </record>
+    <record id="marco_account_group_14AN" model="account.group">
+      <field name="name">FONDI AMMORTAMENTO ANTICIPATI</field>
+      <field name="code_prefix_start">14AN</field>
+      <field name="code_prefix_end">14AN</field>
+    </record>
+    <record id="marco_account_group_16" model="account.group">
+      <field name="name">CAPITALE NETTO</field>
+      <field name="code_prefix_start">16</field>
+      <field name="code_prefix_end">16</field>
+    </record>
+    <record id="marco_account_group_16CS" model="account.group">
+      <field name="name">CAPITALE SOCIALE</field>
+      <field name="code_prefix_start">16CS</field>
+      <field name="code_prefix_end">16CS</field>
+    </record>
+    <record id="marco_account_group_16FI" model="account.group">
+      <field name="name">FINANZIAMENTI</field>
+      <field name="code_prefix_start">16FI</field>
+      <field name="code_prefix_end">16FI</field>
+    </record>
+    <record id="marco_account_group_16RI" model="account.group">
+      <field name="name">RISERVE E UTILI ESERCIZI PREC.</field>
+      <field name="code_prefix_start">16RI</field>
+      <field name="code_prefix_end">16RI</field>
+    </record>
+    <record id="marco_account_group_18" model="account.group">
+      <field name="name">RISULTATO ESERCIZIO</field>
+      <field name="code_prefix_start">18</field>
+      <field name="code_prefix_end">18</field>
+    </record>
+    <record id="marco_account_group_18RE" model="account.group">
+      <field name="name">RISULTATO ESERCIZIO</field>
+      <field name="code_prefix_start">18RE</field>
+      <field name="code_prefix_end">18RE</field>
+    </record>
+    <record id="marco_account_group_20" model="account.group">
+      <field name="name">BILANCIO</field>
+      <field name="code_prefix_start">20</field>
+      <field name="code_prefix_end">20</field>
+    </record>
+    <record id="marco_account_group_20BI" model="account.group">
+      <field name="name">BILANCIO</field>
+      <field name="code_prefix_start">20BI</field>
+      <field name="code_prefix_end">20BI</field>
+    </record>
+    <record id="marco_account_group_30" model="account.group">
+      <field name="name">RIMANENZE INIZIALI MAGAZZINO</field>
+      <field name="code_prefix_start">30</field>
+      <field name="code_prefix_end">30</field>
+    </record>
+    <record id="marco_account_group_30RI" model="account.group">
+      <field name="name">RIMANENZE INIZIALI</field>
+      <field name="code_prefix_start">30RI</field>
+      <field name="code_prefix_end">30RI</field>
+    </record>
+    <record id="marco_account_group_32" model="account.group">
+      <field name="name">COSTI ED ONERI DI ESERCIZIO</field>
+      <field name="code_prefix_start">32</field>
+      <field name="code_prefix_end">32</field>
+    </record>
+    <record id="marco_account_group_32AC" model="account.group">
+      <field name="name">ACQUISTI</field>
+      <field name="code_prefix_start">32AC</field>
+      <field name="code_prefix_end">32AC</field>
+    </record>
+    <record id="marco_account_group_32AM" model="account.group">
+      <field name="name">SPESE AMMINISTRATIVE</field>
+      <field name="code_prefix_start">32AM</field>
+      <field name="code_prefix_end">32AM</field>
+    </record>
+    <record id="marco_account_group_32CO" model="account.group">
+      <field name="name">SPESE COMMERCIALI</field>
+      <field name="code_prefix_start">32CO</field>
+      <field name="code_prefix_end">32CO</field>
+    </record>
+    <record id="marco_account_group_32IN" model="account.group">
+      <field name="name">SPESE INDUSTRIALI</field>
+      <field name="code_prefix_start">32IN</field>
+      <field name="code_prefix_end">32IN</field>
+    </record>
+    <record id="marco_account_group_32PE" model="account.group">
+      <field name="name">ONERI PERSONALE</field>
+      <field name="code_prefix_start">32PE</field>
+      <field name="code_prefix_end">32PE</field>
+    </record>
+    <record id="marco_account_group_34" model="account.group">
+      <field name="name">RETTIFICHE AI RICAVI</field>
+      <field name="code_prefix_start">34</field>
+      <field name="code_prefix_end">34</field>
+    </record>
+    <record id="marco_account_group_34RR" model="account.group">
+      <field name="name">RETTIFICHE AI RICAVI</field>
+      <field name="code_prefix_start">34RR</field>
+      <field name="code_prefix_end">34RR</field>
+    </record>
+    <record id="marco_account_group_36" model="account.group">
+      <field name="name">ONERI FINANZIARI</field>
+      <field name="code_prefix_start">36</field>
+      <field name="code_prefix_end">36</field>
+    </record>
+    <record id="marco_account_group_36IN" model="account.group">
+      <field name="name">INTERESSI PASSIVI</field>
+      <field name="code_prefix_start">36IN</field>
+      <field name="code_prefix_end">36IN</field>
+    </record>
+    <record id="marco_account_group_38" model="account.group">
+      <field name="name">AMMORTAMENTI</field>
+      <field name="code_prefix_start">38</field>
+      <field name="code_prefix_end">38</field>
+    </record>
+    <record id="marco_account_group_38AM" model="account.group">
+      <field name="name">AMMORTAMENTI ORDINARI</field>
+      <field name="code_prefix_start">38AM</field>
+      <field name="code_prefix_end">38AM</field>
+    </record>
+    <record id="marco_account_group_38AN" model="account.group">
+      <field name="name">AMMORTAMENTI ANTICIPATI</field>
+      <field name="code_prefix_start">38AN</field>
+      <field name="code_prefix_end">38AN</field>
+    </record>
+    <record id="marco_account_group_40" model="account.group">
+      <field name="name">COMPONENTI STRAORD. NEGATIVI</field>
+      <field name="code_prefix_start">40</field>
+      <field name="code_prefix_end">40</field>
+    </record>
+    <record id="marco_account_group_40MS" model="account.group">
+      <field name="name">MINUSVALENZE E SOPRAVVENIENZE</field>
+      <field name="code_prefix_start">40MS</field>
+      <field name="code_prefix_end">40MS</field>
+    </record>
+    <record id="marco_account_group_42" model="account.group">
+      <field name="name">ONERI FISCALI</field>
+      <field name="code_prefix_start">42</field>
+      <field name="code_prefix_end">42</field>
+    </record>
+    <record id="marco_account_group_42OF" model="account.group">
+      <field name="name">ONERI FISCALI</field>
+      <field name="code_prefix_start">42OF</field>
+      <field name="code_prefix_end">42OF</field>
+    </record>
+    <record id="marco_account_group_50" model="account.group">
+      <field name="name">RICAVI E PROVENTI DI ESERCIZIO</field>
+      <field name="code_prefix_start">50</field>
+      <field name="code_prefix_end">50</field>
+    </record>
+    <record id="marco_account_group_50AC" model="account.group">
+      <field name="name">RICAVI ACCESSORI VENDITA</field>
+      <field name="code_prefix_start">50AC</field>
+      <field name="code_prefix_end">50AC</field>
+    </record>
+    <record id="marco_account_group_50PV" model="account.group">
+      <field name="name">PROVENTI VARI</field>
+      <field name="code_prefix_start">50PV</field>
+      <field name="code_prefix_end">50PV</field>
+    </record>
+    <record id="marco_account_group_50VE" model="account.group">
+      <field name="name">VENDITE</field>
+      <field name="code_prefix_start">50VE</field>
+      <field name="code_prefix_end">50VE</field>
+    </record>
+    <record id="marco_account_group_52" model="account.group">
+      <field name="name">RETTIFICHE AI COSTI</field>
+      <field name="code_prefix_start">52</field>
+      <field name="code_prefix_end">52</field>
+    </record>
+    <record id="marco_account_group_52RC" model="account.group">
+      <field name="name">RETTIFICHE AI COSTI</field>
+      <field name="code_prefix_start">52RC</field>
+      <field name="code_prefix_end">52RC</field>
+    </record>
+    <record id="marco_account_group_54" model="account.group">
+      <field name="name">PROVENTI FINANZIARI</field>
+      <field name="code_prefix_start">54</field>
+      <field name="code_prefix_end">54</field>
+    </record>
+    <record id="marco_account_group_54IN" model="account.group">
+      <field name="name">INTERESSI ATTIVI</field>
+      <field name="code_prefix_start">54IN</field>
+      <field name="code_prefix_end">54IN</field>
+    </record>
+    <record id="marco_account_group_54UT" model="account.group">
+      <field name="name">UTILI FINANZIARI</field>
+      <field name="code_prefix_start">54UT</field>
+      <field name="code_prefix_end">54UT</field>
+    </record>
+    <record id="marco_account_group_56" model="account.group">
+      <field name="name">RIMANENZE FINALI MAGAZZINO</field>
+      <field name="code_prefix_start">56</field>
+      <field name="code_prefix_end">56</field>
+    </record>
+    <record id="marco_account_group_56RI" model="account.group">
+      <field name="name">RIMANZE MAGAZZINO</field>
+      <field name="code_prefix_start">56RI</field>
+      <field name="code_prefix_end">56RI</field>
+    </record>
+    <record id="marco_account_group_58" model="account.group">
+      <field name="name">COMPONENTI STRAORD. POSITIVI</field>
+      <field name="code_prefix_start">58</field>
+      <field name="code_prefix_end">58</field>
+    </record>
+    <record id="marco_account_group_58PS" model="account.group">
+      <field name="name">PLUSVALENZE E SOPRAVVENIENZE</field>
+      <field name="code_prefix_start">58PS</field>
+      <field name="code_prefix_end">58PS</field>
+    </record>
+    <record id="marco_account_group_70" model="account.group">
+      <field name="name">PROFITTI E PERDITE</field>
+      <field name="code_prefix_start">70</field>
+      <field name="code_prefix_end">70</field>
+    </record>
+    <record id="marco_account_group_70PR" model="account.group">
+      <field name="name">PROFITTI E PERDITE</field>
+      <field name="code_prefix_start">70PR</field>
+      <field name="code_prefix_end">70PR</field>
+    </record>
+  </data>
+</odoo>
