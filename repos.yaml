@@ -198,3 +198,23 @@ OCA/server-auth:
   fetch_all:
   - OCA
   target: origin 16.0-mar
+
+OCA/web-api:
+  remotes:
+    origin: git@github.com:aion-tech/web-api.git
+    OCA: git@github.com:OCA/web-api.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar
+
+OCA/rest-framework:
+  remotes:
+    origin: git@github.com:aion-tech/rest-framework.git
+    OCA: git@github.com:OCA/rest-framework.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar

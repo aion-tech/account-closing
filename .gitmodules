@@ -78,3 +78,11 @@
 	path = OCA/server-auth
 	url = git@github.com:aion-tech/server-auth.git
 	branch = 16.0-mar
+[submodule "OCA/web-api"]
+	path = OCA/web-api
+	url = git@github.com:aion-tech/web-api.git
+	branch = 16.0-mar
+[submodule "OCA/rest-framework"]
+	path = OCA/rest-framework
+	url = git@github.com:aion-tech/rest-framework.git
+	branch = 16.0-mar
