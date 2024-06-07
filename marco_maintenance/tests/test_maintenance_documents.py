@@ -68,17 +68,14 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
 
     def test_get_folder(self):
         """
-        If a foder exists for the equipment, it should be found
+        If a folder exists for the equipment, it should be found
         when attaching a file to the maintenance request.
         """
-        # Arrange
-        folder_id = self.env["documents.folder"].create(
-            {
-                "name": self.equipment_01.name,
-                "maintenance_equipment_id": self.equipment_01.id,
-                "parent_folder_id": self.root_folder_id.id,
-            }
+        # Pre-condition
+        folder_id = self.env["documents.folder"].search(
+            [("maintenance_equipment_id", "=", self.equipment_01.id)]
         )
+        self.assertTrue(folder_id)
 
         # Act
         request_id = self._create_maintenance_request()
@@ -101,7 +98,8 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
                 ("maintenance_equipment_id", "=", self.equipment_01.id),
             ]
         )
-        self.assertFalse(folder_id)
+        folder_id.unlink()
+        self.assertFalse(folder_id.exists())
 
         # Arrange
         request_id = self._create_maintenance_request()
@@ -131,7 +129,8 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
                 ("maintenance_equipment_id", "=", self.equipment_01.id),
             ]
         )
-        self.assertFalse(folder_id)
+        folder_id.unlink()
+        self.assertFalse(folder_id.exists())
 
         # Arrange
         self._attach_file_to_equipment(self.equipment_01)
@@ -146,6 +145,32 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         # Assert
         self.assertTrue(folder_id)
         self.assertEqual(folder_id.parent_folder_id, self.root_folder_id)
+
+    def test_create_folder_at_equipment_creation(self):
+        """
+        When creating a new equipment, the equipment's
+        folder should be automatically created.
+        """
+        # Arrange
+        # Act
+        equipment = self.equipment.create(
+            {
+                "name": "My new equipment",
+                "category_id": self.equipment_monitor.id,
+                "technician_user_id": self.ref("base.user_root"),
+                "owner_user_id": self.user.id,
+                "assign_date": time.strftime("%Y-%m-%d"),
+                "serial_no": "XXYYZZ",
+                "model": "ABCABCABC",
+                "color": 2,
+            }
+        )
+        folder = self.env["documents.folder"].search(
+            [("maintenance_equipment_id", "=", equipment.id)]
+        )
+
+        # Assert
+        self.assertTrue(folder)
 
     def test_get_documents_from_maintenance_request(self):
         """A maintenance request should see its own documents"""

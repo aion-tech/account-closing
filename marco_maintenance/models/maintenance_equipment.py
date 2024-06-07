@@ -16,19 +16,16 @@ class MaintenanceEquipment(models.Model):
         required=True,
     )
 
-    def _get_document_folder(self):
-        """
-        Get equipment folder. Create if needed.
-        """
+    def _upsert_equipment_folder(self):
         self.ensure_one()
-        Folder = self.env["documents.folder"]
-        root_maintenance_folder_id = self.env.ref(
-            "marco_maintenance.documents_maintenance_folder"
-        )
+        Folder = self.env["documents.folder"].sudo()
         equipment_folder_id = Folder.search(
             [("maintenance_equipment_id", "=", self.id)]
         )
         if not equipment_folder_id:
+            root_maintenance_folder_id = self.env.ref(
+                "marco_maintenance.documents_maintenance_folder"
+            )
             equipment_folder_id = Folder.create(
                 {
                     "name": self.serial_no,
@@ -36,6 +33,14 @@ class MaintenanceEquipment(models.Model):
                     "maintenance_equipment_id": self.id,
                 }
             )
+        return equipment_folder_id
+
+    def _get_document_folder(self):
+        """
+        Get equipment folder. Create if needed.
+        """
+        self.ensure_one()
+        equipment_folder_id = self._upsert_equipment_folder()
         return equipment_folder_id
 
     def _get_documents_domain(self):
@@ -77,3 +82,16 @@ class MaintenanceEquipment(models.Model):
                 if folder_id:
                     folder_id.name = vals["serial_no"]
         return res
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        res._upsert_equipment_folder()
+        return res
+
+    def action_view_documents(self):
+        action = super().action_view_documents()
+        action["domain"] = self._get_documents_domain()
+        # used to filter sidebar/searchpanel
+        action["context"]["limit_folders_to_maintenance_resource"] = True
+        return action

@@ -38,6 +38,8 @@ class MaintenanceRequest(models.Model):
     def action_view_documents(self):
         action = super().action_view_documents()
         action["domain"] = self._get_documents_domain()
+        # used to filter sidebar/searchpanel
+        action["context"]["limit_folders_to_maintenance_resource"] = True
         return action
 
     def _get_documents_domain(self):
