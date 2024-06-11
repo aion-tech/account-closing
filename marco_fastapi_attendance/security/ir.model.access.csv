@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+marco_fastapi_attendance_group_hr_employee,Marco Fastapi Attendance: Running user xRxx employees,hr.model_hr_employee,marco_fastapi_attendance.marco_fastapi_attendance_group,1,0,0,0
+marco_fastapi_attendance_group_hr_attendance,Marco Fastapi Attendance: Running user CRxx attendances,hr_attendance.model_hr_attendance,marco_fastapi_attendance.marco_fastapi_attendance_group,1,1,1,0

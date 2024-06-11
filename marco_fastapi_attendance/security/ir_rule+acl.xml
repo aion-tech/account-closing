@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Give marco api user access to the fastapi.endpoint model -->
+    <record
+    id="fastapi_endpoint_fastapi_running_user"
+    model="ir.model.access">
+        <field name="name">Marco Fastapi Attendance: Running user read endpoints</field>
+        <field
+        name="model_id"
+        ref="fastapi.model_fastapi_endpoint" />
+        <field
+        name="group_id"
+        ref="marco_fastapi_attendance.marco_fastapi_attendance_group" />
+        <field
+        name="perm_read"
+        eval="True" />
+        <field
+        name="perm_write"
+        eval="False" />
+        <field
+        name="perm_create"
+        eval="False" />
+        <field
+        name="perm_unlink"
+        eval="False" />
+    </record>
+</odoo>
