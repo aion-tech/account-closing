@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    /odoo/addons/account/models/​chart_template.py​​ 
+    in questo percorso viene creato il piano dei conti,
+    le funzioni interessanti sono 
+        _load_records
+        _load_company_accounts
+        _get_account_vals
+-->
 <odoo>
     <record id="l10n_it_chart_template_marco" model="account.chart.template"><!--CAMBIATO DA l10n_it_chart_template_generic a _marco-->
         <field name="name">Italy - MARCO's Chart of Accounts</field>
