@@ -14,26 +14,29 @@
             <xpath
             expr="//sheet//div[1]"
             position="before">
+                <field name="folder_exists" invisible="1"/>
                 <div
                 class="oe_button_box"
                 name="button_box">
+                    <!-- disabled btn -->
                     <button
                     name="action_view_documents"
                     type="object"
                     class="oe_stat_button disabled"
                     icon="fa-file-text"
-                    attrs="{'invisible':[('documents_count','&gt;=',1)]}"
+                    attrs="{'invisible':[('folder_exists','=',True)]}"
                     string="Documents">
                         <field
                         name="documents_count"
                         widget="statinfo_websocket" />
                     </button>
+                    <!-- clickable btn -->
                     <button
                     name="action_view_documents"
                     type="object"
                     class="oe_stat_button"
                     icon="fa-file-text"
-                    attrs="{'invisible':[('documents_count','&lt;',1)]}"
+                    attrs="{'invisible':[('folder_exists','=',False)]}"
                     string="Documents">
                         <field
                         name="documents_count"

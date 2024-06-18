@@ -1,6 +1,6 @@
 import time
 
-from odoo.addons.base.tests.common import TransactionCase
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT, TransactionCase
 
 
 class MarcoMaintenanceTestCommon(TransactionCase):
@@ -9,7 +9,7 @@ class MarcoMaintenanceTestCommon(TransactionCase):
 
         self.equipment = self.env["maintenance.equipment"]
         self.maintenance_request = self.env["maintenance.request"]
-        self.res_users = self.env["res.users"]
+        self.res_users = self.env["res.users"].with_context(DISABLED_MAIL_CONTEXT)
         self.maintenance_team = self.env["maintenance.team"]
         self.main_company = self.env.ref("base.main_company")
         res_user = self.env.ref("base.group_user")
