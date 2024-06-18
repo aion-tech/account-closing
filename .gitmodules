@@ -118,3 +118,7 @@
 	path = OCA/rest-framework
 	url = git@github.com:aion-tech/rest-framework.git
 	branch = 16.0-mar-dev
+[submodule "OCA/sale-workflow"]
+	path = OCA/sale-workflow
+	url = git@github.com:aion-tech/sale-workflow.git
+	branch = 16.0-mar-dev

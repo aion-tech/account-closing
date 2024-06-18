@@ -238,3 +238,13 @@ OCA/rest-framework:
   fetch_all:
   - OCA
   target: origin 16.0-mar-dev
+
+OCA/sale-workflow:
+  remotes:
+    origin: git@github.com:aion-tech/sale-workflow.git
+    OCA: git@github.com:OCA/sale-workflow.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev
