@@ -1,0 +1,783 @@
+<odoo>
+    <data noupdate="0">
+        <record id="hr_employee_20" model="hr.employee">
+            <field name="name">CAPRETTI ELISA</field>
+            <field name="barcode">20</field>
+        </record>
+        <record id="contract_employee_20" model="hr.contract">
+            <field name="name">Contratto CAPRETTI ELISA</field>
+            <field name="employee_id" ref="hr_employee_20" />
+            <field name="date_start">2024-06-17</field>
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_26" model="hr.employee">
+            <field name="name">STRUGARI DARIUS</field>
+            <field name="barcode">26</field>
+        </record>
+        <record id="contract_employee_26" model="hr.contract">
+            <field name="name">Contratto STRUGARI DARIUS</field>
+            <field name="employee_id" ref="hr_employee_26" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_35" model="hr.employee">
+            <field name="name">SIGURTA' ALBERTO</field>
+            <field name="barcode">35</field>
+        </record>
+        <record id="contract_employee_35" model="hr.contract">
+            <field name="name">Contratto SIGURTA' ALBERTO</field>
+            <field name="employee_id" ref="hr_employee_35" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_42" model="hr.employee">
+            <field name="name">STRIGAZZI ANTONELLA</field>
+            <field name="barcode">42</field>
+        </record>
+        <record id="contract_employee_42" model="hr.contract">
+            <field name="name">Contratto STRIGAZZI ANTONELLA</field>
+            <field name="employee_id" ref="hr_employee_42" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_54" model="hr.employee">
+            <field name="name">LODIGIANI DARIO</field>
+            <field name="barcode">54</field>
+        </record>
+        <record id="contract_employee_54" model="hr.contract">
+            <field name="name">Contratto LODIGIANI DARIO</field>
+            <field name="employee_id" ref="hr_employee_54" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_55" model="hr.employee">
+            <field name="name">CHIAVACCI ALESSANDRO</field>
+            <field name="barcode">55</field>
+        </record>
+        <record id="contract_employee_55" model="hr.contract">
+            <field name="name">Contratto CHIAVACCI ALESSANDRO</field>
+            <field name="employee_id" ref="hr_employee_55" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_59" model="hr.employee">
+            <field name="name">ZUCCHI ANNAMARIA</field>
+            <field name="barcode">59</field>
+        </record>
+        <record id="contract_employee_59" model="hr.contract">
+            <field name="name">Contratto ZUCCHI ANNAMARIA</field>
+            <field name="employee_id" ref="hr_employee_59" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_61" model="hr.employee">
+            <field name="name">MAGLI ASSUNTA</field>
+            <field name="barcode">61</field>
+        </record>
+        <record id="contract_employee_61" model="hr.contract">
+            <field name="name">Contratto MAGLI ASSUNTA</field>
+            <field name="employee_id" ref="hr_employee_61" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_67" model="hr.employee">
+            <field name="name">SERINA MONICA</field>
+            <field name="barcode">67</field>
+        </record>
+        <record id="contract_employee_67" model="hr.contract">
+            <field name="name">Contratto SERINA MONICA</field>
+            <field name="employee_id" ref="hr_employee_67" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_68" model="hr.employee">
+            <field name="name">MARCHETTI COSIMO</field>
+            <field name="barcode">68</field>
+        </record>
+        <record id="contract_employee_68" model="hr.contract">
+            <field name="name">Contratto MARCHETTI COSIMO</field>
+            <field name="employee_id" ref="hr_employee_68" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_508" model="hr.employee">
+            <field name="name">ROMANO MAURIZIO</field>
+            <field name="barcode">508</field>
+        </record>
+        <record id="contract_employee_508" model="hr.contract">
+            <field name="name">Contratto ROMANO MAURIZIO</field>
+            <field name="employee_id" ref="hr_employee_508" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_71" model="hr.employee">
+            <field name="name">BONINI SIMONA</field>
+            <field name="barcode">71</field>
+        </record>
+        <record id="contract_employee_71" model="hr.contract">
+            <field name="name">Contratto BONINI SIMONA</field>
+            <field name="employee_id" ref="hr_employee_71" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_74" model="hr.employee">
+            <field name="name">IURII TATIANA</field>
+            <field name="barcode">74</field>
+        </record>
+        <record id="contract_employee_74" model="hr.contract">
+            <field name="name">Contratto IURII TATIANA</field>
+            <field name="employee_id" ref="hr_employee_74" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_76" model="hr.employee">
+            <field name="name">ALLEGRA FABIO</field>
+            <field name="barcode">76</field>
+        </record>
+        <record id="contract_employee_76" model="hr.contract">
+            <field name="name">Contratto ALLEGRA FABIO</field>
+            <field name="employee_id" ref="hr_employee_76" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_78" model="hr.employee">
+            <field name="name">PEDERSINI GIOVANNI</field>
+            <field name="barcode">78</field>
+        </record>
+        <record id="contract_employee_78" model="hr.contract">
+            <field name="name">Contratto PEDERSINI GIOVANNI</field>
+            <field name="employee_id" ref="hr_employee_78" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_80" model="hr.employee">
+            <field name="name">RAGNOLI MATTIA</field>
+            <field name="barcode">80</field>
+        </record>
+        <record id="contract_employee_80" model="hr.contract">
+            <field name="name">Contratto RAGNOLI MATTIA</field>
+            <field name="employee_id" ref="hr_employee_80" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_87" model="hr.employee">
+            <field name="name">FOLINO PAOLO</field>
+            <field name="barcode">87</field>
+        </record>
+        <record id="contract_employee_87" model="hr.contract">
+            <field name="name">Contratto FOLINO PAOLO</field>
+            <field name="employee_id" ref="hr_employee_87" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_88" model="hr.employee">
+            <field name="name">BERGAMASCHI MICHELE</field>
+            <field name="barcode">88</field>
+        </record>
+        <record id="contract_employee_88" model="hr.contract">
+            <field name="name">Contratto BERGAMASCHI MICHELE</field>
+            <field name="employee_id" ref="hr_employee_88" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_90" model="hr.employee">
+            <field name="name">TARRAGONI ROBERTO</field>
+            <field name="barcode">90</field>
+        </record>
+        <record id="contract_employee_90" model="hr.contract">
+            <field name="name">Contratto TARRAGONI ROBERTO</field>
+            <field name="employee_id" ref="hr_employee_90" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_94" model="hr.employee">
+            <field name="name">FANARA PAOLA</field>
+            <field name="barcode">94</field>
+        </record>
+        <record id="contract_employee_94" model="hr.contract">
+            <field name="name">Contratto FANARA PAOLA</field>
+            <field name="employee_id" ref="hr_employee_94" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_95" model="hr.employee">
+            <field name="name">DORE GIACOMO</field>
+            <field name="barcode">95</field>
+        </record>
+        <record id="contract_employee_95" model="hr.contract">
+            <field name="name">Contratto DORE GIACOMO</field>
+            <field name="employee_id" ref="hr_employee_95" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_98" model="hr.employee">
+            <field name="name">CAROCCI ELENA</field>
+            <field name="barcode">98</field>
+        </record>
+        <record id="contract_employee_98" model="hr.contract">
+            <field name="name">Contratto CAROCCI ELENA</field>
+            <field name="employee_id" ref="hr_employee_98" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_104" model="hr.employee">
+            <field name="name">ARGIOLAS FEDERICA</field>
+            <field name="barcode">104</field>
+        </record>
+        <record id="contract_employee_104" model="hr.contract">
+            <field name="name">Contratto ARGIOLAS FEDERICA</field>
+            <field name="employee_id" ref="hr_employee_104" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_105" model="hr.employee">
+            <field name="name">DALLA BONA SARA</field>
+            <field name="barcode">105</field>
+        </record>
+        <record id="contract_employee_105" model="hr.contract">
+            <field name="name">Contratto DALLA BONA SARA</field>
+            <field name="employee_id" ref="hr_employee_105" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_106" model="hr.employee">
+            <field name="name">RAVELLI STEFANIA</field>
+            <field name="barcode">106</field>
+        </record>
+        <record id="contract_employee_106" model="hr.contract">
+            <field name="name">Contratto RAVELLI STEFANIA</field>
+            <field name="employee_id" ref="hr_employee_106" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_109" model="hr.employee">
+            <field name="name">ANTONINI LUCA</field>
+            <field name="barcode">109</field>
+        </record>
+        <record id="contract_employee_109" model="hr.contract">
+            <field name="name">Contratto ANTONINI LUCA</field>
+            <field name="employee_id" ref="hr_employee_109" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_110" model="hr.employee">
+            <field name="name">BETTONI EROS</field>
+            <field name="barcode">110</field>
+        </record>
+        <record id="contract_employee_110" model="hr.contract">
+            <field name="name">Contratto BETTONI EROS</field>
+            <field name="employee_id" ref="hr_employee_110" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_112" model="hr.employee">
+            <field name="name">GHIGLIA MICHELA</field>
+            <field name="barcode">112</field>
+        </record>
+        <record id="contract_employee_112" model="hr.contract">
+            <field name="name">Contratto GHIGLIA MICHELA</field>
+            <field name="employee_id" ref="hr_employee_112" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_116" model="hr.employee">
+            <field name="name">GHISELLI ROBERTO</field>
+            <field name="barcode">116</field>
+        </record>
+        <record id="contract_employee_116" model="hr.contract">
+            <field name="name">Contratto GHISELLI ROBERTO</field>
+            <field name="employee_id" ref="hr_employee_116" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_117" model="hr.employee">
+            <field name="name">FRANCESCHINI PATRIZ.</field>
+            <field name="barcode">117</field>
+        </record>
+        <record id="contract_employee_117" model="hr.contract">
+            <field name="name">Contratto FRANCESCHINI PATRIZ.</field>
+            <field name="employee_id" ref="hr_employee_117" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_119" model="hr.employee">
+            <field name="name">MAFFEI MARCO</field>
+            <field name="barcode">119</field>
+        </record>
+        <record id="contract_employee_119" model="hr.contract">
+            <field name="name">Contratto MAFFEI MARCO</field>
+            <field name="employee_id" ref="hr_employee_119" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_123" model="hr.employee">
+            <field name="name">PADERNO SIMONE</field>
+            <field name="barcode">123</field>
+        </record>
+        <record id="contract_employee_123" model="hr.contract">
+            <field name="name">Contratto PADERNO SIMONE</field>
+            <field name="employee_id" ref="hr_employee_123" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_140" model="hr.employee">
+            <field name="name">NERVI PIETRO</field>
+            <field name="barcode">140</field>
+        </record>
+        <record id="contract_employee_140" model="hr.contract">
+            <field name="name">Contratto NERVI PIETRO</field>
+            <field name="employee_id" ref="hr_employee_140" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_142" model="hr.employee">
+            <field name="name">MORENI MARICA</field>
+            <field name="barcode">142</field>
+        </record>
+        <record id="contract_employee_142" model="hr.contract">
+            <field name="name">Contratto MORENI MARICA</field>
+            <field name="employee_id" ref="hr_employee_142" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_143" model="hr.employee">
+            <field name="name">ZUCCHI ANNAMARIA</field>
+            <field name="barcode">143</field>
+        </record>
+        <record id="contract_employee_143" model="hr.contract">
+            <field name="name">Contratto ZUCCHI ANNAMARIA</field>
+            <field name="employee_id" ref="hr_employee_143" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_150" model="hr.employee">
+            <field name="name">GUIDI MATTEO</field>
+            <field name="barcode">150</field>
+        </record>
+        <record id="contract_employee_150" model="hr.contract">
+            <field name="name">Contratto GUIDI MATTEO</field>
+            <field name="employee_id" ref="hr_employee_150" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_152" model="hr.employee">
+            <field name="name">FILIPPINI GIORGIA</field>
+            <field name="barcode">152</field>
+        </record>
+        <record id="contract_employee_152" model="hr.contract">
+            <field name="name">Contratto FILIPPINI GIORGIA</field>
+            <field name="employee_id" ref="hr_employee_152" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_153" model="hr.employee">
+            <field name="name">TABAKU ANXHELA</field>
+            <field name="barcode">153</field>
+        </record>
+        <record id="contract_employee_153" model="hr.contract">
+            <field name="name">Contratto TABAKU ANXHELA</field>
+            <field name="employee_id" ref="hr_employee_153" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_154" model="hr.employee">
+            <field name="name">ALBE' MICHELA</field>
+            <field name="barcode">154</field>
+        </record>
+        <record id="contract_employee_154" model="hr.contract">
+            <field name="name">Contratto ALBE' MICHELA</field>
+            <field name="employee_id" ref="hr_employee_154" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_501" model="hr.employee">
+            <field name="name">CARESANA PAOLA</field>
+            <field name="barcode">501</field>
+        </record>
+        <record id="contract_employee_501" model="hr.contract">
+            <field name="name">Contratto CARESANA PAOLA</field>
+            <field name="employee_id" ref="hr_employee_501" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_502" model="hr.employee">
+            <field name="name">FRANCESCHINI LUCA</field>
+            <field name="barcode">502</field>
+        </record>
+        <record id="contract_employee_502" model="hr.contract">
+            <field name="name">Contratto FRANCESCHINI LUCA</field>
+            <field name="employee_id" ref="hr_employee_502" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_503" model="hr.employee">
+            <field name="name">GRECO DANIELE</field>
+            <field name="barcode">503</field>
+        </record>
+        <record id="contract_employee_503" model="hr.contract">
+            <field name="name">Contratto GRECO DANIELE</field>
+            <field name="employee_id" ref="hr_employee_503" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_504" model="hr.employee">
+            <field name="name">FRANCESCHINI PAOLA</field>
+            <field name="barcode">504</field>
+        </record>
+        <record id="contract_employee_504" model="hr.contract">
+            <field name="name">Contratto FRANCESCHINI PAOLA</field>
+            <field name="employee_id" ref="hr_employee_504" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_505" model="hr.employee">
+            <field name="name">BOLIS  CLAUDIA</field>
+            <field name="barcode">505</field>
+        </record>
+        <record id="contract_employee_505" model="hr.contract">
+            <field name="name">Contratto BOLIS  CLAUDIA</field>
+            <field name="employee_id" ref="hr_employee_505" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_506" model="hr.employee">
+            <field name="name">SCAGLIA MAURIZIO</field>
+            <field name="barcode">506</field>
+        </record>
+        <record id="contract_employee_506" model="hr.contract">
+            <field name="name">Contratto SCAGLIA MAURIZIO</field>
+            <field name="employee_id" ref="hr_employee_506" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_507" model="hr.employee">
+            <field name="name">PRANDELLI EMANUELE</field>
+            <field name="barcode">507</field>
+        </record>
+        <record id="contract_employee_507" model="hr.contract">
+            <field name="name">Contratto PRANDELLI EMANUELE</field>
+            <field name="employee_id" ref="hr_employee_507" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_509" model="hr.employee">
+            <field name="name">SHERMADHI REFIJE</field>
+            <field name="barcode">509</field>
+        </record>
+        <record id="contract_employee_509" model="hr.contract">
+            <field name="name">Contratto SHERMADHI REFIJE</field>
+            <field name="employee_id" ref="hr_employee_509" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_510" model="hr.employee">
+            <field name="name">CAVALLUZZO MATTEO</field>
+            <field name="barcode">510</field>
+        </record>
+        <record id="contract_employee_510" model="hr.contract">
+            <field name="name">Contratto CAVALLUZZO MATTEO</field>
+            <field name="employee_id" ref="hr_employee_510" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_511" model="hr.employee">
+            <field name="name">DODA DOMENIKO</field>
+            <field name="barcode">511</field>
+        </record>
+        <record id="contract_employee_511" model="hr.contract">
+            <field name="name">Contratto DODA DOMENIKO</field>
+            <field name="employee_id" ref="hr_employee_511" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_512" model="hr.employee">
+            <field name="name">DUSHKU ERJOLA</field>
+            <field name="barcode">512</field>
+        </record>
+        <record id="contract_employee_512" model="hr.contract">
+            <field name="name">Contratto DUSHKU ERJOLA</field>
+            <field name="employee_id" ref="hr_employee_512" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_513" model="hr.employee">
+            <field name="name">BELLANDI ARIANNA</field>
+            <field name="barcode">513</field>
+        </record>
+        <record id="contract_employee_513" model="hr.contract">
+            <field name="name">Contratto BELLANDI ARIANNA</field>
+            <field name="employee_id" ref="hr_employee_513" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_514" model="hr.employee">
+            <field name="name">DRANGA NATALIA</field>
+            <field name="barcode">514</field>
+        </record>
+        <record id="contract_employee_514" model="hr.contract">
+            <field name="name">Contratto DRANGA NATALIA</field>
+            <field name="employee_id" ref="hr_employee_514" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_70" model="hr.employee">
+            <field name="name">PLATON LILIA</field>
+            <field name="barcode">70</field>
+        </record>
+        <record id="contract_employee_70" model="hr.contract">
+            <field name="name">Contratto PLATON LILIA</field>
+            <field name="employee_id" ref="hr_employee_70" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_516" model="hr.employee">
+            <field name="name">ARRIGHINI CHIARA</field>
+            <field name="barcode">516</field>
+        </record>
+        <record id="contract_employee_516" model="hr.contract">
+            <field name="name">Contratto ARRIGHINI CHIARA</field>
+            <field name="employee_id" ref="hr_employee_516" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_517" model="hr.employee">
+            <field name="name">DE LUCA PATRIZIA</field>
+            <field name="barcode">517</field>
+        </record>
+        <record id="contract_employee_517" model="hr.contract">
+            <field name="name">Contratto DE LUCA PATRIZIA</field>
+            <field name="employee_id" ref="hr_employee_517" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_518" model="hr.employee">
+            <field name="name">MOSCONI NICOLA</field>
+            <field name="barcode">518</field>
+        </record>
+        <record id="contract_employee_518" model="hr.contract">
+            <field name="name">Contratto MOSCONI NICOLA</field>
+            <field name="employee_id" ref="hr_employee_518" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_515" model="hr.employee">
+            <field name="name">NAKONECHNA OLHA</field>
+            <field name="barcode">515</field>
+        </record>
+        <record id="contract_employee_515" model="hr.contract">
+            <field name="name">Contratto NAKONECHNA OLHA</field>
+            <field name="employee_id" ref="hr_employee_515" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_521" model="hr.employee">
+            <field name="name">MININI VIRGINIA</field>
+            <field name="barcode">521</field>
+        </record>
+        <record id="contract_employee_521" model="hr.contract">
+            <field name="name">Contratto MININI VIRGINIA</field>
+            <field name="employee_id" ref="hr_employee_521" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_522" model="hr.employee">
+            <field name="name">NELA ADRIAN</field>
+            <field name="barcode">522</field>
+        </record>
+        <record id="contract_employee_522" model="hr.contract">
+            <field name="name">Contratto NELA ADRIAN</field>
+            <field name="employee_id" ref="hr_employee_522" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+        <record id="hr_employee_523" model="hr.employee">
+            <field name="name">COSI ALBERTO</field>
+            <field name="barcode">523</field>
+        </record>
+        <record id="contract_employee_523" model="hr.contract">
+            <field name="name">Contratto COSI ALBERTO</field>
+            <field name="employee_id" ref="hr_employee_523" />
+            <field name="date_start">2024-06-17</field>
+            
+            <field name="wage">2500.00</field>
+            <field name="state">open</field>
+            <field name="work_entry_source">attendance</field>
+        </record>
+    </data>
+</odoo>

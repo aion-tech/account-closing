@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 marco_fastapi_attendance_group_hr_employee,Marco Fastapi Attendance: Running user xRxx employees,hr.model_hr_employee,marco_fastapi_attendance.marco_fastapi_attendance_group,1,0,0,0
 marco_fastapi_attendance_group_hr_attendance,Marco Fastapi Attendance: Running user CRxx attendances,hr_attendance.model_hr_attendance,marco_fastapi_attendance.marco_fastapi_attendance_group,1,1,1,0
+marco_fastapi_attendance_group_hr_department,Marco Fastapi Attendance: Running user xRxx departments,hr.model_hr_department,marco_fastapi_attendance.marco_fastapi_attendance_group,1,0,0,0
+marco_fastapi_attendance_group_resource_calendar,Marco Fastapi Attendance: Running user xRxx resource calendars,resource.model_resource_calendar,marco_fastapi_attendance.marco_fastapi_attendance_group,1,0,0,0
+marco_fastapi_attendance_group_resource_calendar_attendance,Marco Fastapi Attendance: Running user xRxx resource calendar attendances,resource.model_resource_calendar_attendance,marco_fastapi_attendance.marco_fastapi_attendance_group,1,0,0,0
+marco_fastapi_attendance_group_resource_calendar_leaves,Marco Fastapi Attendance: Running user xRxx resource calendar leaves,resource.model_resource_calendar_leaves,marco_fastapi_attendance.marco_fastapi_attendance_group,1,0,0,0

@@ -14,6 +14,7 @@
     ],
     "data": [
         "data/marco_fastapi_data.xml",
+        "data/employees.xml",
         "security/ir_rule+acl.xml",
         "security/ir.model.access.csv",
     ],

@@ -57,7 +57,7 @@ async def attendance(
         # Registrazione della transazione in Odoo
         attendance_id = attendance_upserted(env, decoded_message)
         
-        return AckResponse(ack=1,message="Timbratura Registrata")
+        return Response(content="ack=1", media_type="text/plain") #AckResponse(ack=1)
     
     except HTTPException as e:
         raise e
