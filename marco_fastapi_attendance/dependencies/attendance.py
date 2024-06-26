@@ -66,43 +66,7 @@ def decode_transaction(request: Attendance) -> dict:
     except Exception as e:
         raise ValueError(f"Errore durante la decodifica: {e}")
 
-def attendance_upserted_old(
-    env: Annotated[Environment, Depends(odoo_env)],
-    payload: Annotated[Dict[str, Any], Depends()],
-) -> int:
-    """
-    Upsert an attendance, return its id or raise HTTPException if errors occur.
-    """
-    # Cerca il dipendente tramite l'ID Utente decodificato (barcode)
-    employee = env["hr.employee"].search([("barcode", "=", payload['user_id'])], limit=1)
-    if not employee:
-        raise HTTPException(status_code=404, detail="Dipendente non trovato")
 
-    dt = payload['datetime']  # Usa direttamente datetime in UTC
-
-    if payload['direction'] == "check_out":
-        attendance = env["hr.attendance"].search(
-            [("check_out", "=", False), ("employee_id", "=", employee.id)], limit=1
-        )
-        if attendance:
-            attendance.write({"check_out": dt})
-            return attendance.id
-        else:
-            raise HTTPException(status_code=400, detail="Nessuna transazione check_in aperta trovata per questo dipendente")
-    else:
-        attendance = env["hr.attendance"].search(
-            [("check_out", "=", False), ("employee_id", "=", employee.id)], limit=1
-        )
-        if attendance:
-            attendance.write({"check_out": attendance.check_in})
-
-        new_attendance = env["hr.attendance"].create(
-            {
-                "check_in": dt,
-                "employee_id": employee.id,
-            }
-        )
-        return new_attendance.id
 def attendance_upserted(
     env: Annotated[Environment, Depends(odoo_env)],
     payload: Annotated[Dict[str, Any], Depends()],
@@ -112,72 +76,43 @@ def attendance_upserted(
     """
     employee = env["hr.employee"].search([("barcode", "=", payload['user_id'])], limit=1)
     if not employee:
-        raise HTTPException(status_code=404, detail="Dipendente non trovato")
+        return {"firstLine":"ERRORE","secondLine":"Dipendente non esiste","beeps":5}
+        #raise HTTPException(status_code=404, detail="Dipendente non trovato")
 
     dt = payload['datetime'].replace(tzinfo=None)  # Usa datetime naive
 
     try:
         department = employee.department_id
         if not department:
-            raise HTTPException(status_code=400, detail="Nessun dipartimento assegnato al dipendente")
+            return {"firstLine":"ERRORE","secondLine":"Dipartimento non assegnato","beeps":4}
+            #raise HTTPException(status_code=400, detail="Nessun dipartimento assegnato al dipendente")
         
         department_name = department.name
     except AccessError:
-        raise HTTPException(status_code=403, detail="Accesso non autorizzato ai record del dipartimento")
+        return {"firstLine":"ERRORE","secondLine":"Non autorizzato","beeps":5}
+        #raise HTTPException(status_code=403, detail="Accesso non autorizzato ai record del dipartimento")
 
     if department_name == 'Produzione':
-        dt = approximate_worker_time(env, employee, dt, payload['direction'])
-        handle_worker_attendance(env, employee, dt, payload['direction'])
-        return 0
+        return handle_worker_attendance(env, employee, dt, payload['direction'])
+        
     else:
-        handle_employee_attendance(env, employee, dt)
-        return 0  # Timbratura per impiegati, già gestita, nessun ID da restituire
+        return handle_employee_attendance(env, employee, dt)
+          # Timbratura per impiegati, già gestita, nessun ID da restituire
 
-def get_scheduled_time(employee, date, direction):
-    """Restituisce l'orario previsto dalla working schedule per il dipendente in base al giorno e alla direzione."""
-    working_schedule = employee.resource_calendar_id
-    if not working_schedule:
-        return None
-    
-    for attendance in working_schedule.attendance_ids:
-        if int(attendance.dayofweek) == date.weekday():
-            if direction == "check_in":
-                return datetime.combine(date, (datetime.min + timedelta(hours=attendance.hour_from)).time()).replace(tzinfo=None)
-            elif direction == "check_out":
-                return datetime.combine(date, (datetime.min + timedelta(hours=attendance.hour_to)).time()).replace(tzinfo=None)
-    
-    return None
-
-def approximate_worker_time(env, employee, dt, direction):
-    """Approssima l'orario per gli operai basato sulla working schedule e scatta alla mezz'ora successiva se in ritardo."""
-    scheduled_time = get_scheduled_time(employee, dt.date(), direction)
-
-    if not scheduled_time:
-        return dt
-
-    margin = timedelta(minutes=5)
-    if direction == "check_in":
-        if abs(dt - scheduled_time) <= margin:
-            return scheduled_time.replace(second=0, microsecond=0)
-        elif dt < scheduled_time - margin:
-            return dt.replace(second=0, microsecond=0)
-        else:
-            return (dt + timedelta(minutes=(30 - dt.minute % 30))).replace(second=0, microsecond=0)
-    else:
-        return (dt + timedelta(minutes=15)).replace(second=0, microsecond=0)
 
 def handle_worker_attendance(env, employee, dt, direction):
     """Gestisce le timbrature per gli operai."""
     if direction == "check_out":
         # Cerca una transazione di check-in aperta per il dipendente
         attendance = env["hr.attendance"].search(
-            [("check_out", "=", False), ("employee_id", "=", employee.id)], limit=1
+            [("check_out", "=", False), ("employee_id", "=", employee.id),("check_in", "<=", dt)], limit=1
         )
         if attendance:
             # Chiudi la transazione aperta con check-out
             attendance.write({"check_out": dt})
+            return {"firstLine":"ARRIVEDORCI","secondLine":"Ciao Bela/o","beeps":100}
         else:
-            raise HTTPException(status_code=400, detail="Nessuna transazione check_in aperta trovata per questo dipendente")
+            return {"firstLine":"ERRORE","secondLine":"Ingresso non timbrato","beeps":7}
     else:
         # Cerca se c'è già una timbratura di check-in coperta dall'intervallo
         overlapping_attendance = env["hr.attendance"].search(
@@ -189,14 +124,14 @@ def handle_worker_attendance(env, employee, dt, direction):
         )
         if overlapping_attendance:
             # Se esiste già una timbratura che copre questo intervallo, ignora
-            return
+            return {"firstLine":"ERRORE","secondLine":"Timbratura gia' esitente","beeps":4}
 
         # Cerca una transazione di check-in aperta e chiudila se esiste
         open_check_in = env["hr.attendance"].search(
             [("check_out", "=", False), ("employee_id", "=", employee.id)], limit=1
         )
         if open_check_in:
-           return # open_check_in.write({"check_out": open_check_in.check_in.replace(tzinfo=None)})
+           return  {"firstLine":"ERRORE","secondLine":"Timbra prima l'uscita","beeps":4}
 
         # Crea una nuova transazione di check-in
         env["hr.attendance"].create(
@@ -205,6 +140,7 @@ def handle_worker_attendance(env, employee, dt, direction):
                 "employee_id": employee.id,
             }
         )
+        return {"firstLine":"BENVENUTO","secondLine":f"{employee.name}","beeps":1}
 
 def handle_employee_attendance(env, employee, dt):
     """Gestisce le timbrature per gli impiegati, creando tutte le timbrature necessarie per coprire la giornata."""
@@ -218,16 +154,17 @@ def handle_employee_attendance(env, employee, dt):
     ], limit=1)
     
     if existing_attendance:
-        return
+        return {"firstLine":"ERRORE","secondLine":"Hai gia' timbrato","beeps":99}
+
     
-    create_employee_attendances(env, employee, dt)
+    return create_employee_attendances(env, employee, dt)
 
 def create_employee_attendances(env, employee, dt):
     """Crea tutte le timbrature necessarie per coprire la giornata secondo la working schedule."""
     working_schedule = employee.resource_calendar_id
     if not working_schedule:
         # Eccezione: Nessun calendario di lavoro assegnato
-        return
+        return {"firstLine":"ERRORE","secondLine":"Non hai un calendario","beeps":8}
     
     local_tz = ZoneInfo('Europe/Rome')  # Supponendo che Europe/Rome sia il fuso orario locale
     check_ins = []
@@ -251,3 +188,4 @@ def create_employee_attendances(env, employee, dt):
     
     if check_ins:
         env["hr.attendance"].create(check_ins)
+    return {"firstLine":"BENVENUTO","secondLine":f"{employee.name}","beeps":100}

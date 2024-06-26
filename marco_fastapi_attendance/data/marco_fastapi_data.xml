@@ -29,7 +29,7 @@
 # Marco attendance API
 ]]></field>
         <field name="app">marco</field>
-        <field name="root_path">/api</field>
+        <field name="root_path">/badge</field>
         <field
         name="user_id"
         ref="marco_fastapi_attendance_user" />

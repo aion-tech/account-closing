@@ -41,12 +41,12 @@ from ..dependencies.auth import api_key_auth_user
 
 marco_api_router = APIRouter()
 
-@marco_api_router.get("/attendance", response_model=AckResponse)
+@marco_api_router.get("/online")
 async def attendance(
     request: Annotated[Attendance, Depends()],
     env: Annotated[Environment, Depends(odoo_env)],
     user: Annotated[Users, Depends(api_key_auth_user)],
-) -> AckResponse:
+):
     """
     Create or update an attendance record, return the id
     """
@@ -55,9 +55,9 @@ async def attendance(
         decoded_message = decode_transaction(request)
         
         # Registrazione della transazione in Odoo
-        attendance_id = attendance_upserted(env, decoded_message)
+        res= attendance_upserted(env, decoded_message)
         
-        return Response(content="ack=1", media_type="text/plain") #AckResponse(ack=1)
+        return Response(content=f"screen={res['firstLine']}|{res['secondLine']}\nbeep={res['beeps']}", media_type="text/plain") #AckResponse(ack=1)
     
     except HTTPException as e:
         raise e
@@ -95,4 +95,4 @@ async def keepalive() -> None:
     """
     Handle the keepalive request from the terminal and confirm server is online.
     """
-    return None  # Respond with 200 OK by default
+    return None#Response(content="", media_type="text/plain") # Respond with 200 OK by default
