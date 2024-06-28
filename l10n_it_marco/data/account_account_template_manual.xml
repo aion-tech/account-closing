@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<odoo>
+  <data noupdate="1">
+
+    <!--Conto contabile con ID 04SUBNL0-->
+<record id="04SUBNL0" model="account.account.template">
+    <field name="code">04SUBNL0</field>
+    <field name="name">BANCA NAZIONALE DEL LAVORO SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUCASS-->
+<record id="04SUCASS" model="account.account.template">
+    <field name="code">04SUCASS</field>
+    <field name="name">CASSA CONTANTI SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUCOM1-->
+<record id="04SUCOM1" model="account.account.template">
+    <field name="code">04SUCOM1</field>
+    <field name="name">INTESA C/VALUTARIO US$ SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUCOM2-->
+<record id="04SUCOM2" model="account.account.template">
+    <field name="code">04SUCOM2</field>
+    <field name="name">INTESA NEW YORK IN US$ SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUCOMI-->
+<record id="04SUCOMI" model="account.account.template">
+    <field name="code">04SUCOMI</field>
+    <field name="name">INTESA BCI - RETE COMIT SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUCRE1-->
+<record id="04SUCRE1" model="account.account.template">
+    <field name="code">04SUCRE1</field>
+    <field name="name">CREDITO ITALIANO N.Y. C/VALUTARIO SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUCRED-->
+<record id="04SUCRED" model="account.account.template">
+    <field name="code">04SUCRED</field>
+    <field name="name">CREDITO ITALIANO SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUFIN1-->
+<record id="04SUFIN1" model="account.account.template">
+    <field name="code">04SUFIN1</field>
+    <field name="name">FINECO BANK USD SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record>
+
+<!--Conto contabile con ID 04SUFINE-->
+<record id="04SUFINE" model="account.account.template">
+    <field name="code">04SUFINE</field>
+    <field name="name">FINECO BANK EURO SOSPESO</field>
+    <field name="account_type">asset_current</field>
+    <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+    <field name="reconcile">True</field>
+</record> 
+  </data>
+</odoo>

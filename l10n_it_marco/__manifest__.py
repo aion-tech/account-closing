@@ -8,6 +8,7 @@
         'account',
         'base_iban',
         'base_vat',
+        'l10n_it_vat_registries',
     ],
     'author': 'OpenERP Italian Community, MARCO S.p.A.',
     'description': """
@@ -22,16 +23,12 @@ Italian accounting chart and localization.
         'data/account_account_tag.xml',
         'data/account_chart_template.xml',
         'data/account_account_template.xml',
-        'data/account_account_group.xml',
-        
-        'data/account_chart_template_accounts.xml',
-        #'data/account.tax.group.csv',
-        #'data/account_tax_report_data.xml',
-        #'data/account_tax_template.xml',
-        #'data/account.fiscal.position.template.csv',
-        #'data/account_fiscal_position_tax_template_data.xml',
+        'data/account_account_template_manual.xml',
+        'data/account_account_group.xml',    
+        'data/account_chart_template_accounts.xml',     
         'data/account_chart_template_data.xml',
-        #'data/report_invoice.xml'
+        'data/account_tax_registry.xml',
+        
     ],
     'demo': [
        # 'demo/demo_company.xml',
