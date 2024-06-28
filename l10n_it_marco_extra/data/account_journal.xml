@@ -1,17 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-        <data noupdate="1">
-        <!-- Account Journals -->
-
-        <record id="account_journal_LICOMI" model="account.journal">
-            <field name="name">Banca Intesa</field>
-            <field name="code">LICOMI</field>
+    <data noupdate="1">
+        <!-- Registri di tutte le banche e casse -->
+        
+        <!-- Registro Banca Nazionale del Lavoro -->
+        <record id="account_journal_LIBNL0" model="account.journal">
+            <field name="name">Banca Nazionale del Lavoro</field>
+            <field name="code">BNL</field>
             <field name="type">bank</field>
-            <field name="default_account_id" ref="l10n_it_marco.1_04LICOMI"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICOMIS"></field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LIBNL0"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUBNL0"></field>
             <field name="payment_sequence">True</field>
         </record>
+
+        <!-- Registro Cassa Contanti -->
+        <record id="account_journal_LICASS" model="account.journal">
+            <field name="name">Cassa Contanti</field>
+            <field name="code">CASSA</field>
+            <field name="type">cash</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LICASS"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCASS"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Intesa Valutario US$ -->
+        <record id="account_journal_LICOM1" model="account.journal">
+            <field name="name">Intesa Valutario US$</field>
+            <field name="code">IVUS</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LICOM1"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCOM1"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Intesa New York in US$ -->
+        <record id="account_journal_LICOM2" model="account.journal">
+            <field name="name">Intesa New York in US$</field>
+            <field name="code">INYUS</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LICOM2"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCOM2"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Intesa BCI - Rete Comit -->
+        <record id="account_journal_LICOMI" model="account.journal">
+            <field name="name">Intesa BCI - Rete Comit</field>
+            <field name="code">BCI</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LICOMI"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCOMI"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Credito Italiano N.Y. Valutario -->
+        <record id="account_journal_LICRE1" model="account.journal">
+            <field name="name">Credito Italiano N.Y. Valutario</field>
+            <field name="code">VINYC</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LICRE1"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCRE1"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Credito Italiano -->
+        <record id="account_journal_LICRED" model="account.journal">
+            <field name="name">Credito Italiano</field>
+            <field name="code">CI</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LICRED"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCRED"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Fineco Bank USD -->
+        <record id="account_journal_LIFIN1" model="account.journal">
+            <field name="name">Fineco Bank USD</field>
+            <field name="code">FBUSD</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LIFIN1"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUFIN1"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Fineco Bank Euro -->
+        <record id="account_journal_LIFINE" model="account.journal">
+            <field name="name">Fineco Bank Euro</field>
+            <field name="code">FBEUR</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_04LIFINE"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUFINE"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+
+    <!-- REGISTRI VARIE -->
         
+        <!-- Registro Operazioni varie -->
+        <record id="account_journal_VARIE" model="account.journal">
+            <field name="name">Operazioni varie</field>
+            <field name="code">VARIE</field>
+            <field name="type">general</field>
+            <field name="currency_id" ref="base.EUR"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Bilancio di apertura conti -->
+        <record id="account_journal_APER" model="account.journal">
+            <field name="name">Bilancio di apertura conti</field>
+            <field name="code">APER</field>
+            <field name="type">general</field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Bolle Doganali -->
+        <record id="account_journal_DOG" model="account.journal">
+            <field name="name">Bolle Doganali</field>
+            <field name="code">DOG</field>
+            <field name="type">general</field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Bilancio di chiusura conti -->
+        <record id="account_journal_CHIU" model="account.journal">
+            <field name="name">Bilancio di chiusura conti</field>
+            <field name="code">CHIU</field>
+            <field name="type">general</field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Beni ammortizzabili -->
+        <record id="account_journal_BAM" model="account.journal">
+            <field name="name">Beni ammortizzabili</field>
+            <field name="code">BAM</field>
+            <field name="type">general</field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Riconciliazione Reverse Charge -->
+        <record id="account_journal_RICRC" model="account.journal">
+            <field name="name">Riconciliazione Reverse Charge</field>
+            <field name="code">RICRC</field>
+            <field name="type">general</field>
+            <field name="currency_id" ref="base.EUR"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Liquidazione iva -->
+        <record id="account_journal_LIQ" model="account.journal">
+            <field name="name">Liquidazione iva</field>
+            <field name="code">LIQ</field>
+            <field name="type">general</field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Rettifiche -->
+        <record id="account_journal_RETT" model="account.journal">
+            <field name="name">Rettifiche</field>
+            <field name="code">RETT</field>
+            <field name="type">general</field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Ritenute -->
+        <record id="account_journal_RITE" model="account.journal">
+            <field name="name">Ritenute</field>
+            <field name="code">RITE</field>
+            <field name="type">general</field>
+            <field name="payment_sequence">True</field>
+        </record>
+
        
+
+
+    <!-- REGISTRI ACQUISTO -->
+
+        <!-- Registro Acquisti -->
+        <record id="account_journal_ACQ" model="account.journal">
+            <field name="name">Acquisti</field>
+            <field name="code">ACQ</field>
+            <field name="type">purchase</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_32ACPRIM"></field>
+            <field name="currency_id" ref="base.EUR"></field>
+            <field name="tax_registry_id" ref="l10n_it_marco.tax_registry_acquisti"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Acquisti ExtraUE -->
+        <record id="account_journal_ACQEX" model="account.journal">
+            <field name="name">Acquisti ExtraUE</field>
+            <field name="code">ACQEX</field>
+            <field name="type">purchase</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_32ACFINI"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- REGISTRI VENDITE -->
+
+        <!-- Registro Vendita FE -->
+        <record id="account_journal_VENFE" model="account.journal">
+            <field name="name">Vendita FE</field>
+            <field name="code">VENFE</field>
+            <field name="type">sale</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_50VEFINI"></field>
+            <field name="currency_id" ref="base.EUR"></field>
+            <field name="tax_registry_id" ref="l10n_it_marco.tax_registry_vendita_fe"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Vendita Autofattura/Integrazioni -->
+        <record id="account_journal_VENAF" model="account.journal">
+            <field name="name">Vendita Autofattura/Integrazioni</field>
+            <field name="code">VENAF</field>
+            <field name="type">sale</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_50VEFINI"></field>
+            <field name="currency_id" ref="base.EUR"></field>
+            <field name="tax_registry_id" ref="l10n_it_marco.tax_registry_vendita_autofattura"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+        <!-- Registro Corrispettivi a scorporo -->
+        <record id="account_journal_CORS" model="account.journal">
+            <field name="name">Corrispettivi a scorporo</field>
+            <field name="code">CORS</field>
+            <field name="type">sale</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_50VEFINI"></field>
+            <field name="currency_id" ref="base.EUR"></field>
+            <field name="tax_registry_id" ref="l10n_it_marco.tax_registry_corrispettivi_scorporo"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
     </data>
 </odoo>
