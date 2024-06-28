@@ -11,7 +11,7 @@
        # "l10n_generic_auto_transfer_demo",
        # "l10n_generic_coa",
         "account_accountant",
-        "l10n_it_marco",
+        "l10n_it_marco_extra",
         "l10n_it_abicab",
         "l10n_it_account_stamp",
         "l10n_it_account_tax_kind",
