@@ -1,4 +1,6 @@
-from odoo import _, api, fields, models
+import uuid
+
+from odoo import api, fields, models
 from odoo.osv.expression import AND
 
 
@@ -14,6 +16,11 @@ class MaintenanceEquipment(models.Model):
         "Serial Number",
         copy=False,
         required=True,
+        # default=lambda self: uuid.uuid4(),
+    )
+
+    category_id = fields.Many2one(
+        required=True,
     )
 
     def _upsert_equipment_folder(self):
@@ -26,13 +33,13 @@ class MaintenanceEquipment(models.Model):
             ]
         )
         if not equipment_folder_id:
-            root_maintenance_folder_id = self.env.ref(
-                "marco_maintenance.documents_maintenance_folder"
+            parent_folder = self.env["documents.folder"].search(
+                self.category_id._get_folder_domain()
             )
             equipment_folder_id = Folder.create(
                 {
                     "name": self.serial_no,
-                    "parent_folder_id": root_maintenance_folder_id.id,
+                    "parent_folder_id": parent_folder.id,
                     "res_id": self.id,
                     "res_model": self._name,
                 }
@@ -66,13 +73,6 @@ class MaintenanceEquipment(models.Model):
         else:
             return super()._get_documents_domain()
 
-    def _get_folder_domain(self):
-        self.ensure_one()
-        return [
-            ("res_model", "=", self._name),
-            ("res_id", "=", self.id),
-        ]
-
     def _get_document_vals(self, attachment):
         self.ensure_one()
         vals = super()._get_document_vals(attachment)
@@ -81,12 +81,29 @@ class MaintenanceEquipment(models.Model):
         return vals
 
     def write(self, vals):
-        res = super(MaintenanceEquipment, self).write(vals)
+        if "category_id" in vals:
+            new_category_folder = self.env["documents.folder"].search(
+                [
+                    ("res_id", "=", vals["category_id"]),
+                    ("res_model", "=", self.category_id._name),
+                ]
+            )
+            equipments_folders = self.env["documents.folder"].search(
+                [
+                    ("res_model", "=", self._name),
+                    ("res_id", "in", self.ids),
+                ]
+            )
+            equipments_folders.sudo().parent_folder_id = new_category_folder.id
+
+        res = super().write(vals)
         for equipment in self:
             if "serial_no" in vals:
                 folder_id = self.env["documents.folder"].search(
-                    ("res_model", "=", self._name),
-                    ("res_id", "=", equipment.id),
+                    [
+                        ("res_model", "=", self._name),
+                        ("res_id", "=", equipment.id),
+                    ]
                 )
                 if folder_id:
                     folder_id.name = vals["serial_no"]
@@ -97,6 +114,11 @@ class MaintenanceEquipment(models.Model):
         res = super().create(vals_list)
         res._upsert_equipment_folder()
         return res
+
+    def copy(self, default=None):
+        default = default or {}
+        default["serial_no"] = uuid.uuid4()
+        return super().copy(default=default)
 
     def action_view_documents(self):
         action = super().action_view_documents()

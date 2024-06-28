@@ -1,15 +1,10 @@
-from typing import Any, Dict, List
+from typing import Any
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class DocumentsFolder(models.Model):
     _inherit = "documents.folder"
-
-    # maintenance_equipment_id = fields.Many2one(
-    #     "maintenance.equipment",
-    #     string="Equipment",
-    # )
 
     res_model = fields.Char("Resource Model")
     res_id = fields.Integer("Resource ID")
@@ -17,16 +12,6 @@ class DocumentsFolder(models.Model):
 
 class DocumentsDocument(models.Model):
     _inherit = "documents.document"
-
-    # maintenance_request_id = fields.Many2one(
-    #     "maintenance.request",
-    #     string="Maintenance Request",
-    # )
-
-    # maintenance_equipment_id = fields.Many2one(
-    #     "maintenance.equipment",
-    #     string="Equipment",
-    # )
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -51,39 +36,37 @@ class DocumentsDocument(models.Model):
 
     @api.model
     def search_panel_select_range(self, field_name, **kwargs):
-        res_model = self._context.get("active_model")
-        domain = kwargs.get("search_domain")
+        ctx = self._context
+        params = ctx.get("params")
+        if not params:
+            params = dict(
+                model=ctx.get("active_model"),
+                id=ctx.get("active_id"),
+            )
+        res_model = params.get("model")
+
         conditions = [
             field_name == "folder_id",
-            self._context.get("limit_folders_to_maintenance_resource"),
             res_model in ("maintenance.equipment", "maintenance.request"),
-            domain,
         ]
 
         if not all(conditions):
             return super().search_panel_select_range(field_name, **kwargs)
 
-        folders = self.env["documents.document"].search(domain).mapped(
-            "folder_id"
-        ) | self.env.ref("marco_maintenance.documents_maintenance_folder")
-
         if res_model == "maintenance.equipment":
-            folders |= self.env["documents.folder"].search(
-                [("res_id", "in", self._context["active_ids"])]
-            )
+            equipments = self.env[res_model].browse(params["id"])
 
         elif res_model == "maintenance.request":
-            requests = self.env["maintenance.request"].browse(
-                self._context["active_ids"]
-            )
+            requests = self.env[res_model].browse(params["id"])
             equipments = requests.mapped("equipment_id")
-            if equipments:
-                folders |= self.env["documents.folder"].search(
-                    [
-                        ("res_model", "=", res_model),
-                        ("res_id", "in", equipments.ids),
-                    ]
-                )
+
+        folders = self.env["documents.folder"].search(
+            [
+                "&",
+                ("res_id", "in", equipments.ids),
+                ("res_model", "=", equipments._name),
+            ]
+        )
 
         folders_data = folders.read(
             fields=[
@@ -96,14 +79,15 @@ class DocumentsDocument(models.Model):
             ]
         )
 
-        values: List[Dict[str, Any]] = []
+        values: list[dict[str, Any]] = []
         for fd in folders_data:
             if fd.get("parent_folder_id"):
                 fd["parent_folder_id"] = fd["parent_folder_id"][0]
             else:
                 fd["parent_folder_id"] = False
             values.append(fd)
-        res = dict(parent_field="parent_folder_id", values=values)
+
+        res = dict(values=values)
         return res
 
     def clone_xlsx_into_spreadsheet(self):
@@ -147,7 +131,10 @@ class DocumentMixin(models.AbstractModel):
         When using the default no folders will be found.
         """
         self.ensure_one()
-        return [("1", "=", False)]
+        return [
+            ("res_model", "=", self._name),
+            ("res_id", "=", self.id),
+        ]
 
     def _compute_documents_count(self):
         for rec in self:

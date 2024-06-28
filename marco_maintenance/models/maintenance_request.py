@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import fields, models
 from odoo.osv.expression import OR
 
 
@@ -43,7 +43,7 @@ class MaintenanceRequest(models.Model):
         action = super().action_view_documents()
         action["domain"] = self._get_documents_domain()
         # used to filter sidebar/searchpanel
-        action["context"]["limit_folders_to_maintenance_resource"] = True
+        # action["context"]["limit_folders_to_maintenance_resource"] = True
         return action
 
     def _get_documents_domain(self):
@@ -53,3 +53,23 @@ class MaintenanceRequest(models.Model):
             ("res_model", "=", self.equipment_id._name),
         ]
         return OR([request_domain, equipment_domain])
+
+    def write(self, vals):
+        if "equipment_id" in vals:
+            docs = self.mapped(
+                lambda r: self.env["documents.document"].search(
+                    [
+                        ("res_id", "=", r.id),
+                        ("res_model", "=", r._name),
+                    ]
+                )
+            )
+            new_equipment_folder = self.env["documents.folder"].search(
+                [
+                    ("res_id", "=", vals["equipment_id"]),
+                    ("res_model", "=", self.equipment_id._name),
+                ]
+            )
+            docs.folder_id = new_equipment_folder.id
+
+        return super().write(vals)

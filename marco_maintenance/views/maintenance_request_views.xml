@@ -18,19 +18,6 @@
                 <div
                 class="oe_button_box"
                 name="button_box">
-                    <!-- disabled btn -->
-                    <button
-                    name="action_view_documents"
-                    type="object"
-                    class="oe_stat_button disabled"
-                    icon="fa-file-text"
-                    attrs="{'invisible':[('folder_exists','=',True)]}"
-                    string="Documents">
-                        <field
-                        name="documents_count"
-                        widget="statinfo_websocket" />
-                    </button>
-                    <!-- clickable btn -->
                     <button
                     name="action_view_documents"
                     type="object"
