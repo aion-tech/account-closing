@@ -251,3 +251,66 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         self.assertIn(request_1_attachment.id, doc_ids.mapped("attachment_id").ids)
         self.assertIn(request_2_attachment.id, doc_ids.mapped("attachment_id").ids)
         self.assertIn(equipment_attachment.id, doc_ids.mapped("attachment_id").ids)
+
+    def test_create_document_in_request_folder(self):
+        # Arrange
+        request = self._create_maintenance_request()
+        folder = self.env["documents.folder"].search(request._get_folder_domain())
+        ctx = request.action_view_documents()["context"]
+
+        # Act
+        doc = (
+            self.env["documents.document"]
+            .create(
+                {
+                    "datas": DATA,
+                    "name": "EquipmentAttachment",
+                    "folder_id": folder.id,
+                    "res_model": ctx["default_res_model"],
+                    "res_id": ctx["default_res_id"],
+                }
+            )
+        )
+
+        # Assert
+        self.assertEqual(doc.res_model, "maintenance.request")
+        self.assertEqual(doc.res_id, request.id)
+
+    def test_create_document_in_equipment_folder(self):
+        # Arrange
+        folder = self.equipment_01._get_document_folder()
+        ctx = self.equipment_01.action_view_documents()["context"]
+
+        # Act
+        doc = (
+            self.env["documents.document"]
+            .with_context(ctx)
+            .create(
+                {
+                    "datas": DATA,
+                    "name": "EquipmentAttachment",
+                    "folder_id": folder.id,
+                }
+            )
+        )
+
+        # Assert
+        self.assertEqual(doc.res_model, "maintenance.equipment")
+        self.assertEqual(doc.res_id, self.equipment_01.id)
+
+    def test_create_document_in_equipment_folder_without_context(self):
+        # Arrange
+        folder = self.equipment_01._get_document_folder()
+
+        # Act
+        doc = self.env["documents.document"].create(
+            {
+                "datas": DATA,
+                "name": "EquipmentAttachment",
+                "folder_id": folder.id,
+            }
+        )
+
+        # Assert
+        self.assertEqual(doc.res_model, "maintenance.equipment")
+        self.assertEqual(doc.res_id, self.equipment_01.id)

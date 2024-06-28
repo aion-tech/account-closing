@@ -25,6 +25,30 @@ class DocumentsDocument(models.Model):
         string="Equipment",
     )
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for val in vals_list:
+            folder = self.env["documents.folder"].browse(val["folder_id"])
+            equipment = folder.maintenance_equipment_id
+            keys = [
+                "res_model",
+                "res_id",
+            ]
+            if (
+                equipment
+                and all([k not in val for k in keys])
+                and "maintenance_request_id" not in val
+            ):
+                val.update(
+                    dict(
+                        res_id=equipment.id,
+                        res_model="maintenance.equipment",
+                    )
+                )
+        res = super().create(vals_list)
+
+        return res
+
     @api.model
     def search_panel_select_range(self, field_name, **kwargs):
         res_model = self._context.get("active_model")
@@ -138,7 +162,13 @@ class DocumentMixin(models.AbstractModel):
         folder_id = Folder.search(self._get_folder_domain())
         ctx = self.env.context.copy()
         if folder_id:
-            ctx.update({"searchpanel_default_folder_id": folder_id.id})
+            ctx.update(
+                {
+                    "searchpanel_default_folder_id": folder_id.id,
+                    "default_res_model": self._name,
+                    "default_res_id": self.id,
+                }
+            )
 
         return {
             "type": "ir.actions.act_window",
