@@ -62,8 +62,12 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
             self.root_folder_id,
         )
         self.assertEqual(
-            folder_id.maintenance_equipment_id.id,
+            folder_id.res_id,
             request_id.equipment_id.id,
+        )
+        self.assertEqual(
+            folder_id.res_model,
+            "maintenance.equipment",
         )
 
     def test_get_folder(self):
@@ -73,7 +77,10 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         """
         # Pre-condition
         folder_id = self.env["documents.folder"].search(
-            [("maintenance_equipment_id", "=", self.equipment_01.id)]
+            [
+                ("res_id", "=", self.equipment_01.id),
+                ("res_model", "=", self.equipment_01._name),
+            ]
         )
         self.assertTrue(folder_id)
 
@@ -95,7 +102,8 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         # Pre-condition
         folder_id = self.env["documents.folder"].search(
             [
-                ("maintenance_equipment_id", "=", self.equipment_01.id),
+                ("res_id", "=", self.equipment_01.id),
+                ("res_model", "=", self.equipment_01._name),
             ]
         )
         folder_id.unlink()
@@ -108,7 +116,8 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         # Act
         folder_id = self.env["documents.folder"].search(
             [
-                ("maintenance_equipment_id", "=", self.equipment_01.id),
+                ("res_id", "=", self.equipment_01.id),
+                ("res_model", "=", self.equipment_01._name),
             ]
         )
 
@@ -126,7 +135,8 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         # Pre-condition
         folder_id = self.env["documents.folder"].search(
             [
-                ("maintenance_equipment_id", "=", self.equipment_01.id),
+                ("res_id", "=", self.equipment_01.id),
+                ("res_model", "=", self.equipment_01._name),
             ]
         )
         folder_id.unlink()
@@ -138,7 +148,8 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         # Act
         folder_id = self.env["documents.folder"].search(
             [
-                ("maintenance_equipment_id", "=", self.equipment_01.id),
+                ("res_id", "=", self.equipment_01.id),
+                ("res_model", "=", self.equipment_01._name),
             ]
         )
 
@@ -166,7 +177,10 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
             }
         )
         folder = self.env["documents.folder"].search(
-            [("maintenance_equipment_id", "=", equipment.id)]
+            [
+                ("res_model", "=", equipment._name),
+                ("res_id", "=", equipment.id),
+            ]
         )
 
         # Assert
@@ -259,17 +273,14 @@ class MarcoMaintenanceTest(MarcoMaintenanceTestCommon):
         ctx = request.action_view_documents()["context"]
 
         # Act
-        doc = (
-            self.env["documents.document"]
-            .create(
-                {
-                    "datas": DATA,
-                    "name": "EquipmentAttachment",
-                    "folder_id": folder.id,
-                    "res_model": ctx["default_res_model"],
-                    "res_id": ctx["default_res_id"],
-                }
-            )
+        doc = self.env["documents.document"].create(
+            {
+                "datas": DATA,
+                "name": "EquipmentAttachment",
+                "folder_id": folder.id,
+                "res_model": ctx["default_res_model"],
+                "res_id": ctx["default_res_id"],
+            }
         )
 
         # Assert

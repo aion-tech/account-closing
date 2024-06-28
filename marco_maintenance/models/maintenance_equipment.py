@@ -20,7 +20,10 @@ class MaintenanceEquipment(models.Model):
         self.ensure_one()
         Folder = self.env["documents.folder"].sudo()
         equipment_folder_id = Folder.search(
-            [("maintenance_equipment_id", "=", self.id)]
+            [
+                ("res_model", "=", self._name),
+                ("res_id", "=", self.id),
+            ]
         )
         if not equipment_folder_id:
             root_maintenance_folder_id = self.env.ref(
@@ -30,7 +33,8 @@ class MaintenanceEquipment(models.Model):
                 {
                     "name": self.serial_no,
                     "parent_folder_id": root_maintenance_folder_id.id,
-                    "maintenance_equipment_id": self.id,
+                    "res_id": self.id,
+                    "res_model": self._name,
                 }
             )
         return equipment_folder_id
@@ -64,12 +68,16 @@ class MaintenanceEquipment(models.Model):
 
     def _get_folder_domain(self):
         self.ensure_one()
-        return [("maintenance_equipment_id", "=", self.id)]
+        return [
+            ("res_model", "=", self._name),
+            ("res_id", "=", self.id),
+        ]
 
     def _get_document_vals(self, attachment):
         self.ensure_one()
         vals = super()._get_document_vals(attachment)
-        vals["maintenance_equipment_id"] = self.id
+        vals["res_id"] = self.id
+        vals["res_model"] = self._name
         return vals
 
     def write(self, vals):
@@ -77,7 +85,8 @@ class MaintenanceEquipment(models.Model):
         for equipment in self:
             if "serial_no" in vals:
                 folder_id = self.env["documents.folder"].search(
-                    [("maintenance_equipment_id", "=", equipment.id)]
+                    ("res_model", "=", self._name),
+                    ("res_id", "=", equipment.id),
                 )
                 if folder_id:
                     folder_id.name = vals["serial_no"]

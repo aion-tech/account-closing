@@ -1,47 +1,47 @@
 from typing import Any, Dict, List
 
 from odoo import _, api, fields, models
-from odoo.osv.expression import OR
 
 
 class DocumentsFolder(models.Model):
     _inherit = "documents.folder"
 
-    maintenance_equipment_id = fields.Many2one(
-        "maintenance.equipment",
-        string="Equipment",
-    )
+    # maintenance_equipment_id = fields.Many2one(
+    #     "maintenance.equipment",
+    #     string="Equipment",
+    # )
+
+    res_model = fields.Char("Resource Model")
+    res_id = fields.Integer("Resource ID")
 
 
 class DocumentsDocument(models.Model):
     _inherit = "documents.document"
 
-    maintenance_request_id = fields.Many2one(
-        "maintenance.request",
-        string="Maintenance Request",
-    )
-    maintenance_equipment_id = fields.Many2one(
-        "maintenance.equipment",
-        string="Equipment",
-    )
+    # maintenance_request_id = fields.Many2one(
+    #     "maintenance.request",
+    #     string="Maintenance Request",
+    # )
+
+    # maintenance_equipment_id = fields.Many2one(
+    #     "maintenance.equipment",
+    #     string="Equipment",
+    # )
 
     @api.model_create_multi
     def create(self, vals_list):
         for val in vals_list:
             folder = self.env["documents.folder"].browse(val["folder_id"])
-            equipment = folder.maintenance_equipment_id
             keys = [
                 "res_model",
                 "res_id",
             ]
-            if (
-                equipment
-                and all([k not in val for k in keys])
-                and "maintenance_request_id" not in val
+            if folder.res_model == "maintenance.equipment" and all(
+                [k not in val for k in keys]
             ):
                 val.update(
                     dict(
-                        res_id=equipment.id,
+                        res_id=folder.res_id,
                         res_model="maintenance.equipment",
                     )
                 )
@@ -69,8 +69,9 @@ class DocumentsDocument(models.Model):
 
         if res_model == "maintenance.equipment":
             folders |= self.env["documents.folder"].search(
-                [("maintenance_equipment_id", "in", self._context["active_ids"])]
+                [("res_id", "in", self._context["active_ids"])]
             )
+
         elif res_model == "maintenance.request":
             requests = self.env["maintenance.request"].browse(
                 self._context["active_ids"]
@@ -78,7 +79,10 @@ class DocumentsDocument(models.Model):
             equipments = requests.mapped("equipment_id")
             if equipments:
                 folders |= self.env["documents.folder"].search(
-                    [("maintenance_equipment_id", "in", equipments.ids)]
+                    [
+                        ("res_model", "=", res_model),
+                        ("res_id", "in", equipments.ids),
+                    ]
                 )
 
         folders_data = folders.read(
@@ -100,6 +104,18 @@ class DocumentsDocument(models.Model):
                 fd["parent_folder_id"] = False
             values.append(fd)
         res = dict(parent_field="parent_folder_id", values=values)
+        return res
+
+    def clone_xlsx_into_spreadsheet(self):
+        res = super().clone_xlsx_into_spreadsheet()
+        new_doc = self.browse(res)
+        new_doc.write(
+            dict(
+                res_id=self.res_id,
+                res_model=self.res_model,
+            )
+        )
+        self.unlink()
         return res
 
 

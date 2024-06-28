@@ -27,12 +27,16 @@ class MaintenanceRequest(models.Model):
         self.ensure_one()
         if not self.equipment_id:
             return super()._get_folder_domain()
-        return [("maintenance_equipment_id", "=", self.equipment_id.id)]
+        return [
+            ("res_id", "=", self.equipment_id.id),
+            ("res_model", "=", self.equipment_id._name),
+        ]
 
     def _get_document_vals(self, attachment):
         self.ensure_one()
         vals = super()._get_document_vals(attachment)
-        vals["maintenance_request_id"] = self.id
+        vals["res_id"] = self.id
+        vals["res_model"] = self._name
         return vals
 
     def action_view_documents(self):
@@ -44,5 +48,8 @@ class MaintenanceRequest(models.Model):
 
     def _get_documents_domain(self):
         request_domain = super()._get_documents_domain()
-        equipment_domain = [("maintenance_equipment_id", "=", self.equipment_id.id)]
+        equipment_domain = [
+            ("res_id", "=", self.equipment_id.id),
+            ("res_model", "=", self.equipment_id._name),
+        ]
         return OR([request_domain, equipment_domain])
