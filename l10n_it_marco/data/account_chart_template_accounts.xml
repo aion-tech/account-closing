@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<record id="l10n_it_chart_template_marco" model="account.chart.template">
-	<!-- 	<field name="property_account_receivable_id" ref="1501"/>
-		<field name="property_account_payable_id" ref="2501"/>
-		<field name="property_account_expense_categ_id" ref="4101"/>
-		<field name="property_account_income_categ_id" ref="3101"/>
-		<field name="income_currency_exchange_account_id" ref="3220"/>
-		<field name="expense_currency_exchange_account_id" ref="4920"/>
-		<field name="default_pos_receivable_account_id" ref="1508"/>
-		<field name="property_tax_payable_account_id" ref="2605"/>
-		<field name="property_tax_receivable_account_id" ref="2605"/>
-		<field name="account_journal_early_pay_discount_loss_account_id" ref="4111"/>
-		<field name="account_journal_early_pay_discount_gain_account_id" ref="3111"/> -->
-		<field name="property_account_receivable_id" ref="04CLOCCA"/>
-		<field name="property_account_payable_id" ref="10DEADCO"/>
-		<field name="property_account_expense_categ_id" ref="34RRPETI"/>
-		<field name="property_account_income_categ_id" ref="04CRIRP2"/>
-		<field name="income_currency_exchange_account_id" ref="04CRIRP2"/>
+		<!-- Imposta il conto di ricavo standard sui partner -->
+		<field name="property_account_receivable_id" ref="04CLITAL"/>
+
+		<!-- Imposta il conto di costo standard sui partner -->
+		<field name="property_account_payable_id" ref="10FOITAL"/>
+
+		<!-- Imposta il conto di costo standard sulla categoria prodotto -->
+		<field name="property_account_expense_categ_id" ref="32ACPRIM"/>
+
+		<!-- Imposta il conto di ricavo standard sulla categoria prodotto -->
+		<field name="property_account_income_categ_id" ref="50VEALTR"/>
+
+		<!-- Imposta il conto per i guadagni da differenze nei tassi di cambio -->
+		<field name="income_currency_exchange_account_id" ref="50PVCAMB"/>
+
+		<!-- Imposta il conto per le perdite da differenze nei tassi di cambio -->
 		<field name="expense_currency_exchange_account_id" ref="34RRCAMB"/>
+
+		<!-- Da qui in poi è ancora da impostare con i conti corretti | Attendere che Paola rientri per poterli compilare perchè nessun altro mi da attenzioni-->
+
+		<!-- Imposta il conto standard per i crediti derivanti dalle vendite tramite POS (Point of Sale) -->
 		<field name="default_pos_receivable_account_id" ref="04CLWEBO"/>
+
+		<!-- Imposta il conto per le imposte da pagare (passività) -->
 		<field name="property_tax_payable_account_id" ref="10DEADC1"/>
+
+		<!-- Imposta il conto per le imposte da ricevere (attività) -->
 		<field name="property_tax_receivable_account_id" ref="04CRIRBO"/>
+
+		<!-- Imposta il conto per le perdite derivanti da sconti per pagamento anticipato -->
 		<field name="account_journal_early_pay_discount_loss_account_id" ref="34RRPETI"/>
+
+		<!-- Imposta il conto per i guadagni derivanti da sconti per pagamento anticipato -->
 		<field name="account_journal_early_pay_discount_gain_account_id" ref="04CRIRP2"/>
 
 	</record>
