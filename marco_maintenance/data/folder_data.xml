@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-        <record
-        id="documents_maintenance_folder"
-        model="documents.folder"
-        forcecreate="0">
-            <field name="name">Maintenance</field>
-            <field
-            name="description"
-            type="html">
-                <center>
-                    <p>Maintenance Documents</p>
-                </center>
-            </field>
-        </record>
-        <record
-        id="documents_maintenance_folder_no_category"
-        model="documents.folder"
-        forcecreate="0">
-            <field name="name">Senza Categoria</field>
-            <field name="parent_folder_id" ref="marco_maintenance.documents_maintenance_folder"/>
-            <field
-            name="description"
-            type="html">
-                <center>
-                    <p>Senza Categoria</p>
-                </center>
-            </field>
-        </record>
-    </data>
+  <data noupdate="1">
+    <record id="documents_maintenance_folder" model="documents.folder" forcecreate="0">
+      <field name="name">Maintenance</field>
+      <field name="description" type="html">
+        <center>
+          <p>Maintenance Documents</p>
+        </center>
+      </field>
+    </record>
+  </data>
 </odoo>

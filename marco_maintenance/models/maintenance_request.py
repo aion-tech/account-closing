@@ -1,5 +1,4 @@
 from odoo import fields, models
-from odoo.osv.expression import OR
 
 
 class MaintenanceRequest(models.Model):
@@ -16,60 +15,41 @@ class MaintenanceRequest(models.Model):
 
     def _get_document_folder(self):
         """
-        Get a request's equipment folder.
-        Create if needed.
+        Get a request's folder.
         """
         self.ensure_one()
-        equipment_folder_id = self.equipment_id._get_document_folder()
-        return equipment_folder_id
-
-    def _get_folder_domain(self):
-        self.ensure_one()
-        if not self.equipment_id:
-            return super()._get_folder_domain()
-        return [
-            ("res_id", "=", self.equipment_id.id),
-            ("res_model", "=", self.equipment_id._name),
-        ]
-
-    def _get_document_vals(self, attachment):
-        self.ensure_one()
-        vals = super()._get_document_vals(attachment)
-        vals["res_id"] = self.id
-        vals["res_model"] = self._name
-        return vals
+        parent_folder = self.equipment_id._get_document_folder()
+        return self._upsert_folder(parent_folder.id, self.name)
 
     def action_view_documents(self):
         action = super().action_view_documents()
         action["domain"] = self._get_documents_domain()
-        # used to filter sidebar/searchpanel
-        # action["context"]["limit_folders_to_maintenance_resource"] = True
         return action
 
-    def _get_documents_domain(self):
-        request_domain = super()._get_documents_domain()
-        equipment_domain = [
-            ("res_id", "=", self.equipment_id.id),
-            ("res_model", "=", self.equipment_id._name),
-        ]
-        return OR([request_domain, equipment_domain])
+    def action_view_equipment_documents(self):
+        """
+        Return an action view to display documents linked
+        to equipments linked to singleton `self` in the Documents app.
+        """
+        action = self.action_view_documents()
+        action["domain"] = self.equipment_id._get_documents_domain()
+        action["context"]["default_res_id"] = self.equipment_id.id
+        action["context"]["default_res_model"] = "maintenance.equipment"
+        action["context"]["searchpanel_default_folder_id"] = (
+            self.equipment_id._get_document_folder().id
+        )
+        return action
 
     def write(self, vals):
+        res = super().write(vals)
         if "equipment_id" in vals:
-            docs = self.mapped(
-                lambda r: self.env["documents.document"].search(
-                    [
-                        ("res_id", "=", r.id),
-                        ("res_model", "=", r._name),
-                    ]
-                )
-            )
-            new_equipment_folder = self.env["documents.folder"].search(
+            folder = self.env["documents.folder"].search(
                 [
-                    ("res_id", "=", vals["equipment_id"]),
-                    ("res_model", "=", self.equipment_id._name),
+                    ("res_model", "=", self._name),
+                    ("res_id", "in", self.ids),
                 ]
             )
-            docs.folder_id = new_equipment_folder.id
-
-        return super().write(vals)
+            equipment = self.env["maintenance.equipment"].browse(vals["equipment_id"])
+            equipment_folder = equipment._get_document_folder()
+            folder.sudo().parent_folder_id = equipment_folder.id
+        return res

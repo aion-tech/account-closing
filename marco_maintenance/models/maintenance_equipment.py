@@ -1,7 +1,6 @@
 import uuid
 
 from odoo import api, fields, models
-from odoo.osv.expression import AND
 
 
 class MaintenanceEquipment(models.Model):
@@ -16,69 +15,19 @@ class MaintenanceEquipment(models.Model):
         "Serial Number",
         copy=False,
         required=True,
-        # default=lambda self: uuid.uuid4(),
     )
 
     category_id = fields.Many2one(
         required=True,
     )
 
-    def _upsert_equipment_folder(self):
-        self.ensure_one()
-        Folder = self.env["documents.folder"].sudo()
-        equipment_folder_id = Folder.search(
-            [
-                ("res_model", "=", self._name),
-                ("res_id", "=", self.id),
-            ]
-        )
-        if not equipment_folder_id:
-            parent_folder = self.env["documents.folder"].search(
-                self.category_id._get_folder_domain()
-            )
-            equipment_folder_id = Folder.create(
-                {
-                    "name": self.serial_no,
-                    "parent_folder_id": parent_folder.id,
-                    "res_id": self.id,
-                    "res_model": self._name,
-                }
-            )
-        return equipment_folder_id
-
     def _get_document_folder(self):
         """
         Get equipment folder. Create if needed.
         """
         self.ensure_one()
-        equipment_folder_id = self._upsert_equipment_folder()
-        return equipment_folder_id
-
-    def _get_documents_domain(self):
-        self.ensure_one()
-        domain = AND(
-            [
-                self._get_folder_domain(),
-            ]
-        )
-        Folder = self.env["documents.folder"]
-        # parent folder
-        folders = Folder.search(domain)
-        if folders:
-            # children folders
-            children_folders = Folder.search([("id", "child_of", folders.id)])
-            folders |= children_folders
-            return [("folder_id", "in", folders.ids)]
-
-        else:
-            return super()._get_documents_domain()
-
-    def _get_document_vals(self, attachment):
-        self.ensure_one()
-        vals = super()._get_document_vals(attachment)
-        vals["res_id"] = self.id
-        vals["res_model"] = self._name
-        return vals
+        parent_folder = self.category_id._get_document_folder()
+        return self._upsert_folder(parent_folder.id, self.serial_no)
 
     def write(self, vals):
         if "category_id" in vals:
@@ -112,7 +61,10 @@ class MaintenanceEquipment(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
-        res._upsert_equipment_folder()
+        parent_folder = self.env["documents.folder"].search(
+            res.category_id._get_folder_domain()
+        )
+        res._upsert_folder(parent_folder.id, res.serial_no)
         return res
 
     def copy(self, default=None):
@@ -123,6 +75,4 @@ class MaintenanceEquipment(models.Model):
     def action_view_documents(self):
         action = super().action_view_documents()
         action["domain"] = self._get_documents_domain()
-        # used to filter sidebar/searchpanel
-        action["context"]["limit_folders_to_maintenance_resource"] = True
         return action

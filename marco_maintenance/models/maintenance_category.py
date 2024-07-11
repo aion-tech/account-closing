@@ -9,48 +9,23 @@ class MaintenanceEquipmentCategory(models.Model):
         "websocket.refresh.mixin",
     ]
 
-    def _upsert_category_folder(self):
-        self.ensure_one()
-        Folder = self.env["documents.folder"].sudo()
-        category_folder_id = Folder.search(
-            [
-                ("res_model", "=", self._name),
-                ("res_id", "=", self.id),
-            ]
-        )
-        if not category_folder_id:
-            root_maintenance_folder_id = self.env.ref(
-                "marco_maintenance.documents_maintenance_folder"
-            )
-            category_folder_id = Folder.create(
-                {
-                    "name": self.name,
-                    "parent_folder_id": root_maintenance_folder_id.id,
-                    "res_id": self.id,
-                    "res_model": self._name,
-                }
-            )
-        return category_folder_id
-
     def _get_document_folder(self):
         """
         Get equipment folder. Create if needed.
         """
         self.ensure_one()
-        category_folder_id = self._upsert_category_folder()
-        return category_folder_id
-
-    def _get_document_vals(self, attachment):
-        self.ensure_one()
-        vals = super()._get_document_vals(attachment)
-        vals["res_id"] = self.id
-        vals["res_model"] = self._name
-        return vals
+        parent_folder_id = self.env.ref(
+            "marco_maintenance.documents_maintenance_folder"
+        )
+        return self._upsert_folder(parent_folder_id.id, self.name)
 
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
-        res._upsert_category_folder()
+        parent_folder_id = self.env.ref(
+            "marco_maintenance.documents_maintenance_folder"
+        )
+        res._upsert_folder(parent_folder_id.id, res.name)
         return res
 
     def write(self, vals):
