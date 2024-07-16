@@ -25,6 +25,7 @@ OCA/account-closing:
     OCA: git@github.com:OCA/account-closing.git
   merges:
   - OCA 16.0
+  - OCA refs/pull/248/head
   fetch_all:
   - OCA
   target: origin 16.0-mar-dev
