@@ -64,6 +64,7 @@
         "marco_importer",
         "mrp_subcontracting",
         "mrp_multi_level",
+        "server_action_mass_edit" #modulo per la modifica massiva
     ],
     "data": [
         # security/ir.model.access.csv,
