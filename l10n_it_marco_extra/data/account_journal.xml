@@ -2,14 +2,14 @@
 <odoo>
     <data noupdate="1">
         <!-- Registri di tutte le banche e casse -->
-        
+
         <!-- Registro Banca Nazionale del Lavoro -->
         <record id="account_journal_LIBNL0" model="account.journal">
             <field name="name">Banca Nazionale del Lavoro</field>
             <field name="code">BNL</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LIBNL0"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUBNL0"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LIBNL0S"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -19,7 +19,7 @@
             <field name="code">CASSA</field>
             <field name="type">cash</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICASS"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCASS"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICASSS"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -29,7 +29,7 @@
             <field name="code">IVUS</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOM1"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCOM1"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICOM1S"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -39,7 +39,7 @@
             <field name="code">INYUS</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOM2"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCOM2"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICOM2S"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -49,7 +49,7 @@
             <field name="code">BCI</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOMI"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCOMI"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICOMIS"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -59,7 +59,7 @@
             <field name="code">VINYC</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICRE1"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCRE1"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICRE1S"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -69,7 +69,7 @@
             <field name="code">CI</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICRED"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUCRED"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICREDS"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -79,7 +79,7 @@
             <field name="code">FBUSD</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LIFIN1"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUFIN1"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LIFIN1S"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -89,21 +89,19 @@
             <field name="code">FBEUR</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LIFINE"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04SUFINE"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_04LIFINES"></field>
             <field name="payment_sequence">True</field>
         </record>
+        <!-- REGISTRI VARIE -->
 
-
-    <!-- REGISTRI VARIE -->
-        
         <!-- Registro Operazioni varie -->
-        <record id="account_journal_VARIE" model="account.journal">
+        <!-- <record id="account_journal_VARIE" model="account.journal">
             <field name="name">Operazioni varie</field>
             <field name="code">VARIE</field>
             <field name="type">general</field>
             <field name="currency_id" ref="base.EUR"></field>
             <field name="payment_sequence">True</field>
-        </record>
+        </record> -->
 
         <!-- Registro Bilancio di apertura conti -->
         <record id="account_journal_APER" model="account.journal">
@@ -170,10 +168,10 @@
             <field name="payment_sequence">True</field>
         </record>
 
-       
 
 
-    <!-- REGISTRI ACQUISTO -->
+
+        <!-- REGISTRI ACQUISTO -->
 
         <!-- Registro Acquisti -->
         <record id="account_journal_ACQ" model="account.journal">

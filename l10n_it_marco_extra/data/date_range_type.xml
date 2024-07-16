@@ -1,0 +1,45 @@
+<odoo>
+    <data noupdate="0">
+        <!-- Tipo di intervallo: Mensile -->
+        <record id="date_range_type_monthly" model="date.range.type">
+            <field name="name">Mensile</field>
+            <field name="allow_overlap">False</field>
+            <field name="active">True</field>
+            <field name="autogeneration_count">12</field>
+            <field name="autogeneration_date_start">2024-01-01</field>
+            <field name="autogeneration_unit">1</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="duration_count">1</field>
+            <field name="unit_of_time">1</field>
+            <field name="name_expr">'%s-M-%02d' % (date_start.year, date_start.month)</field>
+        </record>
+
+        <!-- Tipo di intervallo: Trimestrale -->
+        <record id="date_range_type_quarterly" model="date.range.type">
+            <field name="name">Trimestrale</field>
+            <field name="allow_overlap">False</field>
+            <field name="active">True</field>
+            <field name="autogeneration_count">4</field>
+            <field name="autogeneration_date_start">2024-01-01</field>
+            <field name="autogeneration_unit">1</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="duration_count">3</field>
+            <field name="unit_of_time">1</field>
+            <field name="name_expr">'%s-T-%02d' % (date_start.year, (date_start.month-1)//3 + 1)</field>
+        </record>
+
+        <!-- Tipo di intervallo: Annuale -->
+        <record id="date_range_type_annual" model="date.range.type">
+            <field name="name">Annuale</field>
+            <field name="allow_overlap">False</field>
+            <field name="active">True</field>
+            <field name="autogeneration_count">1</field>
+            <field name="autogeneration_date_start">2024-01-01</field>
+            <field name="autogeneration_unit">0</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="duration_count">1</field>
+            <field name="unit_of_time">0</field>
+            <field name="name_expr">'%s' % date_start.year</field>
+        </record>
+    </data>
+</odoo>
