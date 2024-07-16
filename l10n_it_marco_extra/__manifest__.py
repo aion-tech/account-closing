@@ -22,10 +22,9 @@ Italian accounting chart and localization.
     'data': [
        
         'data/account_journal.xml',
+        'data/date_range_type.xml',
         
     ],
-    'demo': [
-       # 'demo/demo_company.xml',
-    ],
+    "post_init_hook":"marco_post_init_hook",
     'license': 'LGPL-3',
 }
