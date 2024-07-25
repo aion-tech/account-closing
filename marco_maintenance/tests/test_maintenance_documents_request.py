@@ -62,15 +62,13 @@ class MarcoMaintenanceTestRequest(MarcoMaintenanceTestCommon):
         )
         self._attach_file_to_request(request)
         folder = self.env["documents.folder"].search(request._get_folder_domain())
-        ctx = request.action_view_documents()["context"]
+
         # Act
         doc = self.env["documents.document"].create(
             {
                 "datas": self.data,
                 "name": "EquipmentAttachment",
                 "folder_id": folder.id,
-                "res_model": ctx["default_res_model"],
-                "res_id": ctx["default_res_id"],
             }
         )
 

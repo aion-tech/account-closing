@@ -31,19 +31,15 @@ class DocumentsDocument(models.Model):
     def create(self, vals_list):
         for val in vals_list:
             folder = self.env["documents.folder"].browse(val["folder_id"])
-            keys = [
-                "res_model",
-                "res_id",
-            ]
-            if folder.res_model == "maintenance.equipment" and all(
-                [k not in val for k in keys]
-            ):
+
+            if folder.res_model in MAINTENANCE_MODELS:
                 val.update(
                     dict(
                         res_id=folder.res_id,
-                        res_model="maintenance.equipment",
+                        res_model=folder.res_model,
                     )
                 )
+
         res = super().create(vals_list)
 
         return res
@@ -53,8 +49,8 @@ class DocumentsDocument(models.Model):
         self = self.with_context(hierarchical_naming=False)
         ctx = self._context
 
-        res_model = ctx.get("default_res_model")
-        res_id = ctx.get("default_res_id")
+        res_model = ctx.get("sidebar_res_model")
+        res_id = ctx.get("sidebar_res_id")
 
         conditions = [
             field_name == "folder_id",
@@ -161,7 +157,13 @@ class DocumentMixin(models.AbstractModel):
         Folder = self.env["documents.folder"]
         folders = Folder.search(self._get_folder_domain())
         if folders:
-            folders = Folder.search([("id", "child_of", folders.ids)])
+            folders = Folder.search(
+                [
+                    "|",
+                    ("id", "child_of", folders.ids),
+                    ("id", "parent_of", folders.ids),
+                ]
+            )
         return [("folder_id", "in", folders.ids)]
 
     def _get_folder_domain(self):
@@ -238,8 +240,8 @@ class DocumentMixin(models.AbstractModel):
             ctx.update(
                 {
                     "searchpanel_default_folder_id": folder_id.id,
-                    "default_res_model": self._name,
-                    "default_res_id": self.id,
+                    "sidebar_res_model": self._name,
+                    "sidebar_res_id": self.id,
                 }
             )
 

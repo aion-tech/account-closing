@@ -14,6 +14,7 @@
     ],
     "data": [
         "data/folder_data.xml",
+        "data/ir_sequence_data.xml",
         "views/maintenance_equipment_views.xml",
         "views/maintenance_request_views.xml",
         "views/maintenance_equipment_category_views.xml",

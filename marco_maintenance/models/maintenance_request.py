@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class MaintenanceRequest(models.Model):
@@ -13,13 +13,18 @@ class MaintenanceRequest(models.Model):
         required=True,
     )
 
+    name_sequence = fields.Char(
+        "Request Number",
+        readonly=True,
+    )
+
     def _get_document_folder(self):
         """
         Get a request's folder.
         """
         self.ensure_one()
         parent_folder = self.equipment_id._get_document_folder()
-        return self._upsert_folder(parent_folder.id, self.name)
+        return self._upsert_folder(parent_folder.id, self.name_sequence)
 
     def action_view_documents(self):
         action = super().action_view_documents()
@@ -33,12 +38,21 @@ class MaintenanceRequest(models.Model):
         """
         action = self.action_view_documents()
         action["domain"] = self.equipment_id._get_documents_domain()
-        action["context"]["default_res_id"] = self.equipment_id.id
-        action["context"]["default_res_model"] = "maintenance.equipment"
+        action["context"]["sidebar_res_id"] = self.equipment_id.id
+        action["context"]["sidebar_res_model"] = "maintenance.equipment"
         action["context"]["searchpanel_default_folder_id"] = (
             self.equipment_id._get_document_folder().id
         )
         return action
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for val in vals_list:
+            next_sequence = (
+                self.env["ir.sequence"].sudo().next_by_code("maintenance.sequence")
+            )
+            val["name_sequence"] = next_sequence
+        return super().create(vals_list)
 
     def write(self, vals):
         res = super().write(vals)
