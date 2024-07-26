@@ -10,17 +10,17 @@ def marco_post_init_hook(cr, registry):
     delete_journals(env)
     update_misc_journal(env)
     delete_accounts(env)
-
+    archive_payment_terms(env)
 
 def delete_journals(env):
     # Definisce i codici dei journal da eliminare
     codes_to_delete = ['INV', 'BILL', 'EXCH', 'CABA', 'CSH1', 'BNK1']
     
     # Cerca i journal che hanno uno dei codici specificati
-    journals = env['account.journal'].search([('code', 'in', codes_to_delete)])
+    journals_to_delete = env['account.journal'].search([('code', 'in', codes_to_delete)])
     
     # Elimina i journal trovati
-    journals.unlink()
+    journals_to_delete.unlink()
 
 def update_misc_journal(env):
     # Cerca il journal con il codice 'MISC'
@@ -33,7 +33,7 @@ def update_misc_journal(env):
     })
 
 def delete_accounts(env):
-   # Cerca e elimina i conti con i codici che iniziano con '180', '182', '183' o '999'
+    # Cerca i conti con i codici che iniziano con '180', '182', '183' o '999'
     accounts_to_delete = env['account.account'].search([
         '|', '|', '|',
         ('code', '=like', '180%'),
@@ -45,3 +45,21 @@ def delete_accounts(env):
     # Elimina i conti trovati
     accounts_to_delete.unlink()
 
+
+def archive_payment_terms(env):
+    # Cerca tutti gli XML ID che iniziano con 'account_payment_term_' nel modulo 'account'
+    xml_id_prefix = 'account_payment_term_'
+    ir_model_data = env['ir.model.data'].search([('module', '=', 'account'),('model', '=', 'account.payment.term'), ('name', 'like', xml_id_prefix + '%')])
+    __import__('pdb').set_trace()
+    for record in ir_model_data:
+        try:
+            # Ottieni il termine di pagamento usando il riferimento XML ID
+            payment_term = env.ref(f"{record.module}.{record.name}")
+            # Archivia il termine di pagamento impostando 'active' su False
+            payment_term.write({'active': False})
+            # Modifica il nome del termine di pagamento archiviato
+            new_name = f"{payment_term.name} | (Default di ODOO)"
+            payment_term.write({'name': new_name})
+        except ValueError:
+            # Gestisci l'errore se l'XML ID non esiste
+            pass
