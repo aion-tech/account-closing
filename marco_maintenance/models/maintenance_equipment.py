@@ -1,6 +1,7 @@
 import uuid
 
 from odoo import api, fields, models
+from datetime import timedelta
 
 
 class MaintenanceEquipment(models.Model):
@@ -20,6 +21,40 @@ class MaintenanceEquipment(models.Model):
     category_id = fields.Many2one(
         required=True,
     )
+
+    delta_creation_date = fields.Integer(
+        string="Delta Creation Date",
+        default=60,
+        required=True,
+    )
+
+    @api.model
+    def _cron_generate_requests(self):
+        """
+        Generates maintenance request on the next_action_date or today if none exists
+        """
+        date_now = fields.Date.context_today(self)
+
+        for equipment in self.search([("period", ">", 0)]):
+            
+            if not equipment.delta_creation_date:
+                return super()._cron_generate_requests()
+            
+            # Calculate the check date as next_action_date - delta_creation_date
+            check_date = equipment.next_action_date - timedelta(days=equipment.delta_creation_date)
+
+            # Check if today's date is greater than or equal to check_date
+            if date_now >= check_date:
+                next_requests = self.env["maintenance.request"].search(
+                    [
+                        ("stage_id.done", "=", False),
+                        ("equipment_id", "=", equipment.id),
+                        ("maintenance_type", "=", "preventive"),
+                        ("request_date", "=", equipment.next_action_date),
+                    ]
+                )
+                if not next_requests:
+                    equipment._create_new_request(equipment.next_action_date)
 
     def _get_document_folder(self):
         """
