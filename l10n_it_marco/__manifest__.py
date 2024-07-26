@@ -28,6 +28,7 @@ Italian accounting chart and localization.
         'data/account_chart_template_accounts.xml',     
         'data/account_chart_template_data.xml',
         'data/account_tax_registry.xml',
+        'data/account_tax_group.xml',
         
     ],
     'demo': [

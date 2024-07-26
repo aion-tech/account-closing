@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    <data noupdate="1">
         <!-- Registro IVA Acquisti -->
         <record id="tax_registry_acquisti" model="account.tax.registry">
             <field name="name">Acquisti</field>

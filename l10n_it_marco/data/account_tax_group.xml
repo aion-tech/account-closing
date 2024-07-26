@@ -3,74 +3,62 @@
         <!-- Definizione dei gruppi di imposte -->
         <record id="tax_group_escluso_art_15" model="account.tax.group">
             <field name="name">Escluso Art. 15</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_esente_art_74_ter" model="account.tax.group">
             <field name="name">Esente art 74 Ter</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_esente_art_10" model="account.tax.group">
             <field name="name">Esente art. 10</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_fuori_campo_iva" model="account.tax.group">
             <field name="name">Fuori campo iva</field>
-            <field name="country_id" ref="base.it"/>
         </record>
-        <record id="tax_group_imposte" model="account.tax.group">
+        <!-- Questo record viene creato in automatico dal modulo Account, quindi non serve crearlo-->
+        <!--  <record id="tax_group_imposte" model="account.tax.group">
             <field name="name">Imposte</field>
-        </record>
+        </record> -->
         <record id="tax_group_iva_10" model="account.tax.group">
             <field name="name">Iva 10%</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_iva_22" model="account.tax.group">
             <field name="name">Iva 22%</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_iva_4" model="account.tax.group">
             <field name="name">Iva 4%</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_iva_5" model="account.tax.group">
             <field name="name">Iva 5%</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_ns_art_1" model="account.tax.group">
             <field name="name">NS art. 1 c. da 54 a 89 legge n.190/2014</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_non_imponibile_art_41" model="account.tax.group">
             <field name="name">Non imponibile art. 41</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_non_imponibile_art_8" model="account.tax.group">
             <field name="name">Non imponibile art. 8</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_non_imponibile_art_9" model="account.tax.group">
             <field name="name">Non imponibile art. 9</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_non_soggetto_art_2" model="account.tax.group">
             <field name="name">Non soggetto art. 2</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_ventilazione_corrispettivi" model="account.tax.group">
             <field name="name">Per Ventilazione corrispettivi</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_reverse_charge_art_17_c6" model="account.tax.group">
             <field name="name">Reverse Charge art. 17 c.6</field>
-            <field name="country_id" ref="base.it"/>
         </record>
         <record id="tax_group_reverse_charge_art_74_c_7_8" model="account.tax.group">
             <field name="name">Reverse Charge art. 74 c. 7/8</field>
-            <field name="country_id" ref="base.it"/>
         </record>
-        <record id="tax_group_split_payment" model="account.tax.group">
+    <!-- 
+        Questo gruppo viene creato dal modulo Split Payment OCA/l10n-italy/l10n_it_split_payment/data/account_tax_group_data.xml 
+        il ref di questo record è quindi l10n_it_split_payment.tax_group_split_payment
+    -->
+       <!--  <record id="tax_group_split_payment" model="account.tax.group">
             <field name="name">Scissione pagamenti</field>
-            <field name="country_id" ref="base.it"/>
-        </record>
+        </record> -->
     </data>
 </odoo>

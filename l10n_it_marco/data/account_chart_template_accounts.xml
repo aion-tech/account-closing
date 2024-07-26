@@ -24,11 +24,11 @@
 		<!-- Imposta il conto standard per i crediti derivanti dalle vendite tramite POS (Point of Sale) -->
 		<field name="default_pos_receivable_account_id" ref="04CLWEBO"/>
 
-		<!-- Imposta il conto per le imposte da pagare (passività) -->
-		<field name="property_tax_payable_account_id" ref="10DEADC1"/>
+		<!-- Imposta il conto per le imposte da pagare (passività) | con questo setto il conto fornitore di default sul gruppo di imposte -->
+		<!-- <field name="property_tax_payable_account_id" ref="10DEADC1"/> -->
 
-		<!-- Imposta il conto per le imposte da ricevere (attività) -->
-		<field name="property_tax_receivable_account_id" ref="04CRIRBO"/>
+		<!-- Imposta il conto per le imposte da ricevere (attività) |  con questo setto il conto cliente di default sul gruppo di imposte -->
+		<!-- <field name="property_tax_receivable_account_id" ref="04CRIRBO"/> -->
 
 		<!-- Imposta il conto per le perdite derivanti da sconti per pagamento anticipato -->
 		<field name="account_journal_early_pay_discount_loss_account_id" ref="34RRPETI"/>
