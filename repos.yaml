@@ -250,3 +250,13 @@ OCA/sale-workflow:
   fetch_all:
   - OCA
   target: origin 16.0-mar-dev
+
+OCA/stock-logistics-barcode:
+  remotes:
+    origin: git@github.com:aion-tech/stock-logistics-barcode.git
+    OCA: git@github.com:OCA/stock-logistics-barcode.git
+  merges:
+  - OCA 16.0
+  fetch_all:
+  - OCA
+  target: origin 16.0-mar-dev

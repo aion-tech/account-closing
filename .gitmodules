@@ -122,3 +122,7 @@
 	path = OCA/sale-workflow
 	url = git@github.com:aion-tech/sale-workflow.git
 	branch = 16.0-mar-dev
+[submodule "OCA/stock-logistics-barcode"]
+	path = OCA/stock-logistics-barcode
+	url = git@github.com:aion-tech/stock-logistics-barcode.git
+	branch = 16.0-mar-dev
