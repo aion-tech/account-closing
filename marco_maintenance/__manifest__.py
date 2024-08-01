@@ -11,6 +11,7 @@
         "maintenance",
         "documents",
         "websocket_refresh",
+        "web_notify",
     ],
     "data": [
         "data/folder_data.xml",

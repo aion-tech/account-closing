@@ -179,9 +179,13 @@ class DocumentMixin(models.AbstractModel):
         ]
 
     def _compute_documents_count(self):
+        Folder = self.env["documents.folder"]
         for rec in self:
+            folders = Folder.search(self._get_folder_domain())
+            if folders:
+                folders |= Folder.search([("id", "child_of", folders.ids)])
             rec.documents_count = self.env["documents.document"].search_count(
-                self._get_documents_domain()
+                [("folder_id", "in", folders.ids)]
             )
 
     def _compute_folder_exists(self):

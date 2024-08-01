@@ -7,6 +7,7 @@ class MaintenanceRequest(models.Model):
         "maintenance.request",
         "documents.mixin",
         "websocket.refresh.mixin",
+        "maintenance.folder.mixin",
     ]
 
     equipment_id = fields.Many2one(

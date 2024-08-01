@@ -10,6 +10,7 @@ class MaintenanceEquipment(models.Model):
         "maintenance.equipment",
         "documents.mixin",
         "websocket.refresh.mixin",
+        "maintenance.folder.mixin",
     ]
 
     serial_no = fields.Char(

@@ -7,6 +7,7 @@ class MaintenanceEquipmentCategory(models.Model):
         "maintenance.equipment.category",
         "documents.mixin",
         "websocket.refresh.mixin",
+        "maintenance.folder.mixin",
     ]
 
     def _get_document_folder(self):
