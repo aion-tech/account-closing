@@ -1,6 +1,7 @@
 import time
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT, TransactionCase
+from odoo.addons.base.tests.common import (DISABLED_MAIL_CONTEXT,
+                                           TransactionCase)
 
 
 class MarcoMaintenanceTestCommon(TransactionCase):
@@ -57,6 +58,9 @@ class MarcoMaintenanceTestCommon(TransactionCase):
                 "serial_no": "MT/128/18291016",
                 "model": "NP355E5X",
                 "color": 3,
+                "maintenance_team_id": self.env["maintenance.team"]
+                .search([], limit=1)
+                .id,
             }
         )
 

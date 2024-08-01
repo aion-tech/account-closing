@@ -1,7 +1,7 @@
 import uuid
+from datetime import timedelta
 
 from odoo import api, fields, models
-from datetime import timedelta
 
 
 class MaintenanceEquipment(models.Model):
@@ -31,20 +31,20 @@ class MaintenanceEquipment(models.Model):
     @api.model
     def _cron_generate_requests(self):
         """
-        Generates maintenance request on the next_action_date or today if none exists
+        Generates maintenance request on the
+        next_action_date or today if none exists
         """
         date_now = fields.Date.context_today(self)
 
         for equipment in self.search([("period", ">", 0)]):
-            
-            if not equipment.delta_creation_date:
-                return super()._cron_generate_requests()
-            
-            # Calculate the check date as next_action_date - delta_creation_date
-            check_date = equipment.next_action_date - timedelta(days=equipment.delta_creation_date)
+            # Calculate the check date as
+            # next_action_date - delta_creation_date
+            check_date = equipment.next_action_date - timedelta(
+                days=equipment.delta_creation_date
+            )
 
             # Check if today's date is greater than or equal to check_date
-            if date_now >= check_date:
+            if date_now >= check_date or not equipment.delta_creation_date:
                 next_requests = self.env["maintenance.request"].search(
                     [
                         ("stage_id.done", "=", False),

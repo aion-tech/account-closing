@@ -1,5 +1,7 @@
 import time
+from datetime import date
 
+from freezegun import freeze_time
 from odoo.tests.common import tagged
 
 from .common import MarcoMaintenanceTestCommon
@@ -231,3 +233,32 @@ class MarcoMaintenanceEquipmentTest(MarcoMaintenanceTestCommon):
             equipment_folder.parent_folder_id.id,
             category_02_folder.id,
         )
+
+    @freeze_time("2024-07-01")
+    def test_cron_generate_requests_no_create(self):
+        # Arrange
+        self.equipment_01.effective_date = date.today()
+        self.equipment_01.period = 90
+        self.equipment_01.delta_creation_date = 60
+        self.equipment_01.maintenance_ids.unlink()
+
+        # Act
+        self.env["maintenance.equipment"]._cron_generate_requests()
+
+        # Assert
+        self.assertFalse(self.equipment_01.maintenance_ids)
+
+    @freeze_time("2024-07-01")
+    def test_cron_generate_requests_create(self):
+        # Arrange
+        self.equipment_01.effective_date = date.today()
+        self.equipment_01.period = 90
+        self.equipment_01.delta_creation_date = 90
+        self.equipment_01.maintenance_ids.unlink()
+
+        # Act
+        self.env["maintenance.equipment"]._cron_generate_requests()
+
+        # Assert
+        self.assertTrue(self.equipment_01.maintenance_ids)
+        self.assertEqual(len(self.equipment_01.maintenance_ids), 1)
