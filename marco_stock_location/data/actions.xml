@@ -1,0 +1,14 @@
+<!-- marco_stock_location/data/actions.xml -->
+<odoo>
+    <!-- Define the server action -->
+    <record id="print_locations_label_via_api_action" model="ir.actions.server">
+        <field name="name">Print Location Labels via API</field>
+        <field name="model_id" ref="stock.model_stock_location"/>
+        <field name="binding_model_id" ref="stock.model_stock_location"/>
+        <field name="state">code</field>
+        <field name="code">
+            records.print_locations_label_via_api()
+        </field>
+        <field name="binding_type">action</field>
+    </record>
+</odoo>
