@@ -50,7 +50,6 @@ def archive_payment_terms(env):
     # Cerca tutti gli XML ID che iniziano con 'account_payment_term_' nel modulo 'account'
     xml_id_prefix = 'account_payment_term_'
     ir_model_data = env['ir.model.data'].search([('module', '=', 'account'),('model', '=', 'account.payment.term'), ('name', 'like', xml_id_prefix + '%')])
-    __import__('pdb').set_trace()
     for record in ir_model_data:
         try:
             # Ottieni il termine di pagamento usando il riferimento XML ID
