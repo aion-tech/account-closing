@@ -96,7 +96,7 @@ class MarcoImporter(models.TransientModel):
             vals = {
                 "default_code": rec["default_code"],
                 "name": rec["name"],
-                "barcode": rec["barcode"],
+                "barcode": rec["default_code"],# rec["barcode"],# per l'inventario ho messo il default code al posto del barcode
                 "sale_ok": rec["sale_ok"] == "1",
                 "purchase_ok": rec["purchase_ok"] == "1",
                 "uom_id": uom.id,
@@ -122,9 +122,10 @@ class MarcoImporter(models.TransientModel):
                 product_template_id.write(vals)
             else:
                 product_template_id = self.env["product.template"].create(vals)
-
+                
+            #abbiamo commentato tutto per l'inventario, non voglio caricare la giacenza attuale di mago
             # gestione della giacenza di magazzino
-            if rec["detailed_type"] == "product":
+            """ if rec["detailed_type"] == "product":
                 product_product_id = self.env["product.product"].search(
                     [("product_tmpl_id", "=", product_template_id.id)]
                 )
@@ -137,7 +138,7 @@ class MarcoImporter(models.TransientModel):
                         "location_id": warehouse.lot_stock_id.id,
                         "inventory_quantity": rec["bookInv"] if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
                     }
-                ).action_apply_inventory()
+                ).action_apply_inventory() """
 
             #gestione aree per mrp multilever
             product_id=self.env["product.product"].search(
