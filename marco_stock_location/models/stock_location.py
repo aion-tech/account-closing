@@ -42,7 +42,7 @@ class Location(models.Model):
                 subtitle = barcode_body  # Full barcode without (92)
                 par1label = "CORSIA"
                 par1value = parts[2]  # Between the second and third hyphen
-                par2label = "COLONNA"
+                par2label = "CAMPATA"
                 par2value = parts[3]  # Between the third and fourth hyphen
                 par3label = "POSIZIONE"
                 par3value = parts[-1]  # After the last hyphen
