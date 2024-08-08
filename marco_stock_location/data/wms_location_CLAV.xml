@@ -1,0 +1,329 @@
+<odoo>
+    <data>
+        <record id="marco_location_M3_A1_CLAV" model="stock.location">
+            <field name="name">CLAV</field>
+            <field name="location_id" ref="marco_location_M3_A1" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02" model="stock.location">
+            <field name="name">02</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_A" model="stock.location">
+            <field name="name">A</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_A_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02_A" />
+            <field name="barcode">92M3-A1-CLAV-02-A-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">02</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_A_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02_A" />
+            <field name="barcode">92M3-A1-CLAV-02-A-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">02</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_B" model="stock.location">
+            <field name="name">B</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_B_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02_B" />
+            <field name="barcode">92M3-A1-CLAV-02-B-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">02</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_B_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02_B" />
+            <field name="barcode">92M3-A1-CLAV-02-B-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">02</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_C" model="stock.location">
+            <field name="name">C</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_C_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02_C" />
+            <field name="barcode">92M3-A1-CLAV-02-C-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">02</field>
+            <field name="level">C</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_02_C_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_02_C" />
+            <field name="barcode">92M3-A1-CLAV-02-C-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">02</field>
+            <field name="level">C</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04" model="stock.location">
+            <field name="name">04</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_A" model="stock.location">
+            <field name="name">A</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_A_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04_A" />
+            <field name="barcode">92M3-A1-CLAV-04-A-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">04</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_A_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04_A" />
+            <field name="barcode">92M3-A1-CLAV-04-A-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">04</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_B" model="stock.location">
+            <field name="name">B</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_B_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04_B" />
+            <field name="barcode">92M3-A1-CLAV-04-B-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">04</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_B_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04_B" />
+            <field name="barcode">92M3-A1-CLAV-04-B-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">04</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_C" model="stock.location">
+            <field name="name">C</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_C_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04_C" />
+            <field name="barcode">92M3-A1-CLAV-04-C-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">04</field>
+            <field name="level">C</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_04_C_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_04_C" />
+            <field name="barcode">92M3-A1-CLAV-04-C-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">04</field>
+            <field name="level">C</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06" model="stock.location">
+            <field name="name">06</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_A" model="stock.location">
+            <field name="name">A</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_A_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06_A" />
+            <field name="barcode">92M3-A1-CLAV-06-A-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">06</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_A_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06_A" />
+            <field name="barcode">92M3-A1-CLAV-06-A-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">06</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_B" model="stock.location">
+            <field name="name">B</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_B_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06_B" />
+            <field name="barcode">92M3-A1-CLAV-06-B-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">06</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_B_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06_B" />
+            <field name="barcode">92M3-A1-CLAV-06-B-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">06</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_C" model="stock.location">
+            <field name="name">C</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_C_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06_C" />
+            <field name="barcode">92M3-A1-CLAV-06-C-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">06</field>
+            <field name="level">C</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_06_C_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_06_C" />
+            <field name="barcode">92M3-A1-CLAV-06-C-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">06</field>
+            <field name="level">C</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08" model="stock.location">
+            <field name="name">08</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_A" model="stock.location">
+            <field name="name">A</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_A_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08_A" />
+            <field name="barcode">92M3-A1-CLAV-08-A-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">08</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_A_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08_A" />
+            <field name="barcode">92M3-A1-CLAV-08-A-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">08</field>
+            <field name="level">A</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_B" model="stock.location">
+            <field name="name">B</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_B_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08_B" />
+            <field name="barcode">92M3-A1-CLAV-08-B-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">08</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_B_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08_B" />
+            <field name="barcode">92M3-A1-CLAV-08-B-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">08</field>
+            <field name="level">B</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_C" model="stock.location">
+            <field name="name">C</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08" />
+            <field name="usage">view</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_C_P1" model="stock.location">
+            <field name="name">P1</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08_C" />
+            <field name="barcode">92M3-A1-CLAV-08-C-P1</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">08</field>
+            <field name="level">C</field>
+        </record>
+        <record id="marco_location_M3_A1_CLAV_08_C_P2" model="stock.location">
+            <field name="name">P2</field>
+            <field name="location_id" ref="marco_location_M3_A1_CLAV_08_C" />
+            <field name="barcode">92M3-A1-CLAV-08-C-P2</field>
+            <field name="usage">internal</field>
+            <field name="corridor">CLAV</field>
+            <field name="row">PARI</field>
+            <field name="rack">08</field>
+            <field name="level">C</field>
+        </record>
+    </data>
+</odoo>

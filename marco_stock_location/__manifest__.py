@@ -6,7 +6,8 @@
     'version': '0.1',
     'depends': [
        'stock',
-       'stock_barcode'
+       'stock_barcode',
+       'web_notify',
     ],
     'author': 'MARCO S.p.A.',
     'description': """
@@ -20,6 +21,7 @@ Italian accounting chart and localization.
     'data': [
        
         'data/wms_location.xml',
+        'data/wms_location_CLAV.xml',
         'data/actions.xml',
         
     ],
