@@ -262,3 +262,25 @@ class MarcoMaintenanceEquipmentTest(MarcoMaintenanceTestCommon):
         # Assert
         self.assertTrue(self.equipment_01.maintenance_ids)
         self.assertEqual(len(self.equipment_01.maintenance_ids), 1)
+
+    def test_unlink_equipment_move_documents(self):
+        # Arrange
+        attachment0 = self._attach_file_to_equipment(self.equipment_01)
+        attachment1 = self._attach_file_to_equipment(self.equipment_01)
+        documents = self.env["documents.document"].search(
+            [
+                ("res_id", "in", [attachment0.res_id, attachment1.res_id]),
+                ("res_model", "=", "maintenance.equipment"),
+            ]
+        )
+        folder = documents.folder_id
+        parent_folder = folder.parent_folder_id
+
+        # Act
+        self.equipment_01.unlink()
+
+        # Assert
+        self.assertTrue(documents.exists())
+        self.assertEqual(len(documents.exists()), 2)
+        self.assertEqual(documents.folder_id.id, parent_folder.id)
+        self.assertFalse(folder.exists())

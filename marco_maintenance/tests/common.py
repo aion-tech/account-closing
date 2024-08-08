@@ -77,6 +77,17 @@ class MarcoMaintenanceTestCommon(TransactionCase):
             }
         )
 
+    def _attach_file_to_category(self, category):
+        category_attachment = self.env["ir.attachment"].create(
+            {
+                "datas": self.data,
+                "name": "CategoryAttachment",
+                "res_model": "maintenance.equipment.category",
+                "res_id": category.id,
+            }
+        )
+        return category_attachment
+
     def _attach_file_to_equipment(self, equipment):
         equipment_attachment = self.env["ir.attachment"].create(
             {

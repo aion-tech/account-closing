@@ -49,10 +49,20 @@ class MaintenanceRequest(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for val in vals_list:
-            next_sequence = (
-                self.env["ir.sequence"].sudo().next_by_code("maintenance.sequence")
+            # reset next sequence based on current month
+            sequence = self.env.ref(
+                "marco_maintenance.marco_maintenance_request_sequence"
             )
+            last_request = self.search([], limit=1, order="create_date desc")
+            if last_request:
+                if last_request.create_date.month != fields.Date.today().month:
+                    sequence.number_next_actual = 1
+            else:
+                sequence.number_next_actual = 1
+
+            next_sequence = sequence.next_by_code("maintenance.sequence")
             val["name_sequence"] = next_sequence
+
         return super().create(vals_list)
 
     def write(self, vals):

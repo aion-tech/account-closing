@@ -105,3 +105,29 @@ class MarcoMaintenanceTestRequest(MarcoMaintenanceTestCommon):
             document.folder_id.parent_folder_id.id,
             equipment_folder.id,
         )
+
+    def test_unlink_request_move_documents(self):
+        # Arrange
+        request = self._create_maintenance_request(
+            self.equipment_01.id,
+            self.category_01.id,
+        )
+        attachment0 = self._attach_file_to_request(request)
+        attachment1 = self._attach_file_to_request(request)
+        documents = self.env["documents.document"].search(
+            [
+                ("res_id", "in", [attachment0.res_id, attachment1.res_id]),
+                ("res_model", "=", "maintenance.request"),
+            ]
+        )
+        folder = documents.folder_id
+        parent_folder = folder.parent_folder_id
+
+        # Act
+        request.unlink()
+
+        # Assert
+        self.assertTrue(documents.exists())
+        self.assertEqual(len(documents.exists()), 2)
+        self.assertEqual(documents.folder_id.id, parent_folder.id)
+        self.assertFalse(folder.exists())
