@@ -126,3 +126,7 @@
 	path = OCA/stock-logistics-barcode
 	url = git@github.com:aion-tech/stock-logistics-barcode.git
 	branch = 16.0-mar-dev
+[submodule "OCA/queue"]
+	path = OCA/queue
+	url = git@github.com:OCA/queue.git
+	branch = 16.0
