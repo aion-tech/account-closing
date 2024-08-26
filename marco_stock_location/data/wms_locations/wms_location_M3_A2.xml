@@ -1,0 +1,1016 @@
+<?xml version="1.0" ?>
+<odoo>
+  <record id="marco_location_M3_A2_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02" model="stock.location">
+    <field name="name">02</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02_A"/>
+    <field name="barcode">92M3-A2-A-02-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">02</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02_A"/>
+    <field name="barcode">92M3-A2-A-02-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">02</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02_B"/>
+    <field name="barcode">92M3-A2-A-02-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">02</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02_B"/>
+    <field name="barcode">92M3-A2-A-02-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">02</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02_C"/>
+    <field name="barcode">92M3-A2-A-02-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">02</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_02_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_02_C"/>
+    <field name="barcode">92M3-A2-A-02-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">02</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04" model="stock.location">
+    <field name="name">04</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04_A"/>
+    <field name="barcode">92M3-A2-A-04-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">04</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04_A"/>
+    <field name="barcode">92M3-A2-A-04-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">04</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04_B"/>
+    <field name="barcode">92M3-A2-A-04-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">04</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04_B"/>
+    <field name="barcode">92M3-A2-A-04-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">04</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04_C"/>
+    <field name="barcode">92M3-A2-A-04-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">04</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_04_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_04_C"/>
+    <field name="barcode">92M3-A2-A-04-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">04</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_06" model="stock.location">
+    <field name="name">06</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_06_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_06"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_06_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_06_A"/>
+    <field name="barcode">92M3-A2-A-06-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">06</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_06_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_06_A"/>
+    <field name="barcode">92M3-A2-A-06-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">06</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_06_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_06"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_06_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_06_B"/>
+    <field name="barcode">92M3-A2-A-06-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">06</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_06_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_06_B"/>
+    <field name="barcode">92M3-A2-A-06-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">06</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_08" model="stock.location">
+    <field name="name">08</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_08_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_08"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_08_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_08_A"/>
+    <field name="barcode">92M3-A2-A-08-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">08</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_08_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_08_A"/>
+    <field name="barcode">92M3-A2-A-08-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">08</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_08_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_08"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_08_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_08_B"/>
+    <field name="barcode">92M3-A2-A-08-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">08</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_08_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_08_B"/>
+    <field name="barcode">92M3-A2-A-08-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">08</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">vertical</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10" model="stock.location">
+    <field name="name">10</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10_A"/>
+    <field name="barcode">92M3-A2-A-10-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">10</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10_A"/>
+    <field name="barcode">92M3-A2-A-10-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">10</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10_B"/>
+    <field name="barcode">92M3-A2-A-10-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">10</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10_B"/>
+    <field name="barcode">92M3-A2-A-10-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">10</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10_C"/>
+    <field name="barcode">92M3-A2-A-10-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">10</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_10_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_10_C"/>
+    <field name="barcode">92M3-A2-A-10-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">10</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12" model="stock.location">
+    <field name="name">12</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12_A"/>
+    <field name="barcode">92M3-A2-A-12-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">12</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12_A"/>
+    <field name="barcode">92M3-A2-A-12-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">12</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12_B"/>
+    <field name="barcode">92M3-A2-A-12-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">12</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12_B"/>
+    <field name="barcode">92M3-A2-A-12-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">12</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12_C"/>
+    <field name="barcode">92M3-A2-A-12-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">12</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_12_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_12_C"/>
+    <field name="barcode">92M3-A2-A-12-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">12</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14" model="stock.location">
+    <field name="name">14</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14_A"/>
+    <field name="barcode">92M3-A2-A-14-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">14</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14_A"/>
+    <field name="barcode">92M3-A2-A-14-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">14</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14_B"/>
+    <field name="barcode">92M3-A2-A-14-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">14</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14_B"/>
+    <field name="barcode">92M3-A2-A-14-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">14</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14_C"/>
+    <field name="barcode">92M3-A2-A-14-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">14</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_14_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_14_C"/>
+    <field name="barcode">92M3-A2-A-14-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">14</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16" model="stock.location">
+    <field name="name">16</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16_A"/>
+    <field name="barcode">92M3-A2-A-16-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">16</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16_A"/>
+    <field name="barcode">92M3-A2-A-16-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">16</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16_B"/>
+    <field name="barcode">92M3-A2-A-16-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">16</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16_B"/>
+    <field name="barcode">92M3-A2-A-16-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">16</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16_C"/>
+    <field name="barcode">92M3-A2-A-16-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">16</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_16_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_16_C"/>
+    <field name="barcode">92M3-A2-A-16-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">16</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18" model="stock.location">
+    <field name="name">18</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18_A"/>
+    <field name="barcode">92M3-A2-A-18-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">18</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18_A"/>
+    <field name="barcode">92M3-A2-A-18-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">18</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18_B"/>
+    <field name="barcode">92M3-A2-A-18-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">18</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18_B"/>
+    <field name="barcode">92M3-A2-A-18-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">18</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18_C"/>
+    <field name="barcode">92M3-A2-A-18-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">18</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_18_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_18_C"/>
+    <field name="barcode">92M3-A2-A-18-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">18</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20" model="stock.location">
+    <field name="name">20</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20_A"/>
+    <field name="barcode">92M3-A2-A-20-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">20</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20_A"/>
+    <field name="barcode">92M3-A2-A-20-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">20</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20_B"/>
+    <field name="barcode">92M3-A2-A-20-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">20</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20_B"/>
+    <field name="barcode">92M3-A2-A-20-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">20</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20_C"/>
+    <field name="barcode">92M3-A2-A-20-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">20</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_20_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_20_C"/>
+    <field name="barcode">92M3-A2-A-20-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">20</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22" model="stock.location">
+    <field name="name">22</field>
+    <field name="location_id" ref="marco_location_M3_A2_A"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22_A"/>
+    <field name="barcode">92M3-A2-A-22-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">22</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_A_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22_A"/>
+    <field name="barcode">92M3-A2-A-22-A-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">22</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_B" model="stock.location">
+    <field name="name">B</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_B_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22_B"/>
+    <field name="barcode">92M3-A2-A-22-B-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">22</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_B_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22_B"/>
+    <field name="barcode">92M3-A2-A-22-B-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">22</field>
+    <field name="level">B</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_C" model="stock.location">
+    <field name="name">C</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_C_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22_C"/>
+    <field name="barcode">92M3-A2-A-22-C-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">22</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_A_22_C_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M3_A2_A_22_C"/>
+    <field name="barcode">92M3-A2-A-22-C-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">PARI</field>
+    <field name="rack">22</field>
+    <field name="level">C</field>
+    <field name="m_storage_type">corsia</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M3_A2_MERCE_IN_USCITA" model="stock.location">
+    <field name="name">MERCE IN USCITA</field>
+    <field name="location_id" ref="marco_location_M3_A2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_MERCE_IN_USCITA_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M3_A2_MERCE_IN_USCITA"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_MERCE_IN_USCITA_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_MERCE_IN_USCITA_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_MERCE_IN_USCITA_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_MERCE_IN_USCITA_01_A"/>
+    <field name="barcode">92M3-A2-MERCEINUSCITA-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">MERCE IN USCITA</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
+  <record id="marco_location_M3_A2_LINEA_INDOTTI_IN_M3" model="stock.location">
+    <field name="name">LINEA INDOTTI IN M3</field>
+    <field name="location_id" ref="marco_location_M3_A2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_LINEA_INDOTTI_IN_M3_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M3_A2_LINEA_INDOTTI_IN_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_LINEA_INDOTTI_IN_M3_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M3_A2_LINEA_INDOTTI_IN_M3_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2_LINEA_INDOTTI_IN_M3_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M3_A2_LINEA_INDOTTI_IN_M3_01_A"/>
+    <field name="barcode">92M3-A2-LINEAINDOTTIINM3-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">LINEA INDOTTI IN M3</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
+</odoo>

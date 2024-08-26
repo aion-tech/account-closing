@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<odoo>
+  <record id="marco_location_M1_A3_SOTTOPALCO_1" model="stock.location">
+    <field name="name">SOTTOPALCO 1</field>
+    <field name="location_id" ref="marco_location_M1_A3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A3_SOTTOPALCO_1_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M1_A3_SOTTOPALCO_1"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A3_SOTTOPALCO_1_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M1_A3_SOTTOPALCO_1_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A3_SOTTOPALCO_1_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M1_A3_SOTTOPALCO_1_01_A"/>
+    <field name="barcode">92M1-A3-SOTTOPALCO1-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">SOTTOPALCO 1</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
+  <record id="marco_location_M1_A3_SOTTOPALCO_2" model="stock.location">
+    <field name="name">SOTTOPALCO 2</field>
+    <field name="location_id" ref="marco_location_M1_A3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A3_SOTTOPALCO_2_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M1_A3_SOTTOPALCO_2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A3_SOTTOPALCO_2_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M1_A3_SOTTOPALCO_2_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A3_SOTTOPALCO_2_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M1_A3_SOTTOPALCO_2_01_A"/>
+    <field name="barcode">92M1-A3-SOTTOPALCO2-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">SOTTOPALCO 2</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
+</odoo>

@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<odoo>
+  <record id="marco_location_M3" model="stock.location">
+    <field name="name">M3</field>
+    <field name="location_id" ref="stock.stock_location_stock"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A1" model="stock.location">
+    <field name="name">A1</field>
+    <field name="location_id" ref="marco_location_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A2" model="stock.location">
+    <field name="name">A2</field>
+    <field name="location_id" ref="marco_location_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A3" model="stock.location">
+    <field name="name">A3</field>
+    <field name="location_id" ref="marco_location_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A4" model="stock.location">
+    <field name="name">A4</field>
+    <field name="location_id" ref="marco_location_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A5" model="stock.location">
+    <field name="name">A5</field>
+    <field name="location_id" ref="marco_location_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A6" model="stock.location">
+    <field name="name">A6</field>
+    <field name="location_id" ref="marco_location_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M3_A7" model="stock.location">
+    <field name="name">A7</field>
+    <field name="location_id" ref="marco_location_M3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2" model="stock.location">
+    <field name="name">M2</field>
+    <field name="location_id" ref="stock.stock_location_stock"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A2" model="stock.location">
+    <field name="name">A2</field>
+    <field name="location_id" ref="marco_location_M2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A3" model="stock.location">
+    <field name="name">A3</field>
+    <field name="location_id" ref="marco_location_M2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A4" model="stock.location">
+    <field name="name">A4</field>
+    <field name="location_id" ref="marco_location_M2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A5" model="stock.location">
+    <field name="name">A5</field>
+    <field name="location_id" ref="marco_location_M2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A6" model="stock.location">
+    <field name="name">A6</field>
+    <field name="location_id" ref="marco_location_M2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A7" model="stock.location">
+    <field name="name">A7</field>
+    <field name="location_id" ref="marco_location_M2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A1" model="stock.location">
+    <field name="name">A1</field>
+    <field name="location_id" ref="marco_location_M2"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1" model="stock.location">
+    <field name="name">M1</field>
+    <field name="location_id" ref="stock.stock_location_stock"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A1" model="stock.location">
+    <field name="name">A1</field>
+    <field name="location_id" ref="marco_location_M1"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A2" model="stock.location">
+    <field name="name">A2</field>
+    <field name="location_id" ref="marco_location_M1"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A3" model="stock.location">
+    <field name="name">A3</field>
+    <field name="location_id" ref="marco_location_M1"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A6" model="stock.location">
+    <field name="name">A6</field>
+    <field name="location_id" ref="marco_location_M1"/>
+    <field name="usage">view</field>
+  </record>
+</odoo>
