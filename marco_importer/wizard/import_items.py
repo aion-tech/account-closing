@@ -125,7 +125,7 @@ class MarcoImporter(models.TransientModel):
                 
             #abbiamo commentato tutto per l'inventario, non voglio caricare la giacenza attuale di mago
             # gestione della giacenza di magazzino
-            """ if rec["detailed_type"] == "product":
+            if rec["detailed_type"] == "product":
                 product_product_id = self.env["product.product"].search(
                     [("product_tmpl_id", "=", product_template_id.id)]
                 )
@@ -136,9 +136,9 @@ class MarcoImporter(models.TransientModel):
                     {
                         "product_id": product_product_id.id,
                         "location_id": warehouse.lot_stock_id.id,
-                        "inventory_quantity": rec["bookInv"] if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
+                        "inventory_quantity": rec["bookInv"] #if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
                     }
-                ).action_apply_inventory() """
+                ).action_apply_inventory()
 
             #gestione aree per mrp multilever
             product_id=self.env["product.product"].search(
