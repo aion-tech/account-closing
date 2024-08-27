@@ -22,6 +22,7 @@ Italian accounting chart and localization.
     "website": "http://www.marco.it/",
     "data": [
         "views/stock_location_views.xml",
+        "data/gs1_nomenclature.xml",
         "data/wms_location.xml",
         "data/wms_location_CLAV.xml",
         "data/actions.xml",

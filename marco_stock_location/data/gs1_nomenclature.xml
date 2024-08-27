@@ -1,0 +1,14 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Creazione di una nuova regola per Internal Locations con la regex specificata -->
+         <record id="barcode_rule_gs1_92" model="barcode.rule">
+            <field name="name">Internal Location</field>
+            <field name="barcode_nomenclature_id" ref="barcodes_gs1_nomenclature.default_gs1_nomenclature"/>
+            <field name="sequence">510</field>
+            <field name="encoding">gs1-128</field>
+            <field name="pattern">(92)([!"%-/0-9:-?A-Z_a-z]{0,90})</field>
+            <field name="type">location</field>
+            <field name="gs1_content_type">alpha</field>
+        </record>
+    </data>
+</odoo>
