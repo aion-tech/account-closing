@@ -9,7 +9,7 @@
         "stock_barcode",
         "web_notify",
         "queue_job",
-        "stock_location_position"
+        "stock_location_position",
     ],
     "author": "MARCO S.p.A.",
     "description": """
@@ -45,6 +45,11 @@ Italian accounting chart and localization.
         "data/wms_locations/wms_location_M1_A3.xml",
         "data/wms_locations/wms_location_M1_A6.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "marco_stock_location/static/src/**/*.js",
+        ]
+    },
     "post_init_hook": "marco_post_init_hook",
     "license": "LGPL-3",
 }
