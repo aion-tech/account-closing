@@ -13,6 +13,30 @@ import { sprintf } from "@web/core/utils/strings";
 import { useService } from "@web/core/utils/hooks";
 
 const { EventBus } = owl;
+
+function parseNumber(numberString) {
+  // Rimuovi eventuali spazi
+  numberString = numberString.trim();
+
+  // Verifica se il numero contiene sia un punto che una virgola
+  if (numberString.includes(',') && numberString.includes('.')) {
+      // Controlla se l'ultima virgola viene dopo l'ultimo punto
+      if (numberString.lastIndexOf(',') > numberString.lastIndexOf('.')) {
+          // Tratta come formato europeo (1.234,56)
+          numberString = numberString.replace('.', '').replace(',', '.');
+      } else {
+          // Tratta come formato americano (1,234.56)
+          numberString = numberString.replace(',', '');
+      }
+  } else if (numberString.includes(',')) {
+      // Tratta come formato europeo se contiene solo una virgola (1.234,56)
+      numberString = numberString.replace('.', '').replace(',', '.');
+  }
+
+  // Converti la stringa in un numero float
+  return parseFloat(numberString);
+}
+
 patch(MainComponent.prototype, "marco_stock_location_main_component", {
   /**
    * Handler called when a barcode is scanned.
@@ -172,9 +196,9 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
       // Product is mandatory, if no product, raises a warning.
       if (!barcodeData.error) {
 
-        if (this.selectedLine && /^\d+$/.test(parseFloat(barcode))) {
+        if (this.selectedLine && /^\d+$/.test(parseNumber(barcode))) {
           // Verifica che il barcode sia numerico
-          const quantity = parseFloat(barcode);
+          const quantity = parseNumber(barcode);
 
           let line = this.pageLines.find(
             (l) => l.virtual_id === this.selectedLine.virtual_id,
@@ -183,7 +207,12 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
           if (line) {
             line.inventory_quantity = quantity;
             this.trigger("update");
-            return;
+            console.log(line)
+            let msg=String(quantity)+" "+ this.cache.getRecord("uom.uom", line.product_id.uom_id).name+" set for "+ line.product_id.default_code 
+            return this.notification.add(_t(
+            String(msg),
+            ), { type: "success" });
+           
           }
         }
 
