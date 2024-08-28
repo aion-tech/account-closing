@@ -85,6 +85,13 @@ patch(MainComponent.prototype, "marco_stock_location_main_component", {
 });
 
 patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
+  _processLocation(barcodeData) {
+    if (barcodeData.location) {
+        beepSuccess()
+        this._processLocationSource(barcodeData);
+        this.trigger('update');
+    }
+},
   async processBarcode(barcode) {
     this.actionMutex.exec(() => this._processBarcode(barcode));
   },
@@ -130,6 +137,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
     // Depending of the configuration, the user can be forced to scan a specific barcode type.
     const check = this._checkBarcode(barcodeData);
     if (check.error) {
+      beepError()
       return this.notification.add(check.message, {
         title: check.title,
         type: "danger",
@@ -141,6 +149,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
     }
 
     if (barcodeData.product) {
+      beepSuccess()
       // Remembers the product if a (packaging) product was scanned.
       this.lastScanned.product = barcodeData.product;
     }
@@ -228,11 +237,12 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
     if (!product) {
       // Product is mandatory, if no product, raises a warning.
       if (!barcodeData.error) {
-        beepSuccess(); // per un beep di successo
+         
 
         if (this.selectedLine && !barcode.startsWith("92M") && /^[^a-zA-Z]*$/.test(barcode)) {
           // Verifica che il barcode sia numerico
           if(barcode.length >= 8 && !barcode.includes(',') && !barcode.includes('.')){
+            beepError()
             return this.notification.add(_t(
               "Codice non esiste o qty troppo grande",
               ), { type: "error" });
@@ -247,6 +257,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
             line.inventory_quantity = quantity;
             this.trigger("update");
             console.log(line)
+            beepSuccess();
             let msg=String(quantity)+" "+ this.cache.getRecord("uom.uom", line.product_id.uom_id).name+" set for "+ line.product_id.default_code 
             return this.notification.add(_t(
             String(msg),
@@ -265,6 +276,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
           );
         }
       }
+      beepError()
       return this.notification.add(barcodeData.error, { type: "danger" });
     } else if (barcodeData.lot && barcodeData.lot.product_id !== product.id) {
       delete barcodeData.lot; // The product was scanned alongside another product's lot.
@@ -304,6 +316,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
         (barcodeData.lot || barcodeData.lotName)
       ) {
         barcodeData.quantity = 1;
+        beepError()
         this.notification.add(
           _t(
             `A product tracked by serial numbers can't have multiple quantities for the same serial number.`,
@@ -321,6 +334,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
           this.getQtyDone(line) !== 0 &&
           ((line.lot_id && line.lot_id.name) || line.lot_name) === lotName
         ) {
+          beepError()
           return this.notification.add(
             _t("The scanned serial number is already used."),
             { type: "danger" },
@@ -428,3 +442,5 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
     this.trigger("update");
   },
 });
+
+
