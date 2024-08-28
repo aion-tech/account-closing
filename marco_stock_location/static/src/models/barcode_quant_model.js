@@ -14,6 +14,39 @@ import { useService } from "@web/core/utils/hooks";
 
 const { EventBus } = owl;
 
+function beepSuccess() {
+  const context = new (window.AudioContext || window.webkitAudioContext)();
+  const oscillator = context.createOscillator();
+  const gainNode = context.createGain();
+
+  oscillator.connect(gainNode);
+  gainNode.connect(context.destination);
+
+  oscillator.type = 'sine';
+  oscillator.frequency.setValueAtTime(880, context.currentTime);
+  gainNode.gain.setValueAtTime(0.5, context.currentTime);
+
+  oscillator.start();
+  oscillator.stop(context.currentTime + 0.1);
+}
+
+function beepError() {
+  const context = new (window.AudioContext || window.webkitAudioContext)();
+  const oscillator = context.createOscillator();
+  const gainNode = context.createGain();
+
+  oscillator.connect(gainNode);
+  gainNode.connect(context.destination);
+
+  oscillator.type = 'square';
+  oscillator.frequency.setValueAtTime(440, context.currentTime);
+  gainNode.gain.setValueAtTime(0.5, context.currentTime);
+
+  oscillator.start();
+  oscillator.stop(context.currentTime + 0.3);
+}
+
+
 function parseNumber(numberString) {
   // Rimuovi eventuali spazi
   numberString = numberString.trim();
@@ -195,10 +228,11 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
     if (!product) {
       // Product is mandatory, if no product, raises a warning.
       if (!barcodeData.error) {
+        beepSuccess(); // per un beep di successo
 
         if (this.selectedLine && !barcode.startsWith("92M") && /^[^a-zA-Z]*$/.test(barcode)) {
           // Verifica che il barcode sia numerico
-          if(barcode.length >= 8 && !numberString.includes(',') && !numberString.includes('.')){
+          if(barcode.length >= 8 && !barcode.includes(',') && !barcode.includes('.')){
             return this.notification.add(_t(
               "Codice non esiste o qty troppo grande",
               ), { type: "error" });
