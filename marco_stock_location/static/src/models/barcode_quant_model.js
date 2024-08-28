@@ -14,37 +14,37 @@ import { useService } from "@web/core/utils/hooks";
 
 const { EventBus } = owl;
 
-function beepSuccess() {
-  const context = new (window.AudioContext || window.webkitAudioContext)();
-  const oscillator = context.createOscillator();
-  const gainNode = context.createGain();
+const context = new (window.AudioContext || window.webkitAudioContext)();
 
-  oscillator.connect(gainNode);
-  gainNode.connect(context.destination);
+    const playNote = (frequency, startTime, duration) => {
+        const oscillator = context.createOscillator();
+        const gainNode = context.createGain();
 
-  oscillator.type = 'sine';
-  oscillator.frequency.setValueAtTime(880, context.currentTime);
-  gainNode.gain.setValueAtTime(0.5, context.currentTime);
+        oscillator.connect(gainNode);
+        gainNode.connect(context.destination);
 
-  oscillator.start();
-  oscillator.stop(context.currentTime + 0.1);
-}
+        oscillator.type = 'square';
+        oscillator.frequency.setValueAtTime(frequency, context.currentTime + startTime);
+        gainNode.gain.setValueAtTime(0.5, context.currentTime + startTime);
 
-function beepError() {
-  const context = new (window.AudioContext || window.webkitAudioContext)();
-  const oscillator = context.createOscillator();
-  const gainNode = context.createGain();
+        oscillator.start(context.currentTime + startTime);
+        oscillator.stop(context.currentTime + startTime + duration);
+    };
 
-  oscillator.connect(gainNode);
-  gainNode.connect(context.destination);
+    function beepSuccess() {
+        // Sequence of notes for a "Glorious" style melody
+        playNote(783.99, 0, 0.1); // G5
+        playNote(1046.50, 0.1, 0.2); // C6
+    }
 
-  oscillator.type = 'square';
-  oscillator.frequency.setValueAtTime(440, context.currentTime);
-  gainNode.gain.setValueAtTime(0.5, context.currentTime);
+    function beepError() {
+        // Sequence of notes for "Game Over" style melody
+        playNote(220, 0, 0.2); // A3
+        playNote(196, 0.2, 0.2); // G3
+        playNote(174, 0.4, 0.2); // F3
+        playNote(164, 0.6, 0.5); // E3 (longer note)
+    }
 
-  oscillator.start();
-  oscillator.stop(context.currentTime + 0.3);
-}
 
 
 function parseNumber(numberString) {
@@ -245,7 +245,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
             beepError()
             return this.notification.add(_t(
               "Codice non esiste o qty troppo grande",
-              ), { type: "error" });
+              ), { type: "danger" });
           }
           const quantity = parseNumber(barcode);
 
