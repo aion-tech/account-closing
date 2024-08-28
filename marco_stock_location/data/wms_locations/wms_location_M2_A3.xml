@@ -2070,6 +2070,60 @@
     <field name="m_storage_type">zona_a_terra</field>
     <field name="m_label_type">large</field>
   </record>
+  <record id="marco_location_M2_A3_TAVOLO_FUORI_LINEA" model="stock.location">
+    <field name="name">TAVOLO FUORI LINEA</field>
+    <field name="location_id" ref="marco_location_M2_A3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A3_TAVOLO_FUORI_LINEA_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M2_A3_TAVOLO_FUORI_LINEA"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A3_TAVOLO_FUORI_LINEA_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M2_A3_TAVOLO_FUORI_LINEA_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A3_TAVOLO_FUORI_LINEA_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M2_A3_TAVOLO_FUORI_LINEA_01_A"/>
+    <field name="barcode">92M2-A3-TAVOLOFUORILINEA-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">TAVOLO FUORI LINEA</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
+  <record id="marco_location_M2_A3_TAVOLO_SDP" model="stock.location">
+    <field name="name">TAVOLO SDP</field>
+    <field name="location_id" ref="marco_location_M2_A3"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A3_TAVOLO_SDP_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M2_A3_TAVOLO_SDP"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A3_TAVOLO_SDP_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M2_A3_TAVOLO_SDP_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A3_TAVOLO_SDP_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M2_A3_TAVOLO_SDP_01_A"/>
+    <field name="barcode">92M2-A3-TAVOLOSDP-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">TAVOLO SDP</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
   <record id="marco_location_M2_A3_PIANTA_MAGNETI" model="stock.location">
     <field name="name">PIANTA MAGNETI</field>
     <field name="location_id" ref="marco_location_M2_A3"/>

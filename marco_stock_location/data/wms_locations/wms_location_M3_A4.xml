@@ -1799,31 +1799,4 @@
     <field name="m_storage_type">zona_a_terra</field>
     <field name="m_label_type">large</field>
   </record>
-  <record id="marco_location_M3_A4_TAVOLO_ELETTRONICA" model="stock.location">
-    <field name="name">TAVOLO ELETTRONICA</field>
-    <field name="location_id" ref="marco_location_M3_A4"/>
-    <field name="usage">view</field>
-  </record>
-  <record id="marco_location_M3_A4_TAVOLO_ELETTRONICA_01" model="stock.location">
-    <field name="name">01</field>
-    <field name="location_id" ref="marco_location_M3_A4_TAVOLO_ELETTRONICA"/>
-    <field name="usage">view</field>
-  </record>
-  <record id="marco_location_M3_A4_TAVOLO_ELETTRONICA_01_A" model="stock.location">
-    <field name="name">A</field>
-    <field name="location_id" ref="marco_location_M3_A4_TAVOLO_ELETTRONICA_01"/>
-    <field name="usage">view</field>
-  </record>
-  <record id="marco_location_M3_A4_TAVOLO_ELETTRONICA_01_A_P1" model="stock.location">
-    <field name="name">P1</field>
-    <field name="location_id" ref="marco_location_M3_A4_TAVOLO_ELETTRONICA_01_A"/>
-    <field name="barcode">92M3-A4-TAVOLOELETTRONICA-01-A-P1</field>
-    <field name="usage">internal</field>
-    <field name="corridor">TAVOLO ELETTRONICA</field>
-    <field name="row">DISPARI</field>
-    <field name="rack">01</field>
-    <field name="level">A</field>
-    <field name="m_storage_type">zona_a_terra</field>
-    <field name="m_label_type">large</field>
-  </record>
 </odoo>

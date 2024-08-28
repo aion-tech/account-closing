@@ -6404,4 +6404,58 @@
     <field name="m_storage_type">perimetrale</field>
     <field name="m_label_type">horizontal</field>
   </record>
+  <record id="marco_location_M2_A6_INDOTTI_SU_CARRELLI" model="stock.location">
+    <field name="name">INDOTTI SU CARRELLI</field>
+    <field name="location_id" ref="marco_location_M2_A6"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A6_INDOTTI_SU_CARRELLI_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M2_A6_INDOTTI_SU_CARRELLI"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A6_INDOTTI_SU_CARRELLI_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M2_A6_INDOTTI_SU_CARRELLI_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A6_INDOTTI_SU_CARRELLI_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M2_A6_INDOTTI_SU_CARRELLI_01_A"/>
+    <field name="barcode">92M2-A6-INDOTTISUCARRELLI-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">INDOTTI SU CARRELLI</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
+  <record id="marco_location_M2_A6_IN_CORSIA_E" model="stock.location">
+    <field name="name">IN CORSIA E</field>
+    <field name="location_id" ref="marco_location_M2_A6"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A6_IN_CORSIA_E_01" model="stock.location">
+    <field name="name">01</field>
+    <field name="location_id" ref="marco_location_M2_A6_IN_CORSIA_E"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A6_IN_CORSIA_E_01_A" model="stock.location">
+    <field name="name">A</field>
+    <field name="location_id" ref="marco_location_M2_A6_IN_CORSIA_E_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M2_A6_IN_CORSIA_E_01_A_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M2_A6_IN_CORSIA_E_01_A"/>
+    <field name="barcode">92M2-A6-INCORSIAE-01-A-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">IN CORSIA E</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">A</field>
+    <field name="m_storage_type">zona_a_terra</field>
+    <field name="m_label_type">large</field>
+  </record>
 </odoo>
