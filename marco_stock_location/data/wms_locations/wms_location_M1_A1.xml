@@ -126,6 +126,35 @@
     <field name="m_storage_type">perimetrale</field>
     <field name="m_label_type">horizontal</field>
   </record>
+  <record id="marco_location_M1_A1_A_01_E" model="stock.location">
+    <field name="name">E</field>
+    <field name="location_id" ref="marco_location_M1_A1_A_01"/>
+    <field name="usage">view</field>
+  </record>
+  <record id="marco_location_M1_A1_A_01_E_P1" model="stock.location">
+    <field name="name">P1</field>
+    <field name="location_id" ref="marco_location_M1_A1_A_01_E"/>
+    <field name="barcode">92M1-A1-A-01-E-P1</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">E</field>
+    <field name="m_storage_type">perimetrale</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
+  <record id="marco_location_M1_A1_A_01_E_P2" model="stock.location">
+    <field name="name">P2</field>
+    <field name="location_id" ref="marco_location_M1_A1_A_01_E"/>
+    <field name="barcode">92M1-A1-A-01-E-P2</field>
+    <field name="usage">internal</field>
+    <field name="corridor">A</field>
+    <field name="row">DISPARI</field>
+    <field name="rack">01</field>
+    <field name="level">E</field>
+    <field name="m_storage_type">perimetrale</field>
+    <field name="m_label_type">horizontal</field>
+  </record>
   <record id="marco_location_M1_A1_A_02" model="stock.location">
     <field name="name">02</field>
     <field name="location_id" ref="marco_location_M1_A1_A"/>
