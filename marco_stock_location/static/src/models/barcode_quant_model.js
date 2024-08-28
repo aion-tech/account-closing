@@ -178,7 +178,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
     if (!barcodeData.product) {
       if (barcodeData.quantity) {
         currentLine = this.selectedLine || this.lastScannedLine;
-      } else if (
+      } /* else if (
         this.selectedLine &&
         this.selectedLine.product_id.tracking !== "none"
       ) {
@@ -189,7 +189,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
       ) {
         currentLine = this.lastScannedLine;
       }
-      if (currentLine) {
+       if (currentLine) {
         // If we can, get the product from the previous line.
         const previousProduct = currentLine.product_id;
         // If the current product is tracked and the barcode doesn't fit
@@ -205,7 +205,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
         if (barcodeData.lot || barcodeData.lotName || barcodeData.quantity) {
           barcodeData.product = previousProduct;
         }
-      }
+      } */
     }
     let { product } = barcodeData;
     if (
