@@ -9,6 +9,7 @@ class MarcoImporter(models.TransientModel):
 
     def import_items_quant(self, records):
         _logger.warning("<--- IMPORTAZIONE QUANTI INIZIATA --->")
+        quants = self.env["stock.quant"]
         for idx, rec in enumerate(records):
             product_template_id = self.env["product.template"].search(
                 [("default_code", "=", rec["default_code"])]
@@ -20,12 +21,12 @@ class MarcoImporter(models.TransientModel):
                 continue
             # abbiamo commentato tutto per l'inventario, non voglio caricare la giacenza attuale di mago
             # gestione della giacenza di magazzino
-            if product_template_id.detailed_type == "product":
+            if product_template_id.detailed_type == "product" :
 
                 warehouse = self.env["stock.warehouse"].search(
                     [("company_id", "=", self.env.company.id)], limit=1
                 )
-                self.env["stock.quant"].with_context(inventory_mode=True).create(
+                quant = self.env["stock.quant"].with_context(inventory_mode=True).create(
                     {
                         "product_id": product_product_id.id,
                         "location_id": warehouse.lot_stock_id.id,
@@ -33,7 +34,8 @@ class MarcoImporter(models.TransientModel):
                             "bookInv"
                         ],  # if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
                     }
-                ).action_apply_inventory()
+                )
+                quants |= quant
 
             product_mrp_area = self.env["product.mrp.area"].search(
                 [("product_id", "=", product_product_id.id)]
@@ -57,4 +59,8 @@ class MarcoImporter(models.TransientModel):
                 all_records=records,
                 additional_info=f'{product_template_id.default_code} = {rec["bookInv"]}',
             )
+        _logger.warning( f"<--- APPLICO I QUANTI A {str(len(quants))} PRODOTTI --->")
+        # Ora chiamiamo `action_apply_inventory` una sola volta su tutti i `stock.quant`
+        if quants:
+            quants.action_apply_inventory()
         _logger.warning("<--- IMPORTAZIONE QUANTI TERMINATA --->")
