@@ -198,6 +198,11 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
 
         if (this.selectedLine && !barcode.startsWith("92M") && /^[^a-zA-Z]*$/.test(barcode)) {
           // Verifica che il barcode sia numerico
+          if(barcode.length >= 8){
+            return this.notification.add(_t(
+              "Codice non esiste o qty troppo grande",
+              ), { type: "error" });
+          }
           const quantity = parseNumber(barcode);
 
           let line = this.pageLines.find(
