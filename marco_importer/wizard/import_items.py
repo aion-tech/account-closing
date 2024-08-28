@@ -8,6 +8,9 @@ class MarcoImporter(models.TransientModel):
     
     def import_items(self, records):
         _logger.warning("<--- IMPORTAZIONE ITEMS INIZIATA --->")
+        to_create = []
+        to_update = []
+
         for idx, rec in enumerate(records):
             # Definisco quali rotte può avere l'articolo
             route_ids = False
@@ -31,8 +34,8 @@ class MarcoImporter(models.TransientModel):
             subCatDesc = False
             product_tag = False
 
-            # cerco il categoria nelle categorie dei prodotti e la creo se non esiste
-            if not rec["categoryDescription"] == "" and rec["categoryDescription"]:
+            # cerco la categoria nelle categorie dei prodotti e la creo se non esiste
+            if rec["categoryDescription"]:
                 domain = [
                     ("name", "=", rec["categoryDescription"]),
                     ("parent_id", "=", False),
@@ -42,14 +45,10 @@ class MarcoImporter(models.TransientModel):
                     catDesc = self.env["product.category"].create(
                         {"name": rec["categoryDescription"]}
                     )
-                
-                    
                 category = catDesc
+
             # cerco la sotto categoria nelle categorie dei prodotti e la creo se non esiste legandola ad una categoria
-            if (
-                not rec["subCategoryDescription"] == ""
-                and rec["subCategoryDescription"]
-            ):
+            if rec["subCategoryDescription"]:
                 domain = [
                     ("name", "=", rec["subCategoryDescription"]),
                     ("parent_id", "=", catDesc and catDesc.id),
@@ -65,7 +64,7 @@ class MarcoImporter(models.TransientModel):
                 category = subCatDesc
 
             # cerco il tipo nella categoria dei prodotti e la creo se non esiste legandola ad una sottocategoria
-            if not rec["product_tag"] == "" and rec["product_tag"]:
+            if rec["product_tag"]:
                 domain = [
                     ("name", "=", rec["product_tag"]),
                 ]
@@ -119,13 +118,23 @@ class MarcoImporter(models.TransientModel):
             )
 
             if product_template_id:
-                product_template_id.write(vals)
+                to_update.append((product_template_id, vals))
             else:
-                product_template_id = self.env["product.template"].create(vals)
-                
+                to_create.append(vals)
+
             _progress_logger(
                 iterator=idx,
                 all_records=records,
-                additional_info=product_template_id.default_code,
+                additional_info=rec["default_code"],
             )
+
+        # Esegui le operazioni in batch
+        if to_update:
+            for product_template_id, vals in to_update:
+                product_template_id.write(vals)
+
+        if to_create:
+            self.env["product.template"].create(to_create)
+
+        self.env.cr.commit()  # Commit esplicito per salvare le modifiche
         _logger.warning("<--- IMPORTAZIONE ITEMS TERMINATA --->")

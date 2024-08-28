@@ -196,7 +196,7 @@ patch(BarcodeModel.prototype, "marco_stock_location_barcode_model", {
       // Product is mandatory, if no product, raises a warning.
       if (!barcodeData.error) {
 
-        if (this.selectedLine && /^\d{1,3}([.,]\d{3})*(\.\d+|,\d+)?$/.test(parseNumber(barcode))) {
+        if (this.selectedLine) {
           // Verifica che il barcode sia numerico
           const quantity = parseNumber(barcode);
 
