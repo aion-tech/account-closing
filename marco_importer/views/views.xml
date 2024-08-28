@@ -17,6 +17,7 @@
                         <group >
                             <field name="partners" />
                             <field name="items" />
+                            <field name="items_quant" />
                             <field name="bom_heads"/>
                             <field name="bom_components"/>
                             <field name="workcenters"/>

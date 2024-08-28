@@ -11,9 +11,26 @@ from .progress_logger import _logger
 BASE_URL = "https://api.marco.it/odoo/"
 
 IMPORT_METHOD_MAP = {
-    "partners": {"method": "import_partners", "slug": "partners", "default": False},
-    "items": {"method": "import_items", "slug": "items", "default": False},
-    "bom_heads": {"method": "import_bom_heads", "slug": "bom/head", "default": False},
+    "partners": {
+        "method": "import_partners",
+        "slug": "partners",
+        "default": False,
+    },
+    "items": {
+        "method": "import_items",
+        "slug": "items",
+        "default": False,
+    },
+    "items_quant": {
+        "method": "import_items_quant",
+        "slug": "items",#uso lo stesso endpoint di items così sono sicuro di applicare l'inventario solo a quello che mi interessa
+        "default": False,
+    },
+    "bom_heads": {
+        "method": "import_bom_heads",
+        "slug": "bom/head",
+        "default": False,
+    },
     "workcenters": {
         "method": "import_workcenters",
         "slug": "bom/workcenter",
@@ -34,14 +51,22 @@ IMPORT_METHOD_MAP = {
         "slug": "supplier/pricelist",
         "default": False,
     },
-    "orders": {"method": "import_orders", "slug": "order", "default": False},
-    "banks": {"method": "import_banks", "slug": "banks", "default": False},
+    "orders": {
+        "method": "import_orders",
+        "slug": "order",
+        "default": False,
+    },
+    "banks": {
+        "method": "import_banks",
+        "slug": "banks",
+        "default": False,
+    },
     "partners_bank": {
         "method": "import_partners_bank",
         "slug": "partners/bank",
         "default": False,
     },
-     "employees": {
+    "employees": {
         "method": "import_employees",
         "slug": "employees",
         "default": False,
@@ -63,7 +88,7 @@ class MarcoImporter(models.TransientModel):
             for key, value in IMPORT_METHOD_MAP.items():
                 self[key] = value["default"]
                 _logger.warning(f"default={value['default']}  -->  {key} ")
-            
+
             return
         for key, value in IMPORT_METHOD_MAP.items():
             self[key] = self.select_all
@@ -71,15 +96,15 @@ class MarcoImporter(models.TransientModel):
     def import_all_data(self):
         _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
         try:
-            requests.get(BASE_URL,timeout=(2, 2))
+            requests.get(BASE_URL, timeout=(2, 2))
         except:
             raise ValueError(f"Cannot reach the APIs")
-        
+
         for key, value in IMPORT_METHOD_MAP.items():
             if self[key]:
                 url = BASE_URL + value["slug"]
                 try:
-                    res = requests.get(url,timeout=(3, 10))
+                    res = requests.get(url, timeout=(3, 10))
                     records = res.json()
                 except:
                     raise ValueError(f"Cannot reach the APIs")
