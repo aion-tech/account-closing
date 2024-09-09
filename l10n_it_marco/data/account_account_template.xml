@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
   <data noupdate="1">
-
+  
     <!--Conto contabile con ID 00FICAUZ-->
     <record id="00FICAUZ" model="account.account.template">
       <field name="code">00FICAUZ</field>
@@ -2128,7 +2128,7 @@ cod.1712/1713</field>
     <!--Conto contabile con ID 34RRCAMB-->
     <record id="34RRCAMB" model="account.account.template">
       <field name="code">34RRCAMB</field>
-      <field name="name">DIFFERENZE CAMBI PASSIVE</field>
+      <field name="name">DIFFERENZE CAMBIO PASSIVE</field>
       <field name="account_type">expense</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
       <field name="reconcile">False</field>
@@ -2521,6 +2521,14 @@ cod.1712/1713</field>
     <record id="50ACVARI" model="account.account.template">
       <field name="code">50ACVARI</field>
       <field name="name">RIMBORSO SPESE VARIE</field>
+      <field name="account_type">income_other</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
+    <!--Conto contabile con ID 50PVAUFT-->
+    <record id="50PVAUFT" model="account.account.template">
+      <field name="code">50PVAUFT</field>
+      <field name="name">CONTO TRANSITORIO PER AUTOFATTURE</field>
       <field name="account_type">income_other</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
       <field name="reconcile">False</field>
