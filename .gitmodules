@@ -130,3 +130,7 @@
 	path = OCA/queue
 	url = git@github.com:OCA/queue.git
 	branch = 16.0
+[submodule "OCA/delivery-carrier"]
+	path = OCA/delivery-carrier
+	url = git@github.com:aion-tech/delivery-carrier.git
+	branch = 16.0-mar-dev
