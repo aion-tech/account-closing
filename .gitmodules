@@ -134,3 +134,7 @@
 	path = OCA/delivery-carrier
 	url = git@github.com:aion-tech/delivery-carrier.git
 	branch = 16.0-mar-dev
+[submodule "OCA/product-configurator"]
+	path = OCA/product-configurator
+	url = git@github.com:aion-tech/product-configurator.git
+	branch = 16.0-mar-dev
