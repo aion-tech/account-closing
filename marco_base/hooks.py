@@ -17,10 +17,10 @@ def marco_post_init_hook(cr, registry):
     env["res.config.settings"].new({"group_mrp_workorder_dependencies": True,}).execute()
     env["res.config.settings"].new({"group_unlocked_by_default":True}).execute()
     
-    setMarcoAsOdooCompany(env)
+    #setMarcoAsOdooCompany(env)
 
-
-def setMarcoAsOdooCompany(env):
+#deprecato perchè ora imposto la company tramite xml
+""" def setMarcoAsOdooCompany(env):
     company = env["res.company"].search([])
     print("################# INIZIALIZZAZIONE COMPANY ##################")
     if len(company) != 1:
@@ -76,4 +76,4 @@ def setMarcoAsOdooCompany(env):
             "favicon": favicon,
             "logo": logo,
         }
-        company.write(vals)
+        company.write(vals) """

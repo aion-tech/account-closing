@@ -1,0 +1,550 @@
+<odoo>
+    <data noupdate="1">
+
+    <record id="tax_nd2250" model="account.tax.template">
+        <field name="description">ND2250</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Detraibile al 50% - IVA 22%</field>
+        <field name="sequence">10</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_nd2260" model="account.tax.template">
+        <field name="description">ND2260</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Detraibile al 60% - IVA 22%</field>
+        <field name="sequence">20</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_nd22" model="account.tax.template">
+        <field name="description">ND22</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Detraibile IVA 22% (metro)</field>
+        <field name="sequence">30</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de22af" model="account.tax.template">
+        <field name="description">DE22AF</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 22% - Autofatturazione</field>
+        <field name="sequence">40</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de22" model="account.tax.template">
+        <field name="description">DE22</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 22%</field>
+        <field name="sequence">50</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de22im" model="account.tax.template">
+        <field name="description">DE22IM</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 22% - Importazione</field>
+        <field name="sequence">60</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_nd10" model="account.tax.template">
+        <field name="description">ND10</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Detraibile IVA 10% (metro)</field>
+        <field name="sequence">70</field>
+        <field name="amount">10</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de10" model="account.tax.template">
+        <field name="description">DE10</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 10%</field>
+        <field name="sequence">80</field>
+        <field name="amount">10</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de05" model="account.tax.template">
+        <field name="description">DE05</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 5%</field>
+        <field name="sequence">90</field>
+        <field name="amount">5</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_nd04" model="account.tax.template">
+        <field name="description">ND04</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Detraibile IVA 4% (metro)</field>
+        <field name="sequence">100</field>
+        <field name="amount">4</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de04" model="account.tax.template">
+        <field name="description">DE04</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 4%</field>
+        <field name="sequence">110</field>
+        <field name="amount">4</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_rm74t" model="account.tax.template">
+        <field name="description">RM74T</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Regime del Margine quota esclusa art. 74-ter DPR 633/72 (Agenzie viaggio)</field>
+        <field name="sequence">120</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni09" model="account.tax.template">
+        <field name="description">NI09</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 9, c. 1 DPR 633/72</field>
+        <field name="sequence">130</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_es10" model="account.tax.template">
+        <field name="description">ES10</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Esente art. 10 DPR 633/72</field>
+        <field name="sequence">140</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ec15" model="account.tax.template">
+        <field name="description">EC15</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Escluso art. 15 DPR 633/72</field>
+        <field name="sequence">150</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni8c" model="account.tax.template">
+        <field name="description">NI8C</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 8, c. 1, lett. c DPR 633/72</field>
+        <field name="sequence">160</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ns" model="account.tax.template">
+        <field name="description">NS</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Soggetto IVA</field>
+        <field name="sequence">170</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni8cim" model="account.tax.template">
+        <field name="description">NI8CIM</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 8, c. 1, lett. c DPR 633/72 - Importazione</field>
+        <field name="sequence">180</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ns1" model="account.tax.template">
+        <field name="description">NS1</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Soggetto art. 1, c. 54-89, L.190/14 (Reg. forfettario)</field>
+        <field name="sequence">190</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de22pa" model="account.tax.template">
+        <field name="description">DE22PA</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 22% - Pubblica Amministrazione</field>
+        <field name="sequence">200</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de22sp" model="account.tax.template">
+        <field name="description">DE22SP</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 22% - Split Payment</field>
+        <field name="sequence">210</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de22af" model="account.tax.template">
+        <field name="description">DE22AF</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 22% - Autofatturazione</field>
+        <field name="sequence">220</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_de22" model="account.tax.template">
+        <field name="description">DE22</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">IVA 22%</field>
+        <field name="sequence">230</field>
+        <field name="amount">22</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_rc17d" model="account.tax.template">
+        <field name="description">RC17D</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Reverse Charge art. 17, c. 6 lett. d-quater  DPR 633/72 (GSE)</field>
+        <field name="sequence">240</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_rc74" model="account.tax.template">
+        <field name="description">RC74</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Reverse Charge art. 74, c. 7-8 DPR 633/72 (Rottami)</field>
+        <field name="sequence">250</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni09" model="account.tax.template">
+        <field name="description">NI09</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 9, c. 1 DPR 633/72</field>
+        <field name="sequence">260</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_es10" model="account.tax.template">
+        <field name="description">ES10</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Esente art. 10 DPR 633/72 (Vendita Autovettura)</field>
+        <field name="sequence">270</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ec15" model="account.tax.template">
+        <field name="description">EC15</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Escluso art. 15 DPR 633/72 (Riaddebito UPS)</field>
+        <field name="sequence">280</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni8ab" model="account.tax.template">
+        <field name="description">NI8AB</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 8, c. 1, lett.a-b DPR 633/72</field>
+        <field name="sequence">290</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni8bis" model="account.tax.template">
+        <field name="description">NI8BIS</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 8-bis, c. 1 DPR 633/72</field>
+        <field name="sequence">300</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni8c" model="account.tax.template">
+        <field name="description">NI8C</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 8, c. 1, lett. c DPR 633/72</field>
+        <field name="sequence">310</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ec15b" model="account.tax.template">
+        <field name="description">EC15B</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Escluso art. 15 DPR 633/72 - Bollo virtuale</field>
+        <field name="sequence">320</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ns26" model="account.tax.template">
+        <field name="description">NS26</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Soggetto art. 26, c. 3 DPR 633/72 (Nota di credito oltre l'anno)</field>
+        <field name="sequence">330</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ns7t" model="account.tax.template">
+        <field name="description">NS7T</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Soggetto art. 7-ter DPR 633/72 (Prestazione servizi verso estero)</field>
+        <field name="sequence">340</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni41" model="account.tax.template">
+        <field name="description">NI41</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 41  DPR 633/72 (Cessioni CEE) </field>
+        <field name="sequence">350</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni58" model="account.tax.template">
+        <field name="description">NI58</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 58  DPR 633/72   (Cessioni in triangolazione CEE)</field>
+        <field name="sequence">360</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ni71" model="account.tax.template">
+        <field name="description">NI71</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Imponibile art. 71 DPR 633/72 (S. Marino)</field>
+        <field name="sequence">370</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ns2a" model="account.tax.template">
+        <field name="description">NS2A</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Soggetto art. 2 lett.A DPR 633/72 (Caparra)</field>
+        <field name="sequence">380</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+
+    <record id="tax_ns2h" model="account.tax.template">
+        <field name="description">NS2H</field>
+        <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+        <field name="name">Non Soggetto art. 2 lett.H DPR 633/72 (Cessioni/Campioni  gratuiti)</field>
+        <field name="sequence">390</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include">False</field>
+        <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        
+    </record>
+    
+    </data>
+</odoo>

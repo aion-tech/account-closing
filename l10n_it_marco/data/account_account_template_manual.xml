@@ -73,5 +73,14 @@
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
       <field name="reconcile">True</field>
     </record>
+
+    <!--Conto contabile TRANSITORIO con ID 22TRAUTF-->
+    <record id="22TRAUFA" model="account.account.template">
+      <field name="code">22TRAUFA</field>
+      <field name="name">TRANSITORIO AUTOFATTURAZIONE/INTEGRAZIONE</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">False</field>
+    </record>
   </data>
 </odoo>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-  <data noupdate="1">
+  <data >
   
     <!--Conto contabile con ID 00FICAUZ-->
     <record id="00FICAUZ" model="account.account.template">
