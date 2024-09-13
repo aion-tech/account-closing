@@ -12,6 +12,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 50.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 50.0,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 50.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 50.0,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -26,6 +49,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 40.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 60.0,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 40.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 60.0,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -40,6 +86,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 0.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100.0,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 0.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100.0,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -54,6 +123,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -68,6 +160,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -82,6 +197,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -96,6 +234,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 0.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100.0,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 0.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100.0,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -110,6 +271,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -124,6 +308,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -138,6 +345,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 0.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100.0,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            (0, 0, {'repartition_type': 'tax', 'account_id': ref('04CRIVAA'), 'factor_percent': 0.0}),
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100.0,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -152,6 +382,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -166,6 +419,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -180,6 +456,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -194,6 +493,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -208,6 +530,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -222,6 +567,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -236,6 +604,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -250,6 +641,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -264,6 +678,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -278,6 +715,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -292,6 +752,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -306,6 +789,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -320,6 +826,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -334,6 +863,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -348,6 +900,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -362,6 +937,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -376,6 +974,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -390,6 +1011,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -404,6 +1048,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -418,6 +1085,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -432,6 +1122,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -446,6 +1159,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -460,6 +1196,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -474,6 +1233,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -488,6 +1270,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -502,6 +1307,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -516,6 +1344,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -530,6 +1381,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
 
@@ -544,6 +1418,29 @@
         <field name="price_include">False</field>
         <field name="tax_group_id" ref="account.tax_group_taxes"/>
         
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
+        
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0, 0, {
+                'repartition_type': 'base',
+            }),
+            
+            (0, 0, {
+                'repartition_type': 'tax',
+                'factor_percent': 100,
+            }),
+        ]"/>
+    
     </record>
     
     </data>

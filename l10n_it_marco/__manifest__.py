@@ -70,10 +70,10 @@ Italian accounting chart and localization.
         'data/account_account_template_manual.xml',
         'data/account_account_group.xml',    
         'data/account_chart_template_accounts.xml',     
-        'data/account_chart_template_data.xml',
         'data/account_tax_registry.xml',
         'data/account_tax_group.xml',
         'data/account_tax_template.xml',
+        'data/account_chart_template_data.xml',
         
     ],
     'demo': [
