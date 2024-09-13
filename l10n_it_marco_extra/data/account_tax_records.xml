@@ -1,0 +1,277 @@
+<odoo>
+    <data noupdate="1">
+
+    <record id="l10n_it_marco.1_tax_nd2250" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_nd2260" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_nd22" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de22af" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de22" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de22im" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_nd10" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de10" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de05" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_nd04" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de04" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_rm74t" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n5"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni09" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_es10" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n4"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ec15" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8c" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8cim" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns1" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de22pa" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
+        
+        <field name="payability">S</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de22sp" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
+        
+        <field name="payability">S</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de22af" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_de22" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_rc17d" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n6_8"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_rc74" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n6_1"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni09" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_es10" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n4"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ec15" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8ab" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_1"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8bis" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8c" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ec15b" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns26" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns7t" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_1"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni41" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_2"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni58" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_2"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni71" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_3"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns2a" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns2h" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        
+    </record>
+    
+    </data>
+</odoo>
