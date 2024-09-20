@@ -1,5 +1,7 @@
-from odoo import _, api, fields, models
-from odoo.osv.expression import AND
+import uuid
+from datetime import timedelta
+
+from odoo import api, fields, models
 
 
 class MaintenanceEquipment(models.Model):
@@ -8,6 +10,7 @@ class MaintenanceEquipment(models.Model):
         "maintenance.equipment",
         "documents.mixin",
         "websocket.refresh.mixin",
+        "maintenance.folder.mixin",
     ]
 
     serial_no = fields.Char(
@@ -16,68 +19,76 @@ class MaintenanceEquipment(models.Model):
         required=True,
     )
 
-    def _upsert_equipment_folder(self):
-        self.ensure_one()
-        Folder = self.env["documents.folder"].sudo()
-        equipment_folder_id = Folder.search(
-            [("maintenance_equipment_id", "=", self.id)]
-        )
-        if not equipment_folder_id:
-            root_maintenance_folder_id = self.env.ref(
-                "marco_maintenance.documents_maintenance_folder"
+    category_id = fields.Many2one(
+        required=True,
+    )
+
+    delta_creation_date = fields.Integer(
+        string="Delta Creation Date",
+        default=60,
+        required=True,
+    )
+
+    @api.model
+    def _cron_generate_requests(self):
+        """
+        Generates maintenance request on the
+        next_action_date or today if none exists
+        """
+        date_now = fields.Date.context_today(self)
+
+        for equipment in self.search([("period", ">", 0)]):
+            # Calculate the check date as
+            # next_action_date - delta_creation_date
+            check_date = equipment.next_action_date - timedelta(
+                days=equipment.delta_creation_date
             )
-            equipment_folder_id = Folder.create(
-                {
-                    "name": self.serial_no,
-                    "parent_folder_id": root_maintenance_folder_id.id,
-                    "maintenance_equipment_id": self.id,
-                }
-            )
-        return equipment_folder_id
+
+            # Check if today's date is greater than or equal to check_date
+            if date_now >= check_date or not equipment.delta_creation_date:
+                next_requests = self.env["maintenance.request"].search(
+                    [
+                        ("stage_id.done", "=", False),
+                        ("equipment_id", "=", equipment.id),
+                        ("maintenance_type", "=", "preventive"),
+                        ("request_date", "=", equipment.next_action_date),
+                    ]
+                )
+                if not next_requests:
+                    equipment._create_new_request(equipment.next_action_date)
 
     def _get_document_folder(self):
         """
         Get equipment folder. Create if needed.
         """
         self.ensure_one()
-        equipment_folder_id = self._upsert_equipment_folder()
-        return equipment_folder_id
-
-    def _get_documents_domain(self):
-        self.ensure_one()
-        domain = AND(
-            [
-                self._get_folder_domain(),
-            ]
-        )
-        Folder = self.env["documents.folder"]
-        # parent folder
-        folders = Folder.search(domain)
-        if folders:
-            # children folders
-            children_folders = Folder.search([("id", "child_of", folders.id)])
-            folders |= children_folders
-            return [("folder_id", "in", folders.ids)]
-
-        else:
-            return super()._get_documents_domain()
-
-    def _get_folder_domain(self):
-        self.ensure_one()
-        return [("maintenance_equipment_id", "=", self.id)]
-
-    def _get_document_vals(self, attachment):
-        self.ensure_one()
-        vals = super()._get_document_vals(attachment)
-        vals["maintenance_equipment_id"] = self.id
-        return vals
+        parent_folder = self.category_id._get_document_folder()
+        return self._upsert_folder(parent_folder.id, self.serial_no)
 
     def write(self, vals):
-        res = super(MaintenanceEquipment, self).write(vals)
+        if "category_id" in vals:
+            new_category_folder = self.env["documents.folder"].search(
+                [
+                    ("res_id", "=", vals["category_id"]),
+                    ("res_model", "=", self.category_id._name),
+                ]
+            )
+            equipments_folders = self.env["documents.folder"].search(
+                [
+                    ("res_model", "=", self._name),
+                    ("res_id", "in", self.ids),
+                ]
+            )
+            equipments_folders.sudo().parent_folder_id = new_category_folder.id
+
+        res = super().write(vals)
         for equipment in self:
             if "serial_no" in vals:
                 folder_id = self.env["documents.folder"].search(
-                    [("maintenance_equipment_id", "=", equipment.id)]
+                    [
+                        ("res_model", "=", self._name),
+                        ("res_id", "=", equipment.id),
+                    ]
                 )
                 if folder_id:
                     folder_id.name = vals["serial_no"]
@@ -86,12 +97,18 @@ class MaintenanceEquipment(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
-        res._upsert_equipment_folder()
+        parent_folder = self.env["documents.folder"].search(
+            res.category_id._get_folder_domain()
+        )
+        res._upsert_folder(parent_folder.id, res.serial_no)
         return res
+
+    def copy(self, default=None):
+        default = default or {}
+        default["serial_no"] = uuid.uuid4()
+        return super().copy(default=default)
 
     def action_view_documents(self):
         action = super().action_view_documents()
         action["domain"] = self._get_documents_domain()
-        # used to filter sidebar/searchpanel
-        action["context"]["limit_folders_to_maintenance_resource"] = True
         return action

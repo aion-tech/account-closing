@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_detail_riba_tree_inherit" model="ir.ui.view">
+        <field name="name">riba.slip.line.tree.inherit</field>
+        <field name="model">riba.slip.line</field>
+        <field name="inherit_id" ref="l10n_it_riba.view_detail_riba_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <button
+                    name="riba_line_settlement"
+                    type='object'
+                    attrs="{'invisible':['|',('type','=','incasso'),('state','!=','credited')]}"
+                    string="Mark as Settled"
+                    icon="fa-check"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

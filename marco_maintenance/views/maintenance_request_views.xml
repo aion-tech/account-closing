@@ -1,50 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record
+  <record
     id="maintenance_request_view_form_inherit_marco_maintenance"
-    model="ir.ui.view">
-        <field name="name">maintenance.request.view.form.inherit.marco.maintenance</field>
-        <field name="model">maintenance.request</field>
-        <field
-        name="inherit_id"
-        ref="maintenance.hr_equipment_request_view_form" />
-        <field
-        name="arch"
-        type="xml">
-            <xpath
-            expr="//sheet//div[1]"
-            position="before">
-                <field name="folder_exists" invisible="1"/>
-                <div
-                class="oe_button_box"
-                name="button_box">
-                    <!-- disabled btn -->
-                    <button
-                    name="action_view_documents"
-                    type="object"
-                    class="oe_stat_button disabled"
-                    icon="fa-file-text"
-                    attrs="{'invisible':[('folder_exists','=',True)]}"
-                    string="Documents">
-                        <field
-                        name="documents_count"
-                        widget="statinfo_websocket" />
-                    </button>
-                    <!-- clickable btn -->
-                    <button
-                    name="action_view_documents"
-                    type="object"
-                    class="oe_stat_button"
-                    icon="fa-file-text"
-                    attrs="{'invisible':[('folder_exists','=',False)]}"
-                    string="Documents">
-                        <field
-                        name="documents_count"
-                        widget="statinfo_websocket" />
-                    </button>
-                </div>
-            </xpath>
-        </field>
-    </record>
-</odoo>
+    model="ir.ui.view"
+  >
+    <field name="name">maintenance.request.view.form.inherit.marco.maintenance</field>
+    <field name="model">maintenance.request</field>
+    <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form" />
+    <field name="arch" type="xml">
+      <!-- show maintenance sequence -->
+      <xpath expr="//div[hasclass('oe_title')]" position="after">
+        <div class="oe_title">
+          <label for="name_sequence" />
+          <h2>
+            <field name="name_sequence" />
+          </h2>
+        </div>
+      </xpath>
+      <xpath expr="//sheet//div[1]" position="before">
+        <field name="folder_exists" invisible="1" />
+        <div class="oe_button_box" name="button_box">
+          <!-- disabled btn -->
+          <button
+            name="action_view_documents"
+            type="object"
+            class="oe_stat_button disabled"
+            icon="fa-file-text"
+            attrs="{'invisible':[('folder_exists','=',True)]}"
+            string="Documents"
+          >
+            <field name="documents_count" widget="statinfo_websocket" />
+          </button>
+          <!-- clickable btn -->
+          <button
+            name="action_view_documents"
+            type="object"
+            class="oe_stat_button"
+            icon="fa-file-text"
+            attrs="{'invisible':[('folder_exists','=',False)]}"
+            string="Documents"
+          >
+            <field name="documents_count" widget="statinfo_websocket" />
+          </button>
+          <button
+            name="action_view_equipment_documents"
+            type="object"
+            class="oe_stat_button"
+            icon="fa-file-text"
+          >
+            <span
+              style="
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                word-break: break-word !important;
+              "
+            >
+              Equipment Documents
+            </span>
+          </button>
+        </div>
+      </xpath>
+    </field>
+  </record>
 
+  <record
+    id="maintenance_request_view_kanban_inherit_marco_maintenance"
+    model="ir.ui.view"
+  >
+    <field name="name">maintenance.request.view.kanban.inherit.marco.maintenance</field>
+    <field name="model">maintenance.request</field>
+    <field name="inherit_id" ref="maintenance.hr_equipment_request_view_kanban" />
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('o_kanban_record_body')]" position="before">
+        <span
+          ><b class="o_kanban_record_title"><field name="name_sequence" /></b><br
+        /></span>
+      </xpath>
+    </field>
+  </record>
+
+  <record
+    id="maintenance_request_view_tree_inherit_marco_maintenance"
+    model="ir.ui.view"
+  >
+    <field name="name">maintenance.request.view.tree.inherit.marco.maintenance</field>
+    <field name="model">maintenance.request</field>
+    <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree" />
+    <field name="arch" type="xml">
+      <field name="name" position="after">
+        <field name="name_sequence" />
+      </field>
+    </field>
+  </record>
+
+  <record
+    id="maintenance_request_view_search_inherit_marco_maintenance"
+    model="ir.ui.view"
+  >
+    <field name="name">maintenance.request.view.search.inherit.marco.maintenance</field>
+    <field name="model">maintenance.request</field>
+    <field name="inherit_id" ref="maintenance.hr_equipment_request_view_search" />
+    <field name="arch" type="xml">
+      <field name="name" position="after">
+        <field name="name_sequence" />
+      </field>
+    </field>
+  </record>
+</odoo>

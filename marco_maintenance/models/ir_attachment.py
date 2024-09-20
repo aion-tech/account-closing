@@ -1,9 +1,11 @@
-from typing import Any, Dict
-
-from odoo import api, fields, models
+from odoo import models
 from odoo.models import BaseModel
 
-REFRESHABLE_MODELS = ["maintenance.request", "maintenance.equipment"]
+REFRESHABLE_MODELS = [
+    "maintenance.request",
+    "maintenance.equipment",
+    "maintenance.equipment.category",
+]
 
 
 class IrAttachment(models.Model):
@@ -18,7 +20,7 @@ class IrAttachment(models.Model):
         return res
 
     def unlink(self):
-        to_refresh_ids: Dict[str, BaseModel] = {
+        to_refresh_ids: dict[str, BaseModel] = {
             model: self.env[model] for model in REFRESHABLE_MODELS
         }
         attachments_to_refresh = self.filtered(
