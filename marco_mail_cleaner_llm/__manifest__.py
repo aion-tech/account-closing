@@ -1,0 +1,26 @@
+{
+    "name": "marco_mail_cleaner_llm",
+    "summary": "",
+    "description": "",
+    "author": "MARCO S.p.A.,Carpikes",
+    "website": "https://aion-tech.it/",
+    # https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
+    "category": "Uncategorized",
+    "version": "16.0.1.0.1",
+    'depends': ['base', 'mail', 'crm'],
+   'data': [
+      
+    ],
+    'assets': {
+        
+        'web.assets_backend': [
+            'marco_mail_cleaner_llm/static/src/models/message.js',
+            'marco_mail_cleaner_llm/static/src/components/message/message.xml',
+        ],
+    },
+    'installable': True,
+    'application': False,
+    'license': 'LGPL-3',
+
+
+}

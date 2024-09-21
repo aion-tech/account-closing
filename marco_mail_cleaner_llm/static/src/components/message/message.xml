@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="marco_mail_cleaner_llm.mail_message_cleaned_message" t-inherit="mail.Message" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'o_Message_prettyBody')]" position="replace">
+            
+             <t t-if="messageView.message.cleaned_body">
+                <div class="o_Message_cleanedBody">
+                    <t t-esc="messageView.message.cleaned_body"/>
+                </div>
+                
+            </t>
+            <t t-else="">
+                <div class="o_Message_prettyBody" t-ref="prettyBody"/>
+            </t>
+                 </div>
+        </xpath>
+       
+    </t>
+    <t t-name="marco_mail_cleaner_llm.mail_message_toggle_button" t-inherit="mail.Message" t-inherit-mode="extension">
+         <xpath expr="//div[contains(@class, ' o_Message_actionListContainer')]" position="inside">
+             <i
+            class="o_MessageActionView cursor-pointer fa fa-lg fa-smile-o"
+           
+           
+            role="button"
+          
+            t-ref="actionLLM"
+        />
+        </xpath>
+       
+    </t>
+</templates>
