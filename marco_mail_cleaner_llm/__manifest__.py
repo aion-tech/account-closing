@@ -14,8 +14,9 @@
     'assets': {
         
         'web.assets_backend': [
-            'marco_mail_cleaner_llm/static/src/models/message.js',
             'marco_mail_cleaner_llm/static/src/components/message/message.xml',
+            'marco_mail_cleaner_llm/static/src/models/*.js',
+          
         ],
     },
     'installable': True,

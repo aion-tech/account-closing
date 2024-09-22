@@ -16,13 +16,13 @@ class MailMessage(models.Model):
         _logger.error(message)
         if message.message_type == "email" and message.model == "crm.lead":
             
-            cleaned_content = self.with_delay(priority=5).requests.post(
+            """ cleaned_content = self.with_delay(priority=5).requests.post(
                 "http://10.80.0.5:12345/summarize",
                 json={
                     "content":message.body
                 },
 
-            )
+            ) """
             cleaned_content="Hellooo"
             if cleaned_content:
                 message.cleaned_body = cleaned_content
