@@ -11,10 +11,8 @@ registerPatch({
             compute() {
                 console.log("actionCleanedBodyLLM")
                 return {};
-                
-               
             },
-            //inverse: 'messageActionListOwnerAsCleanedBodyLLM',
+            inverse: 'messageActionListOwnerAsCleanedBodyLLM',
         }),
         
     },

@@ -5,17 +5,27 @@ import { registerPatch } from '@mail/model/model_core';
 import { attr } from '@mail/model/model_field';
 registerPatch({
     name: 'MessageActionView',
+    recordMethods: {
+        onClick(ev) {
+            if (this.messageAction.messageActionListOwner ==
+                  this.messageAction.messageActionListOwnerAsCleanedBodyLLM) {
+              console.log("Yuppi");
+            }
+            return this._super();
+        },
+    },
     fields: {
+
         classNames: {
             compute() {
-                //console.dir(this.messageAction.messageActionListOwner)
-                if (this.messageAction.messageActionListOwner == this.messageAction.messageActionListOwnerAsCleanedBodyLLM) {
-                    classNames = []
+                if (this.messageAction.messageActionListOwner ==
+                      this.messageAction.messageActionListOwnerAsCleanedBodyLLM) {
                     console.log("helooo2")
-                    classNames.push(this.paddingClassNames);
-                    classNames.push('fa fa-lg fa-check o_MessageActionView_actionMarkAsRead');
-                    console.dir(classNames)
-                    return classNames.join(' ')
+                    const names = [];
+                    names.push(this.paddingClassNames);
+                    names.push('fa fa-lg fa-eye o_MessageActionView_actionMarkAsRead');
+                    console.dir(names)
+                    return names.join(' ')
                 }
                 return this._super();
 
@@ -24,5 +34,3 @@ registerPatch({
     },
 
 });
-
-
