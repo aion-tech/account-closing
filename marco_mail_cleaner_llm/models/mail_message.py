@@ -15,29 +15,30 @@ class MailMessage(models.Model):
         message = super(MailMessage, self).create(vals)
         _logger.error(message)
         if message.message_type == "email" and message.model == "crm.lead":
-
-                    cleaned_content = self.with_delay(priority=5).summarizeBody(message.body)
+            self.with_delay(priority=1)._summarizeBody(message)        
+        return message
+    
+    def _summarizeBody(self,message):
+        try:
+                res = requests.post(
+                    "http://10.80.0.5:12345/summarize",
+                    json={"content": message.body},
+                    timeout=6000,
+                )
+                if res.status_code == 200:
+                    cleaned_content=res.json()
                     _logger.warning(cleaned_content)
                     if "status" in cleaned_content and cleaned_content["status"] == "ok":
-                        message.cleaned_body = cleaned_content["data"]["full_msg"]
+                        message.write({"cleaned_body":cleaned_content["data"]["full_msg"]})
                     else:
                         _logger.warning(
                             "Impossibile ottenere l'email pulita per il messaggio ID %s",
                             message.id,
                         )
-        return message
-    def summarizeBody(self,body):
-        try:
-                res = requests.post(
-                    "http://10.80.0.5:12345/summarize",
-                    json={"content": body},
-                    timeout=6000,
-                )
-                if res.status_code == 200:
-                     return res.json()
                 return
         except:
             raise ValueError(f"Cannot reach the APIs")
+        
     def action_custom_message(self):
         # La tua logica personalizzata per l'azione di messaggio
         # Ad esempio, invia una notifica, logga un messaggio o fai qualsiasi altra azione
