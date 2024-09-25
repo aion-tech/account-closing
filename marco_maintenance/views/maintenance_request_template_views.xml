@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <!-- maintenance.request.template form view -->
+  <record id="maintenance_request_template_view_form" model="ir.ui.view">
+    <field name="name">maintenance.request.template.view.form</field>
+    <field name="model">maintenance.request.template</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <field name="name" />
+            <field name="request_name" />
+            <field name="start_date" />
+            <field name="end_date" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
