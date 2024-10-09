@@ -45,9 +45,8 @@ class MarcoImporter(models.TransientModel):
                 "product_id": product_product_id.id,
                 "location_proc_id": self.env.ref("stock.stock_location_stock").id,
                 "mrp_nbr_days": 14,
-                # finchè proviamo l'mrp questo lo lasciamo commentato perchè se no crea ordini di produzione per ripristinare le scorte di sicurezza
-                # "mrp_minimum_stock":rec["minimumStock"],
-                # "mrp_qty_multiple":rec["reorderingLotSize"]
+                "mrp_minimum_stock":rec["minimumStock"],
+                "mrp_qty_multiple":rec["reorderingLotSize"]
             }
             if product_mrp_area:
                 product_mrp_area.write(vals)
