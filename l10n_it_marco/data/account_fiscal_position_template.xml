@@ -3,9 +3,9 @@
     <data noupdate="1">
 
         <!-- Italia -->
-        <record id="fiscal_position_italia" model="account.fiscal.position">
+        <record id="fiscal_position_italia" model="account.fiscal.position.template">
             <field name="name">Italia</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_generic"/>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="auto_apply">True</field>
             <field name="vat_required">True</field>
             <field name="country_id" ref="base.it"/>
@@ -13,18 +13,18 @@
         </record>
 
         <!-- Regime Intra comunitario privato -->
-        <record id="fiscal_position_intra_private" model="account.fiscal.position">
+        <record id="fiscal_position_intra_private" model="account.fiscal.position.template">
             <field name="name">Regime Intra comunitario privato</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_generic"/>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="auto_apply">True</field>
             <field name="country_group_id" ref="base.europe"/>
             <field name="sequence">2</field>
         </record>
 
         <!-- Regime Intra comunitario -->
-        <record id="fiscal_position_intra" model="account.fiscal.position">
+        <record id="fiscal_position_intra" model="account.fiscal.position.template">
             <field name="name">Regime Intra comunitario</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_generic"/>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="auto_apply">True</field>
             <field name="vat_required">True</field>
             <field name="country_group_id" ref="base.europe"/>
@@ -33,17 +33,17 @@
         </record>
 
         <!-- Regime Extra comunitario -->
-        <record id="fiscal_position_extra" model="account.fiscal.position">
+        <record id="fiscal_position_extra" model="account.fiscal.position.template">
             <field name="name">Regime Extra comunitario</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_generic"/>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="auto_apply">True</field>
             <field name="sequence">4</field>
         </record>
 
         <!-- Scissione dei Pagamenti -->
-        <record id="fiscal_position_split_payment" model="account.fiscal.position">
+        <record id="fiscal_position_split_payment" model="account.fiscal.position.template">
             <field name="name">Scissione dei Pagamenti</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_generic"/>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="country_id" ref="base.it"/>
             <field name="sequence">5</field>
             <field name="note">Operazione soggetta a split payment – il cedente non incassa l’Iva ai sensi dell’ex art.17-ter del D.P.R. 633/1972, l’acquirente è obbligato al versamento all’Agenzia delle Entrate.</field>

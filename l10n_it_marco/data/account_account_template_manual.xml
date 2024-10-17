@@ -1,86 +1,40 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
   <data noupdate="1">
-    <!--Conto contabile SOSPESO con ID 04LIBNL0S-->
-    <record id="04LIBNL0S" model="account.account.template">
-      <field name="code">04LIBNL0S</field>
-      <field name="name">BANCA NAZIONALE DEL LAVORO SOSPESO</field>
-      <field name="account_type">asset_current</field>
+    <!--Conto contabile TRANSITORIO con ID 22TRAUTF-->
+    <record id="22TRAUFA" model="account.account.template">
+      <field name="code">22TRAUFA</field>
+      <field name="name">TRANSITORIO AUTOFATTURAZIONE/INTEGRAZIONE</field>
+      <field name="account_type">asset_cash</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
+      <field name="reconcile">False</field>
     </record>
-    <!--Conto contabile SOSPESO con ID 04LICASSS-->
-    <record id="04LICASSS" model="account.account.template">
-      <field name="code">04LICASSS</field>
-      <field name="name">CASSA CONTANTI SOSPESO</field>
-      <field name="account_type">asset_current</field>
-      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
-    </record>
-    <!--Conto contabile SOSPESO con ID 04LICOM1S-->
-    <record id="04LICOM1S" model="account.account.template">
-      <field name="code">04LICOM1S</field>
-      <field name="name">INTESA C/VALUTARIO US$ SOSPESO</field>
-      <field name="account_type">asset_current</field>
-      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
-    </record>
-    <!--Conto contabile SOSPESO con ID 04LICOM2S-->
-    <record id="04LICOM2S" model="account.account.template">
-      <field name="code">04LICOM2S</field>
-      <field name="name">INTESA NEW YORK IN US$ SOSPESO</field>
-      <field name="account_type">asset_current</field>
-      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
-    </record>
-    <!--Conto contabile SOSPESO con ID 04LICOMIS-->
-    <record id="04LICOMIS" model="account.account.template">
-      <field name="code">04LICOMIS</field>
-      <field name="name">INTESA BCI - RETE COMIT SOSPESO</field>
-      <field name="account_type">asset_current</field>
-      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
-    </record>
-    <!--Conto contabile SOSPESO con ID 04LICRE1S-->
-    <record id="04LICRE1S" model="account.account.template">
-      <field name="code">04LICRE1S</field>
-      <field name="name">CREDITO ITALIANO N.Y. C/VALUTARIO SOSPESO</field>
-      <field name="account_type">asset_current</field>
-      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
-    </record>
-    <!--Conto contabile SOSPESO con ID 04LICREDS-->
-    <record id="04LICREDS" model="account.account.template">
-      <field name="code">04LICREDS</field>
-      <field name="name">CREDITO ITALIANO SOSPESO</field>
-      <field name="account_type">asset_current</field>
-      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
-    </record>
-    <!--Conto contabile SOSPESO con ID 04LIFIN1S-->
-    <record id="04LIFIN1S" model="account.account.template">
-      <field name="code">04LIFIN1S</field>
-      <field name="name">FINECO BANK USD SOSPESO</field>
-      <field name="account_type">asset_current</field>
-      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">True</field>
-    </record>
-    <!--Conto contabile SOSPESO con ID 04LIFINES-->
-    <record id="04LIFINES" model="account.account.template">
-      <field name="code">04LIFINES</field>
-      <field name="name">FINECO BANK EURO SOSPESO</field>
+
+    <!--Conto contabile SOSPESO PER TUTTI I REGISTRI CASSA O BANCA con ID 22SUBANK-->
+    <record id="22SUBANK" model="account.account.template">
+      <field name="code">22SUBANK</field>
+      <field name="name">SOSPESO BANCA E CASSA</field>
       <field name="account_type">asset_current</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
       <field name="reconcile">True</field>
     </record>
 
-    <!--Conto contabile TRANSITORIO con ID 22TRAUTF-->
-    <record id="22TRAUFA" model="account.account.template">
-      <field name="code">22TRAUFA</field>
-      <field name="name">TRANSITORIO AUTOFATTURAZIONE/INTEGRAZIONE</field>
+     <record id="22SURICE" model="account.account.template">
+      <field name="code">22SURICE</field>
+      <field name="name">RICEVUTE IN SOSPESO</field>
       <field name="account_type">asset_current</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-      <field name="reconcile">False</field>
+      <field name="reconcile">True</field>
     </record>
+
+     <record id="22SUPAGA" model="account.account.template">
+      <field name="code">22SUPAGA</field>
+      <field name="name">PAGAMENTI IN SOSPESO</field>
+      <field name="account_type">asset_current</field>
+      <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+      <field name="reconcile">True</field>
+    </record>
+
+
   </data>
 </odoo>

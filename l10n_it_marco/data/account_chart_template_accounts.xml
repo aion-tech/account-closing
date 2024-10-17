@@ -21,8 +21,6 @@
 
 		<!-- Da qui in poi è ancora da impostare con i conti corretti | Attendere che Paola rientri per poterli compilare perchè nessun altro mi da attenzioni-->
 
-		<!-- Imposta il conto standard per i crediti derivanti dalle vendite tramite POS (Point of Sale) -->
-		<field name="default_pos_receivable_account_id" ref="04CLWEBO"/>
 
 		<!-- Imposta il conto per le imposte da pagare (passività) | con questo setto il conto fornitore di default sul gruppo di imposte -->
 		<!-- <field name="property_tax_payable_account_id" ref="10DEADC1"/> -->
@@ -36,5 +34,8 @@
 		<!-- Imposta il conto per i guadagni derivanti da sconti per pagamento anticipato -->
 		<field name="account_journal_early_pay_discount_gain_account_id" ref="04CRIRP2"/>
 
+
+		<field name="default_cash_difference_income_account_id" />
+		<field name="default_cash_difference_expense_account_id"/>
 	</record>
 </odoo>

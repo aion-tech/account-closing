@@ -27,6 +27,7 @@
             <field name="rea_code">246134</field>
             <field name="favicon" type="base64" file="marco_base/static/favicon.ico"/> <!-- Favicon base64 -->
             <field name="logo" type="base64" file="marco_base/static/logo.png"/> <!-- Logo base64 -->
+            
       </record>
     </data>
 </odoo>

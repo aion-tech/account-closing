@@ -52,6 +52,8 @@
         "l10n_it_website_portal_ipa",
         "l10n_it_withholding_tax",
         "l10n_it_withholding_tax_reason",
+        "l10n_it_bill_of_entry",
+        "account_invoice_line_default_account"
     ],
     'author': 'OpenERP Italian Community, MARCO S.p.A.',
     'description': """
@@ -72,9 +74,10 @@ Italian accounting chart and localization.
         'data/account_chart_template_accounts.xml',     
         'data/account_tax_registry.xml',
         'data/account_tax_group.xml',
-        'data/account_tax_template.xml',
-        'data/account_chart_template_data.xml',
-        
+        'data/account_tax_template.xml',# Le imposte vengono create come il piano dei conti da un template, il resto delle impostazioni si trova in marco extra
+        'data/account_fiscal_position_template.xml',
+        'data/chart_template_loader.xml',
+       
     ],
     'demo': [
        # 'demo/demo_company.xml',
