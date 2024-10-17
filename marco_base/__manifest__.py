@@ -22,7 +22,11 @@
         "marco_importer",
         "mrp_subcontracting",
         "mrp_multi_level",
-        "server_action_mass_edit" #modulo per la modifica massiva
+        "server_action_mass_edit", #modulo per la modifica massiva
+        "web_search_with_and",
+        "web_advanced_search",
+        #"announcement" #puoi creare degli annunci nell'app discuss
+        #"base_custom_filter" #crea un menu nei settings per creare dei filtri e group by custom
     ],
     "data": [
        
