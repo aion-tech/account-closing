@@ -9,7 +9,9 @@
             <field name="code">BNL</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LIBNL0"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LIBNL0S"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -19,7 +21,9 @@
             <field name="code">CASSA</field>
             <field name="type">cash</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICASS"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICASSS"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -29,7 +33,9 @@
             <field name="code">IVUS</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOM1"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICOM1S"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -39,7 +45,9 @@
             <field name="code">INYUS</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOM2"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICOM2S"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -49,7 +57,9 @@
             <field name="code">BCI</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOMI"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICOMIS"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -59,7 +69,9 @@
             <field name="code">VINYC</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICRE1"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICRE1S"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -69,7 +81,9 @@
             <field name="code">CI</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICRED"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LICREDS"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -79,7 +93,9 @@
             <field name="code">FBUSD</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LIFIN1"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LIFIN1S"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
 
@@ -89,9 +105,27 @@
             <field name="code">FBEUR</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LIFINE"></field>
-            <field name="suspense_account_id" ref="l10n_it_marco.1_04LIFINES"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id"></field>
+            <field name="loss_account_id"></field>
             <field name="payment_sequence">True</field>
         </record>
+
+        <!-- Registro Riconciliazione Reverse Charge -->
+        <record id="account_journal_RICRC" model="account.journal">
+            <field name="name">Riconciliazione Reverse Charge</field>
+            <field name="code">RICRC</field>
+            <field name="type">bank</field>
+            <field name="default_account_id" ref="l10n_it_marco.1_22TRAUFA"></field>
+            <field name="suspense_account_id" ref="l10n_it_marco.1_22SUBANK"></field>
+            <field name="profit_account_id" ref=""></field>
+            <field name="loss_account_id"></field>
+            <field name="currency_id" ref="base.EUR"></field>
+            <field name="payment_sequence">True</field>
+        </record>
+
+
+
         <!-- REGISTRI VARIE -->
 
         <!-- Registro Operazioni varie -->
@@ -132,15 +166,6 @@
             <field name="name">Beni ammortizzabili</field>
             <field name="code">BAM</field>
             <field name="type">general</field>
-            <field name="payment_sequence">True</field>
-        </record>
-
-        <!-- Registro Riconciliazione Reverse Charge -->
-        <record id="account_journal_RICRC" model="account.journal">
-            <field name="name">Riconciliazione Reverse Charge</field>
-            <field name="code">RICRC</field>
-            <field name="type">general</field>
-            <field name="currency_id" ref="base.EUR"></field>
             <field name="payment_sequence">True</field>
         </record>
 

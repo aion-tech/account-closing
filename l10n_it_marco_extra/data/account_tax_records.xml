@@ -1,276 +1,480 @@
 <odoo>
     <data noupdate="1">
 
-    <record id="l10n_it_marco.1_tax_nd2250" model="account.tax">
+    <record id="l10n_it_marco.1_tax_04_purchase" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
         
+        <field name="payability">I</field>
         
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_nd2260" model="account.tax">
+    <record id="l10n_it_marco.1_tax_05_purchase" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
         
+        <field name="payability">I</field>
         
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_nd22" model="account.tax">
+    <record id="l10n_it_marco.1_tax_10_purchase" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
         
+        <field name="payability">I</field>
         
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_de22af" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de22" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de22im" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_nd10" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de10" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de05" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_nd04" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de04" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_rm74t" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n5"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ni09" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_es10" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n4"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ec15" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ni8c" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ns" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ni8cim" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ns1" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de22pa" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
-        
-        <field name="payability">S</field>
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de22sp" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
-        
-        <field name="payability">S</field>
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_de22af" model="account.tax">
+    <record id="l10n_it_marco.1_tax_22_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         
         <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_de22" model="account.tax">
+    <record id="l10n_it_marco.1_tax_22_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd16c_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd16c_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         
         <field name="payability">I</field>
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_rc17d" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n6_8"/>
         
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_rc74" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n6_1"/>
+    <record id="l10n_it_marco.1_tax_22itd16a_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
         
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ni09" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
+        <field name="payability">I</field>
         
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_es10" model="account.tax">
+    <record id="l10n_it_marco.1_tax_22itd16a_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd16b_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd16b_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd17a_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd17a_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd18a_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd18a_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd19a_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22itd19a_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22atd17a_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22atd17a_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22atd19a_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22atd19a_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22im_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22pa_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_22sp_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
+        
+        <field name="payability">S</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ec15_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 15 DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ec15_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ec15b_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 15 DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_es10_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         <field name="kind_id" ref="l10n_it_account_tax_kind.n4"/>
-        
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 10 DPR 633/72 </field>
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ec15" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
+    <record id="l10n_it_marco.1_tax_es10_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n4"/>
+        <field name="payability">I</field>
         
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ni8ab" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_1"/>
+    <record id="l10n_it_marco.1_tax_nd04_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
         
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ni8bis" model="account.tax">
+    <record id="l10n_it_marco.1_tax_nd10_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_nd22_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_nd2250_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_nd2260_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni09_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
-        
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 9, c. 1 DPR 633/72</field>
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ni8c" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
+    <record id="l10n_it_marco.1_tax_ni09_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
+        <field name="payability">I</field>
         
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ec15b" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n1"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ns26" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ns7t" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_1"/>
-        
-    </record>
-    
-
-    <record id="l10n_it_marco.1_tax_ni41" model="account.tax">
+    <record id="l10n_it_marco.1_tax_ni41_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         <field name="kind_id" ref="l10n_it_account_tax_kind.n3_2"/>
-        
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 41  DPR 633/72</field>
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ni58" model="account.tax">
+    <record id="l10n_it_marco.1_tax_ni58_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         <field name="kind_id" ref="l10n_it_account_tax_kind.n3_2"/>
-        
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 58  DPR 633/72 </field>
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ni71" model="account.tax">
+    <record id="l10n_it_marco.1_tax_ni71_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         <field name="kind_id" ref="l10n_it_account_tax_kind.n3_3"/>
-        
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 71 DPR 633/72 </field>
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ns2a" model="account.tax">
+    <record id="l10n_it_marco.1_tax_ni8ab_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
-        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
-        
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_1"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 8, c. 1, lett.a-b DPR 633/72</field>
+        <field name="is_base_affected">False</field>
     </record>
     
 
-    <record id="l10n_it_marco.1_tax_ns2h" model="account.tax">
+    <record id="l10n_it_marco.1_tax_ni8bis_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_4"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 8-bis, c. 1 DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8c_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 8, c. 1, lett. c DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8c_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ni8cim_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n3_5"/>
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns1_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        <field name="payability">I</field>
+        
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns26_sale" model="account.tax">
         <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 26, c. 3 DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns2a_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 2 lett.A DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns2h_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_2"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 2 lett.H DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_ns7t_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n2_1"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 7-ter DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_rc17d_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n6_8"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 17, c. 6 lett. d-quater  DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_rc74_sale" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n6_1"/>
+        <field name="payability">I</field>
+        <field name="law_reference">Art. 74, c. 7-8 DPR 633/72</field>
+        <field name="is_base_affected">False</field>
+    </record>
+    
+
+    <record id="l10n_it_marco.1_tax_rm74t_purchase" model="account.tax">
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_04CRIVAA"/>
+        <field name="kind_id" ref="l10n_it_account_tax_kind.n5"/>
+        <field name="payability">I</field>
         
+        <field name="is_base_affected">False</field>
     </record>
     
     </data>
