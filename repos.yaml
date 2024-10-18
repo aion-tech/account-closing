@@ -199,7 +199,7 @@ OCA/server-auth:
   - OCA
   target: origin 16.0-mar
 
-aion-tech/ait_web_addons:
+aion-tech/ait_accounting_addons:
   remotes:
     origin: git@github.com:aion-tech/ait_accounting_addons.git
   merges:
