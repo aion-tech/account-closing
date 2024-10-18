@@ -78,3 +78,7 @@
 	path = OCA/server-auth
 	url = git@github.com:aion-tech/server-auth.git
 	branch = 16.0-mar
+[submodule "aion-tech/ait_accounting_addons"]
+	path = aion-tech/ait_accounting_addons
+	url = git@github.com:aion-tech/ait_accounting_addons.git
+	branch = 16.0-mar
