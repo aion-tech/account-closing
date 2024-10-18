@@ -198,3 +198,12 @@ OCA/server-auth:
   fetch_all:
   - OCA
   target: origin 16.0-mar
+
+aion-tech/ait_accounting_addons:
+  remotes:
+    origin: git@github.com:aion-tech/ait_accounting_addons.git
+  merges:
+  - origin 16.0
+  fetch_all:
+  - origin
+  target: origin 16.0-mar
