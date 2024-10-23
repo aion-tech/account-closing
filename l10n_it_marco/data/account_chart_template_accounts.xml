@@ -29,13 +29,28 @@
 		<!-- <field name="property_tax_receivable_account_id" ref="04CRIRBO"/> -->
 
 		<!-- Imposta il conto per le perdite derivanti da sconti per pagamento anticipato -->
-		<field name="account_journal_early_pay_discount_loss_account_id" ref="34RRPETI"/>
+		<field name="account_journal_early_pay_discount_loss_account_id" ref="34RRSCON"/>
 
 		<!-- Imposta il conto per i guadagni derivanti da sconti per pagamento anticipato -->
-		<field name="account_journal_early_pay_discount_gain_account_id" ref="04CRIRP2"/>
+		<field name="account_journal_early_pay_discount_gain_account_id" ref="52RCSCON"/>
 
 
-		<field name="default_cash_difference_income_account_id" />
-		<field name="default_cash_difference_expense_account_id"/>
+		<field name="default_cash_difference_income_account_id" ref="58PSSOPR"/>
+		<field name="default_cash_difference_expense_account_id" ref="40MSSOPR"/>
+
+		<field name="account_journal_suspense_account_id" ref="04TRBANK"/>
+	
+		<field name="account_journal_payment_debit_account_id" ref="04TRPAGA"/>
+	
+		<field name="account_journal_payment_credit_account_id" ref="04TRRICE"/>
+	
+		<!-- <field name="transfer_account_id"/> -->
+		<!-- 
+		Serve per spostare liquidità da un registro bancario ad un altro. Viene utilizzato molto per la chiusura delle carte di credito
+		Lo inserirei nella zona dei conti bancari, tipologia attività correnti e deve essere riconciliabile
+		Potrebbe essere 04CRSERV - DA VERIFICARE -> JOHNNY MI FARà SAPERE
+		 -->
+		
+		
 	</record>
 </odoo>

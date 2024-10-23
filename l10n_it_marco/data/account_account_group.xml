@@ -66,6 +66,11 @@
       <field name="code_prefix_start">04RR</field>
       <field name="code_prefix_end">04RR</field>
     </record>
+    <record id="marco_account_group_04TR" model="account.group">
+      <field name="name">CONTI TECNICI TRANSITORI</field>
+      <field name="code_prefix_start">04TR</field>
+      <field name="code_prefix_end">04TR</field>
+    </record>
     <record id="marco_account_group_10" model="account.group">
       <field name="name">DEBITI A BREVE TERMINE</field>
       <field name="code_prefix_start">10</field>

@@ -1,34 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
   <data noupdate="1">
-    <!--Conto contabile TRANSITORIO con ID 22TRAUTF-->
-    <record id="22TRAUFA" model="account.account.template">
-      <field name="code">22TRAUFA</field>
+    <!--Conto contabile TRANSITORIO con ID 04TRAUFA-->
+    <record id="04TRAUFA" model="account.account.template">
+      <field name="code">04TRAUFA</field>
       <field name="name">TRANSITORIO AUTOFATTURAZIONE/INTEGRAZIONE</field>
       <field name="account_type">asset_cash</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
       <field name="reconcile">False</field>
     </record>
 
-    <!--Conto contabile SOSPESO PER TUTTI I REGISTRI CASSA O BANCA con ID 22SUBANK-->
-    <record id="22SUBANK" model="account.account.template">
-      <field name="code">22SUBANK</field>
+    <!--Conto contabile SOSPESO PER TUTTI I REGISTRI CASSA O BANCA con ID 04TRBANK-->
+    <record id="04TRBANK" model="account.account.template">
+      <field name="code">04TRBANK</field>
       <field name="name">SOSPESO BANCA E CASSA</field>
       <field name="account_type">asset_current</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
       <field name="reconcile">True</field>
     </record>
 
-     <record id="22SURICE" model="account.account.template">
-      <field name="code">22SURICE</field>
+     <record id="04TRRICE" model="account.account.template">
+      <field name="code">04TRRICE</field>
       <field name="name">RICEVUTE IN SOSPESO</field>
       <field name="account_type">asset_current</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
       <field name="reconcile">True</field>
     </record>
 
-     <record id="22SUPAGA" model="account.account.template">
-      <field name="code">22SUPAGA</field>
+     <record id="04TRPAGA" model="account.account.template">
+      <field name="code">04TRPAGA</field>
       <field name="name">PAGAMENTI IN SOSPESO</field>
       <field name="account_type">asset_current</field>
       <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
