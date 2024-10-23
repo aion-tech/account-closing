@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--Posizione Fiscale: [TD16] - Integrazione art. 17 c. 6 lett. a (Manutenzione e Pulizie)  -->
+        <record id="l10n_it_marco.1_fiscal_position_integrazione_td16a" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_reverse_interno_td16"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.14"/>
+        </record>
+       
+
+        <!--Posizione Fiscale: [TD16] - Integrazione ART.74 c.7-8 (Per acquisto rottami) -->
+        <record id="l10n_it_marco.1_fiscal_position_integrazione_td16b" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_reverse_interno_td16"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.14"/>
+        </record>
+
+        <!--Posizione Fiscale: [TD16] - Integrazione ART.17 c.6,lett. c (Microprocessori) -->
+        <record id="l10n_it_marco.1_fiscal_position_integrazione_td16c" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_reverse_interno_td16"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.14"/>
+        </record>
+
+        <!--Posizione Fiscale: [TD17] - Integrazione (Servizi UE)  -->
+        <record id="l10n_it_marco.1_fiscal_position_integrazione_td17a" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_integrazione_servizi_ue_td17"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.15"/>
+            <field name="intrastat">True</field>
+        </record>
+
+        <!--Posizione Fiscale: [TD17] - Autofatturazione (Servizi Extra UE)  -->
+        <record id="l10n_it_marco.1_fiscal_position_autofatturazione_td17a" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_integrazione_servizi_ue_td17"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.15"/>
+        </record>
+    
+        <!--Posizione Fiscale: [TD18] - Integrazione (Beni UE)  -->
+        <record id="l10n_it_marco.1_fiscal_position_integrazione_td18a" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_integrazione_beni_ue_td18"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.16"/>
+            <field name="intrastat">True</field>
+        </record>
+
+        <!--Posizione Fiscale: [TD19] - Integrazione (Rag.Soc. UE con rappr.Fisc. IT)  -->
+        <record id="l10n_it_marco.1_fiscal_position_integrazione_td19a" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_integrazione_autofattura_art_17_td19"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.17"/>
+            <field name="intrastat">True</field>
+        </record>
+       
+        <!--Posizione Fiscale: [TD19] - Autofatturazione (Rag.Soc. Extra UE con rappr.Fisc. IT)  -->
+        <record id="l10n_it_marco.1_fiscal_position_autofatturazione_td19a" model="account.fiscal.position">
+            <field name="rc_type_id" ref="rc_integrazione_autofattura_art_17_td19"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.17"/>
+        </record>
+
+        <!--Posizione Fiscale: Split Payment -->
+        <record id="l10n_it_marco.1_fiscal_position_split_payment" model="account.fiscal.position">
+            <field name="split_payment">True</field>    
+        </record>
+
+    </data>
+</odoo>

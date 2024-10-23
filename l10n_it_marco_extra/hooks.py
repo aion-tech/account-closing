@@ -12,7 +12,7 @@ def marco_post_init_hook(cr, registry):
     delete_accounts(env)
     archive_payment_terms(env)
     delete_l10n_it_reverse_charge_records(env)
-    update_payment_account(env)
+    update_transitory_bank_journals(env)
 
 
 def delete_journals(env):
@@ -102,31 +102,50 @@ def delete_l10n_it_reverse_charge_records(env):
     ir_model_data_records.unlink()
 
 
-def update_payment_account(env):
-    # Cerca i journals di tipo 'bank' e 'cash'
-    journals = env["account.journal"].search([("type", "in", ["bank", "cash"])])
+def update_transitory_bank_journals(env):
+    # Prova a ottenere il riferimento per l'account transitorio
+    try:
+        transitory_account_ref = env.ref("l10n_it_marco.1_04TRAUFA")
+    except ValueError:
+        _logger.error("L'account transitorio 'l10n_it_marco.1_04TRAUFA' non esiste.")
+        return  # Esci dalla funzione se l'account non esiste
     
-    # Riferimenti agli account di pagamenti e ricevute in sospeso
-    outstanding_payments_account_ref = env.ref("l10n_it_marco.1_22SUPAGA")
-    outstanding_receipts_account_ref = env.ref("l10n_it_marco.1_22SURICE")
+    _logger.info(f"Account transitorio trovato: {transitory_account_ref.id}")
+
+    # Cerca i journals di tipo 'bank' con default_account_id uguale a transitory_account_ref
+    transitory_journals = env["account.journal"].search([
+        ("type", "=", "bank"),
+        ("default_account_id", "=", transitory_account_ref.id)
+    ])
     
-    for journal in journals:
+    _logger.info(f"Trovati {len(transitory_journals)} registri con conto transitorio come default.")
+
+    for journal in transitory_journals:
         _logger.info(f"Aggiornamento journal: ID={journal.id}, Nome={journal.name}, Tipo={journal.type}")
 
-        # Aggiornamento per ricevute in sospeso
-        inbound_payment_lines = journal.inbound_payment_method_line_ids
-        for payment_line in inbound_payment_lines:
-            _logger.info(
-                f"Ricevute in sospeso - Metodo: {payment_line.payment_method_id.name}, "
-                f"Nuovo Account: {outstanding_receipts_account_ref.id}"
-            )
-            payment_line.payment_account_id = outstanding_receipts_account_ref
+        # Imposta entrambi i conti per pagamenti e ricevute in sospeso all'account transitorio
+        outstanding_payments_account_ref = transitory_account_ref
+        outstanding_receipts_account_ref = transitory_account_ref
 
-        # Aggiornamento per pagamenti in sospeso
-        outbound_payment_lines = journal.outbound_payment_method_line_ids
-        for payment_line in outbound_payment_lines:
-            _logger.info(
-                f"Pagamenti in sospeso - Metodo: {payment_line.payment_method_id.name}, "
-                f"Nuovo Account: {outstanding_payments_account_ref.id}"
-            )
-            payment_line.payment_account_id = outstanding_payments_account_ref
+        _logger.info(f"Impostato outstanding_payments_account_ref e outstanding_receipts_account_ref su {transitory_account_ref.id}")
+
+        # Funzione per aggiornare le righe di metodo di pagamento o eliminarle se il metodo non è 'Manual'
+        def update_or_remove_payment_lines(payment_lines, account_ref, direction):
+            for payment_line in payment_lines:
+                # Controlla se il metodo di pagamento è 'Manual'
+                if payment_line.payment_method_id.code == "manual":
+                    _logger.info(
+                        f"{direction.capitalize()} - Metodo Manual: {payment_line.payment_method_id.name}, "
+                        f"Nuovo Account: {account_ref.id}"
+                    )
+                    # Aggiorna il payment_account_id
+                    payment_line.payment_account_id = account_ref
+                else:
+                    _logger.info(
+                        f"Eliminazione della payment_line per il metodo: {payment_line.payment_method_id.name}"
+                    )
+                    payment_line.unlink()  # Elimina la payment_line
+
+        # Aggiorna o elimina i conti di pagamento per ricevute e pagamenti
+        update_or_remove_payment_lines(journal.inbound_payment_method_line_ids, outstanding_receipts_account_ref, "ricevute in sospeso")
+        update_or_remove_payment_lines(journal.outbound_payment_method_line_ids, outstanding_payments_account_ref, "pagamenti in sospeso")

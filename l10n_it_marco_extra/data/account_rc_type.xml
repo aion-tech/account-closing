@@ -13,14 +13,14 @@
     |_____________________________________________|_______________________________________|___________________________________|
     | TD17 - Autofatture Servizi Extra UE         | l10n_it_marco.1_tax_22atd17a_purchase | l10n_it_marco.1_tax_22atd17a_sale |
     |_____________________________________________|_______________________________________|___________________________________|
-    | TD18 - Integrazione Acquisto CEE Beni       | l10n_it_marco.1_tax_22itd18a_purchase | l10n_it_marco.1_tax_22itd18a_sale |
+    | TD18 - Integrazione Acquisto Beni UE        | l10n_it_marco.1_tax_22itd18a_purchase | l10n_it_marco.1_tax_22itd18a_sale |
     |_____________________________________________|_______________________________________|___________________________________|
     | TD19 - Integrazione/Autofattura Art. 17 c.2 | l10n_it_marco.1_tax_22itd19a_purchase | l10n_it_marco.1_tax_22itd19a_sale |
     |                                             | l10n_it_marco.1_tax_22atd19a_purchase | l10n_it_marco.1_tax_22atd19a_sale |
     |_____________________________________________|_______________________________________|___________________________________|
     -->
         <!-- INTEGRAZIONE REVERSE INTERNO - TD16 -->
-        <record id="reverse_interno_td16" model="account.rc.type">
+        <record id="rc_reverse_interno_td16" model="account.rc.type">
             <field name="name">INTEGRAZIONE REVERSE INTERNO - TD16</field>
             <field name="method">selfinvoice</field>
             <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.14"/>
@@ -28,7 +28,7 @@
             <field name="partner_type">other</field>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
-            <field name="transitory_account_id" ref="l10n_it_marco.1_22TRAUFA"/>
+            <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
             <field name="tax_ids" eval="[(5, 0, 0),
                 (0, 0, {
                     'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd16a_purchase'),
@@ -46,7 +46,7 @@
         </record>
 
         <!-- INTEGRAZIONE SERVIZI UE - TD17 -->
-        <record id="integrazione_servizi_ue_td17" model="account.rc.type">
+        <record id="rc_integrazione_servizi_ue_td17" model="account.rc.type">
             <field name="name">INTEGRAZIONE SERVIZI UE - TD17</field>
             <field name="method">selfinvoice</field>
             <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.15"/>
@@ -54,7 +54,7 @@
             <field name="partner_type">other</field>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
-            <field name="transitory_account_id" ref="l10n_it_marco.1_22TRAUFA"/>
+            <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
             <field name="tax_ids" eval="[(5, 0, 0),
                 (0, 0, {
                     'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd17a_purchase'),
@@ -64,7 +64,7 @@
         </record>
 
         <!-- AUTOFATTURE SERVIZI EXTRA UE - TD17 -->
-        <record id="autofatture_servizi_extra_ue_td17" model="account.rc.type">
+        <record id="rc_autofatture_servizi_extra_ue_td17" model="account.rc.type">
             <field name="name">AUTOFATTURE SERVIZI EXTRA UE - TD17</field>
             <field name="method">selfinvoice</field>
             <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.15"/>
@@ -72,7 +72,7 @@
             <field name="partner_type">other</field>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
-            <field name="transitory_account_id" ref="l10n_it_marco.1_22TRAUFA"/>
+            <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
             <field name="tax_ids" eval="[(5, 0, 0),
                 (0, 0, {
                     'purchase_tax_id': ref('l10n_it_marco.1_tax_22atd17a_purchase'),
@@ -82,15 +82,15 @@
         </record>
 
         <!-- INTEGRAZIONE ACQ.CEE BENI - TD18 -->
-        <record id="integrazione_acq_cee_beni_td18" model="account.rc.type">
-            <field name="name">INTEGRAZIONE ACQ.CEE BENI - TD18</field>
+        <record id="rc_integrazione_beni_ue_td18" model="account.rc.type">
+            <field name="name">INTEGRAZIONE BENI UE - TD18</field>
             <field name="method">selfinvoice</field>
             <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.16"/>
             <field name="partner_id" ref="base.main_partner"/>
             <field name="partner_type">other</field>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
-            <field name="transitory_account_id" ref="l10n_it_marco.1_22TRAUFA"/>
+            <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
             <field name="tax_ids" eval="[(5, 0, 0),
                 (0, 0, {
                     'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd18a_purchase'),
@@ -100,7 +100,7 @@
         </record>
 
         <!-- INTEGRAZIONE/AUTOFATTURA Art 17 c.2 - TD19 -->
-        <record id="integrazione_autofattura_art_17_td19" model="account.rc.type">
+        <record id="rc_integrazione_autofattura_art_17_td19" model="account.rc.type">
             <field name="name">INTEGRAZIONE/AUTOFATTURA Art 17 c.2 - TD19</field>
             <field name="method">selfinvoice</field>
             <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.17"/>
@@ -108,7 +108,7 @@
             <field name="partner_type">other</field>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
-            <field name="transitory_account_id" ref="l10n_it_marco.1_22TRAUFA"/>
+            <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
             <field name="tax_ids" eval="[(5, 0, 0),
                 (0, 0, {
                     'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd19a_purchase'),

@@ -200,7 +200,7 @@
     
 
     <record id="l10n_it_marco.1_tax_22pa_sale" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         
         <field name="payability">I</field>
         
@@ -209,7 +209,7 @@
     
 
     <record id="l10n_it_marco.1_tax_22sp_sale" model="account.tax">
-        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVPA"/>
+        <field name="vat_statement_account_id" ref="l10n_it_marco.1_10DEIVAV"/>
         
         <field name="payability">S</field>
         

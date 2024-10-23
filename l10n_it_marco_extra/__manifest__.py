@@ -21,6 +21,7 @@ Italian accounting chart and localization.
         'data/account_journal.xml',
         'data/date_range_type.xml',
         'data/account_rc_type.xml',
+        'data/account_fiscal_position_extra.xml',
         
     ],
     "post_init_hook":"marco_post_init_hook",
