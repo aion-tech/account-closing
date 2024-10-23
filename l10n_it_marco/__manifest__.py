@@ -53,7 +53,11 @@
         "l10n_it_withholding_tax",
         "l10n_it_withholding_tax_reason",
         "l10n_it_bill_of_entry",
-        "account_invoice_line_default_account"
+        "account_invoice_line_default_account",
+        "account_sepa",
+        "payment_sepa_direct_debit",
+        "account_move_template",
+        "l10n_it_financial_statement_eu",
     ],
     'author': 'OpenERP Italian Community, MARCO S.p.A.',
     'description': """
