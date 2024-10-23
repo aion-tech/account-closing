@@ -18,9 +18,10 @@ class AccountChartTemplate(models.Model):
             )
             
             # Set the split payment tax group properties for receivable and payable accounts
-            split_payment_tax_group = self.env.ref('l10n_it_split_payment.tax_group_split_payment').with_company(company)
+            #NON SERVE! 
+            """ split_payment_tax_group = self.env.ref('l10n_it_split_payment.tax_group_split_payment').with_company(company)
             split_payment_tax_group.property_tax_receivable_account_id = vat_split_payment_account
-            split_payment_tax_group.property_tax_payable_account_id = vat_split_payment_account
+            split_payment_tax_group.property_tax_payable_account_id = vat_split_payment_account """
 
             # Set the default sale tax for Italian localization
             default_sale_tax = self.env.ref('l10n_it_marco.1_tax_22_sale')
