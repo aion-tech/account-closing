@@ -12,17 +12,131 @@
             <field name="sequence">1</field>
         </record>
 
+
+        <!-- Posizione Fiscale: [TD16] - Integrazione art. 17 c. 6 lett. a (Manutenzione e Pulizie) -->
+        <record id="fiscal_position_integrazione_td16a" model="account.fiscal.position.template">
+            <field name="name">[TD16] - Integrazione art. 17 c. 6 lett. a (Manutenzione e Pulizie)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">2</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_integrazione_td16a_22itd16a" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_integrazione_td16a"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd16a_purchase"/>
+        </record>
+
+
+        <!-- Posizione Fiscale: [TD16] - Integrazione ART.74 c.7-8 (Per acquisto rottami) -->
+        <record id="fiscal_position_integrazione_td16b" model="account.fiscal.position.template">
+            <field name="name">[TD16] - Integrazione ART.74 c.7-8 (Per acquisto rottami)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">3</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_integrazione_td16b_22itd16b" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_integrazione_td16b"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd16b_purchase"/>
+        </record>
+
+
+        <!-- Posizione Fiscale: [TD16] - Integrazione ART.17 c.6,lett. c (Microprocessori) -->
+        <record id="fiscal_position_integrazione_td16c" model="account.fiscal.position.template">
+            <field name="name">[TD16] - Integrazione ART.17 c.6,lett. c (Microprocessori)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">4</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_integrazione_td16c_22itd16c" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_integrazione_td16c"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd16c_purchase"/>
+        </record>
+
+
+        <!-- Posizione Fiscale: [TD17] - Integrazione (Servizi UE) -->
+        <record id="fiscal_position_integrazione_td17a" model="account.fiscal.position.template">
+            <field name="name">[TD17] - Integrazione (Servizi UE)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">5</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_integrazione_td17a_22itd17a" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_integrazione_td17a"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd17a_purchase"/>
+        </record>
+
+
+        <!-- Posizione Fiscale: [TD17] - Autofatturazione (Servizi Extra UE) -->
+        <record id="fiscal_position_autofatturazione_td17a" model="account.fiscal.position.template">
+            <field name="name">[TD17] - Autofatturazione (Servizi Extra UE)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">5</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_autofatturazione_td17a_22atd17a" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_autofatturazione_td17a"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22atd17a_purchase"/>
+        </record>
+
+
+        <!-- Posizione Fiscale: [TD18] - Integrazione (Beni UE) -->
+        <record id="fiscal_position_integrazione_td18a" model="account.fiscal.position.template">
+            <field name="name">[TD18] - Integrazione (Beni UE)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">6</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_integrazione_td18a_22itd18a" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_integrazione_td18a"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd18a_purchase"/>
+        </record>
+
+
+        <!-- Posizione Fiscale: [TD19] - Integrazione (Rag.Soc. UE con rappr.Fisc. IT) -->
+        <record id="fiscal_position_integrazione_td19a" model="account.fiscal.position.template">
+            <field name="name">[TD19] - Integrazione (Rag.Soc. UE con rappr.Fisc. IT)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">7</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_integrazione_td19a_22itd19a" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_integrazione_td19a"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd19a_purchase"/>
+        </record>
+
+
+        <!-- Posizione Fiscale: [TD19] - Autofatturazione (Rag.Soc. Extra UE con rappr.Fisc. IT) -->
+        <record id="fiscal_position_autofatturazione_td19a" model="account.fiscal.position.template">
+            <field name="name">[TD19] - Autofatturazione (Rag.Soc. Extra UE con rappr.Fisc. IT)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">8</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_autofatturazione_td19a_22itd19a" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_autofatturazione_td19a"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22atd19a_purchase"/>
+        </record>
+
+
+
         <!-- Regime Intra comunitario privato -->
-        <record id="fiscal_position_intra_private" model="account.fiscal.position.template">
+        <!-- <record id="fiscal_position_intra_private" model="account.fiscal.position.template">
             <field name="name">Regime Intra comunitario privato</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="auto_apply">True</field>
             <field name="country_group_id" ref="base.europe"/>
             <field name="sequence">2</field>
-        </record>
+        </record> -->
 
         <!-- Regime Intra comunitario -->
-        <record id="fiscal_position_intra" model="account.fiscal.position.template">
+        <!-- <record id="fiscal_position_intra" model="account.fiscal.position.template">
             <field name="name">Regime Intra comunitario</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="auto_apply">True</field>
@@ -31,21 +145,21 @@
             <field name="sequence">3</field>
             <field name="note">Fattura emessa ai sensi dell’art. 17, comma 2 del DPR 26/10/1972 n. 633, l’applicazione dell’IVA è a carico del destinatario.</field>
         </record>
-
+ -->
         <!-- Regime Extra comunitario -->
-        <record id="fiscal_position_extra" model="account.fiscal.position.template">
+        <!-- <record id="fiscal_position_extra" model="account.fiscal.position.template">
             <field name="name">Regime Extra comunitario</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="auto_apply">True</field>
             <field name="sequence">4</field>
-        </record>
+        </record> -->
 
-        <!-- Scissione dei Pagamenti -->
+        <!-- Posizione Fiscale: Split Payment  -->
         <record id="fiscal_position_split_payment" model="account.fiscal.position.template">
             <field name="name">Scissione dei Pagamenti</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="country_id" ref="base.it"/>
-            <field name="sequence">5</field>
+            <field name="sequence">9</field>
             <field name="note">Operazione soggetta a split payment – il cedente non incassa l’Iva ai sensi dell’ex art.17-ter del D.P.R. 633/1972, l’acquirente è obbligato al versamento all’Agenzia delle Entrate.</field>
         </record>
 
