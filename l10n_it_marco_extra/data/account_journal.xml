@@ -2,16 +2,19 @@
 <odoo>
     <data noupdate="1">
         <!-- Registri di tutte le banche e casse -->
-        <!-- Registro Intesa BCI - Rete Comit -->
+        <!-- Registro Intesa BCI - Rete Comit | Conto principale per acquisti e vendite -->
         <record id="account_journal_LICOMI" model="account.journal">
-            <field name="name">Intesa BCI - Rete Comit</field>
-            <field name="code">BCI</field>
+            <field name="name">Intesa Sanpaolo</field>
+            <field name="code">ISP</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOMI"/>
             <field name="payment_sequence">True</field>
             <field name="sequence">19</field>
         </record>
-        <!-- Registro Banca Nazionale del Lavoro -->
+        <!-- 
+        Registro Banca Nazionale del Lavoro | 
+        Utilizzato come banca di appoggio per clienti estero che usano BNL come intermediario
+        -->
         <record id="account_journal_LIBNL0" model="account.journal">
             <field name="name">Banca Nazionale del Lavoro</field>
             <field name="code">BNL</field>
@@ -29,37 +32,35 @@
             <field name="payment_sequence">True</field>
             <field name="sequence">20</field>
         </record>
-        <!-- Registro Intesa Valutario US$ -->
+        <!-- Registro Intesa Valutario US$ 
+        Conto italiano con sede a Brescia in valuta dollaro:
+        Alcuni clienti non possono pagare direttamente sul nostro conto Intesa New York,
+        quindi abbiamo un conto per fare da intermediario (occasionale tipo per BUGSHAN)
+        -->
         <record id="account_journal_LICOM1" model="account.journal">
-            <field name="name">Intesa Valutario US$</field>
+            <field name="name">Intesa Valutario USD</field>
             <field name="code">IVUS</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOM1"/>
             <field name="payment_sequence">True</field>
             <field name="sequence">27</field>
         </record>
-        <!-- Registro Intesa New York in US$ -->
+        <!-- Registro Intesa New York in US$ 
+        Questo è invece con sede a New York ed è il conto principale in Dollari, 
+        dove noi facciamo i bonifici anche a fornitori esteri
+        -->
         <record id="account_journal_LICOM2" model="account.journal">
-            <field name="name">Intesa New York in US$</field>
+            <field name="name">Intesa New York in USD</field>
             <field name="code">INYUS</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICOM2"/>
             <field name="payment_sequence">True</field>
             <field name="sequence">26</field>
         </record>
-        <!-- Registro Credito Italiano N.Y. Valutario -->
-        <record id="account_journal_LICRE1" model="account.journal">
-            <field name="name">Credito Italiano N.Y. Valutario</field>
-            <field name="code">VINYC</field>
-            <field name="type">bank</field>
-            <field name="default_account_id" ref="l10n_it_marco.1_04LICRE1"/>
-            <field name="payment_sequence">True</field>
-            <field name="sequence">23</field>
-        </record>
         <!-- Registro Credito Italiano -->
         <record id="account_journal_LICRED" model="account.journal">
-            <field name="name">Credito Italiano</field>
-            <field name="code">CI</field>
+            <field name="name">UniCredit</field>
+            <field name="code">UC</field>
             <field name="type">bank</field>
             <field name="default_account_id" ref="l10n_it_marco.1_04LICRED"/>
             <field name="payment_sequence">True</field>
@@ -164,7 +165,7 @@
         </record>
         <!-- Registro Acquisti ExtraUE -->
         <record id="account_journal_ACQEX" model="account.journal">
-            <field name="name">Acquisti ExtraUE</field>
+            <field name="name">Acquisti Extra UE</field>
             <field name="code">ACQEX</field>
             <field name="type">purchase</field>
             <field name="default_account_id" ref="l10n_it_marco.1_32ACFINI"/>
@@ -174,8 +175,8 @@
         <!-- REGISTRI VENDITE -->
         <!-- Registro Vendita FE -->
         <record id="account_journal_VENFE" model="account.journal">
-            <field name="name">Vendita FE</field>
-            <field name="code">VENFE</field>
+            <field name="name">Vendita</field>
+            <field name="code">VEN</field>
             <field name="type">sale</field>
             <field name="default_account_id" ref="l10n_it_marco.1_50VEFINI"/>
             <field name="currency_id" ref="base.EUR"/>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Ritenuta: 1040 Professionisti -->
+        <record id="withholding_tax_1040_professionisti" model="withholding.tax">
+            <field name="name">RITENUTA 1040 PROFESSIONISTI</field>
+            <field name="code">1040</field>
+            <field name="active">True</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="account_receivable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="wt_types">ritenuta</field>
+            <field name="certification">True</field>
+        </record>
+
+        <!-- Aliquote per Ritenuta 1040 Professionisti -->
+        <record id="withholding_tax_rate_1040_professionisti" model="withholding.tax.rate">
+            <field name="withholding_tax_id" ref="withholding_tax_1040_professionisti"/>
+            <field name="base">1</field>
+            <field name="tax">20.0</field>
+        </record>
+
+        <!-- Ritenuta: 1040 Agenti 50% Imponibile Plurimandatari (23%) -->
+        <record id="withholding_tax_1040_agenti_50_23" model="withholding.tax">
+            <field name="name">RITENUTA 1040 AGENTI 50% IMP. PLURIMANDATARI</field>
+            <field name="code">1040</field>
+            <field name="active">True</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="account_receivable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="wt_types">ritenuta</field>
+            <field name="certification">True</field>
+        </record>
+
+        <!-- Aliquote per Ritenuta 1040 Agenti 50% (23%) -->
+        <record id="withholding_tax_rate_1040_agenti_50_23" model="withholding.tax.rate">
+            <field name="withholding_tax_id" ref="withholding_tax_1040_agenti_50_23"/>
+            <field name="base">0.5</field>
+            <field name="tax">23.0</field>
+        </record>
+
+        <!-- Ritenuta: 1040 Prestazione Occasionale 75% Imponibile (20%) -->
+        <record id="withholding_tax_1040_agenti_75_20" model="withholding.tax">
+            <field name="name">RITENUTA 1040 PRESTAZIONE OCCASIONALE 75% IMP.</field>
+            <field name="code">1040</field>
+            <field name="active">True</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="account_receivable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="wt_types">ritenuta</field>
+            <field name="certification">True</field>
+        </record>
+
+        <!-- Aliquote per Ritenuta 1040 Agenti 75% (20%) -->
+        <record id="withholding_tax_rate_1040_agenti_75_20" model="withholding.tax.rate">
+            <field name="withholding_tax_id" ref="withholding_tax_1040_agenti_75_20"/>
+            <field name="base">0.75</field>
+            <field name="tax">20.0</field>
+        </record>
+
+        <!-- Contributo Enasarco Persone Fisiche 8.5% -->
+        <record id="withholding_tax_enasarco_physical_8_5" model="withholding.tax">
+            <field name="name">ENASARCO 8,5% PERSONE FISICHE</field>
+            <field name="code">ENA8,5</field>
+            <field name="active">True</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="account_receivable_id" ref="l10n_it_marco.1_10DEENAS"/>
+            <field name="account_payable_id" ref="l10n_it_marco.1_10DEENAS"/>
+            <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_immediate"/>
+            <field name="wt_types">enasarco</field>
+            <field name="certification">True</field>
+        </record>
+
+        <!-- Aliquote per Contributo Enasarco 8.5% Persone Fisiche -->
+        <record id="withholding_tax_rate_enasarco_physical_8_5" model="withholding.tax.rate">
+            <field name="withholding_tax_id" ref="withholding_tax_enasarco_physical_8_5"/>
+            <field name="base">1.0</field>
+            <field name="tax">8.5</field>
+        </record>
+        
+        <!-- Contributo Enasarco Società 1% -->
+        <record id="withholding_tax_enasarco_society_1" model="withholding.tax">
+            <field name="name">ENASARCO 1% SOCIETÀ</field>
+            <field name="code">ENA4</field>
+            <field name="active">True</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="account_receivable_id" ref="l10n_it_marco.1_10DEENAS"/>
+            <field name="account_payable_id" ref="l10n_it_marco.1_10DEENAS"/>
+            <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_immediate"/>
+            <field name="wt_types">enasarco</field>
+            <field name="certification">True</field>
+        </record>
+
+        <!-- Aliquote per Contributo Enasarco 1% Società -->
+        <record id="withholding_tax_rate_enasarco_society_1" model="withholding.tax.rate">
+            <field name="withholding_tax_id" ref="withholding_tax_enasarco_society_1"/>
+            <field name="base">1.0</field>
+            <field name="tax">1.0</field>
+        </record>
+    </data>
+</odoo>
