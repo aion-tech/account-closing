@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
     <!--
@@ -81,7 +82,7 @@
             ]"/>
         </record>
 
-        <!-- INTEGRAZIONE ACQ.CEE BENI - TD18 -->
+        <!-- INTEGRAZIONE ACQ.UE BENI - TD18 -->
         <record id="rc_integrazione_beni_ue_td18" model="account.rc.type">
             <field name="name">INTEGRAZIONE BENI UE - TD18</field>
             <field name="method">selfinvoice</field>
