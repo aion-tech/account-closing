@@ -39,6 +39,11 @@
             <field name="tax_src_id" ref="tax_22_purchase"/>
             <field name="tax_dest_id" ref="tax_22itd16b_purchase"/>
         </record>
+        <record id="fiscal_position_tax_integrazione_td16b_rc74_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_integrazione_td16b"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_rc74_sale"/>
+        </record>
 
 
         <!-- Posizione Fiscale: [TD16] - Integrazione ART.17 c.6,lett. c (Microprocessori) -->
@@ -124,43 +129,136 @@
             <field name="tax_dest_id" ref="tax_22atd19a_purchase"/>
         </record>
 
-
-
-        <!-- Regime Intra comunitario privato -->
-        <!-- <record id="fiscal_position_intra_private" model="account.fiscal.position.template">
-            <field name="name">Regime Intra comunitario privato</field>
+        <!-- Posizione Fiscale: Reverse Charge art. 17, c. 6 lett. d-quater  DPR 633/72 (GSE) -->
+        <record id="fiscal_position_rc17d_gse" model="account.fiscal.position.template">
+            <field name="name">Reverse Charge art. 17, c. 6 lett. d-quater  DPR 633/72 (GSE)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="auto_apply">True</field>
-            <field name="country_group_id" ref="base.europe"/>
-            <field name="sequence">2</field>
-        </record> -->
-
-        <!-- Regime Intra comunitario -->
-        <!-- <record id="fiscal_position_intra" model="account.fiscal.position.template">
-            <field name="name">Regime Intra comunitario</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="auto_apply">True</field>
-            <field name="vat_required">True</field>
-            <field name="country_group_id" ref="base.europe"/>
-            <field name="sequence">3</field>
-            <field name="note">Fattura emessa ai sensi dell’art. 17, comma 2 del DPR 26/10/1972 n. 633, l’applicazione dell’IVA è a carico del destinatario.</field>
+            <field name="sequence">9</field>
         </record>
- -->
-        <!-- Regime Extra comunitario -->
-        <!-- <record id="fiscal_position_extra" model="account.fiscal.position.template">
-            <field name="name">Regime Extra comunitario</field>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_rc17d_gse" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rc17d_gse"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_rc17d_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Pubblica Amministrazione (No Split Payment) -->
+        <record id="fiscal_position_22pa_no_split" model="account.fiscal.position.template">
+            <field name="name">Pubblica Amministrazione - NO Split Payment</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="auto_apply">True</field>
-            <field name="sequence">4</field>
-        </record> -->
+            <field name="sequence">10</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_22pa_no_split" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_22pa_no_split"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_22pa_sale"/>
+        </record>
 
         <!-- Posizione Fiscale: Split Payment  -->
         <record id="fiscal_position_split_payment" model="account.fiscal.position.template">
-            <field name="name">Scissione dei Pagamenti</field>
+            <field name="name">Pubblica Amministrazione - Split Payment</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="country_id" ref="base.it"/>
-            <field name="sequence">9</field>
+            <field name="sequence">11</field>
             <field name="note">Operazione soggetta a split payment – il cedente non incassa l’Iva ai sensi dell’ex art.17-ter del D.P.R. 633/1972, l’acquirente è obbligato al versamento all’Agenzia delle Entrate.</field>
+        </record>
+        <!-- Posizione Fiscale: Non Imponibile Cessioni UE (Art. 41 DPR 633/72) -->
+        <record id="fiscal_position_ni41_sale" model="account.fiscal.position.template">
+            <field name="name">Non Imponibile Cessioni UE (Art. 41 DPR 633/72)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">12</field>
+        </record>
+
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_ni41_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_ni41_sale"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ni41_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Non Imponibile San Marino (Art. 71 DPR 633/72) -->
+        <record id="fiscal_position_ni71_sale" model="account.fiscal.position.template">
+            <field name="name">Non Imponibile San Marino (Art. 71 DPR 633/72)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">13</field>
+        </record>
+
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_ni71_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_ni71_sale"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ni71_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Non Imponibile Cessioni Extra UE (Art. 8, c. 1, lett. a-b DPR 633/72) -->
+        <record id="fiscal_position_ni8ab_sale" model="account.fiscal.position.template">
+            <field name="name">Non Imponibile Cessioni Extra UE (Art. 8, c. 1, lett. a-b DPR 633/72)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">14</field>
+        </record>
+
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_ni8ab_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_ni8ab_sale"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ni8ab_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Non Imponibile Capitanerie di Porto Esenti (Art. 8-bis, c. 1 DPR 633/72) -->
+        <record id="fiscal_position_ni8bis_sale" model="account.fiscal.position.template">
+            <field name="name">Non Imponibile Capitanerie di Porto Esenti (Art. 8-bis, c. 1 DPR 633/72)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">15</field>
+        </record>
+
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_ni8bis_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_ni8bis_sale"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ni8bis_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Non Imponibile con Dichiarazione di Intento (Art. 8, c. 1, lett. c DPR 633/72) -->
+        <record id="fiscal_position_ni8c_sale" model="account.fiscal.position.template">
+            <field name="name">Non Imponibile con Dichiarazione di Intento (Art. 8, c. 1, lett. c DPR 633/72)</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">16</field>
+        </record>
+
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_ni8c_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_ni8c_sale"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ni8c_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Non Detraibile al 50% - IVA 22% -->
+        <record id="fiscal_position_nd2250_purchase" model="account.fiscal.position.template">
+            <field name="name">Non Detraibile al 50% - IVA 22%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">19</field>
+        </record>
+
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_nd2250_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_nd2250_purchase"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_nd2250_purchase"/>
+        </record>
+
+        <!-- Posizione Fiscale: Non Detraibile al 60% - IVA 22% -->
+        <record id="fiscal_position_nd2260_purchase" model="account.fiscal.position.template">
+            <field name="name">Non Detraibile al 60% - IVA 22%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_nd2260_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_nd2260_purchase"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_nd2260_purchase"/>
         </record>
 
     </data>
