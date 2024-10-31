@@ -79,6 +79,7 @@ Italian accounting chart and localization.
         'data/account_tax_registry.xml',
         'data/account_tax_group.xml',
         'data/account_tax_template.xml',# Le imposte vengono create come il piano dei conti da un template, il resto delle impostazioni si trova in marco extra
+        'data/account_tax_template_cpa.xml',
         'data/account_fiscal_position_template.xml',
         'data/chart_template_loader.xml',
        

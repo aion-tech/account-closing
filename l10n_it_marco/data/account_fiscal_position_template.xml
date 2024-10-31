@@ -163,13 +163,13 @@
             <field name="sequence">11</field>
             <field name="note">Operazione soggetta a split payment – il cedente non incassa l’Iva ai sensi dell’ex art.17-ter del D.P.R. 633/1972, l’acquirente è obbligato al versamento all’Agenzia delle Entrate.</field>
         </record>
+
         <!-- Posizione Fiscale: Non Imponibile Cessioni UE (Art. 41 DPR 633/72) -->
         <record id="fiscal_position_ni41_sale" model="account.fiscal.position.template">
             <field name="name">Non Imponibile Cessioni UE (Art. 41 DPR 633/72)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="sequence">12</field>
         </record>
-
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_ni41_sale" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_ni41_sale"/>
@@ -183,7 +183,6 @@
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="sequence">13</field>
         </record>
-
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_ni71_sale" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_ni71_sale"/>
@@ -197,7 +196,6 @@
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="sequence">14</field>
         </record>
-
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_ni8ab_sale" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_ni8ab_sale"/>
@@ -211,7 +209,6 @@
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="sequence">15</field>
         </record>
-
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_ni8bis_sale" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_ni8bis_sale"/>
@@ -225,7 +222,6 @@
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="sequence">16</field>
         </record>
-
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_ni8c_sale" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_ni8c_sale"/>
@@ -239,7 +235,6 @@
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="sequence">19</field>
         </record>
-
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_nd2250_purchase" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_nd2250_purchase"/>
@@ -253,12 +248,81 @@
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="sequence">20</field>
         </record>
-
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_nd2260_purchase" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_nd2260_purchase"/>
             <field name="tax_src_id" ref="tax_22_purchase"/>
             <field name="tax_dest_id" ref="tax_nd2260_purchase"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Agente società -->
+        <record id="fiscal_position_rite_soc" model="account.fiscal.position.template">
+            <field name="name">Agente Società - Ritenuta 23% al 50% - Enasarco 1% </field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">21</field>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica -->
+        <record id="fiscal_position_rite_pf_rite_enas" model="account.fiscal.position.template">
+            <field name="name">Agente Persona Fisica - Ritenuta 23% al 50% - Enasarco 8,5%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">22</field>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica -->
+        <record id="fiscal_position_rite_pf_noiva_rite_enas" model="account.fiscal.position.template">
+            <field name="name">Agente Persona Fisica - NO IVA - NO Ritenuta - Enasarco 8,5%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">23</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_rite_pf_noiva_rite_enas" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rite_pf_noiva_rite_enas"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Professionisti -->
+        <record id="fiscal_position_rite_profess" model="account.fiscal.position.template">
+            <field name="name">Professionisti - Ritenuta 20% al 100%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">23</field>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Professionisti con CPA -->
+        <record id="fiscal_position_rite_profess_cpa" model="account.fiscal.position.template">
+            <field name="name">Professionisti - Ritenuta 20% al 100% - CPA 4%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">24</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_rite_profess_cpa" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rite_profess_cpa"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_04_cpa_purchase"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Professionisti NO IVA con ritenuta -->
+        <record id="fiscal_position_rite_profess_noiva" model="account.fiscal.position.template">
+            <field name="name">Professionisti - NO IVA - Ritenuta 20% al 100%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">25</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_rite_profess_noiva" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rite_profess_noiva"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Professionisti NO IVA con ritenuta al 75%-->
+        <record id="fiscal_position_rite_profess_noiva_75" model="account.fiscal.position.template">
+            <field name="name">Professionisti - NO IVA - Ritenuta 20% al 75%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">25</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_rite_profess_noiva_75" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rite_profess_noiva_75"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
         </record>
 
     </data>

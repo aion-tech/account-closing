@@ -28,6 +28,9 @@
         <record id="tax_group_regime_del_margine" model="account.tax.group">
             <field name="name">Regime del Margine</field>
         </record>
+         <record id="tax_group_cpa_4" model="account.tax.group">
+            <field name="name">Cassa Previdenziale Professionisti 4%</field>
+        </record>
 
         <!-- 
         Questo gruppo viene creato dal modulo Split Payment OCA/l10n-italy/l10n_it_split_payment/data/account_tax_group_data.xml 

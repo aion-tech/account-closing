@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-    <!--
+        <!--
     Imposte utilizzate nei vari tipi di inversione contabile (TD):
      _________________________________________________________________________________________________________________________
     | Tipo Documento                              | Imposte Purchase                      | Imposte Sale                      |
@@ -30,20 +30,12 @@
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
             <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
-            <field name="tax_ids" eval="[(5, 0, 0),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd16a_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22itd16a_sale'),
-                }),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd16b_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22itd16b_sale'),
-                }),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd16c_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22itd16c_sale'),
-                }),
-            ]"/>
+            <field name="tax_ids" eval="[
+        Command.clear(),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd16a_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22itd16a_sale')}),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd16b_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22itd16b_sale')}),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd16c_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22itd16c_sale')})
+    ]"/>
         </record>
 
         <!-- INTEGRAZIONE SERVIZI UE - TD17 -->
@@ -56,12 +48,10 @@
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
             <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
-            <field name="tax_ids" eval="[(5, 0, 0),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd17a_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22itd17a_sale'),
-                }),
-            ]"/>
+            <field name="tax_ids" eval="[
+        Command.clear(),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd17a_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22itd17a_sale')})
+    ]"/>
         </record>
 
         <!-- AUTOFATTURE SERVIZI EXTRA UE - TD17 -->
@@ -74,12 +64,10 @@
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
             <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
-            <field name="tax_ids" eval="[(5, 0, 0),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22atd17a_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22atd17a_sale'),
-                }),
-            ]"/>
+            <field name="tax_ids" eval="[
+        Command.clear(),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22atd17a_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22atd17a_sale')})
+    ]"/>
         </record>
 
         <!-- INTEGRAZIONE ACQ.UE BENI - TD18 -->
@@ -92,12 +80,10 @@
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
             <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
-            <field name="tax_ids" eval="[(5, 0, 0),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd18a_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22itd18a_sale'),
-                }),
-            ]"/>
+            <field name="tax_ids" eval="[
+        Command.clear(),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd18a_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22itd18a_sale')})
+    ]"/>
         </record>
 
         <!-- INTEGRAZIONE/AUTOFATTURA Art 17 c.2 - TD19 -->
@@ -110,16 +96,11 @@
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_VENAF"/>
             <field name="payment_journal_id" ref="l10n_it_marco_extra.account_journal_RICRC"/>
             <field name="transitory_account_id" ref="l10n_it_marco.1_04TRAUFA"/>
-            <field name="tax_ids" eval="[(5, 0, 0),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd19a_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22itd19a_sale'),
-                }),
-                (0, 0, {
-                    'purchase_tax_id': ref('l10n_it_marco.1_tax_22atd19a_purchase'),
-                    'sale_tax_id': ref('l10n_it_marco.1_tax_22atd19a_sale'),
-                }),
-            ]"/>
+            <field name="tax_ids" eval="[
+        Command.clear(),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22itd19a_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22itd19a_sale')}),
+        Command.create({'purchase_tax_id': ref('l10n_it_marco.1_tax_22atd19a_purchase'), 'sale_tax_id': ref('l10n_it_marco.1_tax_22atd19a_sale')})
+    ]"/>
         </record>
     </data>
 </odoo>

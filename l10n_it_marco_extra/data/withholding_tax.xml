@@ -13,13 +13,11 @@
             <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
-        </record>
-
-        <!-- Aliquote per Ritenuta 1040 Professionisti -->
-        <record id="withholding_tax_rate_1040_professionisti" model="withholding.tax.rate">
-            <field name="withholding_tax_id" ref="withholding_tax_1040_professionisti"/>
-            <field name="base">1</field>
-            <field name="tax">20.0</field>
+            <field name="sequence">1</field>
+            <field name="rate_ids" eval="[
+                Command.clear(),
+                Command.create({'base': 1, 'tax': 20.0})
+            ]"/>
         </record>
 
         <!-- Ritenuta: 1040 Agenti 50% Imponibile Plurimandatari (23%) -->
@@ -34,13 +32,11 @@
             <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
-        </record>
-
-        <!-- Aliquote per Ritenuta 1040 Agenti 50% (23%) -->
-        <record id="withholding_tax_rate_1040_agenti_50_23" model="withholding.tax.rate">
-            <field name="withholding_tax_id" ref="withholding_tax_1040_agenti_50_23"/>
-            <field name="base">0.5</field>
-            <field name="tax">23.0</field>
+            <field name="sequence">2</field>
+            <field name="rate_ids" eval="[
+                Command.clear(),
+                Command.create({'base': 0.5, 'tax': 23.0})
+            ]"/>
         </record>
 
         <!-- Ritenuta: 1040 Prestazione Occasionale 75% Imponibile (20%) -->
@@ -55,13 +51,11 @@
             <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
-        </record>
-
-        <!-- Aliquote per Ritenuta 1040 Agenti 75% (20%) -->
-        <record id="withholding_tax_rate_1040_agenti_75_20" model="withholding.tax.rate">
-            <field name="withholding_tax_id" ref="withholding_tax_1040_agenti_75_20"/>
-            <field name="base">0.75</field>
-            <field name="tax">20.0</field>
+            <field name="sequence">3</field>
+            <field name="rate_ids" eval="[
+                Command.clear(),
+                Command.create({'base': 0.75, 'tax': 20.0})
+            ]"/>
         </record>
 
         <!-- Contributo Enasarco Persone Fisiche 8.5% -->
@@ -76,15 +70,13 @@
             <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_immediate"/>
             <field name="wt_types">enasarco</field>
             <field name="certification">True</field>
+            <field name="sequence">4</field>
+            <field name="rate_ids" eval="[
+                Command.clear(),
+                Command.create({'base': 1.0, 'tax': 8.5})
+            ]"/>
         </record>
 
-        <!-- Aliquote per Contributo Enasarco 8.5% Persone Fisiche -->
-        <record id="withholding_tax_rate_enasarco_physical_8_5" model="withholding.tax.rate">
-            <field name="withholding_tax_id" ref="withholding_tax_enasarco_physical_8_5"/>
-            <field name="base">1.0</field>
-            <field name="tax">8.5</field>
-        </record>
-        
         <!-- Contributo Enasarco Società 1% -->
         <record id="withholding_tax_enasarco_society_1" model="withholding.tax">
             <field name="name">ENASARCO 1% SOCIETÀ</field>
@@ -97,13 +89,11 @@
             <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_immediate"/>
             <field name="wt_types">enasarco</field>
             <field name="certification">True</field>
-        </record>
-
-        <!-- Aliquote per Contributo Enasarco 1% Società -->
-        <record id="withholding_tax_rate_enasarco_society_1" model="withholding.tax.rate">
-            <field name="withholding_tax_id" ref="withholding_tax_enasarco_society_1"/>
-            <field name="base">1.0</field>
-            <field name="tax">1.0</field>
+            <field name="sequence">5</field>
+            <field name="rate_ids" eval="[
+                Command.clear(),
+                Command.create({'base': 1.0, 'tax': 1.0})
+            ]"/>
         </record>
     </data>
 </odoo>
