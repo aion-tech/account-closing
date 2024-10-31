@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <!-- maintenance.plan inherit form view -->
+  <record id="maintenance_plan" model="ir.ui.view">
+    <field name="name">maintenance.plan.inherit.view.form</field>
+    <field name="model">maintenance.plan</field>
+    <field
+      name="inherit_id"
+      ref="maintenance_plan.maintenance_plan_view_form"
+    />
+    <field name="arch" type="xml">
+      <field name="generate_domain" position="after">
+        <field
+          name="equipment_ids"
+          widget="many2many_tags"
+          attrs="{'invisible': ['|', ('equipment_id', '!=', False), ('generate_with_domain', '=', False)]}"
+        />
+      </field>
+      <field name="equipment_id" position="before">
+        <field name="generate_with_domain" position="move" />
+      </field>
+      <field name="equipment_id" position="after">
+        <field name="equipment_ids" position="move" />
+        <field name="generate_domain" position="move" />
+      </field>
+      <field name="equipment_id" position="attributes">
+        <attribute name="attrs"
+          >{'invisible': [('generate_with_domain', '=', True)]}</attribute
+        >
+      </field>
+      <field name="generate_with_domain" position="attributes">
+        <attribute name="attrs"></attribute>
+      </field>
+
+      <!-- Request vals section-->
+      <xpath expr="//notebook" position="before">
+        <group name="request_vals" string="Request">
+          <group name="group1" />
+          <group name="group2" />
+        </group>
+      </xpath>
+
+      <!-- move existing fields in Request vals section-->
+      <group name="group1" position="inside">
+        <field name="request_name" />
+        <field name="duration" position="move" />
+      </group>
+      <group name="group2" position="inside">
+        <field name="maintenance_kind_id" position="move" />
+        <field name="maintenance_team_id" position="move" />
+        <field name="technician_user_id" />
+      </group>
+    </field>
+  </record>
+</odoo>

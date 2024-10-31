@@ -207,3 +207,12 @@ aion-tech/ait_accounting_addons:
   fetch_all:
   - origin
   target: origin 16.0-mar
+
+aion-tech/maintenance:
+  remotes:
+    origin: git@github.com:aion-tech/maintenance.git
+  merges:
+  - origin 16.0
+  fetch_all:
+  - origin
+  target: origin 16.0-mar
