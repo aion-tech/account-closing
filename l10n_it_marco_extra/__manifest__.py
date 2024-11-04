@@ -17,6 +17,7 @@ Italian accounting chart and localization.
     'category': 'Accounting/Localizations/Account Charts',
     'website': 'http://www.odoo.com/',
     'data': [
+        'data/partners.xml',
         'data/account_tax_records.xml',
         'data/account_journal.xml',
         'data/date_range_type.xml',

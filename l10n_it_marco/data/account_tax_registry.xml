@@ -5,24 +5,28 @@
         <record id="tax_registry_acquisti" model="account.tax.registry">
             <field name="name">Acquisti</field>
             <field name="layout_type">supplier</field>
+            <field name="show_full_contact_addess">True</field>
         </record>
 
         <!-- Registro IVA Corrispettivi a scorporo -->
         <record id="tax_registry_corrispettivi_scorporo" model="account.tax.registry">
             <field name="name">Corrispettivi a scorporo</field>
             <field name="layout_type">corrispettivi</field>
+            <field name="show_full_contact_addess">True</field>
         </record>
 
         <!-- Registro IVA Vendita Autofattura/Integrazioni -->
         <record id="tax_registry_vendita_autofattura" model="account.tax.registry">
             <field name="name">Vendita Autofattura/Integrazioni</field>
             <field name="layout_type">customer</field>
+            <field name="show_full_contact_addess">True</field>
         </record>
 
-        <!-- Registro IVA Vendita FE -->
-        <record id="tax_registry_vendita_fe" model="account.tax.registry">
-            <field name="name">Vendita FE</field>
+        <!-- Registro IVA Vendita -->
+        <record id="tax_registry_vendita" model="account.tax.registry">
+            <field name="name">Vendita</field>
             <field name="layout_type">customer</field>
+            <field name="show_full_contact_addess">True</field>
         </record>
     </data>
 </odoo>

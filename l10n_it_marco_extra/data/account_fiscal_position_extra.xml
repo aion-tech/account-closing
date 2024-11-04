@@ -58,5 +58,69 @@
             <field name="split_payment">True</field>    
         </record>
 
+        <!-- Posizione Fiscale: Non Imponibile con Dichiarazione di Intento (Art. 8, c. 1, lett. c DPR 633/72) -->
+        <record id="l10n_it_marco.1_fiscal_position_ni8c_sale" model="account.fiscal.position">
+           <field name="valid_for_declaration_of_intent" >True</field>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Agente società -->
+        <record id="l10n_it_marco.1_fiscal_position_rite_soc" model="account.fiscal.position">
+            <field name="withholding_tax_ids" eval="[
+        Command.clear(),
+        Command.set([ref('withholding_tax_1040_agenti_50_23'),ref('withholding_tax_enasarco_society_1')])
+    ]"/>
+        </record>
+       
+        <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica -->
+        <record id="l10n_it_marco.1_fiscal_position_rite_pf_rite_enas" model="account.fiscal.position">
+         <field name="withholding_tax_ids" eval="[
+        Command.clear(),
+        Command.set([ref('withholding_tax_1040_agenti_50_23'),ref('withholding_tax_enasarco_physical_8_5')])
+    ]"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica NO IVA NO RITENUTA-->
+        <record id="l10n_it_marco.1_fiscal_position_rite_pf_noiva_rite_enas" model="account.fiscal.position">
+             <field name="withholding_tax_ids" eval="[
+        Command.clear(),
+        Command.set([ref('withholding_tax_enasarco_physical_8_5')])
+    ]"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Professionisti -->
+        <record id="l10n_it_marco.1_fiscal_position_rite_profess" model="account.fiscal.position">
+            <field name="withholding_tax_ids" eval="[
+        Command.clear(),
+        Command.set([ref('withholding_tax_1040_professionisti')])
+    ]"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Professionisti con CPA -->
+        <record id="l10n_it_marco.1_fiscal_position_rite_profess_cpa" model="account.fiscal.position">
+             <field name="withholding_tax_ids" eval="[
+        Command.clear(),
+        Command.set([ref('withholding_tax_1040_professionisti')])
+    ]"/>
+        </record>
+       
+
+        <!-- Posizione Fiscale: Ritenuta Prestazione Occasionale NO IVA con ritenuta-->
+        <record id="l10n_it_marco.1_fiscal_position_rite_prest_occas_noiva" model="account.fiscal.position">
+             <field name="withholding_tax_ids" eval="[
+        Command.clear(),
+        Command.set([ref('withholding_tax_1040_professionisti')])
+    ]"/>
+        </record>
+       
+
+        <!-- Posizione Fiscale: Ritenuta Diritto d'Autore NO IVA con ritenuta al 75%-->
+        <record id="l10n_it_marco.1_fiscal_position_rite_autore_noiva_75" model="account.fiscal.position">
+           <field name="withholding_tax_ids" eval="[
+        Command.clear(),
+        Command.set([ref('withholding_tax_1040_autore_75_20')])
+    ]"/>
+        </record>
+        
+
     </data>
 </odoo>

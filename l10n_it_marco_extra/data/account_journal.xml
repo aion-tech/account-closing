@@ -173,14 +173,14 @@
             <field name="sequence">11</field>
         </record>
         <!-- REGISTRI VENDITE -->
-        <!-- Registro Vendita FE -->
-        <record id="account_journal_VENFE" model="account.journal">
+        <!-- Registro Vendita -->
+        <record id="account_journal_VEN" model="account.journal">
             <field name="name">Vendita</field>
             <field name="code">VEN</field>
             <field name="type">sale</field>
             <field name="default_account_id" ref="l10n_it_marco.1_50VEFINI"/>
             <field name="currency_id" ref="base.EUR"/>
-            <field name="tax_registry_id" ref="l10n_it_marco.tax_registry_vendita_fe"/>
+            <field name="tax_registry_id" ref="l10n_it_marco.tax_registry_vendita"/>
             <field name="payment_sequence">True</field>
             <field name="sequence">7</field>
         </record>

@@ -13,7 +13,13 @@ def marco_post_init_hook(cr, registry):
     archive_payment_terms(env)
     delete_l10n_it_reverse_charge_records(env)
     update_transitory_bank_journals(env)
+    bolle_doganali_settings(env)
 
+def bolle_doganali_settings(env):
+    main_company = env.ref('base.main_company')
+    main_company.bill_of_entry_partner_id = env.ref("l10n_it_marco_extra.partner_10FEDOGA")
+    main_company.bill_of_entry_journal_id = env.ref("l10n_it_marco_extra.account_journal_DOG")
+    main_company.bill_of_entry_tax_id = env.ref("l10n_it_marco.1_tax_22im_purchase")
 
 def delete_journals(env):
     # Definisce i codici dei journal da eliminare

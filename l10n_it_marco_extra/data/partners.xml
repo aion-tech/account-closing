@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="partner_10FEDOGA" model="res.partner">
+            <field name="name">DOGANA</field> <!-- Nome del partner -->
+            <field name="ref">10FEDOGA</field> <!-- Codice di riferimento -->
+            <field name="vat">99999999999</field> <!-- Partita IVA -->
+            <field name="is_company">True</field> <!-- È una compagnia -->
+            <field name="is_pa">False</field> <!-- Non è PA -->
+            <field name="electronic_invoice_subjected">False</field> <!-- Fattura elettronica non richiesta -->
+            <field name="electronic_invoice_obliged_subject">False</field> <!-- Soggetto non obbligato a fattura elettronica -->
+            <field name="codice_destinatario">0000000</field> <!-- Codice destinatario standard -->
+            <field name="ipa_code" eval="False"/> <!-- Codice IPA non presente (non PA) -->
+        </record>
+    </data>
+</odoo>

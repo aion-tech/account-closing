@@ -51,5 +51,19 @@
             <field name="children_tax_ids" eval="[(6, 0, [ref('tax_22_purchase'), ref('tax_04_cpa_purchase')])]"/>
         </record>
 
+        <!--
+        Gruppo che applica sia l'imposta al 4% della CPA sia NS1 non soggetto art.1, 
+        le imposte nel gruppo vengono ordinate per sequence, importante che CPA4 abbia sequence inferiore di NS1
+        -->
+        <record id="tax_tax_group_cpa_4_ns1" model="account.tax.template">
+            <field name="sequence">1</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="name">CPA 4% + NS1 (Professionisti)</field>
+            <field name="amount_type">group</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="tax_group_id" ref="tax_group_cpa_4"/>
+            <field name="children_tax_ids" eval="[(6, 0, [ref('tax_ns1_purchase'), ref('tax_04_cpa_purchase')])]"/>
+        </record>
+
     </data>
 </odoo>
