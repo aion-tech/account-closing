@@ -4,7 +4,7 @@
         <xpath expr="//div[contains(@class, 'o_Message_prettyBody')]" position="replace">
             
              <t t-if="messageView.message.cleaned_body  &amp;&amp; messageView.message.show_cleaned_body ">
-                <div class="o_Message_cleanedBody">
+                <div class="o_Message_prettyBody">
                    
                     <t t-esc="messageView.message.cleaned_body"/>
                 </div>

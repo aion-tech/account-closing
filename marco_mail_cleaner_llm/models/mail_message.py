@@ -8,7 +8,7 @@ _logger = logging.getLogger(__name__)
 class MailMessage(models.Model):
     _inherit = "mail.message"
 
-    cleaned_body = fields.Html("Email Pulita", default="", sanitize_style=True)
+    cleaned_body = fields.Char("Email Pulita", default="")
 
     @api.model
     def create(self, vals):
@@ -21,13 +21,13 @@ class MailMessage(models.Model):
     def _summarizeBody(self,message):
         try:
                 res = requests.post(
-                    "http://10.80.0.5:12345/summarize",
+                    "http://10.80.0.6:12345/summarize",
                     json={"content": message.body},
                     timeout=6000,
                 )
                 if res.status_code == 200:
                     cleaned_content=res.json()
-                    _logger.warning(cleaned_content)
+                    _logger.error(cleaned_content)
                     if "status" in cleaned_content and cleaned_content["status"] == "ok":
                         message.write({"cleaned_body":cleaned_content["data"]["full_msg"]})
                     else:
