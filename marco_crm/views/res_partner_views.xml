@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_partner_form_inherit_marco_crm" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.marco.crm</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- hide field industry_id -->
+            <xpath expr="//field[@name='industry_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- add field partner_type_id, partner_applicability_id, industry_id -->
+            <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="partner_type_id" options="{'no_create': True}"/>
+                    <field name="partner_applicability_id" options="{'no_create': True}"/>
+                    <field name="industry_id" attrs="{'invisible': [('is_company', '=', False)]}" options="{'no_create': True}"/>
+                    <field name="product_category_id" options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,83 @@
+<odoo>
+    <record id="view_crm_lead_form_inherit_marco_crm" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.marco.crm</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lead_properties']" position="before">
+                <group>
+                    <group name="partner_data" string="Partner data">
+                    <group>
+                        <field name="industry_id" options="{'no_create': True}"/>
+                        <field name="product_category_id" options="{'no_create': True}"/>
+                        <field name="partner_type_id" options="{'no_create': True}"/>
+                        <field name="partner_applicability_id" options="{'no_create': True}"/>
+                    </group>
+                        <button name="update_with_partner_data" type="object" 
+                        string="Update data from partner"
+                        class="btn-primary" 
+                        style="text-align: center; width: auto;" 
+                        attrs="{'invisible': [('partner_id', '=', False)]}"/>
+                    </group>
+                </group>
+            </xpath>    
+            <xpath expr="//group[@name='lead_partner']//field[@name='partner_id']" position="replace">
+                <field name="partner_id" widget="res_partner_many2one"
+                    attrs="{'invisible': [('is_partner_visible', '=', False)]}"
+                    context="{
+                        'default_name': contact_name,
+                        'default_title': title,
+                        'default_street': street,
+                        'default_street2': street2,
+                        'default_city': city,
+                        'default_state_id': state_id,
+                        'default_zip': zip,
+                        'default_country_id': country_id,
+                        'default_function': function,
+                        'default_phone': phone,
+                        'default_mobile': mobile,
+                        'default_email': email_from,
+                        'default_user_id': user_id,
+                        'default_team_id': team_id,
+                        'default_website': website,
+                        'default_lang': lang_code,
+                        'show_vat': True,
+                        'default_industry_id': industry_id,
+                        'default_product_category_id': product_category_id,
+                        'default_partner_type_id': partner_type_id,
+                        'default_partner_applicability_id': partner_applicability_id,
+                    }"/>
+            </xpath>
+            <xpath expr="//group[@name='opportunity_partner']//field[@name='partner_id']" position="replace">
+                <field name="partner_id"
+                    widget="res_partner_many2one"
+                    string="Customer"
+                    context="{'res_partner_search_mode': type == 'opportunity' and 'customer' or False,
+                        'default_name': contact_name or partner_name,
+                        'default_street': street,
+                        'default_is_company': type == 'opportunity' and contact_name == False,
+                        'default_company_name': type == 'opportunity' and partner_name,
+                        'default_street2': street2,
+                        'default_city': city,
+                        'default_title': title,
+                        'default_state_id': state_id,
+                        'default_zip': zip,
+                        'default_country_id': country_id,
+                        'default_function': function,
+                        'default_phone': phone,
+                        'default_mobile': mobile,
+                        'default_email': email_from,
+                        'default_user_id': user_id,
+                        'default_team_id': team_id,
+                        'default_website': website,
+                        'default_lang': lang_code,
+                        'show_vat': True,
+                        'default_industry_id': industry_id,
+                        'default_product_category_id': product_category_id,
+                        'default_partner_type_id': partner_type_id,
+                        'default_partner_applicability_id': partner_applicability_id,
+                    }"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
