@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_fiscal_document_type_form_inherit" model="ir.ui.view">
+        <field name="name">fiscal.document.type.form.inherit</field>
+        <field name="model">fiscal.document.type</field>
+        <field name="inherit_id" ref="l10n_it_fiscal_document_type.view_fiscal_document_type_form"/>
+        <field name="arch" type="xml">
+            <field name="in_refund" position="after">
+                <field name="created_from_ddt"/>
+            </field>
+        </field>
+    </record>
+</odoo>
