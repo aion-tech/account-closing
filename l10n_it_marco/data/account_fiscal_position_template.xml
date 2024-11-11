@@ -12,12 +12,85 @@
             <field name="sequence">1</field>
         </record>
 
+        <!-- Posizione Fiscale: Beni UE -->
+        <record id="fiscal_position_beni_ue" model="account.fiscal.position.template">
+            <field name="name">Beni UE</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="note">Operazione intracomunitaria soggetta a dichiarazione Intrastat</field>
+            <field name="sequence">2</field>
+        </record>
+        
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_beni_ue_22itd18a_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_beni_ue"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd18a_purchase"/>
+        </record>
+        <record id="fiscal_position_tax_beni_ue_ni41_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_beni_ue"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ni41_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Beni extra ue-->
+        <record id="fiscal_position_beni_exta_ue" model="account.fiscal.position.template">
+            <field name="name">Beni Extra UE</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">3</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_beni_exta_ue_ns_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_beni_exta_ue"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+        </record>
+        <record id="fiscal_position_tax_beni_exta_ue_ni8ab_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_beni_exta_ue"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ni8ab_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Servizi UE-->
+        <record id="fiscal_position_servizi_ue" model="account.fiscal.position.template">
+            <field name="name">Servizi UE</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="note">Operazione intracomunitaria soggetta a dichiarazione Intrastat</field>
+            <field name="sequence">4</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_servizi_ue_22itd17a_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_servizi_ue"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd17a_purchase"/>
+        </record>
+        <record id="fiscal_position_tax_servizi_ue_ns7t_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_servizi_ue"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ns7t_sale"/>
+        </record>
+
+        <!-- Posizione Fiscale: Servizi Extra UE -->
+        <record id="fiscal_position_servizi_extra_ue" model="account.fiscal.position.template">
+            <field name="name">Servizi Extra UE</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">5</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_servizi_extra_ue_22atd17a_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_servizi_extra_ue"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_22atd17a_purchase"/>
+        </record>
+        <record id="fiscal_position_tax_servizi__extra_ue_ns7t_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_servizi_extra_ue"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_ns7t_sale"/>
+        </record>
 
         <!-- Posizione Fiscale: [TD16] - Integrazione art. 17 c. 6 lett. a (Manutenzione e Pulizie) -->
         <record id="fiscal_position_integrazione_td16a" model="account.fiscal.position.template">
             <field name="name">[TD16] - Integrazione art. 17 c. 6 lett. a (Manutenzione e Pulizie)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">2</field>
+            <field name="sequence">6</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_integrazione_td16a_22itd16a" model="account.fiscal.position.tax.template">
@@ -26,31 +99,11 @@
             <field name="tax_dest_id" ref="tax_22itd16a_purchase"/>
         </record>
 
-
-        <!-- Posizione Fiscale: [TD16] - Integrazione ART.74 c.7-8 (Per acquisto rottami) -->
-        <record id="fiscal_position_integrazione_td16b" model="account.fiscal.position.template">
-            <field name="name">[TD16] - Integrazione ART.74 c.7-8 (Per acquisto rottami)</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">3</field>
-        </record>
-        <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_integrazione_td16b_22itd16b" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_integrazione_td16b"/>
-            <field name="tax_src_id" ref="tax_22_purchase"/>
-            <field name="tax_dest_id" ref="tax_22itd16b_purchase"/>
-        </record>
-        <record id="fiscal_position_tax_integrazione_td16b_rc74_sale" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_integrazione_td16b"/>
-            <field name="tax_src_id" ref="tax_22_sale"/>
-            <field name="tax_dest_id" ref="tax_rc74_sale"/>
-        </record>
-
-
         <!-- Posizione Fiscale: [TD16] - Integrazione ART.17 c.6,lett. c (Microprocessori) -->
         <record id="fiscal_position_integrazione_td16c" model="account.fiscal.position.template">
             <field name="name">[TD16] - Integrazione ART.17 c.6,lett. c (Microprocessori)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">4</field>
+            <field name="sequence">7</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_integrazione_td16c_22itd16c" model="account.fiscal.position.tax.template">
@@ -59,54 +112,11 @@
             <field name="tax_dest_id" ref="tax_22itd16c_purchase"/>
         </record>
 
-
-        <!-- Posizione Fiscale: [TD17] - Integrazione (Servizi UE) -->
-        <record id="fiscal_position_integrazione_td17a" model="account.fiscal.position.template">
-            <field name="name">[TD17] - Integrazione (Servizi UE)</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">5</field>
-        </record>
-        <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_integrazione_td17a_22itd17a" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_integrazione_td17a"/>
-            <field name="tax_src_id" ref="tax_22_purchase"/>
-            <field name="tax_dest_id" ref="tax_22itd17a_purchase"/>
-        </record>
-
-
-        <!-- Posizione Fiscale: [TD17] - Autofatturazione (Servizi Extra UE) -->
-        <record id="fiscal_position_autofatturazione_td17a" model="account.fiscal.position.template">
-            <field name="name">[TD17] - Autofatturazione (Servizi Extra UE)</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">5</field>
-        </record>
-        <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_autofatturazione_td17a_22atd17a" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_autofatturazione_td17a"/>
-            <field name="tax_src_id" ref="tax_22_purchase"/>
-            <field name="tax_dest_id" ref="tax_22atd17a_purchase"/>
-        </record>
-
-
-        <!-- Posizione Fiscale: [TD18] - Integrazione (Beni UE) -->
-        <record id="fiscal_position_integrazione_td18a" model="account.fiscal.position.template">
-            <field name="name">[TD18] - Integrazione (Beni UE)</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">6</field>
-        </record>
-        <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_integrazione_td18a_22itd18a" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_integrazione_td18a"/>
-            <field name="tax_src_id" ref="tax_22_purchase"/>
-            <field name="tax_dest_id" ref="tax_22itd18a_purchase"/>
-        </record>
-
-
         <!-- Posizione Fiscale: [TD19] - Integrazione (Rag.Soc. UE con rappr.Fisc. IT) -->
         <record id="fiscal_position_integrazione_td19a" model="account.fiscal.position.template">
             <field name="name">[TD19] - Integrazione (Rag.Soc. UE con rappr.Fisc. IT)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">7</field>
+            <field name="sequence">8</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_integrazione_td19a_22itd19a" model="account.fiscal.position.tax.template">
@@ -120,7 +130,7 @@
         <record id="fiscal_position_autofatturazione_td19a" model="account.fiscal.position.template">
             <field name="name">[TD19] - Autofatturazione (Rag.Soc. Extra UE con rappr.Fisc. IT)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">8</field>
+            <field name="sequence">9</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_autofatturazione_td19a_22itd19a" model="account.fiscal.position.tax.template">
@@ -129,24 +139,29 @@
             <field name="tax_dest_id" ref="tax_22atd19a_purchase"/>
         </record>
 
-        <!-- Posizione Fiscale: Acquisti beni extra ue-->
-        <record id="fiscal_position_acquisti_beni_exta_ue" model="account.fiscal.position.template">
-            <field name="name">Acquisti Beni Extra UE</field>
+        <!-- Posizione Fiscale: Rottami -->
+        <record id="fiscal_position_rottami" model="account.fiscal.position.template">
+            <field name="name">Rottami</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">9</field>
+            <field name="sequence">10</field>
         </record>
         <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_acquisti_beni_exta_ue" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_acquisti_beni_exta_ue"/>
+        <record id="fiscal_position_tax_rottami_22itd16b_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rottami"/>
             <field name="tax_src_id" ref="tax_22_purchase"/>
-            <field name="tax_dest_id" ref="tax_ns_purchase"/>
+            <field name="tax_dest_id" ref="tax_22itd16b_purchase"/>
+        </record>
+        <record id="fiscal_position_tax_rottami_rc74_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rottami"/>
+            <field name="tax_src_id" ref="tax_22_sale"/>
+            <field name="tax_dest_id" ref="tax_rc74_sale"/>
         </record>
 
         <!-- Posizione Fiscale: Reverse Charge art. 17, c. 6 lett. d-quater  DPR 633/72 (GSE) -->
         <record id="fiscal_position_rc17d_gse" model="account.fiscal.position.template">
             <field name="name">Reverse Charge art. 17, c. 6 lett. d-quater  DPR 633/72 (GSE)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">10</field>
+            <field name="sequence">11</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_rc17d_gse" model="account.fiscal.position.tax.template">
@@ -159,7 +174,7 @@
         <record id="fiscal_position_22pa_no_split" model="account.fiscal.position.template">
             <field name="name">Pubblica Amministrazione - NO Split Payment</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">11</field>
+            <field name="sequence">12</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_22pa_no_split" model="account.fiscal.position.tax.template">
@@ -173,21 +188,14 @@
             <field name="name">Pubblica Amministrazione - Split Payment</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
             <field name="country_id" ref="base.it"/>
-            <field name="sequence">12</field>
+            <field name="sequence">13</field>
             <field name="note">Operazione soggetta a split payment – il cedente non incassa l’Iva ai sensi dell’ex art.17-ter del D.P.R. 633/1972, l’acquirente è obbligato al versamento all’Agenzia delle Entrate.</field>
         </record>
-
-        <!-- Posizione Fiscale: Non Imponibile Cessioni UE (Art. 41 DPR 633/72) -->
-        <record id="fiscal_position_ni41_sale" model="account.fiscal.position.template">
-            <field name="name">Non Imponibile Cessioni UE (Art. 41 DPR 633/72)</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">13</field>
-        </record>
         <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_ni41_sale" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_ni41_sale"/>
+        <record id="fiscal_position_tax_split_payment_22sp_sale" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_split_payment"/>
             <field name="tax_src_id" ref="tax_22_sale"/>
-            <field name="tax_dest_id" ref="tax_ni41_sale"/>
+            <field name="tax_dest_id" ref="tax_22sp_sale"/>
         </record>
 
         <!-- Posizione Fiscale: Non Imponibile San Marino (Art. 71 DPR 633/72) -->
@@ -203,24 +211,11 @@
             <field name="tax_dest_id" ref="tax_ni71_sale"/>
         </record>
 
-        <!-- Posizione Fiscale: Non Imponibile Cessioni Extra UE (Art. 8, c. 1, lett. a-b DPR 633/72) -->
-        <record id="fiscal_position_ni8ab_sale" model="account.fiscal.position.template">
-            <field name="name">Non Imponibile Cessioni Extra UE (Art. 8, c. 1, lett. a-b DPR 633/72)</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">15</field>
-        </record>
-        <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_ni8ab_sale" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_ni8ab_sale"/>
-            <field name="tax_src_id" ref="tax_22_sale"/>
-            <field name="tax_dest_id" ref="tax_ni8ab_sale"/>
-        </record>
-
         <!-- Posizione Fiscale: Non Imponibile Capitanerie di Porto Esenti (Art. 8-bis, c. 1 DPR 633/72) -->
         <record id="fiscal_position_ni8bis_sale" model="account.fiscal.position.template">
             <field name="name">Non Imponibile Capitanerie di Porto Esenti (Art. 8-bis, c. 1 DPR 633/72)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">16</field>
+            <field name="sequence">15</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_ni8bis_sale" model="account.fiscal.position.tax.template">
@@ -230,23 +225,28 @@
         </record>
 
         <!-- Posizione Fiscale: Non Imponibile con Dichiarazione di Intento (Art. 8, c. 1, lett. c DPR 633/72) -->
-        <record id="fiscal_position_ni8c_sale" model="account.fiscal.position.template">
+        <record id="fiscal_position_ni8c" model="account.fiscal.position.template">
             <field name="name">Non Imponibile con Dichiarazione di Intento (Art. 8, c. 1, lett. c DPR 633/72)</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">17</field>
+            <field name="sequence">16</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_ni8c_sale" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_ni8c_sale"/>
+            <field name="position_id" ref="fiscal_position_ni8c"/>
             <field name="tax_src_id" ref="tax_22_sale"/>
             <field name="tax_dest_id" ref="tax_ni8c_sale"/>
+        </record>
+        <record id="fiscal_position_tax_ni8c_purchase" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_ni8c"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_ni8c_purchase"/>
         </record>
 
         <!-- Posizione Fiscale: Non Detraibile al 50% - IVA 22% -->
         <record id="fiscal_position_nd2250_purchase" model="account.fiscal.position.template">
             <field name="name">Non Detraibile al 50% - IVA 22%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">19</field>
+            <field name="sequence">17</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_nd2250_purchase" model="account.fiscal.position.tax.template">
@@ -259,7 +259,7 @@
         <record id="fiscal_position_nd2260_purchase" model="account.fiscal.position.template">
             <field name="name">Non Detraibile al 60% - IVA 22%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">20</field>
+            <field name="sequence">18</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_nd2260_purchase" model="account.fiscal.position.tax.template">
@@ -272,21 +272,21 @@
         <record id="fiscal_position_rite_soc" model="account.fiscal.position.template">
             <field name="name">Agente Società - Ritenuta 23% sul 50% - Enasarco 1% </field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">21</field>
+            <field name="sequence">19</field>
         </record>
 
         <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica -->
         <record id="fiscal_position_rite_pf_rite_enas" model="account.fiscal.position.template">
             <field name="name">Agente Persona Fisica - Ritenuta 23% sul 50% - Enasarco 8,5%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">22</field>
+            <field name="sequence">20</field>
         </record>
 
         <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica -->
         <record id="fiscal_position_rite_pf_noiva_rite_enas" model="account.fiscal.position.template">
             <field name="name">Agente Persona Fisica - NO IVA - NO Ritenuta - Enasarco 8,5%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">23</field>
+            <field name="sequence">21</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_rite_pf_noiva_rite_enas" model="account.fiscal.position.tax.template">
@@ -300,14 +300,14 @@
         <record id="fiscal_position_rite_profess" model="account.fiscal.position.template">
             <field name="name">Professionisti - Ritenuta 20% sul 100%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">24</field>
+            <field name="sequence">22</field>
         </record>
 
         <!-- Posizione Fiscale: Ritenuta Professionisti con CPA -->
         <record id="fiscal_position_rite_profess_cpa" model="account.fiscal.position.template">
             <field name="name">Professionisti - Ritenuta 20% sul 100% - CPA 4%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">25</field>
+            <field name="sequence">23</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_rite_profess_cpa" model="account.fiscal.position.tax.template">
@@ -320,7 +320,7 @@
         <record id="fiscal_position_rite_profess_noiva_norite_cpa" model="account.fiscal.position.template">
             <field name="name">Professionisti - NO Ritenuta - CPA 4%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">26</field>
+            <field name="sequence">24</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_rite_profess_noiva_norite_cpa" model="account.fiscal.position.tax.template">
@@ -329,11 +329,36 @@
             <field name="tax_dest_id" ref="tax_tax_group_cpa_4"/>
         </record>
 
+        <!-- Posizione Fiscale: Ritenuta Professionisti  NO IVA - NO Ritenuta - CPA 4%-->
+        <record id="fiscal_position_rite_profess_noiva_norite_cpa" model="account.fiscal.position.template">
+            <field name="name">Professionisti - NO IVA - NO Ritenuta - CPA 4%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">25</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_rite_profess_noiva_norite_cpa" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rite_profess_noiva_norite_cpa"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+            <field name="tax_dest_id" ref="tax_tax_group_cpa_4_ns1"/>
+        </record>
+
         <!-- Posizione Fiscale: Ritenuta Prestazione Occasionale NO IVA con ritenuta -->
         <record id="fiscal_position_rite_prest_occas_noiva" model="account.fiscal.position.template">
             <field name="name">Prestazione Occasionale - NO IVA - Ritenuta 20% sul 100%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">27</field>
+            <field name="sequence">26</field>
+        </record>
+        <!-- Mappature imposte -->
+        <record id="fiscal_position_tax_rite_prest_occas_noiva" model="account.fiscal.position.tax.template">
+            <field name="position_id" ref="fiscal_position_rite_prest_occas_noiva"/>
+            <field name="tax_src_id" ref="tax_22_purchase"/>
+        </record>
+
+        <!-- Posizione Fiscale: Ritenuta Prestazione Occasionale NO IVA con ritenuta -->
+        <record id="fiscal_position_rite_prest_occas_noiva" model="account.fiscal.position.template">
+            <field name="name">Prestazione Occasionale - NO IVA - Ritenuta 20% sul 100%</field>
+            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
+            <field name="sequence">26</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_rite_prest_occas_noiva" model="account.fiscal.position.tax.template">
@@ -345,29 +370,13 @@
         <record id="fiscal_position_rite_autore_noiva_75" model="account.fiscal.position.template">
             <field name="name">Diritti d'Autore > 35 anni - NO IVA - Ritenuta 20% sul 75%</field>
             <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">28</field>
+            <field name="sequence">27</field>
         </record>
         <!-- Mappature imposte -->
         <record id="fiscal_position_tax_rite_autore_noiva_75" model="account.fiscal.position.tax.template">
             <field name="position_id" ref="fiscal_position_rite_autore_noiva_75"/>
             <field name="tax_src_id" ref="tax_22_purchase"/>
         </record>
-
-        <!-- Posizione Fiscale: Ritenuta Professionisti  NO IVA - NO Ritenuta - CPA 4%-->
-        <record id="fiscal_position_rite_profess_noiva_norite_cpa" model="account.fiscal.position.template">
-            <field name="name">Professionisti - NO IVA - NO Ritenuta - CPA 4%</field>
-            <field name="chart_template_id" ref="l10n_it_chart_template_marco"/>
-            <field name="sequence">29</field>
-        </record>
-        <!-- Mappature imposte -->
-        <record id="fiscal_position_tax_rite_profess_noiva_norite_cpa" model="account.fiscal.position.tax.template">
-            <field name="position_id" ref="fiscal_position_rite_profess_noiva_norite_cpa"/>
-            <field name="tax_src_id" ref="tax_22_purchase"/>
-            <field name="tax_dest_id" ref="tax_04_cpa_purchase"/>
-        </record>
-
-        
-
         
 <!--
 professionista no iva (ns1) no ritenuta si cpa -> prendi solo imposta al 4% non il gruppo

@@ -5,63 +5,96 @@
         <!--Posizione Fiscale: [TD16] - Integrazione art. 17 c. 6 lett. a (Manutenzione e Pulizie)  -->
         <record id="l10n_it_marco.1_fiscal_position_integrazione_td16a" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_reverse_interno_td16"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
         </record>
-       
 
-        <!--Posizione Fiscale: [TD16] - Integrazione ART.74 c.7-8 (Per acquisto rottami) -->
-        <record id="l10n_it_marco.1_fiscal_position_integrazione_td16b" model="account.fiscal.position">
+
+        <!--Posizione Fiscale: Rottami -->
+        <record id="l10n_it_marco.1_fiscal_position_rottami" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_reverse_interno_td16"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
         </record>
 
         <!--Posizione Fiscale: [TD16] - Integrazione ART.17 c.6,lett. c (Microprocessori) -->
         <record id="l10n_it_marco.1_fiscal_position_integrazione_td16c" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_reverse_interno_td16"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
         </record>
 
-        <!--Posizione Fiscale: [TD17] - Integrazione (Servizi UE)  -->
-        <record id="l10n_it_marco.1_fiscal_position_integrazione_td17a" model="account.fiscal.position">
+        <!--Posizione Fiscale: Servizi UE  -->
+        <record id="l10n_it_marco.1_fiscal_position_servizi_ue" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_integrazione_servizi_ue_td17"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
             <field name="intrastat">True</field>
         </record>
 
-        <!--Posizione Fiscale: [TD17] - Autofatturazione (Servizi Extra UE)  -->
-        <record id="l10n_it_marco.1_fiscal_position_autofatturazione_td17a" model="account.fiscal.position">
+        <!--Posizione Fiscale: Servizi Extra UE  -->
+        <record id="l10n_it_marco.1_fiscal_position_servizi_extra_ue" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_integrazione_servizi_ue_td17"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
         </record>
-    
-        <!--Posizione Fiscale: [TD18] - Integrazione (Beni UE)  -->
-        <record id="l10n_it_marco.1_fiscal_position_integrazione_td18a" model="account.fiscal.position">
+
+        <!--Posizione Fiscale: Beni UE -->
+        <record id="l10n_it_marco.1_fiscal_position_beni_ue" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_integrazione_beni_ue_td18"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
             <field name="intrastat">True</field>
         </record>
 
         <!--Posizione Fiscale: [TD19] - Integrazione (Rag.Soc. UE con rappr.Fisc. IT)  -->
         <record id="l10n_it_marco.1_fiscal_position_integrazione_td19a" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_integrazione_autofattura_art_17_td19"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
         </record>
-       
+
         <!--Posizione Fiscale: [TD19] - Autofatturazione (Rag.Soc. Extra UE con rappr.Fisc. IT)  -->
         <record id="l10n_it_marco.1_fiscal_position_autofatturazione_td19a" model="account.fiscal.position">
             <field name="rc_type_id" ref="rc_integrazione_autofattura_art_17_td19"/>
-            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.1"/>
         </record>
 
         <!--Posizione Fiscale: Split Payment -->
         <record id="l10n_it_marco.1_fiscal_position_split_payment" model="account.fiscal.position">
-            <field name="split_payment">True</field>    
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+            <field name="split_payment">True</field>
         </record>
 
         <!-- Posizione Fiscale: Non Imponibile con Dichiarazione di Intento (Art. 8, c. 1, lett. c DPR 633/72) -->
-        <record id="l10n_it_marco.1_fiscal_position_ni8c_sale" model="account.fiscal.position">
-           <field name="valid_for_declaration_of_intent" >True</field>
+        <record id="l10n_it_marco.1_fiscal_position_ni8c" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+            <field name="valid_for_declaration_of_intent">True</field>
         </record>
+
+        <!--Posizione Fiscale: Italia -->
+        <record id="l10n_it_marco.1_fiscal_position_italia" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+        </record>
+
+        <!--Posizione Fiscale: Beni Extra UE -->
+        <record id="l10n_it_marco.1_fiscal_position_beni_exta_ue" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+        </record>
+
+        <!--Posizione Fiscale: Rottami -->
+        <record id="l10n_it_marco.1_fiscal_position_rottami" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+        </record>
+
+        <!--Posizione Fiscale: Pubblica Amministrazione - NO Split Payment -->
+        <record id="l10n_it_marco.1_fiscal_position_22pa_no_split" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+        </record>
+
+        <!--Posizione Fiscale: Non Imponibile San Marino (Art. 71 DPR 633/72) -->
+        <record id="l10n_it_marco.1_fiscal_position_ni71_sale" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+        </record>
+
+        <!--Posizione Fiscale: Non Imponibile Capitanerie di Porto Esenti (Art. 8-bis, c. 1 DPR 633/72) -->
+        <record id="l10n_it_marco.1_fiscal_position_ni8bis_sale" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+        </record>
+
+        <!--Posizione Fiscale: Reverse Charge art. 17, c. 6 lett. d-quater DPR 633/72 (GSE) -->
+        <record id="l10n_it_marco.1_fiscal_position_rc17d_gse" model="account.fiscal.position">
+            <field name="fiscal_document_type_id" ref="l10n_it_fiscal_document_type.21"/>
+        </record>
+
+
 
         <!-- Posizione Fiscale: Ritenuta Agente società -->
         <record id="l10n_it_marco.1_fiscal_position_rite_soc" model="account.fiscal.position">
@@ -70,10 +103,10 @@
         Command.set([ref('withholding_tax_1040_agenti_50_23'),ref('withholding_tax_enasarco_society_1')])
     ]"/>
         </record>
-       
+
         <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica -->
         <record id="l10n_it_marco.1_fiscal_position_rite_pf_rite_enas" model="account.fiscal.position">
-         <field name="withholding_tax_ids" eval="[
+            <field name="withholding_tax_ids" eval="[
         Command.clear(),
         Command.set([ref('withholding_tax_1040_agenti_50_23'),ref('withholding_tax_enasarco_physical_8_5')])
     ]"/>
@@ -81,7 +114,7 @@
 
         <!-- Posizione Fiscale: Ritenuta Agente Persona Fisica NO IVA NO RITENUTA-->
         <record id="l10n_it_marco.1_fiscal_position_rite_pf_noiva_rite_enas" model="account.fiscal.position">
-             <field name="withholding_tax_ids" eval="[
+            <field name="withholding_tax_ids" eval="[
         Command.clear(),
         Command.set([ref('withholding_tax_enasarco_physical_8_5')])
     ]"/>
@@ -97,30 +130,28 @@
 
         <!-- Posizione Fiscale: Ritenuta Professionisti con CPA -->
         <record id="l10n_it_marco.1_fiscal_position_rite_profess_cpa" model="account.fiscal.position">
-             <field name="withholding_tax_ids" eval="[
+            <field name="withholding_tax_ids" eval="[
         Command.clear(),
         Command.set([ref('withholding_tax_1040_professionisti')])
     ]"/>
         </record>
-       
+
 
         <!-- Posizione Fiscale: Ritenuta Prestazione Occasionale NO IVA con ritenuta-->
         <record id="l10n_it_marco.1_fiscal_position_rite_prest_occas_noiva" model="account.fiscal.position">
-             <field name="withholding_tax_ids" eval="[
+            <field name="withholding_tax_ids" eval="[
         Command.clear(),
-        Command.set([ref('withholding_tax_1040_professionisti')])
+        Command.set([ref('withholding_tax_1040_professionisti_occasionali')])
     ]"/>
         </record>
-       
+
 
         <!-- Posizione Fiscale: Ritenuta Diritto d'Autore NO IVA con ritenuta al 75%-->
         <record id="l10n_it_marco.1_fiscal_position_rite_autore_noiva_75" model="account.fiscal.position">
-           <field name="withholding_tax_ids" eval="[
+            <field name="withholding_tax_ids" eval="[
         Command.clear(),
         Command.set([ref('withholding_tax_1040_autore_75_20')])
     ]"/>
         </record>
-        
-
     </data>
 </odoo>

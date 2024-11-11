@@ -21,6 +21,26 @@
             ]"/>
         </record>
 
+         <!-- Ritenuta: 1040 Professionisti -->
+        <record id="withholding_tax_1040_professionisti_occasionali" model="withholding.tax">
+            <field name="name">RITENUTA 1040 PROFESSIONISTI</field>
+            <field name="code">1040</field>
+            <field name="active">True</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="account_receivable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
+            <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
+            <field name="payment_reason_id" ref="l10n_it_payment_reason.m" />
+            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="wt_types">ritenuta</field>
+            <field name="certification">True</field>
+            <field name="sequence">1</field>
+            <field name="rate_ids" eval="[
+                Command.clear(),
+                Command.create({'base': 1, 'tax': 20.0})
+            ]"/>
+        </record>
+
         <!-- Ritenuta: 1040 Agenti 50% Imponibile Plurimandatari (23%) -->
         <record id="withholding_tax_1040_agenti_50_23" model="withholding.tax">
             <field name="name">RITENUTA 1040 AGENTI 50% IMP. PLURIMANDATARI</field>
@@ -51,7 +71,7 @@
             <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
             <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
-            <field name="payment_reason_id" ref="l10n_it_payment_reason.a" />
+            <field name="payment_reason_id" ref="l10n_it_payment_reason.b" />
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
             <field name="sequence">3</field>

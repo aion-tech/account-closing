@@ -34,7 +34,7 @@
         
         <field name="payability">I</field>
         
-        <field name="is_base_affected">False</field>
+        <field name="is_base_affected">True</field>
     </record>
     
 
