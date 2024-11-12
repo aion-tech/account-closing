@@ -1,5 +1,6 @@
 # Copyright 2016-2021 Akretion France
 # @author: Alexis de Lattre <alexis.delattre@akretion.com>
+# Copyright 2024 Simone Rubino - Aion Tech
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
@@ -188,6 +189,15 @@ class AccountCutoff(models.Model):
             domain.append(("parent_state", "=", "posted"))
         else:
             domain.append(("parent_state", "in", ("draft", "posted")))
+
+        if self.cutoff_type in ["prepaid_expense", "accrued_expense"]:
+            domain += [
+                ("account_internal_group", "=", "expense"),
+            ]
+        elif self.cutoff_type in ["prepaid_revenue", "accrued_revenue"]:
+            domain += [
+                ("account_internal_group", "=", "income"),
+            ]
 
         if self.cutoff_type in ["prepaid_expense", "prepaid_revenue"]:
             if self.forecast:
