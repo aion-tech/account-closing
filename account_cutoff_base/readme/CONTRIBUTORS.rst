@@ -5,3 +5,6 @@
 * Pedro M. Baeza <pedro.baeza@gmail.com>
 * Jeroen Evens <jeroen.evenss@dynapps.be>
 * Jim Hoefnagels <jim.hoefnagels@dynapps.be>
+* `Aion Tech <https://aiontech.company/>`_:
+
+  * Simone Rubino <simone.rubino@aion-tech.it>
