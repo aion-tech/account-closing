@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!-- Remove the field from its current position -->
+                <xpath expr="//field[@name='fiscal_position_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!-- Re-insert the field in a different position -->
+                <xpath expr="//group[@name='partner_details']" position="inside">
+                    <group name="always_verify_fields" string="Campi da verificare sempre">
+                        <field name="fiscal_position_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
