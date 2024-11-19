@@ -14,6 +14,37 @@ def marco_post_init_hook(cr, registry):
     delete_l10n_it_reverse_charge_records(env)
     update_transitory_bank_journals(env)
     bolle_doganali_settings(env)
+    
+def marco_pre_init_hook(cr):
+    env = api.Environment(cr, SUPERUSER_ID, {})
+    if not check_account_asset_uninstall(env):
+        _logger.warning("Il modulo 'account_asset' non può essere disinstallato automaticamente. "
+                        "Si prega di rimuoverlo manualmente prima di continuare.")
+
+def check_account_asset_uninstall(env):
+    module_name = 'account_asset'
+
+    # Cerca il modulo
+    module = env['ir.module.module'].search([('name', '=', module_name)])
+    if not module:
+        _logger.info(f"Il modulo '{module_name}' non è stato trovato.")
+        return True  # Nessuna azione necessaria
+
+    if module.state == 'installed':
+        _logger.info(f"Il modulo '{module_name}' è installato. Controllo delle dipendenze...")
+
+        # Controlla se ci sono moduli che dipendono da 'account_asset'
+        dependent_modules = env['ir.module.module'].search(
+            [('dependencies_id.name', '=', module_name), ('state', '=', 'installed')]
+        )
+        if dependent_modules:
+            dependent_names = ", ".join(dependent_modules.mapped('name'))
+            _logger.error(
+                f"Impossibile disinstallare '{module_name}' perché i seguenti moduli dipendono da esso: {dependent_names}. "
+                "Rimuovi prima questi moduli o aggiorna le loro configurazioni."
+            )
+            return False
+    return True
 
 def bolle_doganali_settings(env):
     main_company = env.ref('base.main_company')

@@ -25,6 +25,9 @@
         "server_action_mass_edit", #modulo per la modifica massiva
         "web_search_with_and",
         "web_advanced_search",
+        'sale_triple_discount',
+        "base_partner_company_group",
+        "partner_contact_access_link",
         #"announcement" #puoi creare degli annunci nell'app discuss
         #"base_custom_filter" #crea un menu nei settings per creare dei filtri e group by custom
     ],

@@ -3,3 +3,4 @@
 
 #from . import models
 from .hooks import marco_post_init_hook
+from .hooks import marco_pre_init_hook

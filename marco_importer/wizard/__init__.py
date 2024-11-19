@@ -9,6 +9,7 @@ from . import import_bom_components
 from . import import_bom_operations
 from . import import_workcenters
 from . import import_orders
+from . import import_purchase_orders
 from . import import_banks
 from . import import_partners_banks
 from . import import_employees

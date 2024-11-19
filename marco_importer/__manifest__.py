@@ -16,6 +16,9 @@
         "purchase",
         "mrp",
         "sale_management",
+        'sale_triple_discount',
+        "web_notify",
+        "queue_job",
     ],
     "data": [
         "security/ir.model.access.csv",

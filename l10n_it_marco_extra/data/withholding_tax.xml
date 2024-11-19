@@ -11,7 +11,7 @@
             <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
             <field name="payment_reason_id" ref="l10n_it_payment_reason.a" />
-            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.payment_term_3"/>
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
             <field name="sequence">1</field>
@@ -31,7 +31,7 @@
             <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
             <field name="payment_reason_id" ref="l10n_it_payment_reason.m" />
-            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.payment_term_3"/>
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
             <field name="sequence">1</field>
@@ -51,7 +51,7 @@
             <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
             <field name="payment_reason_id" ref="l10n_it_payment_reason.r" />
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
-            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.payment_term_3"/>
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
             <field name="sequence">2</field>
@@ -70,7 +70,7 @@
             <field name="account_receivable_id" ref="l10n_it_marco.1_10DEESAT"/>
             <field name="account_payable_id" ref="l10n_it_marco.1_10DEESAT"/>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
-            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_15days"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.payment_term_3"/>
             <field name="payment_reason_id" ref="l10n_it_payment_reason.b" />
             <field name="wt_types">ritenuta</field>
             <field name="certification">True</field>
@@ -90,7 +90,8 @@
             <field name="account_receivable_id" ref="l10n_it_marco.1_10DEENAS"/>
             <field name="account_payable_id" ref="l10n_it_marco.1_10DEENAS"/>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
-            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_immediate"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.payment_term_3"/>
+            <field name="payment_reason_id" ref="l10n_it_payment_reason.z" />
             <field name="wt_types">enasarco</field>
             <field name="certification">True</field>
             <field name="sequence">4</field>
@@ -109,7 +110,8 @@
             <field name="account_receivable_id" ref="l10n_it_marco.1_10DEENAS"/>
             <field name="account_payable_id" ref="l10n_it_marco.1_10DEENAS"/>
             <field name="journal_id" ref="l10n_it_marco_extra.account_journal_RITE"/>
-            <field name="payment_term" ref="l10n_it_marco_extra.account_payment_term_immediate"/>
+            <field name="payment_term" ref="l10n_it_marco_extra.payment_term_3"/>
+            <field name="payment_reason_id" ref="l10n_it_payment_reason.z" />
             <field name="wt_types">enasarco</field>
             <field name="certification">True</field>
             <field name="sequence">5</field>

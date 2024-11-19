@@ -2,12 +2,10 @@ from typing import Dict, List
 
 import requests
 from odoo import api, fields, models, Command
+
 from .progress_logger import _logger
+from datetime import datetime
 
-# _logger.debug('Another transaction already locked documents rows. Cannot process documents.')
-# _logger.info('Another transaction already locked documents rows. Cannot process documents.')
-
-# __import__('pdb').set_trace() # SETTA UN PUNTO DI DEBUG
 BASE_URL = "https://api.marco.it/odoo/"
 
 IMPORT_METHOD_MAP = {
@@ -19,11 +17,6 @@ IMPORT_METHOD_MAP = {
     "items": {
         "method": "import_items",
         "slug": "items",
-        "default": False,
-    },
-    "items_quant": {
-        "method": "import_items_quant",
-        "slug": "items",#uso lo stesso endpoint di items così sono sicuro di applicare l'inventario solo a quello che mi interessa
         "default": False,
     },
     "bom_heads": {
@@ -56,6 +49,11 @@ IMPORT_METHOD_MAP = {
         "slug": "order",
         "default": False,
     },
+    "purchase_orders": {
+        "method": "import_purchase_orders",
+        "slug": "orders/purchase",
+        "default": False,
+    },
     "banks": {
         "method": "import_banks",
         "slug": "banks",
@@ -64,6 +62,11 @@ IMPORT_METHOD_MAP = {
     "partners_bank": {
         "method": "import_partners_bank",
         "slug": "partners/bank",
+        "default": False,
+    },
+    "items_quant": {
+        "method": "import_items_quant",
+        "slug": "items",
         "default": False,
     },
     "employees": {
@@ -77,7 +80,7 @@ IMPORT_METHOD_MAP = {
 class MarcoImporter(models.TransientModel):
     _name = "marco.importer"
     _description = "Sommo Importatore di dati"
-    select_all = fields.Boolean()  # default=True)
+    select_all = fields.Boolean()
     first_select_all_change = fields.Boolean(default=True)
 
     @api.onchange("select_all")
@@ -94,24 +97,56 @@ class MarcoImporter(models.TransientModel):
             self[key] = self.select_all
 
     def import_all_data(self):
+        # Esegui l'importazione in background con `with_delay`
+        self.env.user.notify_info(message="Importazione aggiunta alla coda ...")
+        self.with_delay(priority=1).run_import_all_data()
+
+    def run_import_all_data(self):
         _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
         try:
             requests.get(BASE_URL, timeout=(2, 2))
-        except:
-            raise ValueError(f"Cannot reach the APIs")
-
-        for key, value in IMPORT_METHOD_MAP.items():
+        except requests.RequestException:
+            self.env.user.notify_danger(message="Errore: impossibile raggiungere le API.")
+            return
+        self.env.user.notify_info(message="Importazione iniziata.")
+        for key in IMPORT_METHOD_MAP:
             if self[key]:
-                url = BASE_URL + value["slug"]
-                try:
-                    res = requests.get(url, timeout=(3, 10))
-                    records = res.json()
-                except:
-                    raise ValueError(f"Cannot reach the APIs")
-                getattr(self, value["method"])(records)
-                self.env.cr.commit()
+                self.import_data_in_background(key)
 
         _logger.warning("<--- IMPORTAZIONE COMPLETATA --->")
+       
+
+    def import_data_in_background(self, model_name: str):
+        """Wrapper per eseguire import_data come job di queue_job"""
+        self.env.user.notify_info(message=f"Importazione iniziata per '{model_name}'.")
+        self.with_delay(priority=1).import_data(model_name)
+
+
+    def import_data(self, model_name: str):
+        """Metodo generico per importare i dati di un modello specificato."""
+        model_config = IMPORT_METHOD_MAP.get(model_name)
+        if not model_config:
+            self.env.user.notify_danger(message=f"Modello '{model_name}' non trovato in IMPORT_METHOD_MAP.")
+            return
+
+        # Costruisce l'URL per il modello specifico
+        url = BASE_URL + model_config["slug"]
+        try:
+            response = requests.get(url, timeout=(3, 10))
+            records = response.json()
+        except requests.RequestException as e:
+            self.env.user.notify_danger(message=f"Errore nel recupero dei dati per '{model_name}': {e}")
+            return
+        
+        # Recupera il metodo di importazione specifico
+        import_method = getattr(self, model_config["method"], None)
+        if import_method:
+            import_method(records)
+            self.env.cr.commit()
+            _logger.info(f"Importazione completata per '{model_name}'.")
+            self.env.user.notify_info(message=f"Importazione completata per '{model_name}'.")
+        else:
+            self.env.user.notify_danger(message=f"Metodo di importazione '{model_config['method']}' non trovato per '{model_name}'.")
 
     def on_change_check(
         self,
@@ -121,7 +156,6 @@ class MarcoImporter(models.TransientModel):
         type: str = "notification",
         level: str = "warning",
     ):
-
         if not self.first_select_all_change and condition:
             return {
                 level: {

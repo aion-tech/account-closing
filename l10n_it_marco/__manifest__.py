@@ -4,7 +4,6 @@
 {
     "name": "Italy - Accounting - MARCO S.p.A.",
     "version": "0.6",
-    "excludes": ["account_asset"],
     "depends": [
         "account",
         "account_accountant",
@@ -22,7 +21,6 @@
         "l10n_it_account_stamp",
         "l10n_it_account_tax_kind",
         "l10n_it_appointment_code",
-        "l10n_it_asset_management",
         "l10n_it_bill_of_entry",
         "l10n_it_central_journal_reportlab",
         "l10n_it_declaration_of_intent",
@@ -93,6 +91,7 @@ Italian accounting chart and localization.
         "data/account_fiscal_position_template.xml",
         "data/chart_template_loader.xml",
     ],
+    
     "demo": [
         # 'demo/demo_company.xml',
     ],

@@ -26,6 +26,7 @@
                             <field name="bom_operations"/>
                             <field name="suppliers_pricelists"/>
                             <field name="orders"/>
+                            <field name="purchase_orders"/>
                             <field name="banks"/>
                             <field name="partners_bank" string="Partners Banks"/>
                         </group>
