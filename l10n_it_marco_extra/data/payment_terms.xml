@@ -1,792 +1,792 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <data noupdate="1">
-        <record id="payment_term_1" model="account.payment.term">
-            <field name="name">Bonifico 20% Anticipato 80% Merce Pronta</field>
-            <field name="note">Bonifico 20% Anticipato 80% Merce Pronta</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_2" model="account.payment.term">
-            <field name="name">Bonifico a Merce Pronta</field>
-            <field name="note">Bonifico a Merce Pronta</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_3" model="account.payment.term">
-            <field name="name">Bonifico Anticipato</field>
-            <field name="note">Bonifico Anticipato</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_4" model="account.payment.term">
-            <field name="name">Bonifico 7 gg Data Fattura</field>
-            <field name="note">Bonifico 7 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7})]"/>
-        </record>
-        <record id="payment_term_5" model="account.payment.term">
-            <field name="name">Bonifico Merce Pronta sc.2%</field>
-            <field name="note">Bonifico Merce Pronta sc.2%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 2.0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_6" model="account.payment.term">
-            <field name="name">Bonifico 10% Anticipato 90% Merce Pronta</field>
-            <field name="note">Bonifico 10% Anticipato 90% Merce Pronta</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_7" model="account.payment.term">
-            <field name="name">Bonifico 25% Anticipato 75% Merce Pronta</field>
-            <field name="note">Bonifico 25% Anticipato 75% Merce Pronta</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_8" model="account.payment.term">
-            <field name="name">Bonifico 30% Anticipato 70% Merce Pronta</field>
-            <field name="note">Bonifico 30% Anticipato 70% Merce Pronta</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_9" model="account.payment.term">
-            <field name="name">Bonifico 40% Anticipato 60% Merce Pronta</field>
-            <field name="note">Bonifico 40% Anticipato 60% Merce Pronta</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_10" model="account.payment.term">
-            <field name="name">Bonifico 50% Anticipato 50% Merce Pronta</field>
-            <field name="note">Bonifico 50% Anticipato 50% Merce Pronta</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_11" model="account.payment.term">
-            <field name="name">Bonifico Merce Pronta sc.3%</field>
-            <field name="note">Bonifico Merce Pronta sc.3%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 3.0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_12" model="account.payment.term">
-            <field name="name">Bonifico Anticipato sc.2%</field>
-            <field name="note">Bonifico Anticipato sc.2%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 2.0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_13" model="account.payment.term">
-            <field name="name">Bonifico 7 gg Data Fattura sc.3%</field>
-            <field name="note">Bonifico 7 gg Data Fattura sc.3%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7, 'discount_percentage': 3.0})]"/>
-        </record>
-        <record id="payment_term_14" model="account.payment.term">
-            <field name="name">Bonifico Anticipato sc.3%</field>
-            <field name="note">Bonifico Anticipato sc.3%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 3.0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_15" model="account.payment.term">
-            <field name="name">Bonifico Anticipato sc.4%</field>
-            <field name="note">Bonifico Anticipato sc.4%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 4.0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_16" model="account.payment.term">
-            <field name="name">Bonifico Anticipato sc.5%</field>
-            <field name="note">Bonifico Anticipato sc.5%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 5.0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_17" model="account.payment.term">
-            <field name="name">Bonifico 7 gg Data Fattura sc.2%</field>
-            <field name="note">Bonifico 7 gg Data Fattura sc.2%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7, 'discount_percentage': 2.0})]"/>
-        </record>
-        <record id="payment_term_18" model="account.payment.term">
-            <field name="name">Bonifico 7 gg Data Fattura sc.1,5%</field>
-            <field name="note">Bonifico 7 gg Data Fattura sc.1,5%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7, 'discount_percentage': 1.5})]"/>
-        </record>
-        <record id="payment_term_19" model="account.payment.term">
-            <field name="name">Bonifico 14 gg Data Fattura</field>
-            <field name="note">Bonifico 14 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 14})]"/>
-        </record>
-        <record id="payment_term_20" model="account.payment.term">
-            <field name="name">Bonifico Fine Mese + 20 gg sc.3%</field>
-            <field name="note">Bonifico Fine Mese + 20 gg sc.3%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 3.0, 'end_month': 'true', 'days_after': 20}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_21" model="account.payment.term">
-            <field name="name">Bonifico 30 gg Data Fattura</field>
-            <field name="note">Bonifico 30 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30})]"/>
-        </record>
-        <record id="payment_term_22" model="account.payment.term">
-            <field name="name">Bonifico Fine Mese + 20 gg sc.2%</field>
-            <field name="note">Bonifico Fine Mese + 20 gg sc.2%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 2.0, 'end_month': 'true', 'days_after': 20}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_23" model="account.payment.term">
-            <field name="name">Bonifico 30 gg Data Fattura al 15 del Mese</field>
-            <field name="note">Bonifico 30 gg Data Fattura al 15 del Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'payment_days': '15'})]"/>
-        </record>
-        <record id="payment_term_24" model="account.payment.term">
-            <field name="name">Bonifico 50% Anticipato 50% 30 gg Data Fattura</field>
-            <field name="note">Bonifico 50% Anticipato 50% 30 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 0}), Command.create({'value': 'balance',  'days': 30})]"/>
-        </record>
-        <record id="payment_term_25" model="account.payment.term">
-            <field name="name">Contro Documenti (CAD) a Vista</field>
-            <field name="note">Contro Documenti (CAD) a Vista</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30})]"/>
-        </record>
-        <record id="payment_term_26" model="account.payment.term">
-            <field name="name">Lettera di Credito Confermata</field>
-            <field name="note">Lettera di Credito Confermata</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30})]"/>
-        </record>
-        <record id="payment_term_27" model="account.payment.term">
-            <field name="name">Lettera di Credito non Confermata</field>
-            <field name="note">Lettera di Credito non Confermata</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30})]"/>
-        </record>
-        <record id="payment_term_28" model="account.payment.term">
-            <field name="name">Bonifico 30 gg Data Fattura sc.2%</field>
-            <field name="note">Bonifico 30 gg Data Fattura sc.2%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'discount_percentage': 2.0})]"/>
-        </record>
-        <record id="payment_term_29" model="account.payment.term">
-            <field name="name">Bonifico 30 gg Fine Mese </field>
-            <field name="note">Bonifico 30 gg Fine Mese </field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_30" model="account.payment.term">
-            <field name="name">Bonifico 90 gg Fine Mese +15 gg</field>
-            <field name="note">Bonifico 90 gg Fine Mese +15 gg</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true', 'days_after': 15})]"/>
-        </record>
-        <record id="payment_term_31" model="account.payment.term">
-            <field name="name">Bonifico 30 gg Fine Mese sc.3%</field>
-            <field name="note">Bonifico 30 gg Fine Mese sc.3%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'discount_percentage': 3.0, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_32" model="account.payment.term">
-            <field name="name">Bonifico 45 gg Data Fattura</field>
-            <field name="note">Bonifico 45 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 45})]"/>
-        </record>
-        <record id="payment_term_33" model="account.payment.term">
-            <field name="name">Bonifico 45 gg Fine Mese</field>
-            <field name="note">Bonifico 45 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 45, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_34" model="account.payment.term">
-            <field name="name">Bonifico 60 gg Data Fattura</field>
-            <field name="note">Bonifico 60 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 60})]"/>
-        </record>
-        <record id="payment_term_35" model="account.payment.term">
-            <field name="name">Lettera di Credito Confermata a 60 gg</field>
-            <field name="note">Lettera di Credito Confermata a 60 gg</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 90})]"/>
-        </record>
-        <record id="payment_term_36" model="account.payment.term">
-            <field name="name">Bonifico 60 gg Fine Mese</field>
-            <field name="note">Bonifico 60 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 60, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_37" model="account.payment.term">
-            <field name="name">Bonifico 90 gg Fine Mese +10 gg</field>
-            <field name="note">Bonifico 90 gg Fine Mese +10 gg</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 60, 'end_month': 'true', 'days_after': 10})]"/>
-        </record>
-        <record id="payment_term_38" model="account.payment.term">
-            <field name="name">Bonifico 75 gg Data Fattura</field>
-            <field name="note">Bonifico 75 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 75})]"/>
-        </record>
-        <record id="payment_term_39" model="account.payment.term">
-            <field name="name">Bonifico 30% Anticipato 70% 90 gg Data Fattura</field>
-            <field name="note">Bonifico 30% Anticipato 70% 90 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 30.0, 'days': 0}), Command.create({'value': 'balance',  'days': 90})]"/>
-        </record>
-        <record id="payment_term_40" model="account.payment.term">
-            <field name="name">Bonifico 90 gg Data Fattura</field>
-            <field name="note">Bonifico 90 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 90})]"/>
-        </record>
-        <record id="payment_term_41" model="account.payment.term">
-            <field name="name">Bonifico 90 gg Fine Mese</field>
-            <field name="note">Bonifico 90 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_42" model="account.payment.term">
-            <field name="name">Bonifico 120 gg Fine Mese</field>
-            <field name="note">Bonifico 120 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 120, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_43" model="account.payment.term">
-            <field name="name">Bonifico 50% Anticipato 50% 30 gg Fine Mese</field>
-            <field name="note">Bonifico 50% Anticipato 50% 30 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 0, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 30, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_44" model="account.payment.term">
-            <field name="name">Bonifico 30/60 gg Data Fattura</field>
-            <field name="note">Bonifico 30/60 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 30}), Command.create({'value': 'balance',  'days': 60})]"/>
-        </record>
-        <record id="payment_term_45" model="account.payment.term">
-            <field name="name">Bonifico 30/90 gg Data Fattura</field>
-            <field name="note">Bonifico 30/90 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 30}), Command.create({'value': 'balance',  'days': 90})]"/>
-        </record>
-        <record id="payment_term_46" model="account.payment.term">
-            <field name="name">Bonifico 60/90 gg Fine Mese</field>
-            <field name="note">Bonifico 60/90 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_47" model="account.payment.term">
-            <field name="name">Bonifico 90/120 gg Fine Mese</field>
-            <field name="note">Bonifico 90/120 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 120, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_48" model="account.payment.term">
-            <field name="name">Bonifico 60/90/120 gg Fine Mese</field>
-            <field name="note">Bonifico 60/90/120 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
-            <field name="intrastat_code">B</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 120, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_49" model="account.payment.term">
-            <field name="name">Carta di credito</field>
-            <field name="note">Carta di credito</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp08"/>
-            <field name="intrastat_code">A</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_50" model="account.payment.term">
-            <field name="name">PayPal</field>
-            <field name="note">PayPal</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp08"/>
-            <field name="intrastat_code">A</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_51" model="account.payment.term">
-            <field name="name">Contrassegno (COD) Corriere</field>
-            <field name="note">Contrassegno (COD) Corriere</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp02"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7})]"/>
-        </record>
-        <record id="payment_term_52" model="account.payment.term">
-            <field name="name">Contrassegno (COD) Corriere sc.2%</field>
-            <field name="note">Contrassegno (COD) Corriere sc.2%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp02"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7, 'discount_percentage': 2.0})]"/>
-        </record>
-        <record id="payment_term_53" model="account.payment.term">
-            <field name="name">Contrassegno (COD) Corriere sc.3%</field>
-            <field name="note">Contrassegno (COD) Corriere sc.3%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp02"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7, 'discount_percentage': 3.0})]"/>
-        </record>
-        <record id="payment_term_54" model="account.payment.term">
-            <field name="name">Contrassegno (COD) Corriere sc.5%</field>
-            <field name="note">Contrassegno (COD) Corriere sc.5%</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp02"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 7, 'discount_percentage': 5.0})]"/>
-        </record>
-        <record id="payment_term_55" model="account.payment.term">
-            <field name="name">Nessun pagamento richiesto</field>
-            <field name="note">Nessun pagamento richiesto</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 0.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
-        </record>
-        <record id="payment_term_56" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 30 gg Data Fattura sc.3%</field>
-            <field name="note">Ricevuta Bancaria 30 gg Data Fattura sc.3%</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'discount_percentage': 3.0})]"/>
-        </record>
-        <record id="payment_term_57" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 30 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 30 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_58" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 30 gg Fine Mese +10 gg</field>
-            <field name="note">Ricevuta Bancaria 30 gg Fine Mese +10 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'end_month': 'true', 'days_after': 10})]"/>
-        </record>
-        <record id="payment_term_59" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 30 gg Fine Mese +5 gg</field>
-            <field name="note">Ricevuta Bancaria 30 gg Fine Mese +5 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'end_month': 'true', 'days_after': 5})]"/>
-        </record>
-        <record id="payment_term_60" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 30 gg Fine Mese sc.3%</field>
-            <field name="note">Ricevuta Bancaria 30 gg Fine Mese sc.3%</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'discount_percentage': 3.0, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_61" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 60 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 60, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_62" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60 gg Fine Mese +10 gg</field>
-            <field name="note">Ricevuta Bancaria 60 gg Fine Mese +10 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 60, 'end_month': 'true', 'days_after': 10})]"/>
-        </record>
-        <record id="payment_term_63" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60 gg Fine Mese +5 gg</field>
-            <field name="note">Ricevuta Bancaria 60 gg Fine Mese +5 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 60, 'end_month': 'true', 'days_after': 5})]"/>
-        </record>
-        <record id="payment_term_64" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 90 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 90 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_65" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 90 gg Fine Mese +10 gg</field>
-            <field name="note">Ricevuta Bancaria 90 gg Fine Mese +10 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true', 'days_after': 10})]"/>
-        </record>
-        <record id="payment_term_66" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 90 gg Fine Mese +5 gg</field>
-            <field name="note">Ricevuta Bancaria 90 gg Fine Mese +5 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true', 'days_after': 5})]"/>
-        </record>
-        <record id="payment_term_67" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 120 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 120 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 120, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_68" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 150 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 150 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 150, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_69" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 30/60 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 30/60 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 30, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 60, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_70" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese +6 gg</field>
-            <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese +6 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true', 'days_after': 6}), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true', 'days_after': 6})]"/>
-        </record>
-        <record id="payment_term_71" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_72" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese +10 gg</field>
-            <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese +10 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true', 'days_after': 10}), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true', 'days_after': 10})]"/>
-        </record>
-        <record id="payment_term_73" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese +5 gg</field>
-            <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese +5 gg</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true', 'days_after': 5}), Command.create({'value': 'balance',  'days': 90, 'end_month': 'true', 'days_after': 5})]"/>
-        </record>
-        <record id="payment_term_74" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 90/120 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 90/120 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 120, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_75" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 120/150 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 120/150 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 120, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 150, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_76" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60/90/120 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 60/90/120 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 120, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_77" model="account.payment.term">
-            <field name="name">Ricevuta Bancaria 60/90/120/150 gg Fine Mese</field>
-            <field name="note">Ricevuta Bancaria 60/90/120/150 gg Fine Mese</field>
-            <field name="riba">true</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
-            <field name="intrastat_code">X</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 25.0, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 25.0, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 25.0, 'days': 120, 'end_month': 'true'}), Command.create({'value': 'balance',  'days': 150, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_78" model="account.payment.term">
-            <field name="name">Sepa SDD B2B 30 gg Fine Mese</field>
-            <field name="note">Sepa SDD B2B 30 gg Fine Mese</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp19"/>
-            <field name="intrastat_code">A</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 30, 'end_month': 'true'})]"/>
-        </record>
-        <record id="payment_term_79" model="account.payment.term">
-            <field name="name">Sepa SDD B2B 40 gg Data Fattura</field>
-            <field name="note">Sepa SDD B2B 40 gg Data Fattura</field>
-            <field name="riba">false</field>
-            <field name="display_on_invoice">true</field>
-            <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
-            <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp19"/>
-            <field name="intrastat_code">A</field>
-            <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance',  'days': 40})]"/>
-        </record>
-    </data>
+  <data noupdate="1">
+    <record id="payment_term_1" model="account.payment.term">
+      <field name="name">Bonifico 20% Anticipato 80% Merce Pronta</field>
+      <field name="note">Bonifico 20% Anticipato 80% Merce Pronta</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_2" model="account.payment.term">
+      <field name="name">Bonifico a Merce Pronta</field>
+      <field name="note">Bonifico a Merce Pronta</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_3" model="account.payment.term">
+      <field name="name">Bonifico Anticipato</field>
+      <field name="note">Bonifico Anticipato</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_4" model="account.payment.term">
+      <field name="name">Bonifico 7 gg Data Fattura</field>
+      <field name="note">Bonifico 7 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7})]"/>
+    </record>
+    <record id="payment_term_5" model="account.payment.term">
+      <field name="name">Bonifico Merce Pronta sc.2%</field>
+      <field name="note">Bonifico Merce Pronta sc.2%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 2.0})]"/>
+    </record>
+    <record id="payment_term_6" model="account.payment.term">
+      <field name="name">Bonifico 10% Anticipato 90% Merce Pronta</field>
+      <field name="note">Bonifico 10% Anticipato 90% Merce Pronta</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_7" model="account.payment.term">
+      <field name="name">Bonifico 25% Anticipato 75% Merce Pronta</field>
+      <field name="note">Bonifico 25% Anticipato 75% Merce Pronta</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_8" model="account.payment.term">
+      <field name="name">Bonifico 30% Anticipato 70% Merce Pronta</field>
+      <field name="note">Bonifico 30% Anticipato 70% Merce Pronta</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_9" model="account.payment.term">
+      <field name="name">Bonifico 40% Anticipato 60% Merce Pronta</field>
+      <field name="note">Bonifico 40% Anticipato 60% Merce Pronta</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_10" model="account.payment.term">
+      <field name="name">Bonifico 50% Anticipato 50% Merce Pronta</field>
+      <field name="note">Bonifico 50% Anticipato 50% Merce Pronta</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_11" model="account.payment.term">
+      <field name="name">Bonifico Merce Pronta sc.3%</field>
+      <field name="note">Bonifico Merce Pronta sc.3%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 3.0})]"/>
+    </record>
+    <record id="payment_term_12" model="account.payment.term">
+      <field name="name">Bonifico Anticipato sc.2%</field>
+      <field name="note">Bonifico Anticipato sc.2%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 2.0})]"/>
+    </record>
+    <record id="payment_term_13" model="account.payment.term">
+      <field name="name">Bonifico 7 gg Data Fattura sc.3%</field>
+      <field name="note">Bonifico 7 gg Data Fattura sc.3%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7, 'discount_percentage': 3.0})]"/>
+    </record>
+    <record id="payment_term_14" model="account.payment.term">
+      <field name="name">Bonifico Anticipato sc.3%</field>
+      <field name="note">Bonifico Anticipato sc.3%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 3.0})]"/>
+    </record>
+    <record id="payment_term_15" model="account.payment.term">
+      <field name="name">Bonifico Anticipato sc.4%</field>
+      <field name="note">Bonifico Anticipato sc.4%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 4.0})]"/>
+    </record>
+    <record id="payment_term_16" model="account.payment.term">
+      <field name="name">Bonifico Anticipato sc.5%</field>
+      <field name="note">Bonifico Anticipato sc.5%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp03"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 5.0})]"/>
+    </record>
+    <record id="payment_term_17" model="account.payment.term">
+      <field name="name">Bonifico 7 gg Data Fattura sc.2%</field>
+      <field name="note">Bonifico 7 gg Data Fattura sc.2%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7, 'discount_percentage': 2.0})]"/>
+    </record>
+    <record id="payment_term_18" model="account.payment.term">
+      <field name="name">Bonifico 7 gg Data Fattura sc.1,5%</field>
+      <field name="note">Bonifico 7 gg Data Fattura sc.1,5%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7, 'discount_percentage': 1.5})]"/>
+    </record>
+    <record id="payment_term_19" model="account.payment.term">
+      <field name="name">Bonifico 14 gg Data Fattura</field>
+      <field name="note">Bonifico 14 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 14})]"/>
+    </record>
+    <record id="payment_term_20" model="account.payment.term">
+      <field name="name">Bonifico Fine Mese + 20 gg sc.3%</field>
+      <field name="note">Bonifico Fine Mese + 20 gg sc.3%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 3.0, 'end_month': 'true', 'days_after': 20})]"/>
+    </record>
+    <record id="payment_term_21" model="account.payment.term">
+      <field name="name">Bonifico 30 gg Data Fattura</field>
+      <field name="note">Bonifico 30 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30})]"/>
+    </record>
+    <record id="payment_term_22" model="account.payment.term">
+      <field name="name">Bonifico Fine Mese + 20 gg sc.2%</field>
+      <field name="note">Bonifico Fine Mese + 20 gg sc.2%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0, 'discount_percentage': 2.0, 'end_month': 'true', 'days_after': 20})]"/>
+    </record>
+    <record id="payment_term_23" model="account.payment.term">
+      <field name="name">Bonifico 30 gg Data Fattura al 15 del Mese</field>
+      <field name="note">Bonifico 30 gg Data Fattura al 15 del Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'payment_days': 15})]"/>
+    </record>
+    <record id="payment_term_24" model="account.payment.term">
+      <field name="name">Bonifico 50% Anticipato 50% 30 gg Data Fattura</field>
+      <field name="note">Bonifico 50% Anticipato 50% 30 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30})]"/>
+    </record>
+    <record id="payment_term_25" model="account.payment.term">
+      <field name="name">Contro Documenti (CAD) a Vista</field>
+      <field name="note">Contro Documenti (CAD) a Vista</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30})]"/>
+    </record>
+    <record id="payment_term_26" model="account.payment.term">
+      <field name="name">Lettera di Credito Confermata</field>
+      <field name="note">Lettera di Credito Confermata</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30})]"/>
+    </record>
+    <record id="payment_term_27" model="account.payment.term">
+      <field name="name">Lettera di Credito non Confermata</field>
+      <field name="note">Lettera di Credito non Confermata</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30})]"/>
+    </record>
+    <record id="payment_term_28" model="account.payment.term">
+      <field name="name">Bonifico 30 gg Data Fattura sc.2%</field>
+      <field name="note">Bonifico 30 gg Data Fattura sc.2%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'discount_percentage': 2.0})]"/>
+    </record>
+    <record id="payment_term_29" model="account.payment.term">
+      <field name="name">Bonifico 30 gg Fine Mese </field>
+      <field name="note">Bonifico 30 gg Fine Mese </field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_30" model="account.payment.term">
+      <field name="name">Bonifico 90 gg Fine Mese +15 gg</field>
+      <field name="note">Bonifico 90 gg Fine Mese +15 gg</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true', 'days_after': 15})]"/>
+    </record>
+    <record id="payment_term_31" model="account.payment.term">
+      <field name="name">Bonifico 30 gg Fine Mese sc.3%</field>
+      <field name="note">Bonifico 30 gg Fine Mese sc.3%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'discount_percentage': 3.0, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_32" model="account.payment.term">
+      <field name="name">Bonifico 45 gg Data Fattura</field>
+      <field name="note">Bonifico 45 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 45})]"/>
+    </record>
+    <record id="payment_term_33" model="account.payment.term">
+      <field name="name">Bonifico 45 gg Fine Mese</field>
+      <field name="note">Bonifico 45 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 45, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_34" model="account.payment.term">
+      <field name="name">Bonifico 60 gg Data Fattura</field>
+      <field name="note">Bonifico 60 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60})]"/>
+    </record>
+    <record id="payment_term_35" model="account.payment.term">
+      <field name="name">Lettera di Credito Confermata a 60 gg</field>
+      <field name="note">Lettera di Credito Confermata a 60 gg</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90})]"/>
+    </record>
+    <record id="payment_term_36" model="account.payment.term">
+      <field name="name">Bonifico 60 gg Fine Mese</field>
+      <field name="note">Bonifico 60 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_37" model="account.payment.term">
+      <field name="name">Bonifico 90 gg Fine Mese +10 gg</field>
+      <field name="note">Bonifico 90 gg Fine Mese +10 gg</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60, 'end_month': 'true', 'days_after': 10})]"/>
+    </record>
+    <record id="payment_term_38" model="account.payment.term">
+      <field name="name">Bonifico 75 gg Data Fattura</field>
+      <field name="note">Bonifico 75 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 75})]"/>
+    </record>
+    <record id="payment_term_39" model="account.payment.term">
+      <field name="name">Bonifico 30% Anticipato 70% 90 gg Data Fattura</field>
+      <field name="note">Bonifico 30% Anticipato 70% 90 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 30.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90})]"/>
+    </record>
+    <record id="payment_term_40" model="account.payment.term">
+      <field name="name">Bonifico 90 gg Data Fattura</field>
+      <field name="note">Bonifico 90 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90})]"/>
+    </record>
+    <record id="payment_term_41" model="account.payment.term">
+      <field name="name">Bonifico 90 gg Fine Mese</field>
+      <field name="note">Bonifico 90 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_42" model="account.payment.term">
+      <field name="name">Bonifico 120 gg Fine Mese</field>
+      <field name="note">Bonifico 120 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 120, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_43" model="account.payment.term">
+      <field name="name">Bonifico 50% Anticipato 50% 30 gg Fine Mese</field>
+      <field name="note">Bonifico 50% Anticipato 50% 30 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 0}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_44" model="account.payment.term">
+      <field name="name">Bonifico 30/60 gg Data Fattura</field>
+      <field name="note">Bonifico 30/60 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 30}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60})]"/>
+    </record>
+    <record id="payment_term_45" model="account.payment.term">
+      <field name="name">Bonifico 30/90 gg Data Fattura</field>
+      <field name="note">Bonifico 30/90 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 30}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90})]"/>
+    </record>
+    <record id="payment_term_46" model="account.payment.term">
+      <field name="name">Bonifico 60/90 gg Fine Mese</field>
+      <field name="note">Bonifico 60/90 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_47" model="account.payment.term">
+      <field name="name">Bonifico 90/120 gg Fine Mese</field>
+      <field name="note">Bonifico 90/120 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 120, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_48" model="account.payment.term">
+      <field name="name">Bonifico 60/90/120 gg Fine Mese</field>
+      <field name="note">Bonifico 60/90/120 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 120, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_49" model="account.payment.term">
+      <field name="name">Carta di credito</field>
+      <field name="note">Carta di credito</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp08"/>
+      <field name="intrastat_code">A</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_50" model="account.payment.term">
+      <field name="name">PayPal</field>
+      <field name="note">PayPal</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp08"/>
+      <field name="intrastat_code">A</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_51" model="account.payment.term">
+      <field name="name">Contrassegno (COD) Corriere</field>
+      <field name="note">Contrassegno (COD) Corriere</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp17"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7})]"/>
+    </record>
+    <record id="payment_term_52" model="account.payment.term">
+      <field name="name">Contrassegno (COD) Corriere sc.2%</field>
+      <field name="note">Contrassegno (COD) Corriere sc.2%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp17"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7, 'discount_percentage': 2.0})]"/>
+    </record>
+    <record id="payment_term_53" model="account.payment.term">
+      <field name="name">Contrassegno (COD) Corriere sc.3%</field>
+      <field name="note">Contrassegno (COD) Corriere sc.3%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp17"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7, 'discount_percentage': 3.0})]"/>
+    </record>
+    <record id="payment_term_54" model="account.payment.term">
+      <field name="name">Contrassegno (COD) Corriere sc.5%</field>
+      <field name="note">Contrassegno (COD) Corriere sc.5%</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp17"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 7, 'discount_percentage': 5.0})]"/>
+    </record>
+    <record id="payment_term_55" model="account.payment.term">
+      <field name="name">Nessun pagamento richiesto</field>
+      <field name="note">Nessun pagamento richiesto</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="line_ids" eval="[Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 0})]"/>
+    </record>
+    <record id="payment_term_56" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 30 gg Data Fattura sc.3%</field>
+      <field name="note">Ricevuta Bancaria 30 gg Data Fattura sc.3%</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'discount_percentage': 3.0})]"/>
+    </record>
+    <record id="payment_term_57" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 30 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 30 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_58" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 30 gg Fine Mese +10 gg</field>
+      <field name="note">Ricevuta Bancaria 30 gg Fine Mese +10 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'end_month': 'true', 'days_after': 10})]"/>
+    </record>
+    <record id="payment_term_59" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 30 gg Fine Mese +5 gg</field>
+      <field name="note">Ricevuta Bancaria 30 gg Fine Mese +5 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'end_month': 'true', 'days_after': 5})]"/>
+    </record>
+    <record id="payment_term_60" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 30 gg Fine Mese sc.3%</field>
+      <field name="note">Ricevuta Bancaria 30 gg Fine Mese sc.3%</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'discount_percentage': 3.0, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_61" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 60 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_62" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60 gg Fine Mese +10 gg</field>
+      <field name="note">Ricevuta Bancaria 60 gg Fine Mese +10 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60, 'end_month': 'true', 'days_after': 10})]"/>
+    </record>
+    <record id="payment_term_63" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60 gg Fine Mese +5 gg</field>
+      <field name="note">Ricevuta Bancaria 60 gg Fine Mese +5 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60, 'end_month': 'true', 'days_after': 5})]"/>
+    </record>
+    <record id="payment_term_64" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 90 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 90 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_65" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 90 gg Fine Mese +10 gg</field>
+      <field name="note">Ricevuta Bancaria 90 gg Fine Mese +10 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true', 'days_after': 10})]"/>
+    </record>
+    <record id="payment_term_66" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 90 gg Fine Mese +5 gg</field>
+      <field name="note">Ricevuta Bancaria 90 gg Fine Mese +5 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true', 'days_after': 5})]"/>
+    </record>
+    <record id="payment_term_67" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 120 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 120 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 120, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_68" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 150 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 150 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 150, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_69" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 30/60 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 30/60 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 30, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 60, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_70" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese +6 gg</field>
+      <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese +6 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true', 'days_after': 6}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true', 'days_after': 6})]"/>
+    </record>
+    <record id="payment_term_71" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_72" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese +10 gg</field>
+      <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese +10 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true', 'days_after': 10}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true', 'days_after': 10})]"/>
+    </record>
+    <record id="payment_term_73" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60/90 gg Fine Mese +5 gg</field>
+      <field name="note">Ricevuta Bancaria 60/90 gg Fine Mese +5 gg</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 60, 'end_month': 'true', 'days_after': 5}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 90, 'end_month': 'true', 'days_after': 5})]"/>
+    </record>
+    <record id="payment_term_74" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 90/120 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 90/120 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 120, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_75" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 120/150 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 120/150 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 50.0, 'days': 120, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 150, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_76" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60/90/120 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 60/90/120 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 33.33, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 120, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_77" model="account.payment.term">
+      <field name="name">Ricevuta Bancaria 60/90/120/150 gg Fine Mese</field>
+      <field name="note">Ricevuta Bancaria 60/90/120/150 gg Fine Mese</field>
+      <field name="riba">true</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_TP01"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp12"/>
+      <field name="intrastat_code">X</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'percent', 'value_amount': 25.0, 'days': 60, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 25.0, 'days': 90, 'end_month': 'true'}), Command.create({'value': 'percent', 'value_amount': 25.0, 'days': 120, 'end_month': 'true'}), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 150, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_78" model="account.payment.term">
+      <field name="name">Sepa SDD B2B 30 gg Fine Mese</field>
+      <field name="note">Sepa SDD B2B 30 gg Fine Mese</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp19"/>
+      <field name="intrastat_code">A</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30, 'end_month': 'true'})]"/>
+    </record>
+    <record id="payment_term_79" model="account.payment.term">
+      <field name="name">Sepa SDD B2B 40 gg Data Fattura</field>
+      <field name="note">Sepa SDD B2B 40 gg Data Fattura</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp19"/>
+      <field name="intrastat_code">A</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 40})]"/>
+    </record>
+  </data>
 </odoo>
