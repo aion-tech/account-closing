@@ -4,7 +4,9 @@
     id="maintenance_request_view_form_inherit_marco_maintenance"
     model="ir.ui.view"
   >
-    <field name="name">maintenance.request.view.form.inherit.marco.maintenance</field>
+    <field name="name"
+      >maintenance.request.view.form.inherit.marco.maintenance</field
+    >
     <field name="model">maintenance.request</field>
     <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form" />
     <field name="arch" type="xml">
@@ -16,6 +18,9 @@
             <field name="name_sequence" />
           </h2>
         </div>
+        <group>
+          <field name="template_id" readonly="1" />
+        </group>
       </xpath>
       <xpath expr="//sheet//div[1]" position="before">
         <field name="folder_exists" invisible="1" />
@@ -67,13 +72,19 @@
     id="maintenance_request_view_kanban_inherit_marco_maintenance"
     model="ir.ui.view"
   >
-    <field name="name">maintenance.request.view.kanban.inherit.marco.maintenance</field>
+    <field name="name"
+      >maintenance.request.view.kanban.inherit.marco.maintenance</field
+    >
     <field name="model">maintenance.request</field>
-    <field name="inherit_id" ref="maintenance.hr_equipment_request_view_kanban" />
+    <field
+      name="inherit_id"
+      ref="maintenance.hr_equipment_request_view_kanban"
+    />
     <field name="arch" type="xml">
       <xpath expr="//div[hasclass('o_kanban_record_body')]" position="before">
         <span
-          ><b class="o_kanban_record_title"><field name="name_sequence" /></b><br
+          ><b class="o_kanban_record_title"><field name="name_sequence" /></b
+          ><br
         /></span>
       </xpath>
     </field>
@@ -83,7 +94,9 @@
     id="maintenance_request_view_tree_inherit_marco_maintenance"
     model="ir.ui.view"
   >
-    <field name="name">maintenance.request.view.tree.inherit.marco.maintenance</field>
+    <field name="name"
+      >maintenance.request.view.tree.inherit.marco.maintenance</field
+    >
     <field name="model">maintenance.request</field>
     <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree" />
     <field name="arch" type="xml">
@@ -97,9 +110,14 @@
     id="maintenance_request_view_search_inherit_marco_maintenance"
     model="ir.ui.view"
   >
-    <field name="name">maintenance.request.view.search.inherit.marco.maintenance</field>
+    <field name="name"
+      >maintenance.request.view.search.inherit.marco.maintenance</field
+    >
     <field name="model">maintenance.request</field>
-    <field name="inherit_id" ref="maintenance.hr_equipment_request_view_search" />
+    <field
+      name="inherit_id"
+      ref="maintenance.hr_equipment_request_view_search"
+    />
     <field name="arch" type="xml">
       <field name="name" position="after">
         <field name="name_sequence" />

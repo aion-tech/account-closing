@@ -18,6 +18,11 @@ class MaintenanceRequest(models.Model):
         "Request Number",
         readonly=True,
     )
+    template_id = fields.Many2one(
+        string="Template",
+        comodel_name="maintenance.request.template",
+        groups="maintenance.group_equipment_manager",
+    )
 
     def _get_document_folder(self):
         """
