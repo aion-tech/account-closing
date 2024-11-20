@@ -18,11 +18,6 @@ class MaintenanceRequest(models.Model):
         "Request Number",
         readonly=True,
     )
-    template_id = fields.Many2one(
-        string="Template",
-        comodel_name="maintenance.request.template",
-        groups="maintenance.group_equipment_manager",
-    )
 
     def _get_document_folder(self):
         """
@@ -57,7 +52,7 @@ class MaintenanceRequest(models.Model):
             # reset next sequence based on current month
             sequence = self.env.ref(
                 "marco_maintenance.marco_maintenance_request_sequence"
-            )
+            ).sudo()
             last_request = self.search([], limit=1, order="create_date desc")
             if last_request:
                 if last_request.create_date.month != fields.Date.today().month:

@@ -18,9 +18,6 @@
             <field name="name_sequence" />
           </h2>
         </div>
-        <group>
-          <field name="template_id" readonly="1" />
-        </group>
       </xpath>
       <xpath expr="//sheet//div[1]" position="before">
         <field name="folder_exists" invisible="1" />
