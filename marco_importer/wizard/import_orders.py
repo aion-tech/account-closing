@@ -20,7 +20,8 @@ class MarcoImporter(models.TransientModel):
             if not customer_id:
                 print(rec["Customer"], customer_id)
                 continue
-
+            payment_term_ref=rec['payment_term'] and rec['payment_term'].strip()
+            payment_term=payment_term_ref and self.env.ref(f"l10n_it_marco_extra.{payment_term_ref}")
             vals = {
                 "origin": rec["InternalOrdNo"],
                 "commitment_date": datetime.strptime(
@@ -32,6 +33,7 @@ class MarcoImporter(models.TransientModel):
                 "partner_id": customer_id.id,
                 "client_order_ref": rec.get("YourReference"),
                 "picking_policy": "one",
+                "payment_term_id":payment_term and payment_term.id,
             }
             order_head_id = self.env["sale.order"].search(
                 [("origin", "=", rec["InternalOrdNo"])], limit=1

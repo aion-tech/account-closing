@@ -106,7 +106,7 @@ class MarcoImporter(models.TransientModel):
                 "route_ids": route_ids,
                 "product_tag_ids": product_tag and [Command.set([product_tag.id])],
                 "categ_id": category.id,
-                "invoice_policy":"delivery",
+                "invoice_policy":rec["invoice_policy"],
                 "intrastat_code_id":intrastat_code_id.id,
                 "intrastat_type":intrastat_code_id.type,
                 "property_account_income_id": property_account_income_id.id,

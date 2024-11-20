@@ -99,7 +99,7 @@ class MarcoImporter(models.TransientModel):
     def import_all_data(self):
         # Esegui l'importazione in background con `with_delay`
         self.env.user.notify_info(message="Importazione aggiunta alla coda ...")
-        self.with_delay(priority=1).run_import_all_data()
+        self.with_delay(priority=1,description="MARCO IMPORTER: Import from widget").run_import_all_data()
 
     def run_import_all_data(self):
         _logger.warning("<--- INIZIO IMPORTAZIONE DI TUTTO --->")
@@ -113,13 +113,13 @@ class MarcoImporter(models.TransientModel):
             if self[key]:
                 self.import_data_in_background(key)
 
-        _logger.warning("<--- IMPORTAZIONE COMPLETATA --->")
+       
        
 
     def import_data_in_background(self, model_name: str):
         """Wrapper per eseguire import_data come job di queue_job"""
-        self.env.user.notify_info(message=f"Importazione iniziata per '{model_name}'.")
-        self.with_delay(priority=1).import_data(model_name)
+        self.with_delay(priority=1,max_retries=2,description=f"MARCO IMPORTER: {model_name}").import_data(model_name)
+        _logger.warning("<--- IMPORTAZIONE COMPLETATA --->")
 
 
     def import_data(self, model_name: str):
@@ -128,7 +128,7 @@ class MarcoImporter(models.TransientModel):
         if not model_config:
             self.env.user.notify_danger(message=f"Modello '{model_name}' non trovato in IMPORT_METHOD_MAP.")
             return
-
+        
         # Costruisce l'URL per il modello specifico
         url = BASE_URL + model_config["slug"]
         try:
@@ -144,7 +144,7 @@ class MarcoImporter(models.TransientModel):
             import_method(records)
             self.env.cr.commit()
             _logger.info(f"Importazione completata per '{model_name}'.")
-            self.env.user.notify_info(message=f"Importazione completata per '{model_name}'.")
+            self.env.user.notify_success(message=f"Importazione completata per '{model_name}'.")
         else:
             self.env.user.notify_danger(message=f"Metodo di importazione '{model_config['method']}' non trovato per '{model_name}'.")
 

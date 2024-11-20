@@ -32,7 +32,8 @@ class MarcoImporter(models.TransientModel):
             if not currency:
                 raise ValueError("La valuta predefinita 'EUR' non è configurata nel sistema.")
 
-
+            payment_term_ref=rec['payment_term'] and rec['payment_term'].strip()
+            payment_term=payment_term_ref and self.env.ref(f"l10n_it_marco_extra.{payment_term_ref}")
             vals = {
                 "origin": rec["InternalOrdNo"],
                 "date_planned": datetime.strptime(
@@ -43,6 +44,7 @@ class MarcoImporter(models.TransientModel):
                 ),
                 "partner_id": supplier_id.id,
                 "currency_id": currency and currency.id,
+                "payment_term_id":payment_term and payment_term.id,
             }
 
             order_head_id = self.env["purchase.order"].search(
@@ -74,7 +76,7 @@ class MarcoImporter(models.TransientModel):
                             "sequence": line_rec["Line"],
                             "display_type": "line_note",
                             "product_qty": 0.0,
-                            "price_unit": 0.0,
+                            
                         }
 
                         order_line_id = self.env["purchase.order.line"].search(
@@ -94,6 +96,9 @@ class MarcoImporter(models.TransientModel):
                 # Gestione delle linee con prodotto
                 if order_head_id.origin != line_rec["InternalOrdNo"]:
                     continue
+                if float(line_rec["Qty"]) <= 0:
+                    _logger.warning(f"La quantità per la linea {line_rec['Line']} nell'ordine {rec['InternalOrdNo']} è 0. Questa linea sarà ignorata.")
+                    continue  # Salta questa linea
 
                 vals = {
                     "order_id": order_head_id.id,
@@ -137,8 +142,8 @@ class MarcoImporter(models.TransientModel):
 
         # Conferma e gestisci il picking solo sugli ordini in stato "draft" per la conferma e "purchase" per la riserva e validazione
         order_head_ids_to_reserve.filtered(lambda o: o.state == 'draft').button_confirm()
-        confirmed_orders = order_head_ids_to_reserve.filtered(lambda o: o.state == 'purchase')
+        """ confirmed_orders = order_head_ids_to_reserve.filtered(lambda o: o.state == 'purchase')
         confirmed_orders.picking_ids.action_set_quantities_to_reservation()
         confirmed_orders.picking_ids.button_validate()
-
+        """
         _logger.warning("<--- IMPORTAZIONE ORDERS HEAD TERMINATA --->")
