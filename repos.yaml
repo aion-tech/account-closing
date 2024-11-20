@@ -209,6 +209,7 @@ OCA/server-auth:
   - OCA 16.0
   fetch_all:
   - OCA
+<<<<<<< HEAD
   target: origin 16.0-mar-dev
 
 OCA/hr:
@@ -260,6 +261,9 @@ OCA/stock-logistics-barcode:
   fetch_all:
   - OCA
   target: origin 16.0-mar-dev
+=======
+  target: origin 16.0-mar
+>>>>>>> task-4579
 
 aion-tech/ait_accounting_addons:
   remotes:
@@ -268,4 +272,17 @@ aion-tech/ait_accounting_addons:
   - origin 16.0
   fetch_all:
   - origin
+<<<<<<< HEAD
   target: origin 16.0-mar-dev
+=======
+  target: origin 16.0-mar
+
+aion-tech/maintenance:
+  remotes:
+    origin: git@github.com:aion-tech/maintenance.git
+  merges:
+  - origin 16.0
+  fetch_all:
+  - origin
+  target: origin 16.0-mar
+>>>>>>> task-4579

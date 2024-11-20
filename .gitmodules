@@ -142,3 +142,7 @@
 	path = aion-tech/ait_accounting_addons
 	url = git@github.com:aion-tech/ait_accounting_addons.git
 	branch = 16.0-mar-dev
+[submodule "OCA/maintenance"]
+	path = OCA/maintenance
+	url = git@github.com:aion-tech/maintenance.git
+	branch = 16.0-mar-dev

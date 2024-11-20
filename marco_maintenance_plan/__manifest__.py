@@ -1,23 +1,17 @@
 {
-    "name": "marco_maintenance",
+    "name": "marco_maintenance_plan",
     "summary": "",
     "description": "",
     "author": "Aion Tech Srl",
     "website": "https://aion-tech.it/",
     # https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     "category": "Uncategorized",
-    "version": "16.0.1.0.2",
+    "version": "16.0.1.0.0",
     "depends": [
-        "maintenance",
-        "documents",
-        "websocket_refresh",
-        "web_notify",
+        "maintenance_plan",
     ],
     "data": [
-        "data/folder_data.xml",
-        "data/ir_sequence_data.xml",
         "views/maintenance_equipment_views.xml",
-        "views/maintenance_request_views.xml",
-        "views/maintenance_equipment_category_views.xml",
+        "views/maintenance_plan_views.xml",
     ],
 }
