@@ -13,7 +13,6 @@ class MailMessage(models.Model):
     @api.model
     def create(self, vals):
         message = super(MailMessage, self).create(vals)
-        _logger.error(message)
         if message.message_type == "email" and message.model == "crm.lead":
             self.with_delay(priority=1)._summarizeBody(message)        
         return message
