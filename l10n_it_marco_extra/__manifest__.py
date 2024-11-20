@@ -27,6 +27,7 @@ Italian accounting chart and localization.
         "data/payment_terms.xml",
         "data/withholding_tax.xml",
         "data/account_fiscal_position_extra.xml",
+        "data/riba_configuration.xml",
     ],
     "post_init_hook": "marco_post_init_hook",
     "license": "LGPL-3",
