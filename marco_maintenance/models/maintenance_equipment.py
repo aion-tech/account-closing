@@ -1,5 +1,4 @@
 import uuid
-from datetime import timedelta
 
 from odoo import api, fields, models
 
@@ -22,12 +21,6 @@ class MaintenanceEquipment(models.Model):
     category_id = fields.Many2one(
         required=True,
     )
-
-    delta_creation_date = fields.Integer(
-        string="Delta Creation Date",
-        default=60,
-        required=True,
-    )
     maintenance_request_template_ids = fields.Many2many(
         string="Templates",
         comodel_name="maintenance.request.template",
@@ -47,33 +40,44 @@ class MaintenanceEquipment(models.Model):
 
         for equipment in equipments:
             for tmpl in equipment.maintenance_request_template_ids:
-                if tmpl.end_date or tmpl.end_date < fields.Date.today():
+                if tmpl.end_date and tmpl.end_date < fields.Date.today():
                     continue
 
                 existing_request = self.env["maintenance.request"].search(
-                    [("template_id", "=", tmpl.id)],
+                    [
+                        ("template_id", "=", tmpl.id),
+                        ("equipment_id", "=", equipment.id),
+                    ],
                     limit=1,
                     order="request_date desc",
                 )
 
-                delta = tmpl._compute_period_in_days()
+                delta = tmpl._compute_period_in_days(
+                    tmpl.period_type,
+                    tmpl.period,
+                )
                 if (
-                    tmpl.start_date > existing_request.request_date
-                    or not existing_request
+                    not existing_request
+                    or tmpl.start_date > existing_request.request_date
                 ):
                     start_date = tmpl.start_date
                 else:
                     start_date = existing_request.request_date
 
                 next_date = start_date + delta
-
+                no_open_requests = (
+                    existing_request.stage_id.done if existing_request else True
+                )
+                delta_creation = tmpl._compute_period_in_days(
+                    tmpl.delta_creation_date_period_type,
+                    tmpl.delta_creation_date,
+                )
                 if (
                     next_date
-                    and next_date - timedelta(days=tmpl.delta_creation_date)
-                    <= fields.Date.today()
-                    and existing_request.stage_id.done
+                    and next_date - delta_creation <= fields.Date.today()
+                    and no_open_requests
                 ):
-                    vals = equipment._prepare_maintenance_request_vals(
+                    vals = tmpl._prepare_maintenance_request_vals(
                         next_date, equipment.id
                     )
                     self.env["maintenance.request"].create(vals)
@@ -113,6 +117,9 @@ class MaintenanceEquipment(models.Model):
                 )
                 if folder_id:
                     folder_id.name = vals["serial_no"]
+
+            equipment.maintenance_request_template_ids._check_category_id_coherence()
+
         return res
 
     @api.model_create_multi

@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_maintenance_request_template_user,marco_maintenance.maintenance.request.template,model_maintenance_request_template,base.group_user,1,1,1,1
+access_maintenance_request_template_user,marco_maintenance.maintenance.request.template,model_maintenance_request_template,maintenance.group_equipment_manager,1,1,1,1
