@@ -15,7 +15,8 @@
             <field name="vat">01239410176</field>
             <field name="fiscalcode">01239410176</field>
             <field name="country_id" ref="base.it"/>
-            <field name="state_id" ref="base.state_it_bs"/> <!-- Provincia BS -->
+            <field name="state_id" ref="base.state_it_bs"/>
+            <!-- Provincia BS -->
             <field name="image_1920" type="base64" file="marco_base/static/logo.png"/>
         </record>
 
@@ -26,9 +27,97 @@
             <field name="currency_id" ref="base.EUR"/>
             <field name="vat">01239410176</field>
             <field name="rea_code">246134</field>
-            <field name="favicon" type="base64" file="marco_base/static/favicon.ico"/> <!-- Favicon base64 -->
-            <field name="logo" type="base64" file="marco_base/static/logo.png"/> <!-- Logo base64 -->
-            
-      </record>
+            <field name="fatturapa_fiscal_position_id" ref="l10n_it_fatturapa.fatturapa_RF01"/>
+            <field name="favicon" type="base64" file="marco_base/static/favicon.ico"/>
+            <!-- Favicon base64 -->
+            <field name="logo" type="base64" file="marco_base/static/logo.png"/>
+            <!-- Logo base64 -->
+        </record>
+
+        <!--Banche-->
+        <record id="bank_COM2" model="res.bank">
+            <field name="name">COMIT N.Y. IN VALUTA</field>
+            <field name="banca_estera">true</field>
+        </record>
+        <record id="bank_COMI" model="res.bank">
+            <field name="abi">03069</field>
+            <field name="cab">11210</field>
+            <field name="name">INTESA SANPAOLO SPA</field>
+            <field name="bic">BCITITMME61</field>
+            <field name="street">VIA MORETTO 38B</field>
+            <field name="zip">25122</field>
+            <field name="city">BRESCIA</field>
+            <field name="country" ref="base.it"/>
+            <field name="state" ref="base.state_it_bs"/>
+            <field name="banca_estera">false</field>
+        </record>
+        <record id="bank_CRED" model="res.bank">
+            <field name="abi">02008</field>
+            <field name="cab">11220</field>
+            <field name="name">UNICREDIT S.P.A.</field>
+            <field name="bic">UNCRITM1N60</field>
+            <field name="street">VIA CEFALONIA, 55</field>
+            <field name="zip">25121</field>
+            <field name="city">BRESCIA</field>
+            <field name="country" ref="base.it"/>
+            <field name="state" ref="base.state_it_bs"/>
+            <field name="banca_estera">false</field>
+        </record>
+        <record id="bank_NAZI" model="res.bank">
+            <field name="abi">01005</field>
+            <field name="cab">11200</field>
+            <field name="name">BANCA NAZIONALE DEL LAVORO SPA</field>
+            <field name="bic">BNLIITRR</field>
+            <field name="street">VIA MORETTO, 40</field>
+            <field name="zip">25100</field>
+            <field name="city">BRESCIA</field>
+            <field name="country" ref="base.it"/>
+            <field name="state" ref="base.state_it_bs"/>
+            <field name="banca_estera">false</field>
+        </record>
+
+
+
+        <!--Conti correnti-->
+        <record id="partner_bank_IT63M0306911210100000010663" model="res.partner.bank">
+            <field name="acc_type">iban</field>
+            <field name="acc_number">IT63M0306911210100000010663</field>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="bank_bic">BCITITMME61</field>
+            <field name="codice_sia">43659</field>
+            <field name="bank_id" ref="bank_COMI"/>
+            <field name="allow_out_payment">true</field>
+            <field name="partner_id" ref="base.main_partner" />
+            <field name="acc_holder_name">Giovanni Filippo Franceschini</field>
+        </record>
+        <record id="partner_bank_114770810001" model="res.partner.bank">
+             <field name="acc_type">bank</field>
+            <field name="acc_number">114770810001</field>
+            <field name="bank_id" ref="bank_COM2"/>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="allow_out_payment">false</field>
+            <field name="partner_id" ref="base.main_partner" />
+            <field name="acc_holder_name">Giovanni Filippo Franceschini</field>
+        </record>
+        <record id="partner_bank_IT54R0200811220000004978317" model="res.partner.bank">
+            <field name="acc_type">iban</field>
+            <field name="acc_number">IT54R0200811220000004978317</field>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="bank_bic">UNCRITM1N60</field>
+            <field name="bank_id" ref="bank_CRED"/>
+            <field name="allow_out_payment">true</field>
+            <field name="partner_id" ref="base.main_partner" />
+            <field name="acc_holder_name">Giovanni Filippo Franceschini</field>
+        </record>
+        <record id="partner_bank_IT60S0100511200000000034117" model="res.partner.bank">
+            <field name="acc_type">iban</field>
+            <field name="acc_number">IT60S0100511200000000034117</field>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="bank_bic">BNLIITRR</field>
+            <field name="bank_id" ref="bank_NAZI"/>
+            <field name="allow_out_payment">true</field>
+            <field name="partner_id" ref="base.main_partner" />
+            <field name="acc_holder_name">Giovanni Filippo Franceschini</field>
+        </record>
     </data>
 </odoo>
