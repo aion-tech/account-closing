@@ -13,7 +13,9 @@
         "crm",
         "queue_job",
     ],
-    "data": [],
+    'data': [
+    'views/res_config_settings_view.xml',
+    ],
     "assets": {
         "web.assets_backend": [
             "marco_mail_cleaner_llm/static/src/components/message/message.xml",
