@@ -1,6 +1,5 @@
 from odoo import api, fields, models, Command
-from .progress_logger import _progress_logger,_logger
-
+from .progress_logger import _progress_logger, _logger
 
 STANDARD_ADDRESSEE_CODE = "0000000"
 
@@ -9,14 +8,35 @@ class MarcoImporter(models.TransientModel):
 
     partners = fields.Boolean(string="Partners")
 
+    def calculate_fiscal_position(self, country):
+        """
+        Calcola la posizione fiscale in base al paese.
+        """
+        european_group = self.env.ref('base.europe')
+        italian_country = self.env.ref('base.it')
+
+        # Mappa delle posizioni fiscali per aree geografiche
+        fiscal_positions = {
+            "italian": self.env.ref('l10n_it_marco.1_fiscal_position_italia').id,
+            "european": self.env.ref('l10n_it_marco.1_fiscal_position_beni_ue').id,
+            "extra": self.env.ref('l10n_it_marco.1_fiscal_position_beni_exta_ue').id,
+        }
+
+        # Determina la posizione fiscale in base alla nazionalità
+        if country == italian_country:
+            return fiscal_positions["italian"]
+        elif country in european_group.country_ids:
+            return fiscal_positions["european"]
+        else:
+            return fiscal_positions["extra"]
+
     def import_partners(self, records):
         _logger.warning("<--- IMPORTAZIONE PARTNERS INIZIATA --->")
         for idx, rec in enumerate(records):
             # cerco lo stato partendo dall'ISO Code se non esiste fermo tutto
-            if rec["Country"] and rec["Country"]!='':
+            if rec["Country"] and rec["Country"] != '':
                 domain = [("code", "=", rec["Country"])]
                 country = self.env["res.country"].search(domain)
-               
 
                 # cerco la provincia, usando lo stato
                 if rec["County"]:
@@ -25,14 +45,12 @@ class MarcoImporter(models.TransientModel):
                         ("country_id", "=", country.id),
                     ]
                     state = self.env["res.country.state"].search(domain)
-                    
                 else:
                     state = False
-            else:  
-                if rec["ISOCountryCode"]and rec["ISOCountryCode"]!='':
+            else:
+                if rec["ISOCountryCode"] and rec["ISOCountryCode"] != '':
                     domain = [("code", "=", rec["ISOCountryCode"])]
                     country = self.env["res.country"].search(domain)
-                    
                 else:
                     country = False
                 state = False
@@ -61,11 +79,14 @@ class MarcoImporter(models.TransientModel):
             if not category:
                 category = False
 
+            # Calcola la posizione fiscale
+            fiscal_position_id = self.calculate_fiscal_position(country)
+
             vals = {
                 "name": rec["CompanyName"],
                 "ref": rec["CustSupp"],
                 "vat": rec["TaxIdNumber"],
-                "fiscalcode":rec["FiscalCode"],
+                "fiscalcode": rec["FiscalCode"],
                 "street": rec["Address"],
                 "zip": rec["ZIPCode"],
                 "city": rec["City"],
@@ -77,20 +98,22 @@ class MarcoImporter(models.TransientModel):
                 "country_id": country and country.id,
                 "state_id": state and state.id,
                 "category_id": category and [Command.set(category)],
-                "is_pa":rec["is_pa"]== "1",
-                "electronic_invoice_subjected":rec["electronic_invoice_subjected"]== "1",
-                "electronic_invoice_obliged_subject":rec["electronic_invoice_subjected"]== "1",
-                "eori_code":rec["eori_code"],
-                "codice_destinatario":rec["is_pa"]!= "1" and rec["codice_destinatario"],
-                "ipa_code":rec["is_pa"]== "1" and rec["codice_destinatario"],
-
+                "is_pa": rec["is_pa"] == "1",
+                "electronic_invoice_subjected": rec["electronic_invoice_subjected"] == "1",
+                "electronic_invoice_obliged_subject": rec["electronic_invoice_subjected"] == "1",
+                "eori_code": rec["eori_code"],
+                "codice_destinatario": rec["is_pa"] != "1" and rec["codice_destinatario"],
+                "ipa_code": rec["is_pa"] == "1" and rec["codice_destinatario"],
+                "auto_update_account_expense": False,
+                "auto_update_account_income": False,
+                "property_account_position_id": fiscal_position_id,  # Posizione fiscale assegnata
             }
+
             # Controlla i requisiti di fatturazione elettronica e ottiene i messaggi di errore
             error_reasons = self.check_partner_einvoice_requirements(vals)
 
             partner_id = self.env["res.partner"].search([("ref", "=", rec["CustSupp"])])
             if partner_id:
-
                 partner_id.with_context(no_vat_validation=True).write(
                     vals
                 )  # per ora ignoro tutti i check sul VAT no
@@ -102,7 +125,7 @@ class MarcoImporter(models.TransientModel):
                 )  # per ora ignoro tutti i check sul VAT no
 
             partner_id.email = False
-            
+
             # Aggiungi messaggio di errore nel Chatter se ci sono errori
             if error_reasons:
                 # Crea il messaggio HTML formattato con un elenco puntato
@@ -112,7 +135,6 @@ class MarcoImporter(models.TransientModel):
                     "</ul>"
                 )
                 partner_id.message_post(body=message, subtype_id=self.env.ref('mail.mt_note').id)
-
 
             vat_error_message = "P.IVA ERRATA"
             vat_checker = (vat_error_message, False)[
@@ -147,7 +169,6 @@ class MarcoImporter(models.TransientModel):
 
         _logger.warning("<--- IMPORTAZIONE PARTNERS TERMINATA --->")
         # self.env.cr.commit()
-
     def check_partner_einvoice_requirements(self, vals):
         """
         Verifica i requisiti di fatturazione elettronica per un partner nei dati vals.

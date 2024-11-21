@@ -110,7 +110,9 @@ class MarcoImporter(models.TransientModel):
                 "intrastat_code_id":intrastat_code_id.id,
                 "intrastat_type":intrastat_code_id.type,
                 "property_account_income_id": property_account_income_id.id,
-                "property_account_expense_id": property_account_expense_id.id
+                "property_account_expense_id": property_account_expense_id.id,
+                "weight":rec["net_weight"] and rec["net_weight"],
+                "volume": rec["gross_volume"] and rec["gross_volume"],
             }
 
             product_template_id = self.env["product.template"].search(

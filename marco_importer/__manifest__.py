@@ -25,5 +25,9 @@
         "views/views.xml",
         "views/actions.xml",
         "views/menus.xml",
+        'data/cron_jobs.xml',
     ],
+    
+    
+
 }
