@@ -19,7 +19,6 @@
         "report_xml",
         "sale_project_stock",
         "websocket_refresh",
-        "marco_importer",
         "mrp_subcontracting",
         "mrp_multi_level",
         "server_action_mass_edit", #modulo per la modifica massiva
