@@ -5,7 +5,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <button string="Debug" type="object" name="debug" class="btn-secondary" />
+                    <button string="Install Italian Localization" type="object" name="install_italian_oca_localization" class="btn-secondary" />
                     <group string="Selezione per import all">
                  
                                 <field name="select_all" />
@@ -27,6 +27,7 @@
                             <field name="suppliers_pricelists"/>
                             <field name="orders"/>
                             <field name="purchase_orders"/>
+                            <field name="purchase_orders_include_delivered"/>
                             <field name="banks"/>
                             <field name="partners_bank" string="Partners Banks"/>
                         </group>

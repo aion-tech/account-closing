@@ -1,5 +1,5 @@
 from odoo import api, fields, models, Command
-from .progress_logger import _progress_logger,_logger
+from .progress_logger import _progress_logger, _logger
 
 class MarcoImporter(models.TransientModel):
     _inherit = "marco.importer"
@@ -8,42 +8,55 @@ class MarcoImporter(models.TransientModel):
 
     def import_suppliers_pricelists(self, records):
         _logger.warning("<--- IMPORTAZIONE SUPPLIER PRICELIST INIZIATA --->")
+        
+        # Rimuove tutti i listini esistenti prima di importare
         allPrices = self.env["product.supplierinfo"].search([])
         if allPrices:
             allPrices.unlink()
-        for idx, rec in enumerate(records):
-            if idx==0 or records[idx-1]["Item"]!=rec["Item"]:
-                sequence=10
-            else:
-                sequence+=10
-            product_id = self.env["product.template"].search(
-                [("default_code", "=", rec["Item"])]
+
+        for idx, record in enumerate(records):
+            # Ottieni l'articolo principale
+            item_code = record.get("Item")
+            pricelists = record.get("pricelist", [])
+
+            # Cerca il prodotto corrispondente
+            product_id = self.env["product.template"].search([("default_code", "=", item_code)])
+
+            imported_count = 0  # Conta i listini importati per questo articolo
+
+            if product_id:
+                for pricelist in pricelists:
+                    # Cerca il fornitore corrispondente
+                    supplier_id = self.env["res.partner"].search([("ref", "=", pricelist["Supplier"])])
+                    
+                    # Gestisci le date
+                    date_start = (
+                        pricelist["date_start"] != "1799-12-30T23:10:04.000Z" and pricelist["date_start"]
+                    )
+                    date_end = (
+                        pricelist["date_end"] != "1799-12-30T23:10:04.000Z" and pricelist["date_end"]
+                    )
+
+                    if supplier_id:
+                        # Crea il record del listino
+                        vals = {
+                            "product_tmpl_id": product_id.id,
+                            "partner_id": supplier_id.id,
+                            "date_start": date_start or False,
+                            "date_end": date_end or False,
+                            "price": pricelist["Price"],
+                            "min_qty": pricelist["Qty"],
+                            "delay": int(pricelist["DaysForDelivery"]),
+                            "sequence": pricelist["sequence"],  # Include il campo sequence
+                        }
+                        self.env["product.supplierinfo"].create(vals)
+                        imported_count += 1
+
+            # Log per articolo usando _progress_logger
+            _progress_logger(
+                iterator=idx,
+                all_records=records,
+                additional_info=f"Articolo {item_code}: importati {imported_count} listini fornitori."
             )
-            supplier_id = self.env["res.partner"].search(
-                [("ref", "=", rec["Supplier"])]
-            )
-            date_start = str(rec["date_start"]) != "1799-12-30T23:10:04.000Z" and str(
-                rec["date_start"]
-            )
-            date_end = str(rec["date_end"]) != "1799-12-30T23:10:04.000Z" and str(
-                rec["date_end"]
-            )
-            if product_id and supplier_id:
-                vals = {
-                    "product_tmpl_id": product_id.id,
-                    "partner_id": supplier_id.id,
-                    "date_start": date_start,
-                    "date_end": date_end,
-                    "price": rec["Price"],
-                    "min_qty": rec["Qty"],
-                    "delay": int(rec["DaysForDelivery"]),
-                    "sequence":sequence,
-                }
-                suppPrice = self.env["product.supplierinfo"].create(vals)
-                _progress_logger(
-                    iterator=idx,
-                    all_records=records,
-                    additional_info=suppPrice
-                    and suppPrice.product_tmpl_id.default_code + " - " +str(suppPrice.sequence),
-                )
+
         _logger.warning("<--- IMPORTAZIONE SUPPLIER PRICELIST TERMINATA --->")

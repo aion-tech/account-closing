@@ -2,15 +2,40 @@ from odoo import api, fields, models, Command
 from .progress_logger import _progress_logger, _logger
 from datetime import datetime
 
+
 class MarcoImporter(models.TransientModel):
     _inherit = "marco.importer"
 
     purchase_orders = fields.Boolean()
+    purchase_orders_include_delivered = fields.Boolean()
 
-    def import_purchase_orders(self, records):
+    def import_purchase_orders(self, records, include_delivered=True):
+        """
+        Importa gli ordini di acquisto.
+        Elimina gli ordini esistenti senza picking prima di importare nuovi dati.
+        """
+        # Trova tutti gli ordini di acquisto senza picking
+        purchase_orders_no_pickings = self.env["purchase.order"].search(
+            [("picking_ids", "=", False), ("origin", "!=", False)]
+        )
+
+        if purchase_orders_no_pickings:
+            _logger.info(
+                f"Eliminazione di {len(purchase_orders_no_pickings)} ordini di acquisto senza picking."
+            )
+            # Annulla gli ordini
+            purchase_orders_no_pickings.button_cancel()
+            # Elimina gli ordini
+            purchase_orders_no_pickings.unlink()
+
         _logger.warning("<--- IMPORTAZIONE ORDERS HEAD INIZIATA --->")
-        order_head_ids_to_confirm = self.env["purchase.order"]  # Recordset per gli ordini da confermare
-        order_head_ids_to_reserve = self.env["purchase.order"]  # Recordset per gli ordini da confermare e riservare
+
+        order_head_ids_to_confirm = self.env[
+            "purchase.order"
+        ]  # Recordset per gli ordini da confermare
+        order_head_ids_to_reserve = self.env[
+            "purchase.order"
+        ]  # Recordset per gli ordini da confermare e riservare
 
         # Ordina le testate per InternalOrdNo crescente
         records = sorted(records, key=lambda x: x["InternalOrdNo"])
@@ -22,18 +47,29 @@ class MarcoImporter(models.TransientModel):
             if not supplier_id:
                 print(rec["Supplier"], supplier_id)
                 continue
+            if not include_delivered and rec.get("Delivered") == "1":
+                _logger.warning(
+                    f"L'ordine {rec['InternalOrdNo']} è stato già consegnato. Riga ignorata."
+                )
+                continue
 
             # Imposta la valuta in base al campo `Currency` se disponibile, altrimenti usa "EUR"
             currency_code = rec.get("Currency", "EUR")
             currency = self.env.ref(f"base.{currency_code}", raise_if_not_found=False)
             if not currency:
-                _logger.warning(f"Valuta {currency_code} non trovata, uso 'EUR' come fallback.")
+                _logger.warning(
+                    f"Valuta {currency_code} non trovata, uso 'EUR' come fallback."
+                )
                 currency = self.env.ref("base.EUR", raise_if_not_found=False)
             if not currency:
-                raise ValueError("La valuta predefinita 'EUR' non è configurata nel sistema.")
+                raise ValueError(
+                    "La valuta predefinita 'EUR' non è configurata nel sistema."
+                )
 
-            payment_term_ref=rec['payment_term'] and rec['payment_term'].strip()
-            payment_term=payment_term_ref and self.env.ref(f"l10n_it_marco_extra.{payment_term_ref}")
+            payment_term_ref = rec["payment_term"] and rec["payment_term"].strip()
+            payment_term = payment_term_ref and self.env.ref(
+                f"l10n_it_marco_extra.{payment_term_ref}"
+            )
             vals = {
                 "origin": rec["InternalOrdNo"],
                 "date_planned": datetime.strptime(
@@ -44,7 +80,7 @@ class MarcoImporter(models.TransientModel):
                 ),
                 "partner_id": supplier_id.id,
                 "currency_id": currency and currency.id,
-                "payment_term_id":payment_term and payment_term.id,
+                "payment_term_id": payment_term and payment_term.id,
             }
 
             order_head_id = self.env["purchase.order"].search(
@@ -69,14 +105,17 @@ class MarcoImporter(models.TransientModel):
                 # Gestione delle note
                 if not product_template_id:
                     if order_head_id.origin == line_rec["InternalOrdNo"]:
-                        description = line_rec["Description"] if line_rec["Description"].strip() else " "
+                        description = (
+                            line_rec["Description"]
+                            if line_rec["Description"].strip()
+                            else " "
+                        )
                         vals = {
                             "order_id": order_head_id.id,
                             "name": description,
                             "sequence": line_rec["Line"],
                             "display_type": "line_note",
                             "product_qty": 0.0,
-                            
                         }
 
                         order_line_id = self.env["purchase.order.line"].search(
@@ -97,14 +136,30 @@ class MarcoImporter(models.TransientModel):
                 if order_head_id.origin != line_rec["InternalOrdNo"]:
                     continue
                 if float(line_rec["Qty"]) <= 0:
-                    _logger.warning(f"La quantità per la linea {line_rec['Line']} nell'ordine {rec['InternalOrdNo']} è 0. Questa linea sarà ignorata.")
+                    _logger.warning(
+                        f"La quantità per la linea {line_rec['Line']} nell'ordine {rec['InternalOrdNo']} è 0. Questa linea sarà ignorata."
+                    )
                     continue  # Salta questa linea
+
+                # Determina la quantità in base a `include_delivered`
+                if not include_delivered and line_rec.get("Delivered") == "1":
+                    _logger.warning(
+                        f"La quantità consegnata per la linea {line_rec['Line']} è maggiore o uguale alla quantità ordinata. Questa linea sarà ignorata."
+                    )
+                    continue  # Salta questa linea
+                else:
+                    if line_rec["DeliveredQty"] == 0:
+                        product_qty = float(line_rec["Qty"])
+                    elif line_rec["DeliveredQty"] < line_rec["Qty"]:
+                        product_qty = float(line_rec["Qty"] - line_rec["DeliveredQty"])
+                    else:
+                        product_qty = float(line_rec["Qty"])
 
                 vals = {
                     "order_id": order_head_id.id,
                     "product_id": product_template_id.id,
                     "name": product_template_id.name,
-                    "product_qty": float(line_rec["Qty"]),
+                    "product_qty": product_qty,
                     "price_unit": float(line_rec["UnitValue"]),
                     "sequence": line_rec["Line"],
                     "date_planned": datetime.strptime(
@@ -121,10 +176,26 @@ class MarcoImporter(models.TransientModel):
                 )
 
                 if order_line_id:
-                    order_line_id.write(vals)
+                    # Confronta i valori attuali con quelli desiderati
+                    update_vals = {
+                        key: value
+                        for key, value in vals.items()
+                        if (
+                            (
+                                order_line_id[key].id
+                                if isinstance(order_line_id[key], models.BaseModel)
+                                else order_line_id[key]
+                            )
+                            != value
+                        )
+                    }
+
+                    # Esegui il write solo se ci sono differenze
+                    if update_vals:
+                        order_line_id.write(update_vals)
                 else:
                     order_line_id = self.env["purchase.order.line"].create(vals)
-                
+
                 _progress_logger(
                     iterator=idx,
                     all_records=rec["lines"],
@@ -138,10 +209,14 @@ class MarcoImporter(models.TransientModel):
             )
 
         # Conferma solo gli ordini in stato "draft"
-        order_head_ids_to_confirm.filtered(lambda o: o.state == 'draft').button_confirm()
+        order_head_ids_to_confirm.filtered(
+            lambda o: o.state == "draft"
+        ).button_confirm()
 
         # Conferma e gestisci il picking solo sugli ordini in stato "draft" per la conferma e "purchase" per la riserva e validazione
-        order_head_ids_to_reserve.filtered(lambda o: o.state == 'draft').button_confirm()
+        order_head_ids_to_reserve.filtered(
+            lambda o: o.state == "draft"
+        ).button_confirm()
         """ confirmed_orders = order_head_ids_to_reserve.filtered(lambda o: o.state == 'purchase')
         confirmed_orders.picking_ids.action_set_quantities_to_reservation()
         confirmed_orders.picking_ids.button_validate()

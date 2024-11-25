@@ -19,6 +19,7 @@
         'sale_triple_discount',
         "web_notify",
         "queue_job",
+        "marco_base"
     ],
     "data": [
         "security/ir.model.access.csv",
