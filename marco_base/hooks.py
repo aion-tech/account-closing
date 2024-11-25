@@ -17,63 +17,41 @@ def marco_post_init_hook(cr, registry):
     env["res.config.settings"].new({"group_mrp_workorder_dependencies": True,}).execute()
     env["res.config.settings"].new({"group_unlocked_by_default":True}).execute()
     
-    #setMarcoAsOdooCompany(env)
+    # Aggiorna l'accuratezza decimale a 5
+    update_decimal_precision(env)
 
-#deprecato perchè ora imposto la company tramite xml
-""" def setMarcoAsOdooCompany(env):
-    company = env["res.company"].search([])
-    print("################# INIZIALIZZAZIONE COMPANY ##################")
-    if len(company) != 1:
-        raise ValueError(
-            f"Sono state impostate più company, non è possibile impostare MARCO come unica company di ODOO"
-        )
-    elif company.name == "MARCO S.p.A.":
-        _logger.warning("<--- MARCO S.p.A. già impostata come company di ODOO --->")
-    else:
-        domain = [("code", "=", "IT")]
-        country = env["res.country"].search(domain)
-        if not country:
-            raise ValueError(f"Country IT not found: RUN!!!")
+    
+def update_decimal_precision(env):
+    """
+    Aggiorna l'accuratezza decimale a 5 per i record specificati in modo idempotente.
+    Non aggiorna i valori di precisione superiori a 5.
+    """
+    precision_refs = [
+        'product.decimal_price',
+        'product.decimal_stock_weight',
+        'product.decimal_volume',
+        'product.decimal_product_uom',
+        'account.decimal_payment',
+        'l10n_it_fatturapa_out.decimal_unit_price_xmlpa'
+    ]
+    
+    # Recupera gli ID dai riferimenti
+    decimal_precision_ids = env['ir.model.data'].search([
+        ('model', '=', 'decimal.precision'),
+        ('module', '=', 'product')  # Specifica il modulo se necessario
+    ]).filtered(lambda r: f"{r.module}.{r.name}" in precision_refs).mapped('res_id')
 
-        # cerco la provincia, usando lo stato
-        domain = [
-            ("code", "=", "BS"),
-            ("country_id", "=", country.id),
-        ]
-        state = env["res.country.state"].search(domain)
-        if not state:
-            raise ValueError(f"State BS not found: RUN!!!")
+    if not decimal_precision_ids:
+        _logger.info("No decimal precision records found for the given references.")
+        return
 
-        favicon_path = modules.module.get_resource_path(
-            "marco_base", "static/", "favicon.ico"
-        )
-        with open(favicon_path, "rb") as f:
-            contents = f.read()
-        favicon = base64.b64encode(contents)  # convert to base64
+    # Cerca i record di decimal.precision da aggiornare
+    decimal_precisions = env['decimal.precision'].browse(decimal_precision_ids)
 
-
-        logo_path = modules.module.get_resource_path(
-            "marco_base", "static/", "logo.png"
-        )
-        with open(logo_path, "rb") as f:
-            contents = f.read()
-        logo = base64.b64encode(contents)  # convert to base64
-
-        vals = {
-            "name": "MARCO S.p.A.",
-            "street": "Via Mameli 10",
-            "city": "Brescia",
-            "state_id": state.id,
-            "zip": "25082",
-            "country_id": country.id,
-            "vat": "01239410176",
-            "fiscalcode": "01239410176",
-            "currency_id": env.ref("base.EUR").id,
-            "rea_code": "246134",
-            "phone": "03021341",
-            "email": "info@marco.it",
-            "website": "https://www.marco.it",
-            "favicon": favicon,
-            "logo": logo,
-        }
-        company.write(vals) """
+    for precision in decimal_precisions:
+        if precision.digits < 5:
+            _logger.info(f"Updating decimal precision '{precision.name}' from {precision.digits} to 5.")
+            precision.digits = 5
+        elif precision.digits > 5:
+            _logger.info(f"Skipping decimal precision '{precision.name}' with digits={precision.digits}, as it is greater than 5.")
+    
