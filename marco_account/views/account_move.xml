@@ -13,7 +13,7 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
             <!-- Re-insert the fields in a different position -->
-            <xpath expr="//group[@id='header_left_group']" position="inside">
+            <xpath expr="//group[@id='header_right_group']" position="after">
                 <group name="always_verify_fields" string="Campi da verificare sempre">
                     <field name="fiscal_position_id"/>
                     <field name="fiscal_document_type_id" class="oe_inline" />                
