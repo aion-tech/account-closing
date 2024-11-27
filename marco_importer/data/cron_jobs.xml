@@ -40,7 +40,28 @@
         <field name="name">Import Data for purchase_orders</field>
         <field name="model_id" ref="model_marco_importer"/>
         <field name="state">code</field>
-        <field name="code">model.create({'select_all': False}).import_data_in_background('purchase_orders')</field>
+        <field name="code">
+purchase_orders = env['purchase.order'].search([
+            ('origin', '!=', False),
+            ('picking_ids.state', 'not in', ['done', 'cancel'])  # Nessun picking completato o annullato
+        ])
+if purchase_orders:
+    purchase_orders.button_cancel()
+    purchase_orders.unlink()
+model.create({'select_all': False}).import_data_in_background('purchase_orders')
+        </field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="active">False</field>
+    </record>
+
+    <!-- Cron per purchase_orders_include_delivered -->
+    <record id="ir_cron_import_purchase_orders_include_delivered" model="ir.cron">
+        <field name="name">Import Data for purchase_orders_include_delivered</field>
+        <field name="model_id" ref="model_marco_importer"/>
+        <field name="state">code</field>
+        <field name="code">model.create({'select_all': False}).import_data_in_background('purchase_orders_include_delivered')</field>
         <field name="user_id" ref="base.user_root"/>
         <field name="interval_number">1</field>
         <field name="interval_type">hours</field>

@@ -115,7 +115,6 @@ class MarcoImporter(models.TransientModel):
             self[key] = self.select_all
 
     def import_all_data(self):
-        self.env.user.notify_info(message="Importazione aggiunta alla coda ...")
         self.with_delay(priority=1, description="MARCO IMPORTER: Import from widget").run_import_all_data()
 
     def run_import_all_data(self):
@@ -123,7 +122,7 @@ class MarcoImporter(models.TransientModel):
         try:
             requests.get(BASE_URL, timeout=(2, 2))
         except requests.RequestException:
-            self.env.user.notify_danger(message="Errore: impossibile raggiungere le API.")
+            self.env.user.notify_danger(message="Errore: impossibile raggiungere le API.",sticky=True)
             return
         self.env.user.notify_info(message="Importazione iniziata.")
         for key in IMPORT_METHOD_MAP:
@@ -137,7 +136,7 @@ class MarcoImporter(models.TransientModel):
     def import_data(self, model_name: str):
         model_config = IMPORT_METHOD_MAP.get(model_name)
         if not model_config:
-            self.env.user.notify_danger(message=f"Modello '{model_name}' non trovato in IMPORT_METHOD_MAP.")
+            self.env.user.notify_danger(message=f"Modello '{model_name}' non trovato in IMPORT_METHOD_MAP.",sticky=True)
             return
 
         # Controllo e installazione delle dipendenze
@@ -150,7 +149,7 @@ class MarcoImporter(models.TransientModel):
             response = requests.get(url, timeout=(3, 10))
             records = response.json()
         except requests.RequestException as e:
-            self.env.user.notify_danger(message=f"Errore nel recupero dei dati per '{model_name}': {e}")
+            self.env.user.notify_danger(message=f"Errore nel recupero dei dati per '{model_name}': {e}",sticky=True)
             return
 
         import_method = getattr(self, model_config["method"], None)
@@ -159,9 +158,9 @@ class MarcoImporter(models.TransientModel):
             import_method(records, **params)
             self.env.cr.commit()
             _logger.info(f"Importazione completata per '{model_name}'.")
-            self.env.user.notify_success(message=f"Importazione completata per '{model_name}'.")
+            self.env.user.notify_success(message=f"Importazione completata per '{model_name}'.",sticky=True)
         else:
-            self.env.user.notify_danger(message=f"Metodo di importazione '{model_config['method']}' non trovato per '{model_name}'.")
+            self.env.user.notify_danger(message=f"Metodo di importazione '{model_config['method']}' non trovato per '{model_name}'.",sticky=True)
 
     def ensure_dependencies_installed(self, dependencies: List[str]):
         module_model = self.env['ir.module.module']
@@ -190,10 +189,18 @@ class MarcoImporter(models.TransientModel):
         asset_management_module = module_model.search([('name', '=', 'l10n_it_asset_management')], limit=1)
         if asset_management_module and asset_management_module.state not in ('installed', 'to install'):
             if account_asset_module.state == 'installed':
-                self.env.user.notify_error(message="Impossibile installare l10n_it_asset_management, account_asset è ancora installato.")
+                self.env.user.notify_error(message="Impossibile installare l10n_it_asset_management, account_asset è ancora installato.",sticky=True)
                 return
             asset_management_module.button_immediate_install()
             self.env.cr.commit()  # Commit necessario
+       
+        # Ritorno di un'azione JavaScript per ritardare l'aggiornamento della pagina
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+            
+        }
+
 
     def on_change_check(
         self,

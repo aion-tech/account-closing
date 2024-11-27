@@ -1,6 +1,6 @@
 from odoo import api, fields, models, Command
 from .progress_logger import _progress_logger, _logger
-
+from math import isclose
 
 class MarcoImporter(models.TransientModel):
     _inherit = "marco.importer"
@@ -17,23 +17,28 @@ class MarcoImporter(models.TransientModel):
             product_product_id = self.env["product.product"].search(
                 [("product_tmpl_id", "=", product_template_id.id)]
             )
-            if not product_template_id:
+            product_qty = rec.get("bookInv") if rec.get("bookInv") else 0.0
+            
+            if not product_template_id or isclose(product_qty,product_template_id.qty_available,abs_tol=0.001) :
                 continue
             # abbiamo commentato tutto per l'inventario, non voglio caricare la giacenza attuale di mago
             # gestione della giacenza di magazzino
-            if product_template_id.detailed_type == "product" :
+            if product_template_id.detailed_type == "product":
 
                 warehouse = self.env["stock.warehouse"].search(
                     [("company_id", "=", self.env.company.id)], limit=1
                 )
-                quant = self.env["stock.quant"].with_context(inventory_mode=True).create(
-                    {
-                        "product_id": product_product_id.id,
-                        "location_id": warehouse.lot_stock_id.id,
-                        "inventory_quantity": rec[
-                            "bookInv"
-                        ],  # if rec["bookInv"] and rec["bookInv"] > 0 else 0,# ignoro tutti i negativi e imposto a 0 la quantità
-                    }
+
+                quant = (
+                    self.env["stock.quant"]
+                    .with_context(inventory_mode=True)
+                    .create(
+                        {
+                            "product_id": product_product_id.id,
+                            "location_id": warehouse.lot_stock_id.id,
+                            "inventory_quantity": product_qty,
+                        }
+                    )
                 )
                 quants |= quant
 
@@ -45,8 +50,8 @@ class MarcoImporter(models.TransientModel):
                 "product_id": product_product_id.id,
                 "location_proc_id": self.env.ref("stock.stock_location_stock").id,
                 "mrp_nbr_days": 14,
-                "mrp_minimum_stock":rec["minimumStock"],
-                "mrp_qty_multiple":rec["reorderingLotSize"]
+                "mrp_minimum_stock": rec["minimumStock"],
+                "mrp_qty_multiple": rec["reorderingLotSize"],
             }
             if product_mrp_area:
                 product_mrp_area.write(vals)
@@ -58,7 +63,7 @@ class MarcoImporter(models.TransientModel):
                 all_records=records,
                 additional_info=f'{product_template_id.default_code} = {rec["bookInv"]}',
             )
-        _logger.warning( f"<--- APPLICO I QUANTI A {str(len(quants))} PRODOTTI --->")
+        _logger.warning(f"<--- APPLICO I QUANTI A {str(len(quants))} PRODOTTI --->")
         # Ora chiamiamo `action_apply_inventory` una sola volta su tutti i `stock.quant`
         if quants:
             quants.action_apply_inventory()
