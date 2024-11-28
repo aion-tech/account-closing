@@ -7,25 +7,34 @@ _logger = logging.getLogger(__name__)
 
 def marco_post_init_hook(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
-    
-    settings_to_enable = {
-        "group_uom": "Unità di misura",
-        "group_product_variant": "Varianti prodotto",
-        "group_stock_multi_locations": "Gestione multi-location",
-        "group_stock_adv_location": "Gestione avanzata delle location",
-        "group_mrp_routings": "Cicli di lavoro",
-        "group_mrp_workorder_dependencies": "Dipendenze tra ordini di lavoro",
-        "group_unlocked_by_default": "Sbloccato di default",
+    ResConfig = env["res.config.settings"]
+
+    # Ottieni i valori di default per il modello `res.config.settings`
+    default_values = ResConfig.default_get(list(ResConfig.fields_get()))
+
+    # Flag da impostare
+    flags_to_set = {
+        "group_uom": True,                          # Unità di misura
+        "group_product_variant": True,              # Varianti prodotto
+        "group_stock_multi_locations": True,        # Magazzini multipli
+        "group_stock_adv_location": True,           # Magazzini avanzati
+        "group_mrp_routings": True,                 # Routing di produzione
+        "group_mrp_workorder_dependencies": True,   # Dipendenze tra ordini di lavoro
+        "group_unlocked_by_default": True           # Sbloccato di default
     }
-    
-    for group_key, group_name in settings_to_enable.items():
-        # Usa il modello di configurazione per controllare e impostare i parametri
-        config = env["res.config.settings"].new({group_key: True})
-        if not getattr(config, group_key, False):  # Controlla se già attivo
-            _logger.info(f"Attivazione del gruppo: {group_name} ({group_key})")
-            config.execute()
+
+    # Ottieni i campi effettivamente disponibili
+    available_fields = ResConfig.fields_get()
+
+    # Aggiorna solo i flag che esistono nel modello
+    for field, value in flags_to_set.items():
+        if field in available_fields:
+            default_values[field] = value
         else:
-            _logger.info(f"Il gruppo {group_name} ({group_key}) è già attivo.")
+            _logger.warning(f"Il campo '{field}' non esiste in res.config.settings e non sarà aggiornato.")
+
+    # Crea e applica le configurazioni
+    ResConfig.create(default_values).execute()
 
     # Aggiorna l'accuratezza decimale a 5
     update_decimal_precision(env)

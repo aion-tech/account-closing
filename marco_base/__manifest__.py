@@ -21,6 +21,7 @@
         "websocket_refresh",
         "mrp_subcontracting",
         "mrp_multi_level",
+        "mrp_workorder",
         "server_action_mass_edit", #modulo per la modifica massiva
         "web_search_with_and",
         "web_advanced_search",
