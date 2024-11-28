@@ -2,10 +2,12 @@
     <!-- Cron per items_quant -->
     <record id="ir_cron_import_items_quant" model="ir.cron">
         <field name="name">Import Data for items_quant</field>
-        <field name="model_id" ref="model_marco_importer"/> <!-- TransientModel -->
+        <field name="model_id" ref="model_marco_importer"/>
+        <!-- TransientModel -->
         <field name="state">code</field>
         <field name="code">model.create({'select_all': False}).import_data_in_background('items_quant')</field>
-        <field name="user_id" ref="base.user_root"/> <!-- Eseguito come amministratore -->
+        <field name="user_id" ref="base.user_root"/>
+        <!-- Eseguito come amministratore -->
         <field name="interval_number">1</field>
         <field name="interval_type">hours</field>
         <field name="active">False</field>
@@ -73,12 +75,22 @@ model.create({'select_all': False}).import_data_in_background('purchase_orders')
         <field name="name">Import Data for orders</field>
         <field name="model_id" ref="model_marco_importer"/>
         <field name="state">code</field>
-        <field name="code">model.create({'select_all': False}).import_data_in_background('orders')</field>
+        <field name="code">
+sale_orders = env['sale.order'].search([
+    ('origin', '!=', False),
+    ('picking_ids.state', 'not in', ['done', 'cancel'])  # Nessun picking completato o annullato
+])
+if sale_orders:
+    sale_orders._action_cancel()  # Cancella gli ordini di vendita
+    sale_orders.unlink()  # Elimina gli ordini cancellati
+model.create({'select_all': False}).import_data_in_background('orders')
+        </field>
         <field name="user_id" ref="base.user_root"/>
         <field name="interval_number">1</field>
         <field name="interval_type">hours</field>
         <field name="active">False</field>
     </record>
+
 
     <!-- Cron per suppliers_pricelists -->
     <record id="ir_cron_import_suppliers_pricelists" model="ir.cron">
