@@ -13,6 +13,13 @@ IMPORT_METHOD_MAP = {
         "default": False,
         "dependencies": ["l10n_it_marco_extra"],
     },
+    "partners_no_duplicates": {
+        "method": "import_partners",
+        "slug": "partners",
+        "default": False,
+        "params": {"remove_duplicates": True},
+        "dependencies": ["l10n_it_marco_extra"],
+    },
     "items": {
         "method": "import_items",
         "slug": "items",

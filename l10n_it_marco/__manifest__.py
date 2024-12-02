@@ -78,6 +78,7 @@ Italian accounting chart and localization.
     "website": "http://www.odoo.com/",
     "data": [
         "data/marco_partner_company.xml",
+        "data/company_declaration_of_intent_data.xml",
         "data/account_account_tag.xml",
         "data/account_chart_template.xml",
         "data/account_account_template.xml",

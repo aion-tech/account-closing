@@ -42,6 +42,9 @@ def marco_post_init_hook(cr, registry):
     # Aggiorna il campo rounding delle UoM
     update_uom_rounding(env)
 
+    # Attiva USD nell'ambiente
+    activate_usd_currency(env)
+
     
 def update_decimal_precision(env):
     """
@@ -114,3 +117,11 @@ def update_uom_rounding(env):
         )
     else:
         _logger.info("Il record `product.decimal_product_uom` non esiste, nessun aggiornamento effettuato.")
+
+def activate_usd_currency(env):
+    """
+    Attiva la valuta USD nel modello res.currency.
+    """
+    usd_currency = env.ref('base.USD', raise_if_not_found=False)
+    if usd_currency and not usd_currency.active:
+        usd_currency.active = True

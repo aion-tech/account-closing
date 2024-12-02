@@ -9,7 +9,17 @@ class MarcoImporter(models.TransientModel):
     purchase_orders = fields.Boolean()
     purchase_orders_include_delivered = fields.Boolean()
 
-    def import_purchase_orders(self, records, include_delivered=True):
+    @api.onchange('purchase_orders')
+    def _onchange_purchase_orders(self):
+        if self.purchase_orders:
+            self.purchase_orders_include_delivered = False
+
+    @api.onchange('purchase_orders_include_delivered')
+    def _onchange_purchase_orders_include_delivered(self):
+        if self.purchase_orders_include_delivered:
+            self.purchase_orders = False
+
+    def import_purchase_orders(self, records, include_delivered:bool=True):
         """
         Importa gli ordini di acquisto.
         Elimina gli ordini esistenti senza picking prima di importare nuovi dati.

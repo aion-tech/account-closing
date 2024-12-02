@@ -7,6 +7,17 @@ class MarcoImporter(models.TransientModel):
     _inherit = "marco.importer"
 
     partners = fields.Boolean(string="Partners")
+    partners_no_duplicates = fields.Boolean()
+
+    @api.onchange('partners')
+    def _onchange_partners(self):
+        if self.partners:
+            self.partners_no_duplicates = False
+
+    @api.onchange('partners_no_duplicates')
+    def _onchange_partners_no_duplicates(self):
+        if self.partners_no_duplicates:
+            self.partners = False
 
     def calculate_fiscal_position(self, country):
         """
@@ -29,8 +40,39 @@ class MarcoImporter(models.TransientModel):
             return fiscal_positions["european"]
         else:
             return fiscal_positions["extra"]
+    def get_debit_credit_accounts(self, account):
+        """
+        Determina i conti di debito e credito basandosi sul valore di `account` e la tabella di conversione.
+        Restituisce i record dei conti basandosi sul ref "l10n_it_marco.1_".
+        """
+        account_mapping = {
+            "10FOITAL": "04CLITAL",
+            "04CLWEBO": "10FOITAL",
+            "10RAITAL": "04CLITAL",
+            "04CLFALL": "10FOITAL",
+            "04CLOCCA": "10FOITAL",
+            "04CLITAL": "10FOITAL",
+            "10FOESTE": "04CLESTE",
+            "04CLESTE": "10FOESTE",
+            "10RAESTE": "04CLESTE",
+        }
 
-    def import_partners(self, records):
+        debit_account_xmlid = None
+        credit_account_xmlid = None
+
+        if account.startswith("10"):
+            debit_account_xmlid = f"l10n_it_marco.1_{account}"
+            credit_account_xmlid = f"l10n_it_marco.1_{account_mapping.get(account)}"
+        elif account.startswith("04"):
+            credit_account_xmlid = f"l10n_it_marco.1_{account}"
+            debit_account_xmlid = f"l10n_it_marco.1_{account_mapping.get(account)}"
+
+        debit_account = self.env.ref(debit_account_xmlid, raise_if_not_found=False)
+        credit_account = self.env.ref(credit_account_xmlid, raise_if_not_found=False)
+
+        return debit_account, credit_account
+
+    def import_partners(self, records,remove_duplicates:bool=False):
         _logger.warning("<--- IMPORTAZIONE PARTNERS INIZIATA --->")
         for idx, rec in enumerate(records):
             # cerco lo stato partendo dall'ISO Code se non esiste fermo tutto
@@ -82,19 +124,30 @@ class MarcoImporter(models.TransientModel):
             # Calcola la posizione fiscale
             fiscal_position_id = self.calculate_fiscal_position(country)
 
+            # Aggiunge il prefisso "IT" se necessario
+            vat = rec["TaxIdNumber"]
+            fiscal_code = rec["FiscalCode"]
+
+            if country.code == "IT":
+                if vat and not vat.startswith("IT"):
+                    vat = f"IT{vat}"
+
+                if fiscal_code == rec["TaxIdNumber"] and not fiscal_code.startswith("IT"):
+                    fiscal_code = f"IT{fiscal_code}"
+            # Determina conti di debito e credito
+            debit_account, credit_account = self.get_debit_credit_accounts(rec["Account"])
+
             vals = {
                 "name": rec["CompanyName"],
                 "ref": rec["CustSupp"],
-                "vat": rec["TaxIdNumber"],
-                "fiscalcode": rec["FiscalCode"],
+                "vat": vat,
+                "fiscalcode": fiscal_code,
                 "street": rec["Address"],
                 "zip": rec["ZIPCode"],
                 "city": rec["City"],
                 "phone": rec["Telephone1"],
                 "website": rec["Internet"],
-                # "email": rec["EMail"],
                 "is_company": rec["isCompany"],
-                "vat": rec["TaxIdNumber"],
                 "country_id": country and country.id,
                 "state_id": state and state.id,
                 "category_id": category and [Command.set(category)],
@@ -106,25 +159,47 @@ class MarcoImporter(models.TransientModel):
                 "ipa_code": rec["is_pa"] == "1" and rec["codice_destinatario"],
                 "auto_update_account_expense": False,
                 "auto_update_account_income": False,
-                "property_account_position_id": fiscal_position_id,  # Posizione fiscale assegnata
+                "property_account_position_id": fiscal_position_id,
+                "property_account_receivable_id":credit_account and credit_account.id,
+                "property_account_payable_id": debit_account and debit_account.id,
             }
 
             # Controlla i requisiti di fatturazione elettronica e ottiene i messaggi di errore
             error_reasons = self.check_partner_einvoice_requirements(vals)
 
-            partner_id = self.env["res.partner"].search([("ref", "=", rec["CustSupp"])])
-            if partner_id:
-                partner_id.with_context(no_vat_validation=True).write(
-                    vals
-                )  # per ora ignoro tutti i check sul VAT no
+            if remove_duplicates:
+                # Cerca partner esistente basandosi su Partita IVA o Codice Fiscale
+                partner_domain = ["|", ("vat", "=", vat), ("fiscalcode", "=", fiscal_code)]
+            else:
+                # Cerca partner esistente basandosi su ref
+                partner_domain = [("ref", "=", rec["CustSupp"])]
+
+            existing_partner = self.env["res.partner"].search(partner_domain, limit=1)
+
+
+
+            if existing_partner:
+                # Aggiorna solo i campi non compilati
+                updated_vals = {
+                    key: value
+                    for key, value in vals.items()
+                    if not existing_partner[key] or (key == "ref" and rec["CustSupp"].startswith("04"))
+                }
+
+                # Gestisce "ref" separatamente per garantire il controllo specifico
+                if "ref" in updated_vals and not rec["CustSupp"].startswith("04"):
+                    updated_vals["ref"] = existing_partner.ref
+
+                if updated_vals:  # Scrive solo se ci sono campi da aggiornare
+                    existing_partner.with_context(no_vat_validation=True).write(updated_vals)
+                partner_id = existing_partner
             else:
                 partner_id = (
                     self.env["res.partner"]
                     .with_context(no_vat_validation=True)
                     .create(vals)
                 )  # per ora ignoro tutti i check sul VAT no
-
-            partner_id.email = False
+            
 
             # Aggiungi messaggio di errore nel Chatter se ci sono errori
             if error_reasons:

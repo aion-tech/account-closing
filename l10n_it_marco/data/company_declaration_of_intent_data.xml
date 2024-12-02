@@ -1,0 +1,10 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Dichiarazione d'intento per MARCO S.p.A. -->
+        <record id="declaration_of_intent_2024" model="l10n_it_declaration_of_intent.yearly_limit">
+            <field name="year">2024</field> <!-- Anno -->
+            <field name="limit_amount">9487014.00</field> <!-- Importo limite -->
+            <field name="company_id" ref="base.main_company"/> <!-- Relazione con la res.company -->
+        </record>
+    </data>
+</odoo>

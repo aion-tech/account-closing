@@ -12,26 +12,59 @@
             <field name="phone">03021341</field>
             <field name="email">info@marco.it</field>
             <field name="website">https://www.marco.it</field>
-            <field name="vat">01239410176</field>
-            <field name="fiscalcode">01239410176</field>
+            <field name="vat">IT01239410176</field>
+            <field name="fiscalcode">IT01239410176</field>
             <field name="country_id" ref="base.it"/>
             <field name="state_id" ref="base.state_it_bs"/>
-            <!-- Provincia BS -->
             <field name="image_1920" type="base64" file="marco_base/static/logo.png"/>
         </record>
 
         <!-- Creazione company MARCO S.p.A. -->
         <record id="base.main_company" model="res.company">
+            
+            <!-- Sezione: Informazioni generali -->
             <field name="name">MARCO S.p.A.</field>
             <field name="partner_id" ref="base.main_partner"/>
             <field name="currency_id" ref="base.EUR"/>
-            <field name="vat">01239410176</field>
+            <field name="vat">IT01239410176</field>
+            
+            <!-- Sezione: Dati REA -->
             <field name="rea_code">246134</field>
+            <field name="rea_office" ref="base.state_it_bs"/>
+            <field name="rea_capital">1000000.0</field>
+            <field name="rea_member_type">SM</field>
+            <field name="rea_liquidation_state">LN</field>
+             <field name="company_registry">BS - 246134 / Share Cap. 1,000,000.00 € / Multiple Members / Not in liquidation</field>
+            
+            <!-- Sezione: Intrastat -->
+            <field name="intrastat_ua_code">34P8</field>
+            <field name="intrastat_uom_kg_id" ref="uom.product_uom_kgm"/>
+            <field name="intrastat_additional_unit_from">quantity</field>
+            <field name="intrastat_custom_id" ref="l10n_it_intrastat.274100"/>
+            <field name="intrastat_exclude_free_line">True</field>
+            <field name="intrastat_min_amount">0.00</field>
+            <!--Intrastat: Cessioni-->
+            <field name="intrastat_sale_transaction_nature_id" ref="l10n_it_intrastat.code_1"/>
+            <field name="intrastat_sale_transaction_nature_b_id" ref="l10n_it_intrastat.b_1"/>
+            <field name="intrastat_sale_delivery_code_id" ref="account.incoterm_FCA"/>
+            <field name="intrastat_sale_transport_code_id" ref="l10n_it_intrastat.3"/>
+            <field name="intrastat_sale_province_origin_id" ref="base.state_it_bs"/>
+            <field name="intrastat_sale_country_origin_id" ref="base.it"/>
+            <!--Intrastat: Acquisti-->
+            <field name="intrastat_purchase_transaction_nature_id" ref="l10n_it_intrastat.code_1"/>
+            <field name="intrastat_purchase_transaction_nature_b_id" ref="l10n_it_intrastat.b_1"/>
+            <field name="intrastat_purchase_delivery_code_id" ref="account.incoterm_FCA"/>
+            <field name="intrastat_purchase_transport_code_id" ref="l10n_it_intrastat.3"/>
+            <field name="intrastat_purchase_province_destination_id" ref="base.state_it_bs"/>
+
+            <!-- Sezione: Fattura elettronica -->
             <field name="fatturapa_fiscal_position_id" ref="l10n_it_fatturapa.fatturapa_RF01"/>
-            <field name="favicon" type="base64" file="marco_base/static/favicon.ico"/>
+
+            <!-- Sezione: Generica -->
             <!-- Favicon base64 -->
-            <field name="logo" type="base64" file="marco_base/static/logo.png"/>
+            <field name="favicon" type="base64" file="marco_base/static/favicon.ico"/>
             <!-- Logo base64 -->
+            <field name="logo" type="base64" file="marco_base/static/logo.png"/>
         </record>
 
         <!--Banche-->
@@ -91,7 +124,7 @@
             <field name="acc_holder_name">Giovanni Filippo Franceschini</field>
         </record>
         <record id="partner_bank_114770810001" model="res.partner.bank">
-             <field name="acc_type">bank</field>
+            <field name="acc_type">bank</field>
             <field name="acc_number">114770810001</field>
             <field name="bank_id" ref="bank_COM2"/>
             <field name="currency_id" ref="base.USD"/>

@@ -788,5 +788,22 @@
       <field name="intrastat_code">A</field>
       <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 40})]"/>
     </record>
+    <record id="payment_term_80" model="account.payment.term">
+      <field name="name">Bonifico 30% Anticipato 70% Contro Documenti (CAD) a Vista</field>
+      <field name="note">Bonifico 30% Anticipato 70% Contro Documenti (CAD) a Vista</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">true</field>
+      <field name="fatturapa_pt_id" ref="l10n_it_fiscal_payment_term.fatturapa_tp02"/>
+      <field name="fatturapa_pm_id" ref="l10n_it_fiscal_payment_term.fatturapa_mp05"/>
+      <field name="intrastat_code">B</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0, 'days': 30})]"/>
+    </record>
+     <record id="payment_term_81" model="account.payment.term">
+      <field name="name">F24 al 16 del Mese Successivo</field>
+      <field name="note">F24 al 16 del Mese Successivo</field>
+      <field name="riba">false</field>
+      <field name="display_on_invoice">false</field>
+      <field name="line_ids" eval="[Command.clear(), Command.create({'value': 'balance', 'value_amount': 0.0,  'end_month': 'true', 'payment_days': 16})]"/>
+    </record>
   </data>
 </odoo>

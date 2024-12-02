@@ -7,15 +7,16 @@
                 <sheet>
                     <button string="Install Italian Localization" type="object" name="install_italian_oca_localization" class="btn-secondary" />
                     <group string="Selezione per import all">
-                 
-                                <field name="select_all" />
-                                <field name="first_select_all_change" attrs="{'invisible': 1}" />
+
+                        <field name="select_all" />
+                        <field name="first_select_all_change" attrs="{'invisible': 1}" />
                     </group>
-                    
+
                     <group col="3">
-                       
+
                         <group >
-                            <field name="partners" />
+                            <field name="partners" attrs="{'readonly': [('partners_no_duplicates', '=', True)]}" />
+                            <field name="partners_no_duplicates" attrs="{'readonly': [('partners', '=', True)]}" />
                             <field name="items" />
                             <field name="items_quant" />
                             <field name="bom_heads"/>
@@ -26,8 +27,8 @@
                             <field name="bom_operations"/>
                             <field name="suppliers_pricelists"/>
                             <field name="orders"/>
-                            <field name="purchase_orders"/>
-                            <field name="purchase_orders_include_delivered"/>
+                            <field name="purchase_orders" attrs="{'readonly': [('purchase_orders_include_delivered', '=', True)]}" />
+                            <field name="purchase_orders_include_delivered" attrs="{'readonly': [('purchase_orders', '=', True)]}" />
                             <field name="banks"/>
                             <field name="partners_bank" string="Partners Banks"/>
                         </group>
