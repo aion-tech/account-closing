@@ -7,17 +7,17 @@
             <xpath expr="//field[@name='lead_properties']" position="before">
                 <group>
                     <group name="partner_data" string="Partner data">
-                    <group>
                         <field name="industry_id" options="{'no_create': True}"/>
                         <field name="product_category_id" options="{'no_create': True}"/>
                         <field name="partner_type_id" options="{'no_create': True}"/>
                         <field name="partner_applicability_id" options="{'no_create': True}"/>
-                    </group>
-                        <button name="update_with_partner_data" type="object" 
-                        string="Update data from partner"
-                        class="btn-primary" 
-                        style="text-align: center; width: auto;" 
-                        attrs="{'invisible': [('partner_id', '=', False)]}"/>
+                        <div class="o_cell flex-grow-1 flex-sm-grow-0" style="width: 300%;">
+                            <button name="update_with_partner_data" type="object" 
+                            string="Update data from partner"
+                            class="btn-primary d-inline" 
+                            style="width: 250px !important;" 
+                            attrs="{'invisible': [('partner_id', '=', False)]}"/>
+                        </div>
                     </group>
                 </group>
             </xpath>    
