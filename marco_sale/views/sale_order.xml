@@ -6,14 +6,22 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <!-- Remove the field from its current position -->
-                <xpath expr="//field[@name='fiscal_position_id']" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                <!-- Remove/hide the field from/in its current position -->
+                <xpath expr="//group[@name='sale_info']//label[@for='fiscal_position_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-                <!-- Re-insert the field in a different position -->
-                <xpath expr="//group[@name='partner_details']" position="inside">
+                <xpath expr="//group[@name='sale_info']//div[@class='o_row']" position="attributes">
+                    <attribute name="attrs">{'invisible': True}</attribute>
+                </xpath>
+                <!-- Re-insert the fields in a different position -->
+                <xpath expr="//group[@name='sale_header']" position="inside">
                     <group name="always_verify_fields" string="Campi da verificare sempre">
-                        <field name="fiscal_position_id"/>
+                        <field name="show_update_fpos" invisible="1"/>
+                        <label for="fiscal_position_id"/>
+                        <div class="o_row">
+                            <field name="fiscal_position_id" options="{'no_create': True}"/>
+                            <button name="action_update_taxes" type="object" string=" Update Taxes" help="Recompute all taxes based on this fiscal position" class="btn-link mb-1 px-0" icon="fa-refresh" confirm="This will update all taxes based on the currently selected fiscal position." attrs="{'invisible': ['|', ('show_update_fpos', '=', False), ('state', 'in', ['sale', 'done','cancel'])]}"/>
+                        </div>
                     </group>
                 </xpath>
             </field>
