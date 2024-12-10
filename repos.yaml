@@ -1,288 +1,289 @@
-OCA/l10n-italy:
-  remotes:
-    origin: git@github.com:aion-tech/l10n-italy.git
-    OCA: git@github.com:OCA/l10n-italy.git
-  merges:
-  - OCA 16.0
-  - OCA refs/pull/3599/head
-  fetch_all:
-  - OCA
-  target: origin 16.0-mar-dev
-
-OCA/account-financial-tools:
-  remotes:
-    origin: git@github.com:aion-tech/account-financial-tools.git
-    OCA: git@github.com:OCA/account-financial-tools.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
-  target: origin 16.0-mar-dev
-
 OCA/account-closing:
-  remotes:
-    origin: git@github.com:aion-tech/account-closing.git
-    OCA: git@github.com:OCA/account-closing.git
+  fetch_all:
+  - OCA
   merges:
   - OCA 16.0
   - OCA refs/pull/248/head
-  fetch_all:
-  - OCA
-  target: origin 16.0-mar-dev
-
-OCA/web:
   remotes:
-    origin: git@github.com:aion-tech/web.git
-    OCA: git@github.com:OCA/web.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
+    OCA: git@github.com:OCA/account-closing.git
+    origin: git@github.com:aion-tech/account-closing.git
   target: origin 16.0-mar-dev
-
-OCA/server-ux:
-  remotes:
-    origin: git@github.com:aion-tech/server-ux.git
-    OCA: git@github.com:OCA/server-ux.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
-  target: origin 16.0-mar-dev
-
-OCA/commission:
-  remotes:
-    origin: git@github.com:aion-tech/commission.git
-    OCA: git@github.com:OCA/commission.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
-  target: origin 16.0-mar-dev
-
 OCA/account-financial-reporting:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
   remotes:
-    origin: git@github.com:aion-tech/account-financial-reporting.git
     OCA: git@github.com:OCA/account-financial-reporting.git
-  merges:
-  - OCA 16.0
+    origin: git@github.com:aion-tech/account-financial-reporting.git
+  target: origin 16.0-mar-dev
+OCA/account-financial-tools:
   fetch_all:
   - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/account-financial-tools.git
+    origin: git@github.com:aion-tech/account-financial-tools.git
   target: origin 16.0-mar-dev
-
+OCA/account-invoicing:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/account-invoicing.git
+    origin: git@github.com:aion-tech/account-invoicing.git
+  target: origin 16.0-mar-dev
 OCA/account-payment:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
   remotes:
-    origin: git@github.com:aion-tech/account-payment.git
     OCA: git@github.com:OCA/account-payment.git
-  merges:
-  - OCA 16.0
+    origin: git@github.com:aion-tech/account-payment.git
+  target: origin 16.0-mar-dev
+OCA/commission:
   fetch_all:
   - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/commission.git
+    origin: git@github.com:aion-tech/commission.git
   target: origin 16.0-mar-dev
-
 OCA/credit-control:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
   remotes:
-    origin: git@github.com:aion-tech/credit-control.git
     OCA: git@github.com:OCA/credit-control.git
-  merges:
-  - OCA 16.0
+    origin: git@github.com:aion-tech/credit-control.git
+  target: origin 16.0-mar-dev
+OCA/delivery-carrier:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/reporting-engine:
-  remotes:
-    origin: git@github.com:aion-tech/reporting-engine.git
-    OCA: git@github.com:OCA/reporting-engine.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/delivery-carrier.git
+    origin: git@github.com:aion-tech/delivery-carrier.git
+  target: origin 16.0-mar-dev
+OCA/hr:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/partner-contact:
-  remotes:
-    origin: git@github.com:aion-tech/partner-contact.git
-    OCA: git@github.com:OCA/partner-contact.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/hr.git
+    origin: git@github.com:aion-tech/hr.git
+  target: origin 16.0-mar-dev
+OCA/hr-holidays:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/server-tools:
-  remotes:
-    origin: git@github.com:aion-tech/server-tools.git
-    OCA: git@github.com:OCA/server-tools.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/hr-holidays.git
+    origin: git@github.com:aion-tech/hr-holidays.git
+  target: origin 16.0-mar-dev
+OCA/l10n-italy:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-aion-tech/ait_web_addons:
-  remotes:
-    origin: git@github.com:aion-tech/ait_web_addons.git
   merges:
-  - origin 16.0
-  fetch_all:
-  - origin
+  - OCA 16.0
+  - OCA refs/pull/3599/head
+  remotes:
+    OCA: git@github.com:OCA/l10n-italy.git
+    origin: git@github.com:aion-tech/l10n-italy.git
   target: origin 16.0-mar-dev
-
+OCA/maintenance:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/maintenance.git
+    origin: git@github.com:aion-tech/maintenance.git
+  target: origin 16.0-mar-dev
 OCA/manufacture:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
   remotes:
-    origin: git@github.com:aion-tech/manufacture.git
     OCA: git@github.com:OCA/manufacture.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
+    origin: git@github.com:aion-tech/manufacture.git
   target: origin 16.0-mar-dev
-
-OCA/product-attribute:
-  remotes:
-    origin: git@github.com:aion-tech/product-attribute.git
-    OCA: git@github.com:OCA/product-attribute.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
-  target: origin 16.0-mar-dev
-
-OCA/purchase-workflow:
-  remotes:
-    origin: git@github.com:aion-tech/purchase-workflow.git
-    OCA: git@github.com:OCA/purchase-workflow.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
-  target: origin 16.0-mar-dev
-
 OCA/odoo-pim:
-  remotes:
-    origin: git@github.com:aion-tech/odoo-pim.git
-    OCA: git@github.com:OCA/odoo-pim.git
-    akretion: git@github.com:akretion/odoo-pim.git
+  fetch_all:
+  - OCA
   merges:
   - OCA 16.0
   - akretion 16.0-product_search_multi_value-template_and_variant
+  remotes:
+    OCA: git@github.com:OCA/odoo-pim.git
+    akretion: git@github.com:akretion/odoo-pim.git
+    origin: git@github.com:aion-tech/odoo-pim.git
+  target: origin 16.0-mar-dev
+OCA/partner-contact:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/stock-logistics-warehouse:
-  remotes:
-    origin: git@github.com:aion-tech/stock-logistics-warehouse.git
-    OCA: git@github.com:OCA/stock-logistics-warehouse.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/partner-contact.git
+    origin: git@github.com:aion-tech/partner-contact.git
+  target: origin 16.0-mar-dev
+OCA/product-attribute:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/account-invoicing:
-  remotes:
-    origin: git@github.com:aion-tech/account-invoicing.git
-    OCA: git@github.com:OCA/account-invoicing.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/product-attribute.git
+    origin: git@github.com:aion-tech/product-attribute.git
+  target: origin 16.0-mar-dev
+OCA/product-configurator:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/hr-holidays:
-  remotes:
-    origin: git@github.com:aion-tech/hr-holidays.git
-    OCA: git@github.com:OCA/hr-holidays.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/product-configurator.git
+    origin: git@github.com:aion-tech/product-configurator.git
+  target: origin 16.0-mar-dev
+OCA/purchase-workflow:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/server-auth:
-  remotes:
-    origin: git@github.com:aion-tech/server-auth.git
-    OCA: git@github.com:OCA/server-auth.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/purchase-workflow.git
+    origin: git@github.com:aion-tech/purchase-workflow.git
+  target: origin 16.0-mar-dev
+OCA/queue:
   fetch_all:
   - OCA
-<<<<<<< HEAD
-  target: origin 16.0-mar-dev
-
-OCA/hr:
-  remotes:
-    origin: git@github.com:aion-tech/hr.git
-    OCA: git@github.com:OCA/hr.git
   merges:
   - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/queue.git
+    origin: git@github.com:aion-tech/queue.git
+  target: origin 16.0-mar-dev
+OCA/reporting-engine:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/web-api:
-  remotes:
-    origin: git@github.com:aion-tech/web-api.git
-    OCA: git@github.com:OCA/web-api.git
   merges:
   - OCA 16.0
-  fetch_all:
-  - OCA
+  remotes:
+    OCA: git@github.com:OCA/reporting-engine.git
+    origin: git@github.com:aion-tech/reporting-engine.git
   target: origin 16.0-mar-dev
-
 OCA/rest-framework:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
   remotes:
-    origin: git@github.com:aion-tech/rest-framework.git
     OCA: git@github.com:OCA/rest-framework.git
-  merges:
-  - OCA 16.0
-  fetch_all:
-  - OCA
+    origin: git@github.com:aion-tech/rest-framework.git
   target: origin 16.0-mar-dev
-
 OCA/sale-workflow:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
   remotes:
-    origin: git@github.com:aion-tech/sale-workflow.git
     OCA: git@github.com:OCA/sale-workflow.git
-  merges:
-  - OCA 16.0
+    origin: git@github.com:aion-tech/sale-workflow.git
+  target: origin 16.0-mar-dev
+OCA/server-auth:
   fetch_all:
   - OCA
-  target: origin 16.0-mar-dev
-
-OCA/stock-logistics-barcode:
+  merges:
+  - OCA 16.0
   remotes:
-    origin: git@github.com:aion-tech/stock-logistics-barcode.git
-    OCA: git@github.com:OCA/stock-logistics-barcode.git
-  merges:
-  - OCA 16.0
+    OCA: git@github.com:OCA/server-auth.git
+    origin: git@github.com:aion-tech/server-auth.git
+  target: origin 16.0-mar-dev
+OCA/server-tools:
   fetch_all:
   - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/server-tools.git
+    origin: git@github.com:aion-tech/server-tools.git
   target: origin 16.0-mar-dev
-=======
-  target: origin 16.0-mar
->>>>>>> task-4579
-
+OCA/server-ux:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/server-ux.git
+    origin: git@github.com:aion-tech/server-ux.git
+  target: origin 16.0-mar-dev
+OCA/stock-logistics-barcode:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/stock-logistics-barcode.git
+    origin: git@github.com:aion-tech/stock-logistics-barcode.git
+  target: origin 16.0-mar-dev
+OCA/stock-logistics-warehouse:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/stock-logistics-warehouse.git
+    origin: git@github.com:aion-tech/stock-logistics-warehouse.git
+  target: origin 16.0-mar-dev
+OCA/web:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/web.git
+    origin: git@github.com:aion-tech/web.git
+  target: origin 16.0-mar-dev
+OCA/web-api:
+  fetch_all:
+  - OCA
+  merges:
+  - OCA 16.0
+  remotes:
+    OCA: git@github.com:OCA/web-api.git
+    origin: git@github.com:aion-tech/web-api.git
+  target: origin 16.0-mar-dev
 aion-tech/ait_accounting_addons:
+  fetch_all:
+  - origin
+  merges:
+  - origin 16.0
   remotes:
     origin: git@github.com:aion-tech/ait_accounting_addons.git
-  merges:
-  - origin 16.0
+  target: origin 16.0-mar-dev
+aion-tech/ait_web_addons:
   fetch_all:
   - origin
-<<<<<<< HEAD
+  merges:
+  - origin 16.0
+  remotes:
+    origin: git@github.com:aion-tech/ait_web_addons.git
   target: origin 16.0-mar-dev
-=======
-  target: origin 16.0-mar
-
 aion-tech/maintenance:
+  fetch_all:
+  - origin
+  merges:
+  - origin 16.0
   remotes:
     origin: git@github.com:aion-tech/maintenance.git
-  merges:
-  - origin 16.0
-  fetch_all:
-  - origin
-  target: origin 16.0-mar
->>>>>>> task-4579
+  target: origin 16.0-mar-dev

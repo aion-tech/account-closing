@@ -62,29 +62,9 @@
 	path = OCA/odoo-pim
 	url = git@github.com:aion-tech/odoo-pim.git
 	branch = 16.0-mar-dev
-[submodule "OCA/manufacture"]
-	path = OCA/manufacture
-	url = git@github.com:aion-tech/manufacture.git
-	branch = 16.0-mar-dev
 [submodule "OCA/product-attribute"]
 	path = OCA/product-attribute
 	url = git@github.com:aion-tech/product-attribute.git
-	branch = 16.0-mar-dev
-[submodule "OCA/purchase-workflow"]
-	path = OCA/purchase-workflow
-	url = git@github.com:aion-tech/purchase-workflow.git
-	branch = 16.0-mar-dev
-[submodule "OCA/product-attribute"]
-	path = OCA/product-attribute
-	url = git@github.com:aion-tech/product-attribute.git
-	branch = 16.0-mar-dev
-[submodule "OCA/manufacture"]
-	path = OCA/manufacture
-	url = git@github.com:aion-tech/manufacture.git
-	branch = 16.0-mar-dev
-[submodule "OCA/odoo-pim"]
-	path = OCA/odoo-pim
-	url = git@github.com:aion-tech/odoo-pim.git
 	branch = 16.0-mar-dev
 [submodule "OCA/stock-logistics-warehouse"]
 	path = OCA/stock-logistics-warehouse
@@ -93,10 +73,6 @@
 [submodule "OCA/account-invoicing"]
 	path = OCA/account-invoicing
 	url = git@github.com:aion-tech/account-invoicing.git
-	branch = 16.0-mar-dev
-[submodule "OCA/hr"]
-	path = OCA/hr
-	url = git@github.com:aion-tech/hr.git
 	branch = 16.0-mar-dev
 [submodule "OCA/hr-holidays"]
 	path = OCA/hr-holidays
@@ -128,8 +104,8 @@
 	branch = 16.0-mar-dev
 [submodule "OCA/queue"]
 	path = OCA/queue
-	url = git@github.com:OCA/queue.git
-	branch = 16.0
+	url = git@github.com:aion-tech/queue.git
+	branch = 16.0-mar-dev
 [submodule "OCA/delivery-carrier"]
 	path = OCA/delivery-carrier
 	url = git@github.com:aion-tech/delivery-carrier.git
@@ -146,3 +122,6 @@
 	path = OCA/maintenance
 	url = git@github.com:aion-tech/maintenance.git
 	branch = 16.0-mar-dev
+[submodule "aion-tech/maintenance"]
+	branch = 16.0-mar-dev
+	url = git@github.com:aion-tech/maintenance.git
