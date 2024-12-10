@@ -122,6 +122,3 @@
 	path = OCA/maintenance
 	url = git@github.com:aion-tech/maintenance.git
 	branch = 16.0-mar-dev
-[submodule "aion-tech/maintenance"]
-	branch = 16.0-mar-dev
-	url = git@github.com:aion-tech/maintenance.git

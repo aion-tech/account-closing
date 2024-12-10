@@ -279,11 +279,3 @@ aion-tech/ait_web_addons:
   remotes:
     origin: git@github.com:aion-tech/ait_web_addons.git
   target: origin 16.0-mar-dev
-aion-tech/maintenance:
-  fetch_all:
-  - origin
-  merges:
-  - origin 16.0
-  remotes:
-    origin: git@github.com:aion-tech/maintenance.git
-  target: origin 16.0-mar-dev
