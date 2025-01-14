@@ -205,18 +205,38 @@ class TestCutoffPrepaid(TransactionCase):
         # Post the move
         move.action_post()
 
-        # Create the cutoff entries
-        prepaid_expense_cutoff = self._create_cutoff(
-            month_day_move_date,
-            cutoff_type="prepaid_expense",
+        # Create the cutoff entries, checking if they already exist
+        prepaid_expense_cutoff = self.env["account.cutoff"].search(
+            [
+                ("cutoff_date", "=", month_day_move_date),
+                ("company_id", "=", company.id),
+                ("cutoff_type", "=", "prepaid_expense"),
+            ],
+            limit=1,
         )
-        prepaid_expense_cutoff.source_journal_ids = misc_journal
 
-        prepaid_revenue_cutoff = self._create_cutoff(
-            month_day_move_date,
-            cutoff_type="prepaid_revenue",
+        if not prepaid_expense_cutoff:
+            prepaid_expense_cutoff = self._create_cutoff(
+                month_day_move_date,
+                cutoff_type="prepaid_expense",
+            )
+            prepaid_expense_cutoff.source_journal_ids = misc_journal
+
+        prepaid_revenue_cutoff = self.env["account.cutoff"].search(
+            [
+                ("cutoff_date", "=", month_day_move_date),
+                ("company_id", "=", company.id),
+                ("cutoff_type", "=", "prepaid_revenue"),
+            ],
+            limit=1,
         )
-        prepaid_revenue_cutoff.source_journal_ids = misc_journal
+
+        if not prepaid_revenue_cutoff:
+            prepaid_revenue_cutoff = self._create_cutoff(
+                month_day_move_date,
+                cutoff_type="prepaid_revenue",
+            )
+            prepaid_revenue_cutoff.source_journal_ids = misc_journal
 
         # pre-condition
         expense_move_line = move.line_ids.filtered(
