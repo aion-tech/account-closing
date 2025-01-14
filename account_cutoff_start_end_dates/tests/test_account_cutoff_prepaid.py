@@ -169,7 +169,6 @@ class TestCutoffPrepaid(TransactionCase):
         move_form = Form(self.env["account.move"])
         move_form.date = move_date
         # move_form.journal_id = misc_journal
-        move_form.write({'journal_id': misc_journal.id})
         with move_form.line_ids.new() as line:
             line.account_id = expense_account
             line.debit = 1000
@@ -179,6 +178,7 @@ class TestCutoffPrepaid(TransactionCase):
             line.account_id = bank_account
             line.credit = 1000
         move = move_form.save()
+        move.journal_id = misc_journal
         move.action_post()
 
         prepaid_expense_cutoff = self._create_cutoff(
