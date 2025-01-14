@@ -215,9 +215,11 @@ class TestCutoffPrepaid(TransactionCase):
             limit=1,
         )
 
+        cutoff_date = month_day_move_date.split("2025-")[-1]
+
         if not prepaid_expense_cutoff:
             prepaid_expense_cutoff = self._create_cutoff(
-                month_day_move_date.split("2025-")[-1],
+                cutoff_date,
                 cutoff_type="prepaid_expense",
             )
             prepaid_expense_cutoff.source_journal_ids = misc_journal
@@ -233,7 +235,7 @@ class TestCutoffPrepaid(TransactionCase):
 
         if not prepaid_revenue_cutoff:
             prepaid_revenue_cutoff = self._create_cutoff(
-                month_day_move_date.split("2025-")[-1],
+                cutoff_date,
                 cutoff_type="prepaid_revenue",
             )
             prepaid_revenue_cutoff.source_journal_ids = misc_journal
