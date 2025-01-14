@@ -5,7 +5,7 @@
 
 {
     "name": "Account Cut-off Start End Dates",
-    "version": "16.0.1.1.2",
+    "version": "16.0.1.1.3",
     "category": "Accounting & Finance",
     "license": "AGPL-3",
     "summary": "Cutoffs based on start/end dates",

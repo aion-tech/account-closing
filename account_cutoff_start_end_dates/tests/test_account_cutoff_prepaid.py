@@ -156,7 +156,7 @@ class TestCutoffPrepaid(TransactionCase):
         company = self.env.ref("base.main_company")
         bank_account = self.env["account.account"].search(
             [
-                ("internal_type", "=", "liquidity"),
+                ("account_type", "=", "asset_cash"),
                 ("company_id", "=", company.id),
             ],
             limit=1,
