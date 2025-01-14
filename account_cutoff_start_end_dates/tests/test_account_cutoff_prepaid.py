@@ -105,7 +105,7 @@ class TestCutoffPrepaid(TransactionCase):
             {
                 "company_id": self.env.ref("base.main_company").id,
                 "cutoff_date": self._date(date),
-                "cutoff_type": "cutoff_type",
+                "cutoff_type": "prepaid_expense",
                 "cutoff_journal_id": self.cutoff_journal.id,
                 "cutoff_account_id": self.account_cutoff.id,
                 "source_journal_ids": [(6, 0, [self.purchase_journal.id])],
