@@ -167,8 +167,9 @@ class TestCutoffPrepaid(TransactionCase):
         move_date = fields.Date.from_string(self._date(month_day_move_date))
 
         move_form = Form(self.env["account.move"])
+        move = move_form.save()
         move_form.date = move_date
-        # move_form.journal_id = misc_journal
+        move_form.journal_id = misc_journal
         with move_form.line_ids.new() as line:
             line.account_id = expense_account
             line.debit = 1000
@@ -177,7 +178,6 @@ class TestCutoffPrepaid(TransactionCase):
         with move_form.line_ids.new() as line:
             line.account_id = bank_account
             line.credit = 1000
-        move = move_form.save()
         move.journal_id = misc_journal
         move.action_post()
 
