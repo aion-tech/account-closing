@@ -162,7 +162,7 @@ class TestCutoffPrepaid(TransactionCase):
             limit=1,
         )
         expense_account = self.account_expense
-        misc_journal = self.cutoff_journal
+        misc_journal = self.cutoff_journal.sudo()
         month_day_move_date = "10-31"
         move_date = fields.Date.from_string(self._date(month_day_move_date))
 
