@@ -206,7 +206,7 @@ class TestCutoffPrepaid(TransactionCase):
         move.action_post()
 
         # Create the cutoff entries, checking if they already exist
-        cutoff_date = move_date
+        cutoff_date = month_day_move_date
         prepaid_expense_cutoff = self.env["account.cutoff"].search(
             [
                 ("cutoff_date", "=", cutoff_date),
