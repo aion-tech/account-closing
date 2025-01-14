@@ -1,13 +1,15 @@
 # Copyright 2014-2022 ACSONE SA/NV (http://acsone.eu)
 # @author Stéphane Bidoul <stephane.bidoul@acsone.eu>
 # Copyright 2016-2022 Akretion (Alexis de Lattre <alexis.delattre@akretion.com>)
+# Copyright 2025 Federico Medici, Simone Rubino - Aion Tech
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
 import time
+from datetime import date
 
 from odoo import fields
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, Form
 
 
 class TestCutoffPrepaid(TransactionCase):
@@ -98,12 +100,12 @@ class TestCutoffPrepaid(TransactionCase):
         self.assertEqual(amount, invoice.amount_untaxed)
         return invoice
 
-    def _create_cutoff(self, date):
+    def _create_cutoff(self, date, cutoff_type="prepaid_expense"):
         cutoff = self.cutoff_model.create(
             {
                 "company_id": self.env.ref("base.main_company").id,
                 "cutoff_date": self._date(date),
-                "cutoff_type": "prepaid_revenue",
+                "cutoff_type": "cutoff_type",
                 "cutoff_journal_id": self.cutoff_journal.id,
                 "cutoff_account_id": self.account_cutoff.id,
                 "source_journal_ids": [(6, 0, [self.purchase_journal.id])],
@@ -145,3 +147,70 @@ class TestCutoffPrepaid(TransactionCase):
         # two invoices, but two lines (because the two cutoff lines
         # have been grouped into one line plus one counterpart)
         self.assertEqual(len(cutoff.move_id.line_ids), 2)
+
+    def test_general_entry_prepaid_expense_cutoff_account(self):
+        """
+        Create an account move on a general journal for an expense account,
+        only the expense cutoff should retrieve its line."""
+        # Arrange
+        company = self.env.ref("base.main_company")
+        bank_account = self.env["account.account"].search(
+            [
+                ("internal_type", "=", "liquidity"),
+                ("company_id", "=", company.id),
+            ],
+            limit=1,
+        )
+        expense_account = self.account_expense
+        misc_journal = self.cutoff_journal
+        month_day_move_date = "10-31"
+        move_date = fields.Date.from_string(self._date(month_day_move_date))
+
+        move_form = Form(self.env["account.move"])
+        move_form.date = move_date
+        move_form.journal_id = misc_journal
+        with move_form.line_ids.new() as line:
+            line.account_id = expense_account
+            line.debit = 1000
+            line.start_date = date(move_date.year + 1, 1, 1)
+            line.end_date = date(move_date.year + 1, 12, 31)
+        with move_form.line_ids.new() as line:
+            line.account_id = bank_account
+            line.credit = 1000
+        move = move_form.save()
+        move.action_post()
+
+        prepaid_expense_cutoff = self._create_cutoff(
+            month_day_move_date,
+            cutoff_type="prepaid_expense",
+        )
+        prepaid_expense_cutoff.source_journal_ids = misc_journal
+
+        prepaid_revenue_cutoff = self._create_cutoff(
+            month_day_move_date,
+            cutoff_type="prepaid_revenue",
+        )
+        prepaid_revenue_cutoff.source_journal_ids = misc_journal
+
+        # pre-condition
+        expense_move_line = move.line_ids.filtered(
+            lambda line: line.account_id.internal_group == "expense"
+        )
+        self.assertTrue(expense_move_line)
+        self.assertEqual(move.journal_id.type, "general")
+
+        self.assertEqual(prepaid_expense_cutoff.cutoff_type, "prepaid_expense")
+        self.assertEqual(prepaid_expense_cutoff.source_journal_ids.type, "general")
+
+        self.assertEqual(prepaid_revenue_cutoff.cutoff_type, "prepaid_revenue")
+        self.assertEqual(prepaid_revenue_cutoff.source_journal_ids.type, "general")
+
+        # Act
+        prepaid_expense_cutoff.get_lines()
+        prepaid_revenue_cutoff.get_lines()
+
+        # Assert
+        self.assertEqual(
+            prepaid_expense_cutoff.line_ids.origin_move_line_id, expense_move_line
+        )
+        self.assertFalse(prepaid_revenue_cutoff.line_ids)
