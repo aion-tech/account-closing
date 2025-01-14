@@ -169,7 +169,7 @@ class TestCutoffPrepaid(TransactionCase):
         move_form = Form(self.env["account.move"])
         move_form.date = move_date
         # move_form.journal_id = misc_journal
-        move_form.sudo().write({'journal_id': misc_journal.id})
+        move_form.write({'journal_id': misc_journal.id})
         with move_form.line_ids.new() as line:
             line.account_id = expense_account
             line.debit = 1000
