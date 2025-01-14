@@ -9,7 +9,7 @@ import time
 from datetime import date
 
 from odoo import fields
-from odoo.tests.common import TransactionCase, Form
+from odoo.tests.common import TransactionCase
 
 
 class TestCutoffPrepaid(TransactionCase):
@@ -166,21 +166,46 @@ class TestCutoffPrepaid(TransactionCase):
         month_day_move_date = "10-31"
         move_date = fields.Date.from_string(self._date(month_day_move_date))
 
-        move_form = Form(self.env["account.move"])
-        move = move_form.save()
-        move_form.date = move_date
-        move_form.journal_id = misc_journal
-        with move_form.line_ids.new() as line:
-            line.account_id = expense_account
-            line.debit = 1000
-            line.start_date = date(move_date.year + 1, 1, 1)
-            line.end_date = date(move_date.year + 1, 12, 31)
-        with move_form.line_ids.new() as line:
-            line.account_id = bank_account
-            line.credit = 1000
-        move.journal_id = misc_journal
+        # Create the move directly
+        move = self.env["account.move"].create(
+            {
+                "date": move_date,
+                "journal_id": misc_journal.id,
+                "company_id": company.id,
+                "move_type": "entry",
+            }
+        )
+
+        # Add lines to the move
+        move.write(
+            {
+                "line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "account_id": expense_account.id,
+                            "debit": 1000,
+                            "start_date": date(move_date.year + 1, 1, 1),
+                            "end_date": date(move_date.year + 1, 12, 31),
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "account_id": bank_account.id,
+                            "credit": 1000,
+                        },
+                    ),
+                ]
+            }
+        )
+
+        # Post the move
         move.action_post()
 
+        # Create the cutoff entries
         prepaid_expense_cutoff = self._create_cutoff(
             month_day_move_date,
             cutoff_type="prepaid_expense",
