@@ -164,7 +164,6 @@ class TestCutoffPrepaid(TransactionCase):
         expense_account = self.account_expense
         misc_journal = self.cutoff_journal
         month_day_move_date = "10-31"
-        # Convert the date to the correct format 'YYYY-MM-DD'
         move_date = fields.Date.from_string(self._date(month_day_move_date))
 
         # Create the move directly
@@ -207,9 +206,7 @@ class TestCutoffPrepaid(TransactionCase):
         move.action_post()
 
         # Create the cutoff entries, checking if they already exist
-        cutoff_date = (
-            f"{move_date.year}-10-31"  # Ensure the date is in 'YYYY-MM-DD' format
-        )
+        cutoff_date = move_date.replace(month=10, day=31)  # Fixing the date format
         prepaid_expense_cutoff = self.env["account.cutoff"].search(
             [
                 ("cutoff_date", "=", cutoff_date),
