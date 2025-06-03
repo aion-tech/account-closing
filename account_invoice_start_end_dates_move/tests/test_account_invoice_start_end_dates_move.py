@@ -4,7 +4,7 @@
 import time
 
 from odoo.tests import tagged
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import Form, SavepointCase
 
 
 @tagged("-at_install", "post_install")
@@ -56,68 +56,66 @@ class TestInvoiceStartEndDates(SavepointCase):
 
     def _test_invoice(self):
         apply_dates_all_lines = self.company.apply_dates_all_lines
-        invoice = self.inv_model.create(
+        invoice_lines = [
             {
-                "date": self._date("01-01"),
-                "partner_id": self.env.ref("base.res_partner_2").id,
-                "journal_id": self.sale_journal.id,
-                "move_type": "out_invoice",
-                "start_date": self._date("03-01"),
-                "end_date": self._date("05-31"),
-                "invoice_line_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": self.maint_product.id,
-                            "name": "Maintenance IPBX 12 mois",
-                            "price_unit": 2400,
-                            "quantity": 1,
-                            "account_id": self.account_revenue.id,
-                            "start_date": self._date("01-01"),
-                            "end_date": self._date("12-31"),
-                        },
-                    ),
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": self.insur_product.id,
-                            "name": "Maintenance téléphones 12 mois",
-                            "price_unit": 12,
-                            "quantity": 10,
-                            "account_id": self.account_revenue.id,
-                            "start_date": False,
-                            "end_date": False,
-                        },
-                    ),
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": self.maint_product.id,
-                            "name": "Maintenance Fax 6 mois",
-                            "price_unit": 120.75,
-                            "quantity": 1,
-                            "account_id": self.account_revenue.id,
-                            "start_date": self._date("01-01"),
-                            "end_date": self._date("06-30"),
-                        },
-                    ),
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": self.product.id,
-                            "name": "HD IPBX",
-                            "price_unit": 215.5,
-                            "quantity": 1,
-                            "account_id": self.account_revenue.id,
-                        },
-                    ),
-                ],
-            }
+                "product_id": self.maint_product,
+                "name": "Maintenance IPBX 12 months",
+                "price_unit": 2400,
+                "quantity": 1,
+                "account_id": self.account_revenue,
+                "start_date": self._date("01-01"),
+                "end_date": self._date("12-31"),
+            },
+            {
+                "product_id": self.insur_product,
+                "name": "Maintenance phones 12 months",
+                "price_unit": 12,
+                "quantity": 10,
+                "account_id": self.account_revenue,
+                "start_date": False,
+                "end_date": False,
+            },
+            {
+                "product_id": self.maint_product,
+                "name": "Maintenance Fax 6 months",
+                "price_unit": 120.75,
+                "quantity": 1,
+                "account_id": self.account_revenue,
+                "start_date": self._date("01-01"),
+                "end_date": self._date("06-30"),
+            },
+            {
+                "product_id": self.product,
+                "name": "HD IPBX",
+                "price_unit": 215.5,
+                "quantity": 1,
+                "account_id": self.account_revenue,
+            },
+        ]
+        invoice_form = Form(
+            self.inv_model.with_user(self.account_user).with_context(
+                check_move_validity=False,
+                company_id=self.account_user.company_id.id,
+                default_move_type="out_invoice",
+            )
         )
+        invoice_form.date = self._date("01-01")
+        invoice_form.partner_id = self.env.ref("base.res_partner_2")
+        invoice_form.journal_id = self.sale_journal
+        invoice_form.start_date = self._date("03-01")
+        invoice_form.end_date = self._date("05-31")
+        for invoice_line in invoice_lines:
+            with invoice_form.invoice_line_ids.new() as invoice_line_form:
+                invoice_line_form.product_id = invoice_line["product_id"]
+                invoice_line_form.name = invoice_line["name"]
+                invoice_line_form.price_unit = invoice_line["price_unit"]
+                invoice_line_form.quantity = invoice_line["quantity"]
+                invoice_line_form.account_id = invoice_line["account_id"]
+                if invoice_line.get("start_date"):
+                    invoice_line_form.start_date = invoice_line["start_date"]
+                if invoice_line.get("end_date"):
+                    invoice_line_form.end_date = invoice_line["end_date"]
+        invoice = invoice_form.save()
         # add line to test onchange
         line = (
             self.env["account.move.line"]
@@ -153,12 +151,17 @@ class TestInvoiceStartEndDates(SavepointCase):
             else:
                 self.assertEqual(line.start_date, invoice.start_date)
                 self.assertEqual(line.end_date, invoice.end_date)
-        invoice.line_ids[0].end_date = self._date("04-30")
+        insur_invoice_line = invoice.line_ids.filtered(
+            lambda x: x.product_id == self.insur_product and x.start_date
+        )[0]
+        insur_invoice_line.end_date = self._date("04-30")
         invoice.write({})
         self.assertEqual(
-            invoice.line_ids[0].end_date.strftime("%Y-%m-%d"), self._date("04-30")
+            insur_invoice_line.end_date.strftime("%Y-%m-%d"), self._date("04-30")
         )
         invoice.write({"end_date": self._date("04-15")})
+        invoice._onchange_dates()
+        invoice._convert_to_write(invoice._cache)
         for line in invoice.line_ids.filtered(lambda x: x.product_id.must_have_dates):
             self.assertEqual(line.end_date.strftime("%Y-%m-%d"), self._date("04-15"))
 

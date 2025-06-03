@@ -14,6 +14,8 @@ setuptools.setup(
         'odoo14-addon-account_cutoff_start_end_dates',
         'odoo14-addon-account_fiscal_year_closing',
         'odoo14-addon-account_invoice_start_end_dates',
+        'odoo14-addon-account_invoice_start_end_dates_move',
+        'odoo14-addon-account_move_cutoff',
         'odoo14-addon-account_multicurrency_revaluation',
     ],
     classifiers=[

@@ -7,8 +7,8 @@ from odoo import api, fields, models
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    start_date = fields.Date(index=True)
-    end_date = fields.Date(index=True)
+    start_date = fields.Date()
+    end_date = fields.Date()
 
     @api.onchange("start_date", "end_date")
     def _onchange_dates(self):
@@ -19,24 +19,6 @@ class AccountMove(models.Model):
             line.start_date = line.move_id.start_date
             line.end_date = line.move_id.end_date
 
-    def write(self, vals):
-        res = super().write(vals)
-        if "start_date" in vals:
-            lines = self.mapped("line_ids").filtered(
-                lambda l: l.start_date != vals["start_date"]
-                and self.company_id.apply_dates_all_lines
-                or l.product_id.must_have_dates
-            )
-            lines.write({"start_date": vals["start_date"]})
-        if "end_date" in vals:
-            lines = self.mapped("line_ids").filtered(
-                lambda l: l.end_date != vals["end_date"]
-                and self.company_id.apply_dates_all_lines
-                or l.product_id.must_have_dates
-            )
-            lines.write({"end_date": vals["end_date"]})
-        return res
-
 
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
@@ -46,9 +28,8 @@ class AccountMoveLine(models.Model):
         res = super()._onchange_product_id()
         for line in self:
             if (
-                line.company_id.apply_dates_all_lines
-                or line.product_id.must_have_dates
-            ) and not line.display_type in (
+                line.company_id.apply_dates_all_lines or line.product_id.must_have_dates
+            ) and line.display_type not in (
                 "line_section",
                 "line_note",
             ):
