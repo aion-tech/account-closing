@@ -1,10 +1,12 @@
 # Copyright 2014-2022 ACSONE SA/NV (http://acsone.eu)
 # @author Stéphane Bidoul <stephane.bidoul@acsone.eu>
 # Copyright 2016-2022 Akretion (Alexis de Lattre <alexis.delattre@akretion.com>)
+# Copyright 2025 Federico Medici, Simone Rubino - Aion Tech
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
 import time
+from datetime import date
 
 from odoo import fields
 from odoo.tests.common import TransactionCase
@@ -98,12 +100,12 @@ class TestCutoffPrepaid(TransactionCase):
         self.assertEqual(amount, invoice.amount_untaxed)
         return invoice
 
-    def _create_cutoff(self, date):
+    def _create_cutoff(self, date, cutoff_type="prepaid_expense"):
         cutoff = self.cutoff_model.create(
             {
                 "company_id": self.env.ref("base.main_company").id,
                 "cutoff_date": self._date(date),
-                "cutoff_type": "prepaid_revenue",
+                "cutoff_type": cutoff_type,
                 "cutoff_journal_id": self.cutoff_journal.id,
                 "cutoff_account_id": self.account_cutoff.id,
                 "source_journal_ids": [(6, 0, [self.purchase_journal.id])],
@@ -145,3 +147,118 @@ class TestCutoffPrepaid(TransactionCase):
         # two invoices, but two lines (because the two cutoff lines
         # have been grouped into one line plus one counterpart)
         self.assertEqual(len(cutoff.move_id.line_ids), 2)
+
+    def test_general_entry_prepaid_expense_cutoff_account(self):
+        """
+        Create an account move on a general journal for an expense account,
+        only the expense cutoff should retrieve its line."""
+        # Arrange
+        company = self.env.ref("base.main_company")
+        bank_account = self.env["account.account"].search(
+            [
+                ("account_type", "=", "asset_cash"),
+                ("company_id", "=", company.id),
+            ],
+            limit=1,
+        )
+        expense_account = self.account_expense
+        misc_journal = self.cutoff_journal
+        month_day_move_date = "2025-10-31"
+        move_date = fields.Date.from_string(month_day_move_date)
+
+        # Create the move directly
+        move = self.env["account.move"].create(
+            {
+                "date": move_date,
+                "journal_id": misc_journal.id,
+                "company_id": company.id,
+                "move_type": "entry",
+            }
+        )
+
+        # Add lines to the move
+        move.write(
+            {
+                "line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "account_id": expense_account.id,
+                            "debit": 1000,
+                            "start_date": date(move_date.year + 1, 1, 1),
+                            "end_date": date(move_date.year + 1, 12, 31),
+                        },
+                    ),
+                    (
+                        0,
+                        0,
+                        {
+                            "account_id": bank_account.id,
+                            "credit": 1000,
+                        },
+                    ),
+                ]
+            }
+        )
+
+        # Post the move
+        move.action_post()
+
+        # Create the cutoff entries, checking if they already exist
+        prepaid_expense_cutoff = self.env["account.cutoff"].search(
+            [
+                ("cutoff_date", "=", move_date),
+                ("company_id", "=", company.id),
+                ("cutoff_type", "=", "prepaid_expense"),
+            ],
+            limit=1,
+        )
+
+        cutoff_date = month_day_move_date.split("2025-")[-1]
+
+        if not prepaid_expense_cutoff:
+            prepaid_expense_cutoff = self._create_cutoff(
+                cutoff_date,
+                cutoff_type="prepaid_expense",
+            )
+            prepaid_expense_cutoff.source_journal_ids = misc_journal
+
+        prepaid_revenue_cutoff = self.env["account.cutoff"].search(
+            [
+                ("cutoff_date", "=", month_day_move_date.split("202cutoff_date5-")[-1]),
+                ("company_id", "=", company.id),
+                ("cutoff_type", "=", "prepaid_revenue"),
+            ],
+            limit=1,
+        )
+
+        if not prepaid_revenue_cutoff:
+            prepaid_revenue_cutoff = self._create_cutoff(
+                cutoff_date,
+                cutoff_type="prepaid_revenue",
+            )
+            prepaid_revenue_cutoff.source_journal_ids = misc_journal
+
+        # pre-condition
+        expense_move_line = move.line_ids.filtered(
+            lambda line: line.account_id.internal_group == "expense"
+        )
+        self.assertTrue(expense_move_line)
+        self.assertEqual(move.journal_id.type, "general")
+
+        self.assertEqual(prepaid_expense_cutoff.cutoff_type, "prepaid_expense")
+        self.assertEqual(prepaid_expense_cutoff.source_journal_ids.type, "general")
+
+        self.assertEqual(prepaid_revenue_cutoff.cutoff_type, "prepaid_revenue")
+        self.assertEqual(prepaid_revenue_cutoff.source_journal_ids.type, "general")
+
+        # Act
+        prepaid_expense_cutoff.get_lines()
+        prepaid_revenue_cutoff.get_lines()
+
+        # Assert
+        self.assertEqual(
+            prepaid_expense_cutoff.line_ids.origin_move_line_id, expense_move_line
+        )
+        self.assertFalse(prepaid_revenue_cutoff.line_ids)
